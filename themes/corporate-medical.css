@@ -1,0 +1,499 @@
+/* ========================================
+   TEMA CORPORATE MEDICAL - BOOTSTRAP
+   Inspirado en Johnson & Johnson, Pfizer, Mayo Clinic
+   Sector: Salud y Farmacéutico
+   Estilo: Limpio, confiable, calmante
+   ======================================== */
+
+/* Variables CSS del Tema */
+:root {
+  --medical-primary: #2563eb;
+  --medical-secondary: #1d4ed8;
+  --medical-accent: #3b82f6;
+  --medical-teal: #0d9488;
+  --medical-success: #059669;
+  --medical-warning: #d97706;
+  --medical-danger: #dc2626;
+  --medical-info: #0891b2;
+  
+  --medical-blue-50: #eff6ff;
+  --medical-blue-100: #dbeafe;
+  --medical-blue-200: #bfdbfe;
+  --medical-blue-300: #93c5fd;
+  --medical-blue-400: #60a5fa;
+  --medical-blue-500: #3b82f6;
+  --medical-blue-600: #2563eb;
+  --medical-blue-700: #1d4ed8;
+  --medical-blue-800: #1e40af;
+  --medical-blue-900: #1e3a8a;
+  
+  --medical-gray-50: #f9fafb;
+  --medical-gray-100: #f3f4f6;
+  --medical-gray-200: #e5e7eb;
+  --medical-gray-300: #d1d5db;
+  --medical-gray-400: #9ca3af;
+  --medical-gray-500: #6b7280;
+  --medical-gray-600: #4b5563;
+  --medical-gray-700: #374151;
+  --medical-gray-800: #1f2937;
+  
+  --border-radius: 8px;
+  --border-radius-lg: 12px;
+  --shadow-medical: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-medical-lg: 0 4px 6px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.06);
+  --transition: all 0.2s ease-out;
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Animaciones Medical */
+@keyframes medicalFadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes medicalGentleFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-2px); }
+}
+
+@keyframes medicalPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+/* Estilos Base */
+body {
+  font-family: var(--font-primary);
+  background: var(--medical-gray-50);
+  color: var(--medical-gray-800);
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  color: var(--medical-blue-700);
+  letter-spacing: -0.025em;
+}
+
+/* Botones Medical */
+.btn {
+  border-radius: var(--border-radius);
+  font-weight: 500;
+  padding: 10px 20px;
+  transition: var(--transition);
+  border: 1px solid transparent;
+  font-size: 14px;
+  position: relative;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-medical-lg);
+  animation: medicalGentleFloat 2s ease-in-out infinite;
+}
+
+.btn-primary {
+  background: var(--medical-primary);
+  border-color: var(--medical-primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--medical-secondary);
+  border-color: var(--medical-secondary);
+  color: white;
+}
+
+.btn-outline-primary {
+  border-color: var(--medical-primary);
+  color: var(--medical-primary);
+  background: transparent;
+}
+
+.btn-outline-primary:hover {
+  background: var(--medical-primary);
+  color: white;
+}
+
+.btn-success {
+  background: var(--medical-success);
+  border-color: var(--medical-success);
+}
+
+.btn-warning {
+  background: var(--medical-warning);
+  border-color: var(--medical-warning);
+}
+
+.btn-danger {
+  background: var(--medical-danger);
+  border-color: var(--medical-danger);
+}
+
+.btn-info {
+  background: var(--medical-teal);
+  border-color: var(--medical-teal);
+}
+
+/* Cards Medical */
+.card {
+  border: 1px solid var(--medical-gray-200);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-medical);
+  transition: var(--transition);
+  background: white;
+  animation: medicalFadeIn 0.3s ease-out;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-medical-lg);
+  transform: translateY(-2px);
+  border-color: var(--medical-blue-200);
+}
+
+.card-header {
+  background: var(--medical-blue-50);
+  border-bottom: 1px solid var(--medical-blue-200);
+  font-weight: 600;
+  padding: 16px 20px;
+  color: var(--medical-blue-700);
+}
+
+.card-body {
+  padding: 20px;
+}
+
+/* Navegación Medical */
+.navbar {
+  background: white !important;
+  border-bottom: 1px solid var(--medical-gray-200);
+  box-shadow: var(--shadow-medical);
+  padding: 12px 0;
+}
+
+.navbar-brand {
+  color: var(--medical-primary) !important;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.nav-link {
+  color: var(--medical-gray-600) !important;
+  font-weight: 500;
+  padding: 8px 16px !important;
+  transition: var(--transition);
+  border-radius: var(--border-radius);
+  margin: 0 4px;
+}
+
+.nav-link:hover {
+  background: var(--medical-blue-50);
+  color: var(--medical-primary) !important;
+}
+
+/* Formularios Medical */
+.form-control {
+  border: 1px solid var(--medical-gray-300);
+  border-radius: var(--border-radius);
+  padding: 10px 14px;
+  transition: var(--transition);
+  font-size: 14px;
+  background: white;
+}
+
+.form-control:focus {
+  border-color: var(--medical-primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  outline: none;
+}
+
+.form-label {
+  font-weight: 500;
+  color: var(--medical-gray-700);
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+
+/* Alertas Medical */
+.alert {
+  border: 1px solid;
+  border-radius: var(--border-radius-lg);
+  padding: 14px 18px;
+  animation: medicalFadeIn 0.3s ease-out;
+  font-weight: 500;
+}
+
+.alert-primary {
+  background: var(--medical-blue-50);
+  border-color: var(--medical-blue-200);
+  color: var(--medical-blue-700);
+}
+
+.alert-success {
+  background: #ecfdf5;
+  border-color: #a7f3d0;
+  color: var(--medical-success);
+}
+
+.alert-warning {
+  background: #fffbeb;
+  border-color: #fed7aa;
+  color: var(--medical-warning);
+}
+
+.alert-danger {
+  background: #fef2f2;
+  border-color: #fecaca;
+  color: var(--medical-danger);
+}
+
+.alert-info {
+  background: #f0fdfa;
+  border-color: #99f6e4;
+  color: var(--medical-teal);
+}
+
+/* Tablas Medical */
+.table {
+  font-size: 14px;
+  background: white;
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-medical);
+}
+
+.table thead th {
+  background: var(--medical-blue-600);
+  color: white;
+  border: none;
+  font-weight: 600;
+  padding: 14px 16px;
+}
+
+.table tbody tr {
+  border-bottom: 1px solid var(--medical-gray-200);
+}
+
+.table tbody tr:hover {
+  background: var(--medical-blue-50);
+}
+
+.table tbody td {
+  padding: 14px 16px;
+  vertical-align: middle;
+}
+
+/* Breadcrumbs Medical */
+.breadcrumb {
+  background: white;
+  border: 1px solid var(--medical-gray-200);
+  border-radius: var(--border-radius);
+  padding: 10px 16px;
+  box-shadow: var(--shadow-medical);
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  content: "›";
+  color: var(--medical-gray-400);
+}
+
+.breadcrumb-item a {
+  color: var(--medical-primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* Paginación Medical */
+.page-link {
+  background: white;
+  border: 1px solid var(--medical-gray-300);
+  border-radius: var(--border-radius);
+  color: var(--medical-gray-600);
+  padding: 8px 14px;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.page-link:hover {
+  background: var(--medical-blue-50);
+  border-color: var(--medical-primary);
+  color: var(--medical-primary);
+}
+
+.page-item.active .page-link {
+  background: var(--medical-primary);
+  border-color: var(--medical-primary);
+}
+
+/* Pills Medical */
+.nav-pills .nav-link {
+  border-radius: var(--border-radius);
+  padding: 10px 18px;
+  font-weight: 500;
+  transition: var(--transition);
+  color: var(--medical-gray-600);
+}
+
+.nav-pills .nav-link.active {
+  background: var(--medical-primary);
+  color: white;
+}
+
+/* Tabs Medical */
+.nav-tabs {
+  border-bottom: 2px solid var(--medical-gray-200);
+}
+
+.nav-tabs .nav-link {
+  border: none;
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
+  padding: 12px 18px;
+  font-weight: 500;
+  color: var(--medical-gray-600);
+}
+
+.nav-tabs .nav-link.active {
+  border-bottom-color: var(--medical-primary);
+  color: var(--medical-primary);
+  background: none;
+}
+
+/* Modales Medical */
+.modal-content {
+  border: none;
+  border-radius: var(--border-radius-lg);
+  box-shadow: 0 20px 25px rgba(0,0,0,0.1);
+}
+
+.modal-header {
+  border-bottom: 1px solid var(--medical-gray-200);
+  padding: 18px 24px;
+}
+
+.modal-title {
+  font-weight: 600;
+  color: var(--medical-blue-700);
+}
+
+.modal-body {
+  padding: 24px;
+}
+
+.modal-footer {
+  border-top: 1px solid var(--medical-gray-200);
+  padding: 18px 24px;
+}
+
+/* Acordeón Medical */
+.accordion-button {
+  background: white;
+  border: 1px solid var(--medical-gray-200);
+  padding: 18px 20px;
+  font-weight: 500;
+  color: var(--medical-gray-700);
+}
+
+.accordion-button:not(.collapsed) {
+  background: var(--medical-blue-50);
+  color: var(--medical-primary);
+  border-color: var(--medical-blue-200);
+}
+
+/* Dropdown Medical */
+.dropdown-menu {
+  border: 1px solid var(--medical-gray-200);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-medical-lg);
+  padding: 6px;
+}
+
+.dropdown-item {
+  border-radius: var(--border-radius);
+  padding: 10px 14px;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.dropdown-item:hover {
+  background: var(--medical-blue-50);
+  color: var(--medical-primary);
+}
+
+/* Offcanvas Medical */
+.offcanvas {
+  border: none;
+  box-shadow: var(--shadow-medical-lg);
+}
+
+.offcanvas-header {
+  border-bottom: 1px solid var(--medical-gray-200);
+  padding: 18px 24px;
+}
+
+.offcanvas-title {
+  font-weight: 600;
+  color: var(--medical-blue-700);
+}
+
+/* Carrusel Medical */
+.carousel {
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-medical);
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  background: rgba(37, 99, 235, 0.8);
+  border-radius: var(--border-radius);
+  width: 44px;
+  height: 44px;
+  margin: auto 12px;
+}
+
+/* Toast Medical */
+.toast {
+  border: 1px solid var(--medical-gray-200);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-medical);
+}
+
+.toast-header {
+  background: var(--medical-gray-50);
+  border-bottom: 1px solid var(--medical-gray-200);
+  font-weight: 500;
+}
+
+/* Spinners Medical */
+.spinner-border {
+  color: var(--medical-primary);
+}
+
+/* Input Groups Medical */
+.input-group-text {
+  background: var(--medical-gray-100);
+  border: 1px solid var(--medical-gray-300);
+  color: var(--medical-gray-600);
+  font-weight: 500;
+}
+
+/* Form Check Medical */
+.form-check-input:checked {
+  background-color: var(--medical-primary);
+  border-color: var(--medical-primary);
+}
+
+/* Form Select Medical */
+.form-select {
+  border: 1px solid var(--medical-gray-300);
+  border-radius: var(--border-radius);
+  padding: 10px 14px;
+  font-weight: 500;
+}
+
+.form-select:focus {
+  border-color: var(--medical-primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}

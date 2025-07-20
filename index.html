@@ -1,0 +1,1588 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colección de Temas Bootstrap</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;700;900&family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700;900&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tema por defecto (Modern Gradient) -->
+    <link id="theme-css" rel="stylesheet" href="themes/modern-gradient.css">
+    
+    <style>
+        .theme-selector {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1050;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            min-width: 280px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        
+        .theme-option {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 12px 16px;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            background: white;
+            color: #333;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            font-size: 14px;
+        }
+        
+        .theme-option:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-decoration: none;
+            color: #333;
+        }
+        
+        .theme-option.active {
+            border-color: #007bff;
+            background: #007bff;
+            color: white;
+        }
+        
+        .theme-preview {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 10px;
+            border: 2px solid rgba(0,0,0,0.1);
+        }
+        
+        .preview-modern { background: linear-gradient(135deg, #667eea, #764ba2); }
+        .preview-cyberpunk { background: linear-gradient(135deg, #00ffff, #ff00ff); }
+        .preview-minimalist { background: linear-gradient(135deg, #2c3e50, #3498db); }
+        .preview-retro { background: linear-gradient(135deg, #8b4513, #daa520); }
+        .preview-glassmorphism { background: linear-gradient(135deg, rgba(255,255,255,0.3), rgba(138,43,226,0.3)); }
+        .preview-neumorphism { background: linear-gradient(135deg, #e0e5ec, #a3b1c6); }
+        .preview-brutalist { background: linear-gradient(135deg, #ffff00, #ff0000); }
+        .preview-artdeco { background: linear-gradient(135deg, #d4af37, #1a1a1a); }
+        
+        .toggle-selector {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1051;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 24px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .toggle-selector:hover {
+            transform: scale(1.1);
+            background: #0056b3;
+        }
+        
+        .theme-description {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+            line-height: 1.3;
+        }
+        
+        .theme-category {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #999;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Botón para mostrar/ocultar selector de temas -->
+    <button class="toggle-selector" onclick="toggleThemeSelector()" title="Cambiar Tema">
+        <i class="fas fa-palette"></i>
+    </button>
+    
+    <!-- Selector de Temas -->
+    <div class="theme-selector" id="themeSelector" style="display: none;">
+        <h6 class="mb-3 text-center"><i class="fas fa-paint-brush me-2"></i>Selector de Temas</h6>
+        
+        <div class="theme-category">Modernos</div>
+        <a href="#" class="theme-option active" onclick="changeTheme('modern-gradient', this)">
+            <span class="theme-preview preview-modern"></span>
+            <div>
+                <strong>Modern Gradient</strong>
+                <div class="theme-description">Gradientes modernos con efectos glassmorphism</div>
+            </div>
+        </a>
+        
+        <a href="#" class="theme-option" onclick="changeTheme('glassmorphism-pro', this)">
+            <span class="theme-preview preview-glassmorphism"></span>
+            <div>
+                <strong>Glassmorphism Pro</strong>
+                <div class="theme-description">Efectos de cristal y blur avanzados</div>
+            </div>
+        </a>
+        
+        <a href="#" class="theme-option" onclick="changeTheme('neumorphism-soft', this)">
+            <span class="theme-preview preview-neumorphism"></span>
+            <div>
+                <strong>Neumorphism Soft</strong>
+                <div class="theme-description">Diseño suave con sombras realistas</div>
+            </div>
+        </a>
+        
+        <div class="theme-category">Futuristas</div>
+        <a href="#" class="theme-option" onclick="changeTheme('cyberpunk-neon', this)">
+            <span class="theme-preview preview-cyberpunk"></span>
+            <div>
+                <strong>Cyberpunk Neon</strong>
+                <div class="theme-description">Estética futurista con efectos neón</div>
+            </div>
+        </a>
+        
+        <div class="theme-category">Clásicos</div>
+        <a href="#" class="theme-option" onclick="changeTheme('minimalist-clean', this)">
+            <span class="theme-preview preview-minimalist"></span>
+            <div>
+                <strong>Minimalist Clean</strong>
+                <div class="theme-description">Diseño limpio y profesional</div>
+            </div>
+        </a>
+        
+        <a href="#" class="theme-option" onclick="changeTheme('retro-vintage', this)">
+            <span class="theme-preview preview-retro"></span>
+            <div>
+                <strong>Retro Vintage</strong>
+                <div class="theme-description">Estilo nostálgico con texturas vintage</div>
+            </div>
+        </a>
+        
+        <a href="#" class="theme-option" onclick="changeTheme('art-deco-luxury', this)">
+            <span class="theme-preview preview-artdeco"></span>
+            <div>
+                <strong>Art Deco Luxury</strong>
+                <div class="theme-description">Elegancia clásica con toques dorados</div>
+            </div>
+        </a>
+        
+        <div class="theme-category">Experimentales</div>
+        <a href="#" class="theme-option" onclick="changeTheme('brutalist-bold', this)">
+            <span class="theme-preview preview-brutalist"></span>
+            <div>
+                <strong>Brutalist Bold</strong>
+                <div class="theme-description">Diseño audaz y sin concesiones</div>
+            </div>
+        </a>
+        
+        <div class="theme-category">Corporativos</div>
+        <a href="#" class="theme-option" onclick="changeTheme('corporate-tech', this)">
+            <span class="theme-preview" style="background: linear-gradient(135deg, #0066cc, #004499);"></span>
+            <div>
+                <strong>Corporate Tech</strong>
+                <div class="theme-description">Estilo tecnológico limpio y eficiente</div>
+            </div>
+        </a>
+        
+        <a href="#" class="theme-option" onclick="changeTheme('corporate-finance', this)">
+            <span class="theme-preview" style="background: linear-gradient(135deg, #1e3a5f, #d69e2e);"></span>
+            <div>
+                <strong>Corporate Finance</strong>
+                <div class="theme-description">Conservador y confiable para finanzas</div>
+            </div>
+        </a>
+        
+        <a href="#" class="theme-option" onclick="changeTheme('corporate-medical', this)">
+            <span class="theme-preview" style="background: linear-gradient(135deg, #2563eb, #0d9488);"></span>
+            <div>
+                <strong>Corporate Medical</strong>
+                <div class="theme-description">Limpio y calmante para salud</div>
+            </div>
+        </a>
+        
+        <a href="#" class="theme-option" onclick="changeTheme('corporate-legal', this)">
+            <span class="theme-preview" style="background: linear-gradient(135deg, #1a1a1a, #8b0000);"></span>
+            <div>
+                <strong>Corporate Legal</strong>
+                <div class="theme-description">Formal y tradicional para legal</div>
+            </div>
+        </a>
+    </div>
+
+    <!-- Navegación -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="fas fa-rocket me-2"></i>Temas Bootstrap</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#inicio">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#componentes">Componentes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#formularios">Formularios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#tablas">Tablas</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="container-fluid py-5" id="inicio">
+        <div class="container">
+            <div class="row align-items-center min-vh-100">
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold">Colección de <span class="text-primary">12 Temas Bootstrap</span></h1>
+                    <p class="lead">Explora una amplia variedad de estilos únicos para tus proyectos web. Desde modernos hasta experimentales, cada tema tiene su propia personalidad visual distintiva.</p>
+                    <div class="mt-4">
+                        <button class="btn btn-primary btn-lg me-3">
+                            <i class="fas fa-download me-2"></i>Descargar Colección
+                        </button>
+                        <button class="btn btn-outline-secondary btn-lg">
+                            <i class="fas fa-eye me-2"></i>Ver Documentación
+                        </button>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <i class="fas fa-palette fa-4x text-primary mb-3"></i>
+                            <h3>12 Estilos Únicos</h3>
+                            <p>Cada tema con su propia identidad visual y conjunto de animaciones</p>
+                            <div class="row mt-4">
+                                <div class="col-3 mb-3">
+                                    <div class="preview-modern rounded-circle mx-auto mb-2" style="width: 30px; height: 30px;"></div>
+                                    <small>Modern</small>
+                                </div>
+                                <div class="col-3 mb-3">
+                                    <div class="preview-glassmorphism rounded-circle mx-auto mb-2" style="width: 30px; height: 30px;"></div>
+                                    <small>Glass</small>
+                                </div>
+                                <div class="col-3 mb-3">
+                                    <div class="preview-cyberpunk rounded-circle mx-auto mb-2" style="width: 30px; height: 30px;"></div>
+                                    <small>Cyber</small>
+                                </div>
+                                <div class="col-3 mb-3">
+                                    <div class="preview-neumorphism rounded-circle mx-auto mb-2" style="width: 30px; height: 30px;"></div>
+                                    <small>Neuro</small>
+                                </div>
+                                <div class="col-3">
+                                    <div class="preview-minimalist rounded-circle mx-auto mb-2" style="width: 30px; height: 30px;"></div>
+                                    <small>Minimal</small>
+                                </div>
+                                <div class="col-3">
+                                    <div class="preview-retro rounded-circle mx-auto mb-2" style="width: 30px; height: 30px;"></div>
+                                    <small>Retro</small>
+                                </div>
+                                <div class="col-3">
+                                    <div class="preview-artdeco rounded-circle mx-auto mb-2" style="width: 30px; height: 30px;"></div>
+                                    <small>Deco</small>
+                                </div>
+                                <div class="col-3">
+                                    <div class="preview-brutalist rounded-circle mx-auto mb-2" style="width: 30px; height: 30px;"></div>
+                                    <small>Brutal</small>
+                                </div>
+                                <div class="col-3">
+                                    <div class="preview-cyberpunk rounded-circle mx-auto mb-2" style="width: 30px; height: 30px;"></div>
+                                    <small>And More!</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sección de Alertas -->
+    <div class="container my-5">
+        <h2 class="text-center mb-5">Alertas Temáticas</h2>
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <div class="alert alert-primary">
+                    <i class="fas fa-info-circle me-2"></i>
+                    <strong>¡Información!</strong> Esta alerta se adapta automáticamente al tema seleccionado.
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="alert alert-success">
+                    <i class="fas fa-check-circle me-2"></i>
+                    <strong>¡Éxito!</strong> Tema aplicado correctamente al proyecto.
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="alert alert-warning">
+                    <i class="fas fa-exclamation-triangle me-2"></i>
+                    <strong>¡Advertencia!</strong> Algunos temas requieren fuentes específicas.
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="alert alert-danger">
+                    <i class="fas fa-times-circle me-2"></i>
+                    <strong>¡Error!</strong> No se pudo cargar el tema seleccionado.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sección de Botones -->
+    <div class="container my-5" id="componentes">
+        <h2 class="text-center mb-5">Botones Adaptativos</h2>
+        <div class="row text-center">
+            <div class="col-md-12 mb-4">
+                <button class="btn btn-primary me-2 mb-2">
+                    <i class="fas fa-star me-2"></i>Primario
+                </button>
+                <button class="btn btn-secondary me-2 mb-2">
+                    <i class="fas fa-cog me-2"></i>Secundario
+                </button>
+                <button class="btn btn-success me-2 mb-2">
+                    <i class="fas fa-check me-2"></i>Éxito
+                </button>
+                <button class="btn btn-warning me-2 mb-2">
+                    <i class="fas fa-exclamation me-2"></i>Advertencia
+                </button>
+                <button class="btn btn-danger me-2 mb-2">
+                    <i class="fas fa-times me-2"></i>Peligro
+                </button>
+                <button class="btn btn-info me-2 mb-2">
+                    <i class="fas fa-info me-2"></i>Información
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cards Section -->
+    <div class="container my-5">
+        <h2 class="text-center mb-5">Cards con Personalidad</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fas fa-laptop-code me-2"></i>Frontend Development
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Interfaces Modernas</h5>
+                        <p class="card-text">Creamos experiencias de usuario excepcionales utilizando las tecnologías más avanzadas del mercado.</p>
+                        <span class="badge badge-primary me-2">React</span>
+                        <span class="badge badge-success me-2">Vue.js</span>
+                        <span class="badge badge-warning">Angular</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fas fa-mobile-alt me-2"></i>Mobile Development
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Apps Nativas</h5>
+                        <p class="card-text">Desarrollo de aplicaciones móviles de alto rendimiento para iOS y Android con experiencias nativas.</p>
+                        <span class="badge badge-info me-2">React Native</span>
+                        <span class="badge badge-danger me-2">Flutter</span>
+                        <span class="badge badge-success">Swift</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fas fa-server me-2"></i>Backend Services
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">APIs Robustas</h5>
+                        <p class="card-text">Servicios backend escalables y seguros que soportan millones de usuarios simultáneos.</p>
+                        <span class="badge badge-secondary me-2">Node.js</span>
+                        <span class="badge badge-primary me-2">Python</span>
+                        <span class="badge badge-warning">Java</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Progress Bars -->
+    <div class="container my-5">
+        <h2 class="text-center mb-5">Barras de Progreso</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <h6>HTML/CSS</h6>
+                <div class="progress mb-3">
+                    <div class="progress-bar" style="width: 95%" role="progressbar">95%</div>
+                </div>
+                <h6>JavaScript</h6>
+                <div class="progress mb-3">
+                    <div class="progress-bar" style="width: 90%" role="progressbar">90%</div>
+                </div>
+                <h6>React</h6>
+                <div class="progress mb-3">
+                    <div class="progress-bar" style="width: 85%" role="progressbar">85%</div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h6>Node.js</h6>
+                <div class="progress mb-3">
+                    <div class="progress-bar" style="width: 80%" role="progressbar">80%</div>
+                </div>
+                <h6>Python</h6>
+                <div class="progress mb-3">
+                    <div class="progress-bar" style="width: 75%" role="progressbar">75%</div>
+                </div>
+                <h6>Design Systems</h6>
+                <div class="progress mb-3">
+                    <div class="progress-bar" style="width: 88%" role="progressbar">88%</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sección de Badges y Pills -->
+    <div class="container my-5">
+        <h2 class="text-center mb-5">Badges y Pills</h2>
+        <div class="row text-center">
+            <div class="col-12 mb-4">
+                <h5>Badges Básicos</h5>
+                <div class="d-flex flex-wrap justify-content-center gap-2">
+                    <span class="badge badge-primary">Primary</span>
+                    <span class="badge badge-secondary">Secondary</span>
+                    <span class="badge badge-success">Success</span>
+                    <span class="badge badge-warning">Warning</span>
+                    <span class="badge badge-danger">Danger</span>
+                    <span class="badge badge-info">Info</span>
+                </div>
+            </div>
+            <div class="col-12 mb-4">
+                <h5>Pills de Navegación</h5>
+                <ul class="nav nav-pills justify-content-center flex-wrap">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Activo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Enlace</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Otro enlace</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#">Deshabilitado</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sección de Breadcrumbs y Paginación -->
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-md-6 mb-4 mb-md-0">
+                <h4 class="mb-3">Breadcrumbs</h4>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+                        <li class="breadcrumb-item"><a href="#">Biblioteca</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Datos</li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="col-md-6">
+                <h4 class="mb-3">Paginación</h4>
+                <nav aria-label="Page navigation">
+                    <ul class="pagination flex-wrap justify-content-center justify-content-md-start">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1">Anterior</a>
+                        </li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">Siguiente</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sección de Modales y Tooltips -->
+    <div class="container my-5">
+        <h2 class="text-center mb-5">Modales y Tooltips</h2>
+        <div class="row text-center">
+            <div class="col-lg-4 col-md-6 mb-3">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <i class="fas fa-window-maximize me-2"></i>Abrir Modal
+                </button>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-3">
+                <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="¡Tooltip en la parte superior!">
+                    <i class="fas fa-info-circle me-2"></i>Tooltip Arriba
+                </button>
+            </div>
+            <div class="col-lg-4 col-md-12 mb-3">
+                <button type="button" class="btn btn-success" data-bs-toggle="popover" title="Título del Popover" data-bs-content="Contenido del popover con más información detallada.">
+                    <i class="fas fa-comment me-2"></i>Popover
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-star me-2"></i>Modal de Ejemplo</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Este es un modal de ejemplo que se adapta al tema seleccionado. Puedes incluir cualquier contenido aquí:</p>
+                    <ul>
+                        <li>Formularios</li>
+                        <li>Imágenes</li>
+                        <li>Tablas</li>
+                        <li>Cualquier componente Bootstrap</li>
+                    </ul>
+                    <div class="alert alert-info">
+                        <i class="fas fa-lightbulb me-2"></i>
+                        <strong>Tip:</strong> Los modales también heredan el estilo del tema activo.
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary">Guardar cambios</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sección de Acordeón -->
+    <div class="container my-5">
+        <h2 class="text-center mb-5">Acordeón</h2>
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-10">
+                <div class="accordion" id="accordionExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <i class="fas fa-question-circle me-2"></i>¿Qué son los temas Bootstrap?
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                Los temas Bootstrap son colecciones de estilos CSS personalizados que modifican la apariencia visual del framework, incluyendo colores, tipografías, animaciones y efectos especiales.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                <i class="fas fa-palette me-2"></i>¿Cómo cambio entre temas?
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                Utiliza el selector de temas en la esquina superior derecha. Haz clic en el icono de paleta y selecciona el tema que prefieras. Tu selección se guardará automáticamente.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                <i class="fas fa-code me-2"></i>¿Puedo personalizar los temas?
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                ¡Absolutamente! Cada tema utiliza variables CSS que puedes modificar fácilmente. También puedes crear tus propios temas siguiendo la estructura existente.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sección de Tabs -->
+    <div class="container my-5">
+        <h2 class="text-center mb-5">Pestañas (Tabs)</h2>
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <ul class="nav nav-tabs flex-wrap" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">
+                            <i class="fas fa-home me-2"></i>Inicio
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">
+                            <i class="fas fa-user me-2"></i>Perfil
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">
+                            <i class="fas fa-envelope me-2"></i>Contacto
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="settings-tab" data-bs-toggle="tab" data-bs-target="#settings" type="button" role="tab" aria-controls="settings" aria-selected="false">
+                            <i class="fas fa-cog me-2"></i>Configuración
+                        </button>
+                    </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        <div class="p-4">
+                            <h4>Bienvenido al Inicio</h4>
+                            <p>Esta es la pestaña de inicio donde puedes encontrar información general sobre los temas Bootstrap. Cada tema tiene su propia personalidad visual y conjunto de animaciones.</p>
+                            <div class="row">
+                                <div class="col-md-6 mb-3 mb-md-0">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Temas Modernos</h5>
+                                            <p class="card-text">Incluye Modern Gradient, Glassmorphism Pro y Neumorphism Soft.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Temas Clásicos</h5>
+                                            <p class="card-text">Incluye Minimalist Clean, Retro Vintage y Art Deco Luxury.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                        <div class="p-4">
+                            <h4>Perfil de Usuario</h4>
+                            <div class="row">
+                                <div class="col-md-4 text-center mb-4 mb-md-0">
+                                    <div class="mb-3">
+                                        <i class="fas fa-user-circle fa-5x text-primary"></i>
+                                    </div>
+                                    <h5>Juan Pérez</h5>
+                                    <p class="text-muted">Desarrollador Frontend</p>
+                                </div>
+                                <div class="col-md-8">
+                                    <h6>Información Personal</h6>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item d-flex justify-content-between">
+                                            <strong>Email:</strong>
+                                            <span>juan.perez@ejemplo.com</span>
+                                        </li>
+                                        <li class="list-group-item d-flex justify-content-between">
+                                            <strong>Teléfono:</strong>
+                                            <span>+34 600 000 000</span>
+                                        </li>
+                                        <li class="list-group-item d-flex justify-content-between">
+                                            <strong>Ubicación:</strong>
+                                            <span>Madrid, España</span>
+                                        </li>
+                                        <li class="list-group-item d-flex justify-content-between">
+                                            <strong>Tema Favorito:</strong>
+                                            <span class="badge badge-primary">Modern Gradient</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                        <div class="p-4">
+                            <h4>Información de Contacto</h4>
+                            <div class="row">
+                                <div class="col-md-6 mb-3 mb-md-0">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <i class="fas fa-envelope me-2"></i>Email
+                                        </div>
+                                        <div class="card-body">
+                                            <p>Para consultas generales:</p>
+                                            <a href="mailto:info@ejemplo.com" class="btn btn-outline-primary">
+                                                <i class="fas fa-paper-plane me-2"></i>info@ejemplo.com
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <i class="fas fa-phone me-2"></i>Teléfono
+                                        </div>
+                                        <div class="card-body">
+                                            <p>Soporte técnico:</p>
+                                            <a href="tel:+34600000000" class="btn btn-outline-success">
+                                                <i class="fas fa-phone me-2"></i>+34 600 000 000
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="settings" role="tabpanel" aria-labelledby="settings-tab">
+                        <div class="p-4">
+                            <h4>Configuración</h4>
+                            <form>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">Tema Preferido</label>
+                                        <select class="form-control">
+                                            <option>Modern Gradient</option>
+                                            <option>Glassmorphism Pro</option>
+                                            <option>Cyberpunk Neon</option>
+                                            <option>Neumorphism Soft</option>
+                                            <option>Minimalist Clean</option>
+                                            <option>Retro Vintage</option>
+                                            <option>Art Deco Luxury</option>
+                                            <option>Brutalist Bold</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">Idioma</label>
+                                        <select class="form-control">
+                                            <option>Español</option>
+                                            <option>English</option>
+                                            <option>Français</option>
+                                            <option>Deutsch</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="notifications">
+                                        <label class="form-check-label" for="notifications">
+                                            Recibir notificaciones por email
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="animations" checked>
+                                        <label class="form-check-label" for="animations">
+                                            Habilitar animaciones
+                                        </label>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-save me-2"></i>Guardar Configuración
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sección de Spinners y Loading -->
+    <div class="container my-5">
+        <h2 class="text-center mb-5">Spinners y Estados de Carga</h2>
+        <div class="row text-center">
+            <div class="col-lg-3 col-md-6 mb-4">
+                <h6>Spinner Border</h6>
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Cargando...</span>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <h6>Spinner Grow</h6>
+                <div class="spinner-grow text-success" role="status">
+                    <span class="visually-hidden">Cargando...</span>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <h6>Botón con Spinner</h6>
+                <button class="btn btn-primary" type="button" disabled>
+                    <span class="spinner-border spinner-border-sm me-2" role="status"></span>
+                    Cargando...
+                </button>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <h6>Placeholder</h6>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title placeholder-glow">
+                            <span class="placeholder col-6"></span>
+                        </h5>
+                        <p class="card-text placeholder-glow">
+                            <span class="placeholder col-7"></span>
+                            <span class="placeholder col-4"></span>
+                            <span class="placeholder col-4"></span>
+                            <span class="placeholder col-6"></span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sección de Offcanvas -->
+    <div class="container my-5">
+        <h2 class="text-center mb-5">Offcanvas</h2>
+        <div class="row text-center">
+            <div class="col-lg-3 col-md-6 mb-3">
+                <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasLeft">
+                    <i class="fas fa-arrow-left me-2"></i>Izquierda
+                </button>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-3">
+                <button class="btn btn-success" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight">
+                    <i class="fas fa-arrow-right me-2"></i>Derecha
+                </button>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-3">
+                <button class="btn btn-warning" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop">
+                    <i class="fas fa-arrow-up me-2"></i>Arriba
+                </button>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-3">
+                <button class="btn btn-info" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom">
+                    <i class="fas fa-arrow-down me-2"></i>Abajo
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Offcanvas Components -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasLeft">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title">Menú Lateral Izquierdo</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <p>Contenido del panel lateral izquierdo. Aquí puedes incluir navegación, formularios o cualquier otro contenido.</p>
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action">
+                    <i class="fas fa-home me-2"></i>Inicio
+                </a>
+                <a href="#" class="list-group-item list-group-item-action">
+                    <i class="fas fa-user me-2"></i>Perfil
+                </a>
+                <a href="#" class="list-group-item list-group-item-action">
+                    <i class="fas fa-cog me-2"></i>Configuración
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title">Panel Derecho</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <p>Panel lateral derecho con acciones rápidas:</p>
+            <div class="row">
+                <div class="col-6 mb-2">
+                    <button class="btn btn-outline-primary w-100">
+                        <i class="fas fa-plus d-block mb-1"></i>Crear
+                    </button>
+                </div>
+                <div class="col-6 mb-2">
+                    <button class="btn btn-outline-success w-100">
+                        <i class="fas fa-save d-block mb-1"></i>Guardar
+                    </button>
+                </div>
+                <div class="col-6 mb-2">
+                    <button class="btn btn-outline-warning w-100">
+                        <i class="fas fa-edit d-block mb-1"></i>Editar
+                    </button>
+                </div>
+                <div class="col-6 mb-2">
+                    <button class="btn btn-outline-danger w-100">
+                        <i class="fas fa-trash d-block mb-1"></i>Eliminar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title">Panel Superior</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <p>Panel superior para notificaciones o mensajes importantes.</p>
+        </div>
+    </div>
+
+    <div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title">Panel Inferior</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <p>Panel inferior para herramientas o información adicional.</p>
+        </div>
+    </div>
+
+    <!-- Sección de Carrusel -->
+    <div class="container my-5">
+        <h2 class="text-center mb-5">Carrusel</h2>
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-10">
+                <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active"></button>
+                        <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1"></button>
+                        <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="card">
+                                <div class="card-body text-center py-5">
+                                    <i class="fas fa-rocket fa-4x text-primary mb-3"></i>
+                                    <h3>Slide 1: Innovación</h3>
+                                    <p>Descubre las últimas tendencias en diseño web con nuestros temas modernos y animados.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="card">
+                                <div class="card-body text-center py-5">
+                                    <i class="fas fa-palette fa-4x text-success mb-3"></i>
+                                    <h3>Slide 2: Creatividad</h3>
+                                    <p>Cada tema tiene su propia personalidad visual única, desde minimalista hasta experimental.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="card">
+                                <div class="card-body text-center py-5">
+                                    <i class="fas fa-code fa-4x text-warning mb-3"></i>
+                                    <h3>Slide 3: Desarrollo</h3>
+                                    <p>Fácil de implementar y personalizar. Compatible con Bootstrap 5 y totalmente responsivo.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sección de Toasts -->
+    <div class="container my-5">
+        <h2 class="text-center mb-5">Toasts (Notificaciones)</h2>
+        <div class="row text-center">
+            <div class="col-lg-3 col-md-6 mb-3">
+                <button type="button" class="btn btn-primary" onclick="showToast('success')">
+                    <i class="fas fa-check me-2"></i>Éxito
+                </button>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-3">
+                <button type="button" class="btn btn-warning" onclick="showToast('warning')">
+                    <i class="fas fa-exclamation me-2"></i>Advertencia
+                </button>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-3">
+                <button type="button" class="btn btn-danger" onclick="showToast('error')">
+                    <i class="fas fa-times me-2"></i>Error
+                </button>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-3">
+                <button type="button" class="btn btn-info" onclick="showToast('info')">
+                    <i class="fas fa-info me-2"></i>Información
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3" id="toastContainer"></div>
+
+    <!-- Sección de Input Groups -->
+    <div class="container my-5">
+        <h2 class="text-center mb-5">Grupos de Entrada</h2>
+        <div class="row">
+            <div class="col-lg-6 mb-3">
+                <label class="form-label">Con Icono</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    <input type="text" class="form-control" placeholder="Nombre de usuario">
+                </div>
+            </div>
+            <div class="col-lg-6 mb-3">
+                <label class="form-label">Con Botón</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Buscar...">
+                    <button class="btn btn-primary" type="button">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="col-lg-6 mb-3">
+                <label class="form-label">Con Dropdown</label>
+                <div class="input-group">
+                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                        Categoría
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Tecnología</a></li>
+                        <li><a class="dropdown-item" href="#">Diseño</a></li>
+                        <li><a class="dropdown-item" href="#">Marketing</a></li>
+                    </ul>
+                    <input type="text" class="form-control" placeholder="Término de búsqueda">
+                </div>
+            </div>
+            <div class="col-lg-6 mb-3">
+                <label class="form-label">Con Texto</label>
+                <div class="input-group">
+                    <span class="input-group-text">€</span>
+                    <input type="number" class="form-control" placeholder="0.00">
+                    <span class="input-group-text">.00</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sección de Dropdown -->
+    <div class="container my-5">
+        <h2 class="text-center mb-5">Menús Desplegables</h2>
+        <div class="row text-center">
+            <div class="col-lg-3 col-md-6 mb-3">
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                        <i class="fas fa-cog me-2"></i>Acciones
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#"><i class="fas fa-edit me-2"></i>Editar</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="fas fa-copy me-2"></i>Duplicar</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-trash me-2"></i>Eliminar</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-3">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-success">Guardar</button>
+                    <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown">
+                        <span class="visually-hidden">Toggle Dropdown</span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Guardar como...</a></li>
+                        <li><a class="dropdown-item" href="#">Guardar y continuar</a></li>
+                        <li><a class="dropdown-item" href="#">Guardar y cerrar</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-3">
+                <div class="dropdown">
+                    <button class="btn btn-warning dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                        <i class="fas fa-user me-2"></i>Usuario
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><h6 class="dropdown-header">Mi Cuenta</h6></li>
+                        <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i>Perfil</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i>Configuración</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt me-2"></i>Cerrar Sesión</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-3">
+                <div class="dropdown dropup">
+                    <button class="btn btn-info dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                        <i class="fas fa-arrow-up me-2"></i>Dropup
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Opción 1</a></li>
+                        <li><a class="dropdown-item" href="#">Opción 2</a></li>
+                        <li><a class="dropdown-item" href="#">Opción 3</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Formulario -->
+    <div class="container my-5" id="formularios">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-10">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="mb-0"><i class="fas fa-envelope me-2"></i>Formulario de Contacto</h3>
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="nombre" class="form-label">Nombre Completo</label>
+                                    <input type="text" class="form-control" id="nombre" placeholder="Tu nombre completo">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="email" class="form-label">Correo Electrónico</label>
+                                    <input type="email" class="form-control" id="email" placeholder="tu@email.com">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="telefono" class="form-label">Teléfono</label>
+                                    <input type="tel" class="form-control" id="telefono" placeholder="+34 600 000 000">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="asunto" class="form-label">Asunto</label>
+                                    <select class="form-control" id="asunto">
+                                        <option>Consulta General</option>
+                                        <option>Solicitar Presupuesto</option>
+                                        <option>Soporte Técnico</option>
+                                        <option>Colaboración</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="prioridad" class="form-label">Prioridad</label>
+                                    <div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="prioridad" id="baja" value="baja">
+                                            <label class="form-check-label" for="baja">Baja</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="prioridad" id="media" value="media" checked>
+                                            <label class="form-check-label" for="media">Media</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="prioridad" id="alta" value="alta">
+                                            <label class="form-check-label" for="alta">Alta</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="archivo" class="form-label">Adjuntar Archivo</label>
+                                    <input type="file" class="form-control" id="archivo" multiple>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="terminos">
+                                    <label class="form-check-label" for="terminos">
+                                        Acepto los términos y condiciones
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="newsletter" checked>
+                                    <label class="form-check-label" for="newsletter">
+                                        Suscribirme al newsletter
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="mensaje" class="form-label">Mensaje</label>
+                                <textarea class="form-control" id="mensaje" rows="5" placeholder="Describe tu proyecto o consulta en detalle..."></textarea>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary btn-lg">
+                                    <i class="fas fa-paper-plane me-2"></i>Enviar Mensaje
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tabla -->
+    <div class="container my-5" id="tablas">
+        <h2 class="text-center mb-5">Tabla de Datos</h2>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th><i class="fas fa-hashtag me-2"></i>ID</th>
+                        <th><i class="fas fa-user me-2"></i>Usuario</th>
+                        <th><i class="fas fa-envelope me-2"></i>Email</th>
+                        <th><i class="fas fa-briefcase me-2"></i>Rol</th>
+                        <th><i class="fas fa-calendar me-2"></i>Registro</th>
+                        <th><i class="fas fa-cog me-2"></i>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>001</td>
+                        <td>Ana García</td>
+                        <td>ana.garcia@ejemplo.com</td>
+                        <td><span class="badge badge-primary">Administrador</span></td>
+                        <td>15/01/2024</td>
+                        <td>
+                            <button class="btn btn-sm btn-info me-1" title="Ver"><i class="fas fa-eye"></i></button>
+                            <button class="btn btn-sm btn-warning me-1" title="Editar"><i class="fas fa-edit"></i></button>
+                            <button class="btn btn-sm btn-danger" title="Eliminar"><i class="fas fa-trash"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>002</td>
+                        <td>Carlos Rodríguez</td>
+                        <td>carlos.rodriguez@ejemplo.com</td>
+                        <td><span class="badge badge-success">Editor</span></td>
+                        <td>22/01/2024</td>
+                        <td>
+                            <button class="btn btn-sm btn-info me-1" title="Ver"><i class="fas fa-eye"></i></button>
+                            <button class="btn btn-sm btn-warning me-1" title="Editar"><i class="fas fa-edit"></i></button>
+                            <button class="btn btn-sm btn-danger" title="Eliminar"><i class="fas fa-trash"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>003</td>
+                        <td>María López</td>
+                        <td>maria.lopez@ejemplo.com</td>
+                        <td><span class="badge badge-warning">Moderador</span></td>
+                        <td>28/01/2024</td>
+                        <td>
+                            <button class="btn btn-sm btn-info me-1" title="Ver"><i class="fas fa-eye"></i></button>
+                            <button class="btn btn-sm btn-warning me-1" title="Editar"><i class="fas fa-edit"></i></button>
+                            <button class="btn btn-sm btn-danger" title="Eliminar"><i class="fas fa-trash"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>004</td>
+                        <td>David Martín</td>
+                        <td>david.martin@ejemplo.com</td>
+                        <td><span class="badge badge-secondary">Usuario</span></td>
+                        <td>05/02/2024</td>
+                        <td>
+                            <button class="btn btn-sm btn-info me-1" title="Ver"><i class="fas fa-eye"></i></button>
+                            <button class="btn btn-sm btn-warning me-1" title="Editar"><i class="fas fa-edit"></i></button>
+                            <button class="btn btn-sm btn-danger" title="Eliminar"><i class="fas fa-trash"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Lista Group -->
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-md-6">
+                <h4 class="mb-3">Características de los Temas</h4>
+                <div class="list-group">
+                    <div class="list-group-item">
+                        <i class="fas fa-check text-success me-2"></i>
+                        <strong>Diseño Responsivo:</strong> Adaptable a todos los dispositivos
+                    </div>
+                    <div class="list-group-item">
+                        <i class="fas fa-check text-success me-2"></i>
+                        <strong>Animaciones Suaves:</strong> Transiciones y efectos modernos
+                    </div>
+                    <div class="list-group-item">
+                        <i class="fas fa-check text-success me-2"></i>
+                        <strong>Bootstrap 5:</strong> Compatible con la última versión
+                    </div>
+                    <div class="list-group-item">
+                        <i class="fas fa-check text-success me-2"></i>
+                        <strong>Personalizable:</strong> Variables CSS fáciles de modificar
+                    </div>
+                    <div class="list-group-item">
+                        <i class="fas fa-check text-success me-2"></i>
+                        <strong>Cross-Browser:</strong> Funciona en todos los navegadores
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4 class="mb-3">Temas Disponibles</h4>
+                <div class="list-group">
+                    <div class="list-group-item">
+                        <span class="theme-preview preview-modern me-2"></span>
+                        <strong>Modern Gradient:</strong> Gradientes y glassmorphism
+                    </div>
+                    <div class="list-group-item">
+                        <span class="theme-preview preview-glassmorphism me-2"></span>
+                        <strong>Glassmorphism Pro:</strong> Efectos de cristal avanzados
+                    </div>
+                    <div class="list-group-item">
+                        <span class="theme-preview preview-cyberpunk me-2"></span>
+                        <strong>Cyberpunk Neon:</strong> Estilo futurista con neón
+                    </div>
+                    <div class="list-group-item">
+                        <span class="theme-preview preview-neumorphism me-2"></span>
+                        <strong>Neumorphism Soft:</strong> Sombras realistas suaves
+                    </div>
+                    <div class="list-group-item">
+                        <span class="theme-preview preview-minimalist me-2"></span>
+                        <strong>Minimalist Clean:</strong> Diseño limpio y profesional
+                    </div>
+                    <div class="list-group-item">
+                        <span class="theme-preview preview-retro me-2"></span>
+                        <strong>Retro Vintage:</strong> Nostalgia con texturas clásicas
+                    </div>
+                    <div class="list-group-item">
+                        <span class="theme-preview preview-artdeco me-2"></span>
+                        <strong>Art Deco Luxury:</strong> Elegancia con toques dorados
+                    </div>
+                    <div class="list-group-item">
+                        <span class="theme-preview preview-brutalist me-2"></span>
+                        <strong>Brutalist Bold:</strong> Diseño audaz y experimental
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-5 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5><i class="fas fa-palette me-2"></i>Temas Bootstrap</h5>
+                    <p>Una colección completa de 8 temas únicos y modernos para Bootstrap 5, cada uno con su propia personalidad visual.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Categorías</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-light-50">Modernos (3)</a></li>
+                        <li><a href="#" class="text-light-50">Futuristas (1)</a></li>
+                        <li><a href="#" class="text-light-50">Clásicos (3)</a></li>
+                        <li><a href="#" class="text-light-50">Experimentales (1)</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Enlaces</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-light-50">Documentación</a></li>
+                        <li><a href="#" class="text-light-50">Descargar ZIP</a></li>
+                        <li><a href="#" class="text-light-50">GitHub Repository</a></li>
+                        <li><a href="#" class="text-light-50">Soporte</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <p>&copy; 2024 Colección de Temas Bootstrap. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- JavaScript para cambio de temas -->
+    <script>
+        function toggleThemeSelector() {
+            const selector = document.getElementById('themeSelector');
+            selector.style.display = selector.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function changeTheme(themeName, element) {
+            // Cambiar el CSS del tema
+            const themeLink = document.getElementById('theme-css');
+            themeLink.href = `themes/${themeName}.css`;
+            
+            // Actualizar clase activa
+            document.querySelectorAll('.theme-option').forEach(option => {
+                option.classList.remove('active');
+            });
+            element.classList.add('active');
+            
+            // Guardar preferencia en localStorage
+            localStorage.setItem('selectedTheme', themeName);
+            
+            // Mostrar notificación
+            showThemeNotification(getThemeDisplayName(themeName));
+        }
+
+        function getThemeDisplayName(themeName) {
+            const names = {
+                'modern-gradient': 'Modern Gradient',
+                'glassmorphism-pro': 'Glassmorphism Pro',
+                'cyberpunk-neon': 'Cyberpunk Neon',
+                'neumorphism-soft': 'Neumorphism Soft',
+                'minimalist-clean': 'Minimalist Clean',
+                'retro-vintage': 'Retro Vintage',
+                'art-deco-luxury': 'Art Deco Luxury',
+                'brutalist-bold': 'Brutalist Bold'
+            };
+            return names[themeName] || themeName;
+        }
+
+        function showThemeNotification(themeName) {
+            // Crear notificación temporal
+            const notification = document.createElement('div');
+            notification.className = 'alert alert-success position-fixed';
+            notification.style.cssText = `
+                top: 90px;
+                right: 20px;
+                z-index: 1060;
+                min-width: 280px;
+                animation: slideInRight 0.5s ease-out;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            `;
+            notification.innerHTML = `
+                <i class="fas fa-check-circle me-2"></i>
+                <strong>Tema aplicado:</strong> ${themeName}
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // Remover después de 3 segundos
+            setTimeout(() => {
+                notification.style.animation = 'slideOutRight 0.5s ease-in';
+                setTimeout(() => {
+                    if (document.body.contains(notification)) {
+                        document.body.removeChild(notification);
+                    }
+                }, 500);
+            }, 3000);
+        }
+
+        // Cargar tema guardado al iniciar
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedTheme = localStorage.getItem('selectedTheme');
+            if (savedTheme) {
+                const themeLink = document.getElementById('theme-css');
+                themeLink.href = `themes/${savedTheme}.css`;
+                
+                // Actualizar clase activa
+                document.querySelectorAll('.theme-option').forEach(option => {
+                    option.classList.remove('active');
+                });
+                
+                const activeOption = document.querySelector(`[onclick*="${savedTheme}"]`);
+                if (activeOption) {
+                    activeOption.classList.add('active');
+                }
+            }
+        });
+
+        // Cerrar selector al hacer clic fuera
+        document.addEventListener('click', function(event) {
+            const selector = document.getElementById('themeSelector');
+            const toggleButton = document.querySelector('.toggle-selector');
+            
+            if (!selector.contains(event.target) && !toggleButton.contains(event.target)) {
+                selector.style.display = 'none';
+            }
+        });
+
+        // Scroll suave para navegación
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href && href !== '#' && href.length > 1) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Animaciones CSS adicionales
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideInRight {
+                from { opacity: 0; transform: translateX(50px); }
+                to { opacity: 1; transform: translateX(0); }
+            }
+            
+            @keyframes slideOutRight {
+                from { opacity: 1; transform: translateX(0); }
+                to { opacity: 0; transform: translateX(50px); }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Inicializar tooltips y popovers
+        document.addEventListener('DOMContentLoaded', function() {
+            // Inicializar tooltips
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+            var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl);
+            });
+
+            // Inicializar popovers
+            var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+            var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+                return new bootstrap.Popover(popoverTriggerEl);
+            });
+        });
+
+        // Función para mostrar toasts
+        function showToast(type) {
+            const toastContainer = document.getElementById('toastContainer');
+            const toastId = 'toast-' + Date.now();
+            
+            const toastTypes = {
+                success: { icon: 'fas fa-check-circle', title: 'Éxito', message: 'Operación completada correctamente', class: 'text-success' },
+                warning: { icon: 'fas fa-exclamation-triangle', title: 'Advertencia', message: 'Revisa la información proporcionada', class: 'text-warning' },
+                error: { icon: 'fas fa-times-circle', title: 'Error', message: 'Ha ocurrido un error inesperado', class: 'text-danger' },
+                info: { icon: 'fas fa-info-circle', title: 'Información', message: 'Información importante para el usuario', class: 'text-info' }
+            };
+            
+            const toast = toastTypes[type];
+            
+            const toastHTML = `
+                <div id="${toastId}" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header">
+                        <i class="${toast.icon} ${toast.class} me-2"></i>
+                        <strong class="me-auto">${toast.title}</strong>
+                        <small>ahora</small>
+                        <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+                    </div>
+                    <div class="toast-body">
+                        ${toast.message}
+                    </div>
+                </div>
+            `;
+            
+            toastContainer.insertAdjacentHTML('beforeend', toastHTML);
+            const toastElement = document.getElementById(toastId);
+            const bsToast = new bootstrap.Toast(toastElement);
+            bsToast.show();
+            
+            // Remover el toast del DOM después de que se oculte
+            toastElement.addEventListener('hidden.bs.toast', function() {
+                toastElement.remove();
+            });
+        }
+
+        // Hacer la función global
+        window.showToast = showToast;
+    </script>
+</body>
+</html>

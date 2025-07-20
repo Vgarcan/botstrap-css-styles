@@ -1,0 +1,900 @@
+/* ========================================
+   TEMA MINIMALIST CLEAN - BOOTSTRAP
+   ======================================== */
+
+/* Variables CSS del Tema */
+:root {
+  --primary-color: #2c3e50;
+  --secondary-color: #95a5a6;
+  --accent-color: #3498db;
+  --success-color: #27ae60;
+  --warning-color: #f39c12;
+  --danger-color: #e74c3c;
+  --light-gray: #ecf0f1;
+  --medium-gray: #bdc3c7;
+  --dark-gray: #34495e;
+  
+  --border-radius: 4px;
+  --shadow-subtle: 0 1px 3px rgba(0,0,0,0.1);
+  --shadow-medium: 0 4px 12px rgba(0,0,0,0.1);
+  --transition: all 0.2s ease;
+  --spacing-unit: 8px;
+}
+
+/* Animaciones Minimalistas */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Estilos Base */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #ffffff;
+  color: var(--primary-color);
+  line-height: 1.6;
+  font-weight: 400;
+  min-height: 100vh;
+}
+
+/* Tipografía */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: calc(var(--spacing-unit) * 2);
+}
+
+p {
+  margin-bottom: var(--spacing-unit);
+  color: var(--dark-gray);
+}
+
+/* Botones Minimalistas */
+.btn {
+  border-radius: var(--border-radius);
+  font-weight: 500;
+  padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 3);
+  transition: var(--transition);
+  border: 1px solid transparent;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn:focus {
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+  outline: none;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-medium);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn-primary {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #1a252f;
+  border-color: #1a252f;
+  color: white;
+}
+
+.btn-secondary {
+  background: transparent;
+  border-color: var(--medium-gray);
+  color: var(--dark-gray);
+}
+
+.btn-secondary:hover {
+  background: var(--light-gray);
+  border-color: var(--secondary-color);
+  color: var(--primary-color);
+}
+
+.btn-outline-primary {
+  background: transparent;
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+}
+
+.btn-outline-primary:hover {
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+  color: white;
+}
+
+.btn-success {
+  background: var(--success-color);
+  border-color: var(--success-color);
+  color: white;
+}
+
+.btn-warning {
+  background: var(--warning-color);
+  border-color: var(--warning-color);
+  color: white;
+}
+
+.btn-danger {
+  background: var(--danger-color);
+  border-color: var(--danger-color);
+  color: white;
+}
+
+/* Cards Minimalistas */
+.card {
+  border: 1px solid #e9ecef;
+  border-radius: calc(var(--border-radius) * 2);
+  box-shadow: var(--shadow-subtle);
+  transition: var(--transition);
+  background: white;
+  animation: slideUp 0.4s ease-out;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+  border-color: #dee2e6;
+}
+
+.card-header {
+  background: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+  padding: calc(var(--spacing-unit) * 2.5);
+  font-weight: 600;
+  color: var(--primary-color);
+  border-radius: calc(var(--border-radius) * 2) calc(var(--border-radius) * 2) 0 0;
+}
+
+.card-body {
+  padding: calc(var(--spacing-unit) * 3);
+}
+
+.card-title {
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: calc(var(--spacing-unit) * 1.5);
+}
+
+.card-text {
+  color: var(--dark-gray);
+  line-height: 1.6;
+}
+
+/* Navegación Minimalista */
+.navbar {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #e9ecef;
+  box-shadow: var(--shadow-subtle);
+  padding: calc(var(--spacing-unit) * 2) 0;
+}
+
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--primary-color) !important;
+  letter-spacing: -0.5px;
+}
+
+.nav-link {
+  color: var(--dark-gray) !important;
+  font-weight: 500;
+  padding: calc(var(--spacing-unit) * 1) calc(var(--spacing-unit) * 2) !important;
+  transition: var(--transition);
+  position: relative;
+}
+
+.nav-link:hover {
+  color: var(--accent-color) !important;
+}
+
+.nav-link:before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--accent-color);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-link:hover:before {
+  width: 80%;
+}
+
+/* Formularios Minimalistas */
+.form-control {
+  border: 1px solid #dee2e6;
+  border-radius: var(--border-radius);
+  padding: calc(var(--spacing-unit) * 1.5);
+  transition: var(--transition);
+  font-size: 14px;
+  background: white;
+}
+
+.form-control:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+  outline: none;
+}
+
+.form-label {
+  font-weight: 500;
+  color: var(--primary-color);
+  margin-bottom: calc(var(--spacing-unit) * 0.75);
+  font-size: 14px;
+}
+
+.form-select {
+  border: 1px solid #dee2e6;
+  border-radius: var(--border-radius);
+  padding: calc(var(--spacing-unit) * 1.5);
+  transition: var(--transition);
+}
+
+.form-select:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+/* Alertas Minimalistas */
+.alert {
+  border: none;
+  border-radius: calc(var(--border-radius) * 2);
+  padding: calc(var(--spacing-unit) * 2);
+  margin-bottom: calc(var(--spacing-unit) * 2);
+  animation: slideUp 0.3s ease-out;
+  border-left: 4px solid;
+}
+
+.alert-primary {
+  background: rgba(52, 152, 219, 0.1);
+  border-left-color: var(--accent-color);
+  color: #2980b9;
+}
+
+.alert-success {
+  background: rgba(39, 174, 96, 0.1);
+  border-left-color: var(--success-color);
+  color: #1e8449;
+}
+
+.alert-warning {
+  background: rgba(243, 156, 18, 0.1);
+  border-left-color: var(--warning-color);
+  color: #d68910;
+}
+
+.alert-danger {
+  background: rgba(231, 76, 60, 0.1);
+  border-left-color: var(--danger-color);
+  color: #c0392b;
+}
+
+/* Tablas Minimalistas */
+.table {
+  background: white;
+  border-radius: calc(var(--border-radius) * 2);
+  overflow: hidden;
+  box-shadow: var(--shadow-subtle);
+}
+
+.table thead th {
+  background: #f8f9fa;
+  border-bottom: 2px solid #dee2e6;
+  font-weight: 600;
+  color: var(--primary-color);
+  padding: calc(var(--spacing-unit) * 2);
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.table tbody tr {
+  transition: var(--transition);
+  border-bottom: 1px solid #f1f3f4;
+}
+
+.table tbody tr:hover {
+  background: #f8f9fa;
+}
+
+.table tbody td {
+  padding: calc(var(--spacing-unit) * 2);
+  color: var(--dark-gray);
+  vertical-align: middle;
+}
+
+/* Progress Bars Minimalistas */
+.progress {
+  height: 8px;
+  background: #e9ecef;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  background: linear-gradient(90deg, var(--accent-color), #5dade2);
+  transition: width 0.6s ease;
+  border-radius: 4px;
+}
+
+/* Badges Minimalistas */
+.badge {
+  font-weight: 500;
+  padding: calc(var(--spacing-unit) * 0.75) calc(var(--spacing-unit) * 1.5);
+  border-radius: calc(var(--border-radius) * 3);
+  font-size: 12px;
+  letter-spacing: 0.5px;
+}
+
+.badge-primary {
+  background: var(--accent-color);
+  color: white;
+}
+
+.badge-success {
+  background: var(--success-color);
+  color: white;
+}
+
+.badge-warning {
+  background: var(--warning-color);
+  color: white;
+}
+
+.badge-danger {
+  background: var(--danger-color);
+  color: white;
+}
+
+.badge-secondary {
+  background: var(--medium-gray);
+  color: white;
+}
+
+/* Lista Group Minimalista */
+.list-group {
+  border-radius: calc(var(--border-radius) * 2);
+  overflow: hidden;
+  box-shadow: var(--shadow-subtle);
+}
+
+.list-group-item {
+  border: none;
+  border-bottom: 1px solid #f1f3f4;
+  padding: calc(var(--spacing-unit) * 2);
+  transition: var(--transition);
+  background: white;
+}
+
+.list-group-item:hover {
+  background: #f8f9fa;
+  transform: translateX(4px);
+}
+
+.list-group-item:last-child {
+  border-bottom: none;
+}
+
+/* Modales Minimalistas */
+.modal-content {
+  border: none;
+  border-radius: calc(var(--border-radius) * 3);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+  animation: scaleIn 0.3s ease-out;
+}
+
+.modal-header {
+  border-bottom: 1px solid #e9ecef;
+  padding: calc(var(--spacing-unit) * 3);
+}
+
+.modal-title {
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.modal-body {
+  padding: calc(var(--spacing-unit) * 3);
+}
+
+.modal-footer {
+  border-top: 1px solid #e9ecef;
+  padding: calc(var(--spacing-unit) * 3);
+}
+
+/* Utilidades */
+.shadow-subtle {
+  box-shadow: var(--shadow-subtle) !important;
+}
+
+.shadow-medium {
+  box-shadow: var(--shadow-medium) !important;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.4s ease-out;
+}
+
+.text-muted {
+  color: var(--secondary-color) !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .card-body {
+    padding: calc(var(--spacing-unit) * 2);
+  }
+  
+  .btn {
+    padding: calc(var(--spacing-unit) * 1.25) calc(var(--spacing-unit) * 2.5);
+    font-size: 13px;
+  }
+}
+
+/* Breadcrumbs Minimalist */
+.breadcrumb {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: calc(var(--border-radius) * 2);
+  padding: calc(var(--spacing-unit) * 2);
+  margin-bottom: calc(var(--spacing-unit) * 3);
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  content: "›";
+  color: var(--medium-gray);
+  font-weight: 500;
+}
+
+.breadcrumb-item a {
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.breadcrumb-item a:hover {
+  color: #2980b9;
+  text-decoration: underline;
+}
+
+.breadcrumb-item.active {
+  color: var(--dark-gray);
+  font-weight: 600;
+}
+
+/* Paginación Minimalist */
+.pagination {
+  gap: calc(var(--spacing-unit) * 0.5);
+}
+
+.page-link {
+  background: white;
+  border: 1px solid #dee2e6;
+  border-radius: var(--border-radius);
+  color: var(--dark-gray);
+  font-weight: 500;
+  padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 2);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.page-link:hover {
+  background: var(--light-gray);
+  border-color: var(--medium-gray);
+  color: var(--primary-color);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-medium);
+}
+
+.page-item.active .page-link {
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+  color: white;
+  font-weight: 600;
+}
+
+.page-item.disabled .page-link {
+  background: #f8f9fa;
+  border-color: #e9ecef;
+  color: var(--medium-gray);
+  cursor: not-allowed;
+}
+
+/* Pills Minimalist */
+.nav-pills .nav-link {
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: calc(var(--border-radius) * 3);
+  color: var(--dark-gray);
+  font-weight: 500;
+  margin: 0 calc(var(--spacing-unit) * 0.5);
+  padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 3);
+  transition: var(--transition);
+}
+
+.nav-pills .nav-link:hover {
+  background: var(--light-gray);
+  color: var(--primary-color);
+  transform: translateY(-1px);
+}
+
+.nav-pills .nav-link.active {
+  background: var(--accent-color);
+  color: white;
+  font-weight: 600;
+  box-shadow: var(--shadow-medium);
+}
+
+/* Tabs Minimalist */
+.nav-tabs {
+  border-bottom: 2px solid #e9ecef;
+  margin-bottom: calc(var(--spacing-unit) * 3);
+}
+
+.nav-tabs .nav-link {
+  background: transparent;
+  border: 1px solid transparent;
+  border-bottom: none;
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+  color: var(--dark-gray);
+  font-weight: 500;
+  margin-bottom: -2px;
+  padding: calc(var(--spacing-unit) * 2) calc(var(--spacing-unit) * 3);
+  transition: var(--transition);
+}
+
+.nav-tabs .nav-link:hover {
+  background: #f8f9fa;
+  border-color: #e9ecef #e9ecef transparent;
+  color: var(--accent-color);
+}
+
+.nav-tabs .nav-link.active {
+  background: white;
+  border-color: #e9ecef #e9ecef transparent;
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.tab-content {
+  background: white;
+  border: 1px solid #e9ecef;
+  border-top: none;
+  border-radius: 0 0 calc(var(--border-radius) * 2) calc(var(--border-radius) * 2);
+  padding: calc(var(--spacing-unit) * 3);
+}
+
+.tab-pane {
+  color: var(--dark-gray);
+  line-height: 1.6;
+}
+
+/* Modales Minimalist */
+.modal-content {
+  border: none;
+  border-radius: calc(var(--border-radius) * 3);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+  overflow: hidden;
+}
+
+.modal-header {
+  background: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+  padding: calc(var(--spacing-unit) * 3);
+}
+
+.modal-title {
+  color: var(--primary-color);
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+.modal-body {
+  color: var(--dark-gray);
+  padding: calc(var(--spacing-unit) * 3);
+  line-height: 1.6;
+}
+
+.modal-footer {
+  background: #f8f9fa;
+  border-top: 1px solid #e9ecef;
+  padding: calc(var(--spacing-unit) * 3);
+}
+
+.btn-close {
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  opacity: 0.6;
+  padding: calc(var(--spacing-unit) * 1);
+  transition: var(--transition);
+}
+
+.btn-close:hover {
+  background: #e9ecef;
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* Acordeón Minimalist */
+.accordion {
+  border: 1px solid #e9ecef;
+  border-radius: calc(var(--border-radius) * 2);
+  overflow: hidden;
+  box-shadow: var(--shadow-subtle);
+}
+
+.accordion-item {
+  background: white;
+  border: none;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.accordion-item:last-child {
+  border-bottom: none;
+}
+
+.accordion-button {
+  background: white;
+  border: none;
+  color: var(--primary-color);
+  font-weight: 600;
+  padding: calc(var(--spacing-unit) * 3);
+  transition: var(--transition);
+}
+
+.accordion-button:not(.collapsed) {
+  background: #f8f9fa;
+  box-shadow: none;
+  color: var(--accent-color);
+}
+
+.accordion-button:hover {
+  background: #f8f9fa;
+  color: var(--accent-color);
+}
+
+.accordion-button::after {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%233498db'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+.accordion-body {
+  background: white;
+  color: var(--dark-gray);
+  padding: calc(var(--spacing-unit) * 3);
+  line-height: 1.6;
+}
+
+/* Dropdown Minimalist */
+.dropdown-menu {
+  background: white;
+  border: 1px solid #e9ecef;
+  border-radius: calc(var(--border-radius) * 2);
+  box-shadow: var(--shadow-medium);
+  padding: calc(var(--spacing-unit) * 1);
+}
+
+.dropdown-item {
+  border-radius: var(--border-radius);
+  color: var(--dark-gray);
+  font-weight: 500;
+  margin-bottom: 2px;
+  padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 2);
+  transition: var(--transition);
+}
+
+.dropdown-item:hover {
+  background: var(--light-gray);
+  color: var(--accent-color);
+  transform: translateX(4px);
+}
+
+.dropdown-header {
+  color: var(--medium-gray);
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.dropdown-divider {
+  border-color: #e9ecef;
+  margin: calc(var(--spacing-unit) * 1) 0;
+}
+
+/* Offcanvas Minimalist */
+.offcanvas {
+  background: white;
+  border: 1px solid #e9ecef;
+  box-shadow: var(--shadow-medium);
+}
+
+.offcanvas-header {
+  background: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+  color: var(--primary-color);
+  padding: calc(var(--spacing-unit) * 3);
+}
+
+.offcanvas-title {
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+.offcanvas-body {
+  color: var(--dark-gray);
+  padding: calc(var(--spacing-unit) * 3);
+}
+
+/* Carrusel Minimalist */
+.carousel {
+  border-radius: calc(var(--border-radius) * 2);
+  box-shadow: var(--shadow-medium);
+  overflow: hidden;
+}
+
+.carousel-inner {
+  border-radius: calc(var(--border-radius) * 2);
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #e9ecef;
+  border-radius: 50%;
+  height: 50px;
+  margin: auto 20px;
+  transition: var(--transition);
+  width: 50px;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  background: white;
+  box-shadow: var(--shadow-medium);
+  transform: scale(1.1);
+}
+
+.carousel-indicators [data-bs-target] {
+  background-color: rgba(44, 62, 80, 0.4);
+  border: none;
+  border-radius: 50%;
+  height: 12px;
+  transition: var(--transition);
+  width: 12px;
+}
+
+.carousel-indicators .active {
+  background-color: var(--accent-color);
+  transform: scale(1.2);
+}
+
+/* Toast Minimalist */
+.toast {
+  background: white;
+  border: 1px solid #e9ecef;
+  border-radius: calc(var(--border-radius) * 2);
+  box-shadow: var(--shadow-medium);
+}
+
+.toast-header {
+  background: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.toast-body {
+  color: var(--dark-gray);
+  line-height: 1.6;
+}
+
+/* Spinners Minimalist */
+.spinner-border,
+.spinner-grow {
+  color: var(--accent-color);
+}
+
+.spinner-border {
+  border-color: rgba(52, 152, 219, 0.2);
+  border-top-color: var(--accent-color);
+}
+
+/* Placeholders Minimalist */
+.placeholder {
+  background: linear-gradient(90deg, #f1f3f4, #e9ecef, #f1f3f4);
+  background-size: 200% 100%;
+  animation: placeholder-wave 2s linear infinite;
+}
+
+@keyframes placeholder-wave {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Input Groups Minimalist */
+.input-group-text {
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  color: var(--dark-gray);
+  font-weight: 500;
+}
+
+.input-group .form-control {
+  border-color: #dee2e6;
+}
+
+.input-group .btn {
+  border-color: #dee2e6;
+}
+
+/* Form Check Minimalist */
+.form-check-input {
+  background-color: white;
+  border: 2px solid #dee2e6;
+  transition: var(--transition);
+}
+
+.form-check-input:checked {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+.form-check-input:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+.form-check-label {
+  color: var(--dark-gray);
+  font-weight: 500;
+}
+
+/* Form Select Minimalist */
+.form-select {
+  background: white;
+  border: 1px solid #dee2e6;
+  border-radius: var(--border-radius);
+  color: var(--dark-gray);
+  transition: var(--transition);
+}
+
+.form-select:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+  color: var(--dark-gray);
+}
+
+.form-select option {
+  background: white;
+  color: var(--dark-gray);
+}

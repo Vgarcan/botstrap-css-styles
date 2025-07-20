@@ -1,0 +1,986 @@
+/* ========================================
+   TEMA BRUTALIST BOLD - BOOTSTRAP
+   ======================================== */
+
+/* Variables CSS del Tema */
+:root {
+  --brutal-black: #000000;
+  --brutal-white: #ffffff;
+  --brutal-red: #ff0000;
+  --brutal-blue: #0000ff;
+  --brutal-yellow: #ffff00;
+  --brutal-green: #00ff00;
+  --brutal-purple: #ff00ff;
+  --brutal-orange: #ff8800;
+  
+  --border-brutal: 4px solid var(--brutal-black);
+  --shadow-brutal: 8px 8px 0px var(--brutal-black);
+  --shadow-brutal-hover: 12px 12px 0px var(--brutal-black);
+  --transition-brutal: all 0.1s ease;
+}
+
+/* Animaciones Brutalist */
+@keyframes brutalShake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px) rotate(-1deg); }
+  75% { transform: translateX(5px) rotate(1deg); }
+}
+
+@keyframes brutalPop {
+  0% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.1) rotate(2deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+@keyframes brutalSlide {
+  0% { transform: translateX(-100px) rotate(-5deg); opacity: 0; }
+  100% { transform: translateX(0) rotate(0deg); opacity: 1; }
+}
+
+@keyframes brutalBlink {
+  0%, 50% { background: var(--brutal-yellow); }
+  51%, 100% { background: var(--brutal-red); }
+}
+
+/* Estilos Base */
+body {
+  font-family: 'Arial Black', Arial, sans-serif;
+  background: var(--brutal-white);
+  color: var(--brutal-black);
+  line-height: 1.2;
+  min-height: 100vh;
+  font-weight: 900;
+}
+
+/* Tipografía Brutalist */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Arial Black', Arial, sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  text-shadow: 3px 3px 0px var(--brutal-black);
+}
+
+h1 {
+  font-size: 4rem;
+  transform: rotate(-2deg);
+}
+
+h2 {
+  font-size: 3rem;
+  transform: rotate(1deg);
+}
+
+/* Botones Brutalist */
+.btn {
+  background: var(--brutal-yellow);
+  border: var(--border-brutal);
+  border-radius: 0;
+  box-shadow: var(--shadow-brutal);
+  color: var(--brutal-black);
+  font-family: 'Arial Black', Arial, sans-serif;
+  font-weight: 900;
+  font-size: 16px;
+  padding: 15px 25px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: var(--transition-brutal);
+  position: relative;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: var(--brutal-red);
+  color: var(--brutal-white);
+  box-shadow: var(--shadow-brutal-hover);
+  transform: translateY(-3px) rotate(1deg);
+  animation: brutalShake 0.5s ease-in-out;
+}
+
+.btn:active {
+  box-shadow: 4px 4px 0px var(--brutal-black);
+  transform: translateY(2px);
+}
+
+.btn-primary {
+  background: var(--brutal-blue);
+  color: var(--brutal-white);
+}
+
+.btn-primary:hover {
+  background: var(--brutal-purple);
+  color: var(--brutal-white);
+}
+
+.btn-secondary {
+  background: var(--brutal-black);
+  color: var(--brutal-white);
+}
+
+.btn-secondary:hover {
+  background: var(--brutal-white);
+  color: var(--brutal-black);
+}
+
+.btn-success {
+  background: var(--brutal-green);
+  color: var(--brutal-black);
+}
+
+.btn-warning {
+  background: var(--brutal-orange);
+  color: var(--brutal-black);
+}
+
+.btn-danger {
+  background: var(--brutal-red);
+  color: var(--brutal-white);
+}
+
+/* Cards Brutalist */
+.card {
+  background: var(--brutal-white);
+  border: var(--border-brutal);
+  border-radius: 0;
+  box-shadow: var(--shadow-brutal);
+  margin: 20px 0;
+  transform: rotate(-1deg);
+  transition: var(--transition-brutal);
+  animation: brutalSlide 0.5s ease-out;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-brutal-hover);
+  transform: rotate(1deg) translateY(-5px);
+  animation: brutalPop 0.3s ease-in-out;
+}
+
+.card:nth-child(even) {
+  transform: rotate(1deg);
+}
+
+.card:nth-child(even):hover {
+  transform: rotate(-1deg) translateY(-5px);
+}
+
+.card-header {
+  background: var(--brutal-black);
+  border: none;
+  border-bottom: var(--border-brutal);
+  color: var(--brutal-white);
+  font-family: 'Arial Black', Arial, sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 20px;
+}
+
+.card-body {
+  padding: 25px;
+  font-weight: 700;
+}
+
+/* Navegación Brutalist */
+.navbar {
+  background: var(--brutal-yellow) !important;
+  border: none;
+  border-bottom: var(--border-brutal);
+  box-shadow: 0 8px 0px var(--brutal-black);
+  padding: 20px 0;
+}
+
+.navbar-brand {
+  color: var(--brutal-black) !important;
+  font-family: 'Arial Black', Arial, sans-serif;
+  font-weight: 900;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 3px 3px 0px var(--brutal-white);
+  transform: rotate(-2deg);
+}
+
+.nav-link {
+  background: var(--brutal-white);
+  border: 3px solid var(--brutal-black);
+  color: var(--brutal-black) !important;
+  font-family: 'Arial Black', Arial, sans-serif;
+  font-weight: 900;
+  margin: 0 5px;
+  padding: 10px 20px !important;
+  text-transform: uppercase;
+  transition: var(--transition-brutal);
+  box-shadow: 4px 4px 0px var(--brutal-black);
+}
+
+.nav-link:hover {
+  background: var(--brutal-red);
+  color: var(--brutal-white) !important;
+  transform: translateY(-2px) rotate(1deg);
+  box-shadow: 6px 6px 0px var(--brutal-black);
+}
+
+/* Formularios Brutalist */
+.form-control {
+  background: var(--brutal-white);
+  border: var(--border-brutal);
+  border-radius: 0;
+  box-shadow: inset 4px 4px 0px rgba(0,0,0,0.2);
+  color: var(--brutal-black);
+  font-family: 'Arial Black', Arial, sans-serif;
+  font-weight: 700;
+  padding: 15px;
+  transition: var(--transition-brutal);
+}
+
+.form-control:focus {
+  background: var(--brutal-yellow);
+  border-color: var(--brutal-black);
+  box-shadow: inset 6px 6px 0px rgba(0,0,0,0.3), 0 0 0 4px var(--brutal-red);
+  color: var(--brutal-black);
+  outline: none;
+}
+
+.form-control::placeholder {
+  color: rgba(0,0,0,0.5);
+  font-weight: 700;
+}
+
+.form-label {
+  color: var(--brutal-black);
+  font-family: 'Arial Black', Arial, sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+/* Alertas Brutalist */
+.alert {
+  background: var(--brutal-white);
+  border: var(--border-brutal);
+  border-radius: 0;
+  box-shadow: var(--shadow-brutal);
+  color: var(--brutal-black);
+  font-weight: 700;
+  margin: 20px 0;
+  padding: 20px;
+  transform: rotate(-1deg);
+  animation: brutalSlide 0.3s ease-out;
+}
+
+.alert-primary {
+  background: var(--brutal-blue);
+  color: var(--brutal-white);
+}
+
+.alert-success {
+  background: var(--brutal-green);
+  color: var(--brutal-black);
+}
+
+.alert-warning {
+  background: var(--brutal-yellow);
+  color: var(--brutal-black);
+  animation: brutalBlink 2s infinite;
+}
+
+.alert-danger {
+  background: var(--brutal-red);
+  color: var(--brutal-white);
+}
+
+/* Tablas Brutalist */
+.table {
+  background: var(--brutal-white);
+  border: var(--border-brutal);
+  border-radius: 0;
+  box-shadow: var(--shadow-brutal);
+  color: var(--brutal-black);
+  font-weight: 700;
+}
+
+.table thead th {
+  background: var(--brutal-black);
+  border: 3px solid var(--brutal-white);
+  color: var(--brutal-white);
+  font-family: 'Arial Black', Arial, sans-serif;
+  font-weight: 900;
+  padding: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.table tbody tr {
+  border-bottom: 3px solid var(--brutal-black);
+  transition: var(--transition-brutal);
+}
+
+.table tbody tr:hover {
+  background: var(--brutal-yellow);
+  transform: scale(1.02);
+}
+
+.table tbody td {
+  border: 2px solid var(--brutal-black);
+  padding: 15px;
+  font-weight: 700;
+}
+
+/* Progress Bars Brutalist */
+.progress {
+  background: var(--brutal-white);
+  border: var(--border-brutal);
+  border-radius: 0;
+  box-shadow: inset 4px 4px 0px rgba(0,0,0,0.2);
+  height: 30px;
+}
+
+.progress-bar {
+  background: var(--brutal-red);
+  border-radius: 0;
+  box-shadow: inset -4px -4px 0px rgba(0,0,0,0.3);
+  font-weight: 900;
+  color: var(--brutal-white);
+  text-shadow: 2px 2px 0px var(--brutal-black);
+}
+
+/* Badges Brutalist */
+.badge {
+  background: var(--brutal-black);
+  border: 3px solid var(--brutal-white);
+  border-radius: 0;
+  box-shadow: 4px 4px 0px var(--brutal-red);
+  color: var(--brutal-white);
+  font-family: 'Arial Black', Arial, sans-serif;
+  font-weight: 900;
+  padding: 8px 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transform: rotate(-2deg);
+}
+
+.badge-primary {
+  background: var(--brutal-blue);
+  box-shadow: 4px 4px 0px var(--brutal-yellow);
+}
+
+.badge-success {
+  background: var(--brutal-green);
+  color: var(--brutal-black);
+  box-shadow: 4px 4px 0px var(--brutal-black);
+}
+
+.badge-warning {
+  background: var(--brutal-orange);
+  color: var(--brutal-black);
+  box-shadow: 4px 4px 0px var(--brutal-black);
+}
+
+.badge-danger {
+  background: var(--brutal-red);
+  box-shadow: 4px 4px 0px var(--brutal-black);
+}
+
+/* Lista Group Brutalist */
+.list-group {
+  border: var(--border-brutal);
+  border-radius: 0;
+  box-shadow: var(--shadow-brutal);
+  overflow: hidden;
+}
+
+.list-group-item {
+  background: var(--brutal-white);
+  border: none;
+  border-bottom: 3px solid var(--brutal-black);
+  color: var(--brutal-black);
+  font-weight: 700;
+  padding: 20px;
+  transition: var(--transition-brutal);
+}
+
+.list-group-item:hover {
+  background: var(--brutal-yellow);
+  transform: translateX(10px);
+  box-shadow: inset 8px 0px 0px var(--brutal-red);
+}
+
+.list-group-item:last-child {
+  border-bottom: none;
+}
+
+/* Utilidades Brutalist */
+.brutal-rotate-left {
+  transform: rotate(-2deg);
+}
+
+.brutal-rotate-right {
+  transform: rotate(2deg);
+}
+
+.brutal-shake {
+  animation: brutalShake 0.5s ease-in-out infinite;
+}
+
+.brutal-pop {
+  animation: brutalPop 0.3s ease-in-out;
+}
+
+.brutal-blink {
+  animation: brutalBlink 1s infinite;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+  
+  h2 {
+    font-size: 2rem;
+  }
+  
+  .navbar-brand {
+    font-size: 1.8rem;
+  }
+  
+  .btn {
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+}
+
+/* Breadcrumbs Brutalist */
+.breadcrumb {
+  background: var(--brutal-white);
+  border: var(--border-brutal);
+  border-radius: 0;
+  box-shadow: var(--shadow-brutal);
+  font-family: 'Arial Black', Arial, sans-serif;
+  font-weight: 900;
+  padding: 15px 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transform: rotate(-1deg);
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  content: "▶▶";
+  color: var(--brutal-red);
+  font-weight: 900;
+  margin: 0 10px;
+  text-shadow: 2px 2px 0px var(--brutal-black);
+}
+
+.breadcrumb-item a {
+  color: var(--brutal-black);
+  text-decoration: none;
+  font-weight: 900;
+  transition: var(--transition-brutal);
+  text-shadow: 1px 1px 0px var(--brutal-white);
+}
+
+.breadcrumb-item a:hover {
+  color: var(--brutal-red);
+  text-shadow: 2px 2px 0px var(--brutal-black);
+  animation: brutalShake 0.5s ease-in-out;
+  transform: scale(1.1);
+}
+
+.breadcrumb-item.active {
+  color: var(--brutal-red);
+  font-weight: 900;
+  text-shadow: 2px 2px 0px var(--brutal-black);
+}
+
+/* Paginación Brutalist */
+.pagination {
+  gap: 15px;
+}
+
+.page-link {
+  background: var(--brutal-yellow);
+  border: var(--border-brutal);
+  border-radius: 0;
+  box-shadow: var(--shadow-brutal);
+  color: var(--brutal-black);
+  font-family: 'Arial Black', Arial, sans-serif;
+  font-weight: 900;
+  font-size: 16px;
+  padding: 15px 20px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: var(--transition-brutal);
+}
+
+.page-link:hover {
+  background: var(--brutal-red);
+  color: var(--brutal-white);
+  box-shadow: var(--shadow-brutal-hover);
+  transform: translateY(-3px) rotate(2deg);
+  animation: brutalPop 0.3s ease-in-out;
+}
+
+.page-link:active {
+  box-shadow: 4px 4px 0px var(--brutal-black);
+  transform: translateY(2px);
+}
+
+.page-item.active .page-link {
+  background: var(--brutal-blue);
+  color: var(--brutal-white);
+  box-shadow: var(--shadow-brutal-hover);
+  animation: brutalBlink 2s infinite;
+}
+
+.page-item.disabled .page-link {
+  background: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
+  box-shadow: 2px 2px 0px var(--brutal-black);
+}
+
+/* Pills Brutalist */
+.nav-pills .nav-link {
+  background: var(--brutal-white);
+  border: 3px solid var(--brutal-black);
+  border-radius: 0;
+  box-shadow: 4px 4px 0px var(--brutal-black);
+  color: var(--brutal-black);
+  font-family: 'Arial Black', Arial, sans-serif;
+  font-weight: 900;
+  margin: 0 8px;
+  padding: 12px 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: var(--transition-brutal);
+  transform: rotate(1deg);
+}
+
+.nav-pills .nav-link:hover {
+  background: var(--brutal-yellow);
+  color: var(--brutal-black);
+  transform: translateY(-2px) rotate(-1deg);
+  box-shadow: 6px 6px 0px var(--brutal-black);
+  animation: brutalShake 0.3s ease-in-out;
+}
+
+.nav-pills .nav-link.active {
+  background: var(--brutal-red);
+  color: var(--brutal-white);
+  transform: rotate(-2deg);
+  animation: brutalPop 0.5s ease-in-out infinite;
+}
+
+/* Tabs Brutalist */
+.nav-tabs {
+  background: var(--brutal-yellow);
+  border-bottom: 5px solid var(--brutal-black);
+  padding: 10px;
+  transform: rotate(-1deg);
+}
+
+.nav-tabs .nav-link {
+  background: var(--brutal-white);
+  border: 3px solid var(--brutal-black);
+  border-bottom: none;
+  border-radius: 0;
+  color: var(--brutal-black);
+  font-family: 'Arial Black', Arial, sans-serif;
+  font-weight: 900;
+  margin-bottom: -5px;
+  padding: 15px 25px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: var(--transition-brutal);
+  transform: rotate(1deg);
+}
+
+.nav-tabs .nav-link:hover {
+  background: var(--brutal-yellow);
+  color: var(--brutal-black);
+  transform: translateY(-3px) rotate(-1deg);
+  animation: brutalShake 0.3s ease-in-out;
+}
+
+.nav-tabs .nav-link.active {
+  background: var(--brutal-red);
+  border-bottom-color: transparent;
+  color: var(--brutal-white);
+  font-weight: 900;
+  transform: rotate(0deg);
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.3);
+}
+
+.tab-content {
+  background: var(--brutal-white);
+  border: 3px solid var(--brutal-black);
+  border-top: none;
+  border-radius: 0;
+  box-shadow: var(--shadow-brutal);
+  transform: rotate(1deg);
+}
+
+.tab-pane {
+  color: var(--brutal-black);
+  font-family: 'Arial Black', Arial, sans-serif;
+  font-weight: 700;
+}
+
+/* Modales Brutalist */
+.modal-content {
+  background: var(--brutal-white);
+  border: 5px solid var(--brutal-black);
+  border-radius: 0;
+  box-shadow: 15px 15px 0px var(--brutal-black);
+  transform: rotate(-2deg);
+}
+
+.modal-header {
+  background: var(--brutal-red);
+  border-bottom: 3px solid var(--brutal-black);
+  border-radius: 0;
+  color: var(--brutal-white);
+  padding: 25px;
+}
+
+.modal-title {
+  font-family: 'Arial Black', Arial, sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 3px 3px 0px var(--brutal-black);
+}
+
+.modal-body {
+  color: var(--brutal-black);
+  font-family: 'Arial Black', Arial, sans-serif;
+  font-weight: 700;
+  padding: 25px;
+}
+
+.modal-footer {
+  background: var(--brutal-yellow);
+  border-top: 3px solid var(--brutal-black);
+  border-radius: 0;
+  padding: 25px;
+}
+
+.btn-close {
+  background: var(--brutal-red);
+  border: 3px solid var(--brutal-black);
+  border-radius: 0;
+  opacity: 1;
+  transition: var(--transition-brutal);
+  width: 40px;
+  height: 40px;
+}
+
+.btn-close:hover {
+  background: var(--brutal-yellow);
+  transform: scale(1.2) rotate(45deg);
+  animation: brutalShake 0.3s ease-in-out;
+}
+
+/* Acordeón Brutalist */
+.accordion {
+  border: 5px solid var(--brutal-black);
+  border-radius: 0;
+  box-shadow: var(--shadow-brutal);
+  overflow: hidden;
+  transform: rotate(1deg);
+}
+
+.accordion-item {
+  background: var(--brutal-white);
+  border: none;
+  border-bottom: 3px solid var(--brutal-black);
+}
+
+.accordion-item:last-child {
+  border-bottom: none;
+}
+
+.accordion-button {
+  background: var(--brutal-white);
+  border: none;
+  color: var(--brutal-black);
+  font-family: 'Arial Black', Arial, sans-serif;
+  font-weight: 900;
+  padding: 25px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: var(--transition-brutal);
+}
+
+.accordion-button:not(.collapsed) {
+  background: var(--brutal-red);
+  box-shadow: none;
+  color: var(--brutal-white);
+  text-shadow: 2px 2px 0px var(--brutal-black);
+}
+
+.accordion-button:hover {
+  background: var(--brutal-yellow);
+  color: var(--brutal-black);
+  animation: brutalShake 0.3s ease-in-out;
+  transform: translateX(5px);
+}
+
+.accordion-button::after {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000000'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+  filter: drop-shadow(2px 2px 0px var(--brutal-black));
+}
+
+.accordion-body {
+  background: var(--brutal-white);
+  color: var(--brutal-black);
+  font-family: 'Arial Black', Arial, sans-serif;
+  font-weight: 700;
+  padding: 25px;
+}
+
+/* Dropdown Brutalist */
+.dropdown-menu {
+  background: var(--brutal-white);
+  border: 3px solid var(--brutal-black);
+  border-radius: 0;
+  box-shadow: var(--shadow-brutal);
+  padding: 15px;
+  transform: rotate(-1deg);
+}
+
+.dropdown-item {
+  border-radius: 0;
+  color: var(--brutal-black);
+  font-family: 'Arial Black', Arial, sans-serif;
+  font-weight: 700;
+  margin-bottom: 3px;
+  padding: 12px 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: var(--transition-brutal);
+  border: 2px solid transparent;
+}
+
+.dropdown-item:hover {
+  background: var(--brutal-yellow);
+  border-color: var(--brutal-black);
+  color: var(--brutal-black);
+  transform: translateX(8px) rotate(1deg);
+  animation: brutalPop 0.2s ease-in-out;
+}
+
+.dropdown-header {
+  color: var(--brutal-red);
+  font-family: 'Arial Black', Arial, sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 0px var(--brutal-black);
+  border-bottom: 2px solid var(--brutal-black);
+  padding-bottom: 8px;
+  margin-bottom: 10px;
+}
+
+.dropdown-divider {
+  border: none;
+  height: 3px;
+  background: var(--brutal-black);
+  margin: 10px 0;
+}
+
+/* Offcanvas Brutalist */
+.offcanvas {
+  background: var(--brutal-white);
+  border: 5px solid var(--brutal-black);
+  box-shadow: var(--shadow-brutal);
+}
+
+.offcanvas-header {
+  background: var(--brutal-red);
+  border-bottom: 3px solid var(--brutal-black);
+  color: var(--brutal-white);
+  padding: 25px;
+}
+
+.offcanvas-title {
+  font-family: 'Arial Black', Arial, sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 3px 3px 0px var(--brutal-black);
+}
+
+.offcanvas-body {
+  color: var(--brutal-black);
+  font-family: 'Arial Black', Arial, sans-serif;
+  font-weight: 700;
+  padding: 25px;
+}
+
+/* Carrusel Brutalist */
+.carousel {
+  border: 5px solid var(--brutal-black);
+  border-radius: 0;
+  box-shadow: var(--shadow-brutal);
+  overflow: hidden;
+  transform: rotate(-1deg);
+}
+
+.carousel-inner {
+  border-radius: 0;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  background: var(--brutal-yellow);
+  border: 3px solid var(--brutal-black);
+  border-radius: 0;
+  height: 80px;
+  margin: auto 25px;
+  transition: var(--transition-brutal);
+  width: 80px;
+  box-shadow: var(--shadow-brutal);
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  background: var(--brutal-red);
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: var(--shadow-brutal-hover);
+  animation: brutalShake 0.3s ease-in-out;
+}
+
+.carousel-indicators [data-bs-target] {
+  background-color: var(--brutal-black);
+  border: 2px solid var(--brutal-white);
+  border-radius: 0;
+  height: 15px;
+  transition: var(--transition-brutal);
+  width: 15px;
+  transform: rotate(45deg);
+}
+
+.carousel-indicators .active {
+  background-color: var(--brutal-red);
+  border-color: var(--brutal-black);
+  transform: rotate(45deg) scale(1.3);
+  animation: brutalBlink 1s infinite;
+}
+
+/* Toast Brutalist */
+.toast {
+  background: var(--brutal-white);
+  border: 3px solid var(--brutal-black);
+  border-radius: 0;
+  box-shadow: var(--shadow-brutal);
+  transform: rotate(1deg);
+}
+
+.toast-header {
+  background: var(--brutal-yellow);
+  border-bottom: 2px solid var(--brutal-black);
+  color: var(--brutal-black);
+  font-family: 'Arial Black', Arial, sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.toast-body {
+  color: var(--brutal-black);
+  font-family: 'Arial Black', Arial, sans-serif;
+  font-weight: 700;
+}
+
+/* Spinners Brutalist */
+.spinner-border,
+.spinner-grow {
+  color: var(--brutal-red);
+  border-width: 4px;
+  animation: spinner-border 0.5s linear infinite, brutalShake 1s ease-in-out infinite;
+}
+
+.spinner-border {
+  border-color: var(--brutal-black);
+  border-top-color: var(--brutal-red);
+  box-shadow: 0 0 0 2px var(--brutal-white);
+}
+
+/* Placeholders Brutalist */
+.placeholder {
+  background: var(--brutal-yellow);
+  border: 2px solid var(--brutal-black);
+  border-radius: 0;
+  animation: brutalBlink 1s infinite;
+}
+
+/* Input Groups Brutalist */
+.input-group-text {
+  background: var(--brutal-yellow);
+  border: var(--border-brutal);
+  color: var(--brutal-black);
+  font-family: 'Arial Black', Arial, sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.input-group .form-control {
+  border: var(--border-brutal);
+}
+
+.input-group .btn {
+  border: var(--border-brutal);
+}
+
+/* Form Check Brutalist */
+.form-check-input {
+  background-color: var(--brutal-white);
+  border: 3px solid var(--brutal-black);
+  border-radius: 0;
+  transition: var(--transition-brutal);
+}
+
+.form-check-input:checked {
+  background-color: var(--brutal-red);
+  border-color: var(--brutal-black);
+  animation: brutalPop 0.3s ease-in-out;
+}
+
+.form-check-input:focus {
+  border-color: var(--brutal-black);
+  box-shadow: 0 0 0 3px var(--brutal-yellow);
+}
+
+.form-check-label {
+  color: var(--brutal-black);
+  font-family: 'Arial Black', Arial, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* Form Select Brutalist */
+.form-select {
+  background: var(--brutal-white);
+  border: var(--border-brutal);
+  border-radius: 0;
+  color: var(--brutal-black);
+  font-family: 'Arial Black', Arial, sans-serif;
+  font-weight: 700;
+  transition: var(--transition-brutal);
+  box-shadow: inset 4px 4px 0px rgba(0,0,0,0.2);
+}
+
+.form-select:focus {
+  background: var(--brutal-yellow);
+  border-color: var(--brutal-black);
+  box-shadow: inset 6px 6px 0px rgba(0,0,0,0.3), 0 0 0 4px var(--brutal-red);
+  color: var(--brutal-black);
+}
+
+.form-select option {
+  background: var(--brutal-white);
+  color: var(--brutal-black);
+}
