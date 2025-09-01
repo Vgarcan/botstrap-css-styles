@@ -13,8 +13,8 @@
   --neu-warning: #fbbf24;
   --neu-danger: #f87171;
   
-  --shadow-light: 9px 9px 16px #a3b1c6, -9px -9px 16px #ffffff;
-  --shadow-inset: inset 9px 9px 16px #a3b1c6, inset -9px -9px 16px #ffffff;
+  --shadow-light: 5px 5px 16px #a3b1c6, -5px -5px 16px #ffffff;
+  --shadow-inset: inset 5px 5px 16px #a3b1c6, inset -5px -5px 16px #ffffff;
   --shadow-pressed: inset 5px 5px 10px #a3b1c6, inset -5px -5px 10px #ffffff;
   
   --border-radius-neu: 20px;
@@ -24,7 +24,7 @@
 /* Animaciones Neumorphism */
 @keyframes neuPulse {
   0%, 100% {
-    box-shadow: 9px 9px 16px #a3b1c6, -9px -9px 16px #ffffff;
+    box-shadow: 5px 5px 16px #a3b1c6, -5px -5px 16px #ffffff;
   }
   50% {
     box-shadow: 15px 15px 25px #a3b1c6, -15px -15px 25px #ffffff;
@@ -33,20 +33,20 @@
 
 @keyframes neuPress {
   0% {
-    box-shadow: 9px 9px 16px #a3b1c6, -9px -9px 16px #ffffff;
+    box-shadow: 5px 5px 16px #a3b1c6, -5px -5px 16px #ffffff;
   }
   50% {
     box-shadow: inset 5px 5px 10px #a3b1c6, inset -5px -5px 10px #ffffff;
   }
   100% {
-    box-shadow: 9px 9px 16px #a3b1c6, -9px -9px 16px #ffffff;
+    box-shadow: 5px 5px 16px #a3b1c6, -5px -5px 16px #ffffff;
   }
 }
 
 @keyframes neuFloat {
   0%, 100% {
     transform: translateY(0px);
-    box-shadow: 9px 9px 16px #a3b1c6, -9px -9px 16px #ffffff;
+    box-shadow: 5px 5px 16px #a3b1c6, -5px -5px 16px #ffffff;
   }
   50% {
     transform: translateY(-8px);
@@ -77,7 +77,7 @@ body {
 }
 
 .btn:hover {
-  animation: neuPulse 1s ease-in-out;
+  animation: neuPulse 1s ease-in-out infinite;
   transform: translateY(-2px);
 }
 
@@ -89,36 +89,36 @@ body {
 .btn-primary {
   background: linear-gradient(145deg, #7c8aed, #5a68d4);
   color: white;
-  box-shadow: 9px 9px 16px #5a68d4, -9px -9px 16px #7c8aed;
+  box-shadow: 5px 5px 16px #5a68d4, -5px -5px 16px #7c8aed;
 }
 
-.btn-primary:hover {
-  box-shadow: 15px 15px 25px #5a68d4, -15px -15px 25px #7c8aed;
+/* .btn-primary:hover {
+  box-shadow: 9px 9px 25px #5a68d4, -9px -9px 25px #7c8aed;
   color: white;
-}
+} */
 
 .btn-secondary {
   background: linear-gradient(145deg, #8b5fbf, #6d4a9a);
   color: white;
-  box-shadow: 9px 9px 16px #6d4a9a, -9px -9px 16px #8b5fbf;
+  box-shadow: 5px 5px 16px #6d4a9a, -5px -5px 16px #8b5fbf;
 }
 
 .btn-success {
   background: linear-gradient(145deg, #52e085, #3dd66b);
   color: white;
-  box-shadow: 9px 9px 16px #3dd66b, -9px -9px 16px #52e085;
+  box-shadow: 5px 5px 16px #3dd66b, -5px -5px 16px #52e085;
 }
 
 .btn-warning {
   background: linear-gradient(145deg, #fcc332, #e6a817);
   color: white;
-  box-shadow: 9px 9px 16px #e6a817, -9px -9px 16px #fcc332;
+  box-shadow: 5px 5px 16px #e6a817, -5px -5px 16px #fcc332;
 }
 
 .btn-danger {
   background: linear-gradient(145deg, #fa7979, #f55555);
   color: white;
-  box-shadow: 9px 9px 16px #f55555, -9px -9px 16px #fa7979;
+  box-shadow: 5px 5px 16px #f55555, -5px -5px 16px #fa7979;
 }
 
 /* Cards Neumorphism */
@@ -128,7 +128,6 @@ body {
   border-radius: 25px;
   box-shadow: var(--shadow-light);
   transition: var(--transition-neu);
-  animation: neuFloat 6s ease-in-out infinite;
   margin: 20px 0;
 }
 
@@ -351,7 +350,7 @@ body {
 }
 
 .animate-neu-press {
-  animation: neuPress 0.3s ease-in-out;
+  animation: neuPress 0.3s ease-in-out infinite;
 }
 
 /* Breadcrumbs Neumorphism */
@@ -408,7 +407,7 @@ body {
 
 .page-link:hover {
   color: var(--neu-primary);
-  animation: neuPulse 1s ease-in-out;
+  animation: neuPulse 1s ease-in-out infinite;
   transform: translateY(-2px);
 }
 
@@ -420,7 +419,7 @@ body {
 .page-item.active .page-link {
   background: linear-gradient(145deg, #7c8aed, #5a68d4);
   color: white;
-  box-shadow: 9px 9px 16px #5a68d4, -9px -9px 16px #7c8aed;
+  box-shadow: 5px 5px 16px #5a68d4, -5px -5px 16px #7c8aed;
 }
 
 .page-item.disabled .page-link {
@@ -445,13 +444,13 @@ body {
 
 .nav-pills .nav-link:hover {
   color: var(--neu-primary);
-  animation: neuPulse 1s ease-in-out;
+  animation: neuPulse 1s ease-in-out infinite;
 }
 
 .nav-pills .nav-link.active {
   background: linear-gradient(145deg, #7c8aed, #5a68d4);
-  color: white;
-  box-shadow: 9px 9px 16px #5a68d4, -9px -9px 16px #7c8aed;
+  color: white !important;
+  box-shadow: 5px 5px 16px #5a68d4, -5px -5px 16px #7c8aed;
 }
 
 /* Tabs Neumorphism */
@@ -583,7 +582,7 @@ body {
 .accordion-button:hover {
   background: var(--neu-bg);
   color: var(--neu-primary);
-  animation: neuPulse 1s ease-in-out;
+  animation: neuPulse 1s ease-in-out infinite;
 }
 
 .accordion-button::after {
@@ -689,7 +688,7 @@ body {
 .carousel-control-prev:hover,
 .carousel-control-next:hover {
   box-shadow: var(--shadow-pressed);
-  animation: neuPulse 1s ease-in-out;
+  animation: neuPulse 1s ease-in-out infinite;
 }
 
 .carousel-indicators [data-bs-target] {

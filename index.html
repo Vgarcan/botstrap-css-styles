@@ -1481,16 +1481,14 @@
                 <div class="col-md-4">
                     <h5>Links</h5>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="text-light-50">Documentation</a></li>
-                        <li><a href="#" class="text-light-50">Download ZIP</a></li>
-                        <li><a href="#" class="text-light-50">GitHub Repository</a></li>
+                        <li><a href="README.md" target="_blank" class="text-light-50">Documentation</a></li>
                         <li><a href="#" class="text-light-50">Support</a></li>
                     </ul>
                 </div>
             </div>
             <hr class="my-4">
             <div class="text-center">
-                <p>&copy; 2024 Bootstrap Theme Collection. All rights reserved.</p>
+                <p>&copy; <span id="year"></span> Bootstrap Theme Collection. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -1500,6 +1498,10 @@
     
     <!-- JavaScript for theme switching -->
     <script>
+        // Set current year in footer
+        document.getElementById("year").textContent = new Date().getFullYear();
+
+        // Theme data
         const themes = {
             'modern-gradient': { name: 'Modern Gradient', file: 'themes/modern-gradient.css' },
             'glassmorphism-pro': { name: 'Glassmorphism Pro', file: 'themes/glassmorphism-pro.css' },
