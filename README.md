@@ -1,91 +1,151 @@
-# Colección de Temas Bootstrap
+# Bootstrap Theme Collection
 
-Una colección completa de **8 temas únicos** para Bootstrap 5, cada uno con su propia personalidad visual distintiva y conjunto de animaciones. Desde estilos modernos hasta experimentales, esta colección ofrece opciones para cualquier tipo de proyecto web.
+A comprehensive collection of **17 unique themes** for Bootstrap 5, each with its own distinctive visual personality and animation set. From modern styles to experimental designs, this collection offers options for any type of web project.
 
-## 🎨 Temas Disponibles
+## 🎨 Available Themes
 
-### **Modernos**
+### **Modern**
 
 #### 1. **Modern Gradient**
-- **Estilo**: Gradientes modernos con efectos glassmorphism
-- **Colores**: Azules y morados con transparencias
-- **Características**: Animaciones flotantes, efectos de brillo, backdrop-filter
-- **Ideal para**: Startups tech, aplicaciones SaaS, portfolios creativos
+- **Style**: Modern gradients with glassmorphism effects
+- **Colours**: Blues and purples with transparencies
+- **Features**: Floating animations, glow effects, backdrop-filter
+- **Ideal for**: Tech startups, SaaS applications, creative portfolios
 
 #### 2. **Glassmorphism Pro**
-- **Estilo**: Efectos de cristal y blur avanzados
-- **Colores**: Transparencias con acentos morados
-- **Características**: Backdrop-filter intenso, morfismo de bordes, efectos shimmer
-- **Ideal para**: Apps premium, interfaces futuristas, dashboards modernos
+- **Style**: Advanced glass and blur effects
+- **Colours**: Transparencies with purple accents
+- **Features**: Intense backdrop-filter, border morphism, shimmer effects
+- **Ideal for**: Premium apps, futuristic interfaces, modern dashboards
 
 #### 3. **Neumorphism Soft**
-- **Estilo**: Diseño suave con sombras realistas
-- **Colores**: Grises neutros con gradientes sutiles
-- **Características**: Sombras internas/externas, efectos de presión, animaciones suaves
-- **Ideal para**: Aplicaciones móviles, interfaces táctiles, diseños minimalistas
+- **Style**: Soft design with realistic shadows
+- **Colours**: Neutral greys with subtle gradients
+- **Features**: Inner/outer shadows, pressure effects, smooth animations
+- **Ideal for**: Mobile applications, touch interfaces, minimalist designs
 
-### **Futuristas**
+### **Futuristic**
 
 #### 4. **Cyberpunk Neon**
-- **Estilo**: Estética futurista con efectos neón
-- **Colores**: Cian, magenta, verde neón sobre fondo oscuro
-- **Características**: Parpadeo neón, efectos glitch, scanlines, tipografía monospace
-- **Ideal para**: Gaming, tech, aplicaciones futuristas, portfolios de desarrolladores
+- **Style**: Futuristic aesthetic with neon effects
+- **Colours**: Cyan, magenta, neon green on dark background
+- **Features**: Neon flicker, glitch effects, scanlines, monospace typography
+- **Ideal for**: Gaming, tech, futuristic applications, developer portfolios
 
-### **Clásicos**
+#### 5. **Retrowave Synthwave**
+- **Style**: Authentic 80s retrowave aesthetic
+- **Colours**: Hot pink, electric blue, sunset gradients
+- **Features**: Grid patterns, sunset effects, nostalgic vibes
+- **Ideal for**: Music apps, creative portfolios, entertainment sites
 
-#### 5. **Minimalist Clean**
-- **Estilo**: Diseño limpio y profesional
-- **Colores**: Grises, azules sutiles, mucho espacio en blanco
-- **Características**: Transiciones suaves, sombras sutiles, tipografía clara
-- **Ideal para**: Aplicaciones corporativas, dashboards, sitios profesionales
+### **Corporate**
 
-#### 6. **Retro Vintage**
-- **Estilo**: Nostalgia con texturas vintage
-- **Colores**: Marrones, dorados, cremas con texturas de papel
-- **Características**: Efectos de papel viejo, tipografías serif, bordes decorativos
-- **Ideal para**: Sitios históricos, portfolios artísticos, blogs literarios
+#### 6. **Corporate Tech**
+- **Style**: Clean, geometric, efficient
+- **Colours**: Professional blues and greys
+- **Features**: Minimal shadows, precise typography, subtle animations
+- **Ideal for**: Technology companies, software platforms, B2B applications
 
-#### 7. **Art Deco Luxury**
-- **Estilo**: Elegancia clásica con toques dorados
-- **Colores**: Negro, dorado, crema con patrones geométricos
-- **Características**: Patrones Art Deco, efectos shimmer, tipografía elegante
-- **Ideal para**: Sitios de lujo, joyerías, hoteles premium, eventos exclusivos
+#### 7. **Corporate Finance**
+- **Style**: Conservative, reliable, premium
+- **Colours**: Navy blues and gold accents
+- **Features**: Professional typography, subtle shadows, trustworthy design
+- **Ideal for**: Banking, finance, investment platforms
 
-### **Experimentales**
+#### 8. **Corporate Legal**
+- **Style**: Formal, traditional, authoritative
+- **Colours**: Charcoal, burgundy, professional greys
+- **Features**: Serif typography, formal layouts, conservative design
+- **Ideal for**: Law firms, legal services, professional consultancy
 
-#### 8. **Brutalist Bold**
-- **Estilo**: Diseño audaz y sin concesiones
-- **Colores**: Colores primarios intensos (amarillo, rojo, azul, negro)
-- **Características**: Bordes gruesos, sombras duras, tipografía bold, efectos shake
-- **Ideal para**: Arte digital, portfolios experimentales, sitios de impacto
+#### 9. **Corporate Medical**
+- **Style**: Clean, reliable, calming
+- **Colours**: Medical blues and clean whites
+- **Features**: Gentle animations, accessible design, trustworthy aesthetics
+- **Ideal for**: Healthcare, pharmaceutical, medical services
 
-## 🚀 Instalación y Uso
+### **Classic**
 
-### Instalación Básica
+#### 10. **Minimalist Clean**
+- **Style**: Clean and professional design
+- **Colours**: Greys, subtle blues, lots of white space
+- **Features**: Smooth transitions, subtle shadows, clear typography
+- **Ideal for**: Corporate applications, dashboards, professional sites
 
-1. **Incluye Bootstrap 5 en tu proyecto:**
+#### 11. **Retro Vintage**
+- **Style**: Nostalgia with vintage textures
+- **Colours**: Browns, golds, creams with paper textures
+- **Features**: Old paper effects, serif typography, decorative borders
+- **Ideal for**: Historical sites, artistic portfolios, literary blogs
+
+#### 12. **Art Deco Luxury**
+- **Style**: Classic elegance with golden touches
+- **Colours**: Black, gold, cream with geometric patterns
+- **Features**: Art Deco patterns, shimmer effects, elegant typography
+- **Ideal for**: Luxury sites, jewellery, premium hotels, exclusive events
+
+### **Premium**
+
+#### 13. **WWE Raw Elegant**
+- **Style**: Premium metallic with red and gold
+- **Colours**: Black, red, gold with metallic gradients
+- **Features**: Metallic shine, elegant animations, premium feel
+- **Ideal for**: Entertainment, premium brands, exclusive content
+
+#### 14. **WWE SmackDown Chrome**
+- **Style**: Chrome and steel aesthetic
+- **Colours**: Blue, silver, chrome with metallic effects
+- **Features**: Chrome reflections, steel textures, tech aesthetics
+- **Ideal for**: Technology, automotive, industrial design
+
+### **Children's**
+
+#### 15. **Kids Friendly**
+- **Style**: Soft, calming, safe for children (ages 3-8)
+- **Colours**: Soft pastels - sky blue, soft pink, mint green, sunny yellow
+- **Features**: Gentle animations, large rounded buttons, emoji decorations, Comic Sans typography
+- **Ideal for**: Educational apps, children's websites, family services, learning platforms
+
+#### 16. **Kids Vibrant Playground**
+- **Style**: Energetic, vibrant, playful (ages 3-8)
+- **Colours**: Electric blue, hot pink, lime green, bright orange, purple pop
+- **Features**: Playful bounces, rainbow gradients, sparkle effects, Fredoka One typography
+- **Ideal for**: Interactive games, playground apps, entertainment for children, activity platforms
+
+### **Experimental**
+
+#### 17. **Brutalist Bold**
+- **Style**: Bold and uncompromising design
+- **Colours**: Intense primary colours (yellow, red, blue, black)
+- **Features**: Thick borders, hard shadows, bold typography, shake effects
+- **Ideal for**: Digital art, experimental portfolios, impact sites
+
+## 🚀 Installation and Usage
+
+### Basic Installation
+
+1. **Include Bootstrap 5 in your project:**
 ```html
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 ```
 
-2. **Agrega el tema que desees después de Bootstrap:**
+2. **Add your desired theme after Bootstrap:**
 ```html
-<!-- Ejemplo: Modern Gradient -->
+<!-- Example: Modern Gradient -->
 <link rel="stylesheet" href="themes/modern-gradient.css">
 ```
 
-3. **Incluye las fuentes recomendadas:**
+3. **Include recommended fonts:**
 ```html
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;700;900&family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700;900&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
 ```
 
-### Uso con Selector Dinámico
+### Dynamic Theme Switching
 
-Para permitir cambio dinámico entre temas:
+To enable dynamic theme switching:
 
 ```html
-<!-- Tema por defecto -->
+<!-- Default theme -->
 <link id="theme-css" rel="stylesheet" href="themes/modern-gradient.css">
 
 <script>
@@ -95,30 +155,40 @@ function changeTheme(themeName) {
 </script>
 ```
 
-## 📁 Estructura del Proyecto
+## 📁 Project Structure
 
 ```
 /
 ├── themes/
-│   ├── modern-gradient.css         # Gradientes modernos
-│   ├── glassmorphism-pro.css       # Efectos de cristal avanzados
-│   ├── cyberpunk-neon.css          # Estética cyberpunk futurista
-│   ├── neumorphism-soft.css        # Sombras realistas suaves
-│   ├── minimalist-clean.css        # Diseño limpio profesional
-│   ├── retro-vintage.css           # Estilo nostálgico vintage
-│   ├── art-deco-luxury.css         # Elegancia Art Deco
-│   └── brutalist-bold.css          # Diseño audaz experimental
-├── index.html                      # Demo con selector de temas
-└── README.md                       # Documentación
+│   ├── modern-gradient.css         # Modern gradients
+│   ├── glassmorphism-pro.css       # Advanced glass effects
+│   ├── cyberpunk-neon.css          # Futuristic cyberpunk aesthetic
+│   ├── neumorphism-soft.css        # Soft realistic shadows
+│   ├── minimalist-clean.css        # Clean professional design
+│   ├── retro-vintage.css           # Nostalgic vintage style
+│   ├── art-deco-luxury.css         # Art Deco elegance
+│   ├── brutalist-bold.css          # Bold experimental design
+│   ├── corporate-tech.css          # Technology corporate style
+│   ├── corporate-finance.css       # Finance industry style
+│   ├── corporate-legal.css         # Legal profession style
+│   ├── corporate-medical.css       # Healthcare industry style
+│   ├── retrowave-synthwave.css     # 80s retrowave aesthetic
+│   ├── wwe-raw-elegant.css         # Premium red and gold
+│   ├── wwe-smackdown-chrome.css    # Chrome and steel blue
+│   ├── kids-friendly.css           # Soft children's theme
+│   └── kids-vibrant-playground.css # Vibrant children's theme
+├── index.html                      # Complete boilerplate with theme selector
+├── docs.html                       # Integrated documentation
+└── README.md                       # Documentation
 ```
 
-## 🎯 Características Técnicas
+## 🎯 Technical Features
 
-### Variables CSS Personalizables
-Cada tema utiliza variables CSS que puedes modificar:
+### Customisable CSS Variables
+Each theme uses CSS variables that you can modify:
 
 ```css
-/* Ejemplo: Modern Gradient */
+/* Example: Modern Gradient */
 :root {
   --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   --border-radius: 15px;
@@ -126,37 +196,54 @@ Cada tema utiliza variables CSS que puedes modificar:
 }
 ```
 
-### Animaciones Únicas por Tema
+### Unique Animations per Theme
 
 **Modern Gradient:**
-- `float`: Efecto flotante
-- `glow`: Resplandor
-- `slideInLeft`: Entrada lateral
+- `float`: Floating effect
+- `glow`: Glow effect
+- `slideInLeft`: Side entrance
 
 **Glassmorphism Pro:**
-- `floatGlass`: Flotación con rotación
-- `shimmer`: Efecto brillante
-- `morphBorder`: Morfismo de bordes
+- `floatGlass`: Floating with rotation
+- `shimmer`: Shimmer effect
+- `morphBorder`: Border morphism
 
 **Cyberpunk Neon:**
-- `neonFlicker`: Parpadeo neón
-- `scanline`: Línea de escaneo
-- `glitch`: Efecto glitch
-- `matrixRain`: Lluvia de código
+- `neonFlicker`: Neon flicker
+- `scanline`: Scan line
+- `glitch`: Glitch effect
+- `matrixRain`: Matrix rain
 
 **Neumorphism Soft:**
-- `neuPulse`: Pulsación suave
-- `neuPress`: Efecto de presión
-- `neuFloat`: Flotación neumórfica
+- `neuPulse`: Soft pulsation
+- `neuPress`: Pressure effect
+- `neuFloat`: Neumorphic floating
 
 **Brutalist Bold:**
-- `brutalShake`: Vibración intensa
-- `brutalPop`: Explosión visual
-- `brutalBlink`: Parpadeo agresivo
+- `brutalShake`: Intense vibration
+- `brutalPop`: Visual explosion
+- `brutalBlink`: Aggressive blinking
 
-### Clases de Utilidad Específicas
+**Retrowave Synthwave:**
+- `sunsetShimmer`: Sunset gradient animation
+- `fadeInRetro`: Retro fade-in effect
+- `scanlineSubtle`: Subtle scan line effect
 
-Cada tema incluye clases especiales:
+**WWE Themes:**
+- `chromeShine`: Metallic shine effect
+- `elegantGlow`: Premium glow animation
+- `steelFloat`: Industrial floating effect
+
+**Kids Themes:**
+- `gentleBounce`: Safe bouncing animation
+- `playfulBounce`: Fun but controlled bounce
+- `rainbowShimmer`: Rainbow text animation
+- `colorShift`: Gentle hue rotation for special elements
+- `sparkle`: Twinkling effect for decorative elements
+
+### Theme-Specific Utility Classes
+
+Each theme includes special classes:
 
 ```css
 /* Modern Gradient */
@@ -173,100 +260,150 @@ Cada tema incluye clases especiales:
 
 /* Brutalist Bold */
 .brutal-rotate-left, .brutal-shake, .brutal-blink
+
+/* Retrowave Synthwave */
+.retro-glow, .synthwave-text, .miami-gradient
+
+/* WWE Raw Elegant */
+.wwe-champion, .wwe-metal-shine, .wwe-elegant-float
+
+/* WWE SmackDown Chrome */
+.smackdown-chrome, .smackdown-steel-shine, .smackdown-glow
+
+/* Kids Friendly */
+.kids-rainbow-text, .kids-bounce, .kids-glow
+
+/* Kids Vibrant Playground */
+.kids-electric-text, .kids-magic-text, .playground-game
 ```
 
-## 📱 Compatibilidad
+## 📱 Compatibility
 
-- ✅ **Bootstrap 5.3.x** - Totalmente compatible
-- ✅ **Navegadores Modernos** - Chrome, Firefox, Safari, Edge
-- ✅ **Responsive Design** - Adaptable a todos los dispositivos
-- ✅ **Font Awesome 6.x** - Iconos incluidos
-- ✅ **Google Fonts** - Tipografías optimizadas
+- ✅ **Bootstrap 5.3.x** - Fully compatible
+- ✅ **Modern Browsers** - Chrome, Firefox, Safari, Edge
+- ✅ **Responsive Design** - Adaptable to all devices
+- ✅ **Font Awesome 6.x** - Icons included
+- ✅ **Google Fonts** - Optimised typography
 
-## 🛠️ Personalización Avanzada
+## 🛠️ Advanced Customisation
 
-### Cambiar Colores Principales
+### Change Primary Colours
 
 ```css
-/* Sobrescribir variables */
+/* Override variables */
 :root {
   --primary-color: #tu-color;
   --secondary-color: #tu-color;
 }
 ```
 
-### Modificar Animaciones
+### Modify Animations
 
 ```css
-/* Acelerar transiciones */
+/* Speed up transitions */
 :root {
   --transition: all 0.2s ease;
 }
 
-/* Desactivar animaciones */
+/* Disable animations */
 * {
   animation: none !important;
 }
 ```
 
-### Crear Variaciones
+### Create Variations
 
 ```css
-/* Tema personalizado basado en Modern Gradient */
+/* Custom theme based on Modern Gradient */
 .my-custom-card {
   background: var(--glass-primary);
   backdrop-filter: var(--blur-medium);
-  /* Tus modificaciones */
+  /* Your modifications */
 }
 ```
 
-## 🎮 Demo Interactivo
+## 🎮 Interactive Demo
 
-El archivo `index.html` incluye:
+The boilerplate includes:
 
-- **Selector de temas en tiempo real**
-- **Todos los componentes Bootstrap estilizados**
-- **Ejemplos de uso de cada tema**
-- **Código de referencia**
-- **Persistencia de preferencias**
+### **index.html - Complete Boilerplate:**
+- **Real-time theme selector** with live preview
+- **Comprehensive component library** - Navigation, forms, cards, tables, e-commerce
+- **Dashboard components** - Stats cards, progress indicators, data tables
+- **Professional layouts** - Hero sections, pricing cards, user management
+- **Interactive elements** - Modals, offcanvas, accordions, carousels
+- **Smart download system** - Individual theme download with Blob API
+- **Theme persistence** - Remembers selected theme
+- **Responsive design** - Optimised for all devices
+- **Production-ready** - Professional components ready for use
 
-## 📊 Casos de Uso Recomendados
+### **docs.html - Integrated Documentation:**
+- **Live README embedding** - Automatically loads and parses README.md
+- **Theme-aware styling** - Documentation adapts to selected theme
+- **Enhanced formatting** - Bootstrap classes and icons added automatically
+- **Responsive layout** - Perfect on all screen sizes
+- **Navigation integration** - Easy switching between boilerplate and docs
 
-| Tema | Mejor Para | Industria |
+## 📊 Recommended Use Cases
+
+| Theme | Best For | Industry |
 |------|------------|-----------|
-| Modern Gradient | Apps SaaS, Startups | Tecnología |
-| Glassmorphism Pro | Interfaces Premium | Fintech, Lujo |
-| Cyberpunk Neon | Gaming, Tech | Entretenimiento |
-| Neumorphism Soft | Apps Móviles | Salud, Bienestar |
-| Minimalist Clean | Dashboards | Corporativo |
-| Retro Vintage | Blogs, Portfolios | Arte, Cultura |
-| Art Deco Luxury | Sitios Premium | Lujo, Eventos |
-| Brutalist Bold | Arte Digital | Experimental |
+| Modern Gradient | SaaS Apps, Startups | Technology |
+| Glassmorphism Pro | Premium Interfaces | Fintech, Luxury |
+| Cyberpunk Neon | Gaming, Tech | Entertainment |
+| Neumorphism Soft | Mobile Apps | Health, Wellness |
+| Minimalist Clean | Dashboards | Corporate |
+| Retro Vintage | Blogs, Portfolios | Art, Culture |
+| Art Deco Luxury | Premium Sites | Luxury, Events |
+| Brutalist Bold | Digital Art | Experimental |
+| Corporate Tech | B2B Platforms | Technology |
+| Corporate Finance | Banking Apps | Finance |
+| Corporate Legal | Law Firms | Legal |
+| Corporate Medical | Healthcare | Medical |
+| Retrowave Synthwave | Music Apps | Entertainment |
+| WWE Raw Elegant | Premium Brands | Entertainment |
+| WWE SmackDown Chrome | Tech Products | Technology |
+| Kids Friendly | Educational Apps | Children |
+| Kids Vibrant Playground | Games | Children |
 
-## 🤝 Contribuciones
+## 💾 Download System
 
-¿Tienes ideas para nuevos temas?
+### **Individual Theme Download:**
+- Click **"Download [Theme Name]"** to get the current active theme
+- Uses **Blob API** for client-side file generation
+- **No server required** - completely static
+- **Instant download** with proper filename
 
-1. Fork el proyecto
-2. Crea un nuevo archivo CSS en `themes/`
-3. Sigue la estructura de variables existente
-4. Incluye animaciones únicas
-5. Agrega documentación
-6. Envía un Pull Request
+### **Smart Button:**
+- **Dynamic text** - Shows current theme name
+- **Visual feedback** - Toast notifications for success/error
+- **Future-proof** - Ready for full collection download feature
 
-## 📄 Licencia
+## 🤝 Contributing
 
-**MIT License** - Uso libre para proyectos personales y comerciales.
+Have ideas for new themes?
 
-## 🔗 Enlaces Útiles
+1. Fork the project
+2. Create a new CSS file in `themes/`
+3. Follow the existing variable structure
+4. Include unique animations
+5. Add documentation
+6. Submit a Pull Request
+
+## 📄 Licence
+
+**MIT Licence** - Free use for personal and commercial projects.
+
+## 🔗 Useful Links
 
 - [Bootstrap 5 Documentation](https://getbootstrap.com/)
 - [CSS Variables Guide](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties)
 - [Font Awesome Icons](https://fontawesome.com/)
 - [Google Fonts](https://fonts.google.com/)
+- [Marked.js Documentation](https://marked.js.org/) (for markdown parsing)
 
 ---
 
-¡Disfruta creando interfaces increíbles con esta colección de temas Bootstrap! 🎨✨
+Enjoy creating incredible interfaces with this comprehensive Bootstrap theme collection! 🎨✨
 
-**¿Necesitas ayuda?** Abre un issue en el repositorio o consulta la documentación de cada tema.
+**Need help?** Check the integrated documentation at `docs.html` or open an issue in the repository.

@@ -1,0 +1,1821 @@
+/* ========================================
+   TEMA KIDS VIBRANT PLAYGROUND - BOOTSTRAP
+   Diseñado para niños de 3-8 años
+   Estilo: Vibrante, energético, divertido, colorido
+   ======================================== */
+
+/* Variables CSS del Tema */
+:root {
+  /* Colores Vibrantes y Energéticos */
+  --kids-electric-blue: #0080ff;
+  --kids-hot-pink: #ff1493;
+  --kids-lime-green: #32cd32;
+  --kids-bright-orange: #ff4500;
+  --kids-purple-pop: #9932cc;
+  --kids-turquoise: #00ced1;
+  --kids-red-cherry: #dc143c;
+  --kids-yellow-sun: #ffd700;
+  
+  /* Colores Secundarios */
+  --kids-electric-purple: #8a2be2;
+  --kids-neon-green: #39ff14;
+  --kids-cyber-pink: #ff69b4;
+  --kids-ocean-blue: #006994;
+  --kids-fire-orange: #ff6347;
+  --kids-magic-violet: #ee82ee;
+  
+  /* Fondos */
+  --kids-bg-primary: #ffffff;
+  --kids-bg-secondary: #f0f8ff;
+  --kids-bg-accent: #fafafa;
+  --kids-text-dark: #2c3e50;
+  --kids-text-medium: #34495e;
+  
+  /* Gradientes Vibrantes */
+  --gradient-electric: linear-gradient(135deg, #0080ff 0%, #ff1493 50%, #32cd32 100%);
+  --gradient-fire: linear-gradient(135deg, #ff4500 0%, #ffd700 50%, #ff1493 100%);
+  --gradient-ocean: linear-gradient(135deg, #00ced1 0%, #0080ff 50%, #9932cc 100%);
+  --gradient-magic: linear-gradient(135deg, #ff69b4 0%, #8a2be2 50%, #00ced1 100%);
+  --gradient-rainbow-bright: linear-gradient(135deg, #ff1493 0%, #ff4500 16%, #ffd700 33%, #32cd32 50%, #00ced1 66%, #0080ff 83%, #9932cc 100%);
+  --gradient-sunset-pop: linear-gradient(135deg, #ffd700 0%, #ff4500 25%, #ff1493 50%, #8a2be2 75%, #0080ff 100%);
+  
+  /* Patrones Divertidos */
+  --pattern-dots: radial-gradient(circle at 25% 25%, rgba(255, 20, 147, 0.1) 2px, transparent 2px),
+                  radial-gradient(circle at 75% 75%, rgba(0, 128, 255, 0.1) 2px, transparent 2px);
+  --pattern-stripes: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(50, 205, 50, 0.05) 10px, rgba(50, 205, 50, 0.05) 20px);
+  
+  /* Efectos y Sombras Vibrantes */
+  --shadow-electric: 0 8px 25px rgba(0, 128, 255, 0.3);
+  --shadow-magic: 0 8px 25px rgba(255, 20, 147, 0.3);
+  --shadow-rainbow: 0 8px 25px rgba(50, 205, 50, 0.3);
+  --shadow-inset-fun: inset 0 2px 4px rgba(255, 255, 255, 0.4), inset 0 -2px 4px rgba(0, 0, 0, 0.1);
+  
+  --border-radius-fun: 25px;
+  --border-radius-super: 35px;
+  --transition-bouncy: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --transition-smooth: all 0.25s ease-out;
+  --font-playful: 'Fredoka One', 'Comic Sans MS', cursive;
+  --font-fun: 'Nunito', 'Arial Rounded MT Bold', sans-serif;
+}
+
+/* Animaciones Divertidas pero Sutiles */
+@keyframes playfulBounce {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-4px) scale(1.02); }
+}
+
+@keyframes colorShift {
+  0% { filter: hue-rotate(0deg); }
+  25% { filter: hue-rotate(90deg); }
+  50% { filter: hue-rotate(180deg); }
+  75% { filter: hue-rotate(270deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+
+@keyframes sparkle {
+  0%, 100% { 
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 0.7;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes rainbowText {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes gentleFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-2px); }
+}
+
+@keyframes popIn {
+  0% { 
+    opacity: 0; 
+    transform: scale(0.8) rotate(-5deg); 
+  }
+  100% { 
+    opacity: 1; 
+    transform: scale(1) rotate(0deg); 
+  }
+}
+
+/* Estilos Base */
+body {
+  font-family: var(--font-fun);
+  background: var(--kids-bg-primary);
+  background-image: 
+    var(--pattern-dots),
+    var(--pattern-stripes),
+    radial-gradient(circle at 20% 20%, rgba(0, 128, 255, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(255, 20, 147, 0.05) 0%, transparent 50%);
+  background-size: 50px 50px, 30px 30px, 100% 100%, 100% 100%;
+  color: var(--kids-text-dark);
+  line-height: 1.6;
+  min-height: 100vh;
+  font-size: 16px;
+}
+
+/* Tipografía Divertida */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-playful);
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+h1 {
+  font-size: 3.5rem;
+  background: var(--gradient-rainbow-bright);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 300% 300%;
+  animation: rainbowText 6s ease-in-out infinite;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+h1::before {
+  content: '🎪';
+  position: absolute;
+  left: -60px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2.5rem;
+  animation: sparkle 3s ease-in-out infinite;
+}
+
+h1::after {
+  content: '🎪';
+  position: absolute;
+  right: -60px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2.5rem;
+  animation: sparkle 3s ease-in-out infinite 1.5s;
+}
+
+h2 {
+  color: var(--kids-electric-blue);
+  font-size: 2.5rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+h3, h4, h5, h6 {
+  color: var(--kids-hot-pink);
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+/* Botones Divertidos y Seguros */
+.btn {
+  background: var(--kids-electric-blue);
+  border: 4px solid var(--kids-bg-primary);
+  border-radius: var(--border-radius-super);
+  box-shadow: var(--shadow-electric);
+  color: var(--kids-bg-primary);
+  font-family: var(--font-playful);
+  font-weight: 700;
+  font-size: 18px;
+  padding: 18px 35px;
+  text-transform: none;
+  letter-spacing: 1px;
+  transition: var(--transition-bouncy);
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '✨';
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  opacity: 0;
+  transition: var(--transition-smooth);
+}
+
+.btn:hover {
+  background: var(--kids-hot-pink);
+  color: var(--kids-bg-primary);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: var(--shadow-magic);
+  padding-left: 45px;
+}
+
+.btn:hover::before {
+  opacity: 1;
+}
+
+.btn:active {
+  transform: translateY(-1px) scale(1.02);
+  animation: playfulBounce 0.6s ease-out;
+}
+
+.btn-primary {
+  background: var(--gradient-electric);
+  color: var(--kids-bg-primary);
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.btn-primary::before {
+  content: '🚀';
+}
+
+.btn-primary:hover {
+  background: var(--gradient-fire);
+  color: var(--kids-bg-primary);
+}
+
+.btn-secondary {
+  background: var(--gradient-magic);
+  color: var(--kids-bg-primary);
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.btn-secondary::before {
+  content: '🎨';
+}
+
+.btn-secondary:hover {
+  background: var(--gradient-ocean);
+  color: var(--kids-bg-primary);
+}
+
+.btn-success {
+  background: var(--kids-lime-green);
+  border-color: var(--kids-bg-primary);
+  color: var(--kids-bg-primary);
+}
+
+.btn-success::before {
+  content: '🌟';
+}
+
+.btn-success:hover {
+  background: var(--kids-neon-green);
+  color: var(--kids-bg-primary);
+}
+
+.btn-warning {
+  background: var(--kids-bright-orange);
+  border-color: var(--kids-bg-primary);
+  color: var(--kids-bg-primary);
+}
+
+.btn-warning::before {
+  content: '⚡';
+}
+
+.btn-warning:hover {
+  background: var(--kids-fire-orange);
+  color: var(--kids-bg-primary);
+}
+
+.btn-danger {
+  background: var(--kids-red-cherry);
+  border-color: var(--kids-bg-primary);
+  color: var(--kids-bg-primary);
+}
+
+.btn-danger::before {
+  content: '❤️';
+}
+
+.btn-danger:hover {
+  background: var(--kids-cyber-pink);
+  color: var(--kids-bg-primary);
+}
+
+.btn-info {
+  background: var(--kids-turquoise);
+  border-color: var(--kids-bg-primary);
+  color: var(--kids-bg-primary);
+}
+
+.btn-info::before {
+  content: '💎';
+}
+
+.btn-info:hover {
+  background: var(--kids-ocean-blue);
+  color: var(--kids-bg-primary);
+}
+
+/* Cards Vibrantes y Divertidas */
+.card {
+  background: var(--kids-bg-primary);
+  border: 4px solid var(--kids-electric-blue);
+  border-radius: var(--border-radius-fun);
+  box-shadow: var(--shadow-electric);
+  transition: var(--transition-bouncy);
+  margin: 25px 0;
+  position: relative;
+  animation: popIn 0.6s ease-out;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 40px;
+  height: 40px;
+  background: var(--gradient-fire);
+  border-radius: 50%;
+  border: 3px solid var(--kids-bg-primary);
+  box-shadow: var(--shadow-magic);
+}
+
+.card::after {
+  content: '🎉';
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 18px;
+  z-index: 2;
+  animation: sparkle 4s ease-in-out infinite;
+}
+
+.card:hover {
+  transform: translateY(-5px) rotate(1deg);
+  box-shadow: var(--shadow-rainbow);
+  border-color: var(--kids-hot-pink);
+  animation: playfulBounce 1s ease-out;
+}
+
+.card:nth-child(even) {
+  border-color: var(--kids-lime-green);
+}
+
+.card:nth-child(even)::before {
+  background: var(--gradient-ocean);
+}
+
+.card:nth-child(even)::after {
+  content: '🌈';
+}
+
+.card:nth-child(3n) {
+  border-color: var(--kids-purple-pop);
+}
+
+.card:nth-child(3n)::before {
+  background: var(--gradient-magic);
+}
+
+.card:nth-child(3n)::after {
+  content: '⭐';
+}
+
+.card-header {
+  background: var(--gradient-electric);
+  border-bottom: 4px solid var(--kids-bg-primary);
+  border-radius: var(--border-radius-fun) var(--border-radius-fun) 0 0;
+  color: var(--kids-bg-primary);
+  font-family: var(--font-playful);
+  font-weight: 700;
+  text-align: center;
+  padding: 25px;
+  position: relative;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.card-header::before {
+  content: '🎯';
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.5rem;
+  animation: gentleFloat 3s ease-in-out infinite;
+}
+
+.card-header::after {
+  content: '🎯';
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.5rem;
+  animation: gentleFloat 3s ease-in-out infinite 1.5s;
+}
+
+.card-body {
+  color: var(--kids-text-dark);
+  padding: 30px;
+  font-size: 16px;
+  line-height: 1.7;
+  background-image: var(--pattern-dots);
+  background-size: 40px 40px;
+}
+
+/* Navegación Vibrante */
+.navbar {
+  background: var(--gradient-rainbow-bright) !important;
+  border-bottom: 5px solid var(--kids-bg-primary);
+  box-shadow: var(--shadow-rainbow);
+  padding: 20px 0;
+  position: relative;
+}
+
+.navbar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: repeating-linear-gradient(90deg, 
+    var(--kids-electric-blue) 0px, 
+    var(--kids-hot-pink) 20px, 
+    var(--kids-lime-green) 40px, 
+    var(--kids-bright-orange) 60px);
+}
+
+.navbar-brand {
+  color: var(--kids-bg-primary) !important;
+  font-family: var(--font-playful);
+  font-weight: 900;
+  font-size: 2.2rem;
+  text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+  position: relative;
+  animation: colorShift 8s ease-in-out infinite;
+}
+
+.navbar-brand::before {
+  content: '🎮';
+  margin-right: 15px;
+  font-size: 2rem;
+  animation: sparkle 4s ease-in-out infinite;
+}
+
+.navbar-brand::after {
+  content: '🎮';
+  margin-left: 15px;
+  font-size: 2rem;
+  animation: sparkle 4s ease-in-out infinite 2s;
+}
+
+.nav-link {
+  color: var(--kids-bg-primary) !important;
+  font-family: var(--font-playful);
+  font-weight: 700;
+  font-size: 16px;
+  padding: 12px 25px !important;
+  border-radius: var(--border-radius-super);
+  transition: var(--transition-bouncy);
+  margin: 0 8px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  border: 2px solid transparent;
+}
+
+.nav-link:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: var(--kids-bg-primary) !important;
+  transform: translateY(-2px) scale(1.05);
+  border-color: var(--kids-bg-primary);
+  animation: playfulBounce 1s ease-out;
+}
+
+/* Formularios Divertidos */
+.form-control {
+  background: var(--kids-bg-primary);
+  border: 4px solid var(--kids-electric-blue);
+  border-radius: var(--border-radius-fun);
+  color: var(--kids-text-dark);
+  font-family: var(--font-fun);
+  font-size: 16px;
+  padding: 18px 25px;
+  transition: var(--transition-bouncy);
+  box-shadow: var(--shadow-inset-fun);
+}
+
+.form-control:focus {
+  background: var(--kids-bg-secondary);
+  border-color: var(--kids-hot-pink);
+  box-shadow: 0 0 20px rgba(255, 20, 147, 0.4);
+  color: var(--kids-text-dark);
+  outline: none;
+  transform: scale(1.02);
+}
+
+.form-control::placeholder {
+  color: var(--kids-text-medium);
+  font-style: italic;
+}
+
+.form-label {
+  color: var(--kids-electric-blue);
+  font-family: var(--font-playful);
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.form-label::before {
+  content: '🎯 ';
+  margin-right: 8px;
+  animation: sparkle 3s ease-in-out infinite;
+}
+
+/* Alertas Vibrantes */
+.alert {
+  background: var(--kids-bg-primary);
+  border: 4px solid;
+  border-radius: var(--border-radius-fun);
+  color: var(--kids-text-dark);
+  font-family: var(--font-fun);
+  font-size: 16px;
+  margin: 25px 0;
+  padding: 25px;
+  position: relative;
+  box-shadow: var(--shadow-electric);
+  animation: popIn 0.5s ease-out;
+  overflow: hidden;
+}
+
+.alert::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  border-radius: var(--border-radius-fun) var(--border-radius-fun) 0 0;
+}
+
+.alert-primary {
+  border-color: var(--kids-electric-blue);
+}
+
+.alert-primary::before {
+  background: var(--gradient-electric);
+}
+
+.alert-primary::after {
+  content: '💙 ¡Información importante!';
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--kids-electric-blue);
+}
+
+.alert-success {
+  border-color: var(--kids-lime-green);
+}
+
+.alert-success::before {
+  background: linear-gradient(90deg, var(--kids-lime-green), var(--kids-neon-green), var(--kids-lime-green));
+}
+
+.alert-success::after {
+  content: '💚 ¡Muy bien hecho!';
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--kids-lime-green);
+}
+
+.alert-warning {
+  border-color: var(--kids-bright-orange);
+}
+
+.alert-warning::before {
+  background: var(--gradient-fire);
+}
+
+.alert-warning::after {
+  content: '🧡 ¡Atención aquí!';
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--kids-bright-orange);
+}
+
+.alert-danger {
+  border-color: var(--kids-red-cherry);
+}
+
+.alert-danger::before {
+  background: linear-gradient(90deg, var(--kids-red-cherry), var(--kids-cyber-pink), var(--kids-red-cherry));
+}
+
+.alert-danger::after {
+  content: '❤️ ¡Cuidado!';
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--kids-red-cherry);
+}
+
+.alert-info {
+  border-color: var(--kids-turquoise);
+}
+
+.alert-info::before {
+  background: var(--gradient-ocean);
+}
+
+.alert-info::after {
+  content: '💎 ¡Dato curioso!';
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--kids-turquoise);
+}
+
+/* Tablas Coloridas */
+.table {
+  background: var(--kids-bg-primary);
+  border: 4px solid var(--kids-electric-blue);
+  border-radius: var(--border-radius-fun);
+  box-shadow: var(--shadow-electric);
+  color: var(--kids-text-dark);
+  font-family: var(--font-fun);
+  overflow: hidden;
+}
+
+.table thead th {
+  background: var(--gradient-electric);
+  border: none;
+  color: var(--kids-bg-primary);
+  font-family: var(--font-playful);
+  font-weight: 700;
+  font-size: 16px;
+  padding: 25px;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  position: relative;
+}
+
+.table thead th::before {
+  content: '🏆';
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+.table tbody tr {
+  border-bottom: 3px solid var(--kids-bg-secondary);
+  transition: var(--transition-smooth);
+}
+
+.table tbody tr:hover {
+  background: var(--kids-bg-secondary);
+  transform: scale(1.01);
+}
+
+.table tbody tr:nth-child(even) {
+  background: rgba(0, 128, 255, 0.05);
+}
+
+.table tbody tr:nth-child(odd) {
+  background: rgba(255, 20, 147, 0.05);
+}
+
+.table tbody tr:nth-child(3n) {
+  background: rgba(50, 205, 50, 0.05);
+}
+
+.table tbody td {
+  border: none;
+  padding: 20px;
+  vertical-align: middle;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* Progress Bars Divertidas */
+.progress {
+  background: var(--kids-bg-secondary);
+  border: 4px solid var(--kids-electric-blue);
+  border-radius: var(--border-radius-super);
+  box-shadow: var(--shadow-inset-fun);
+  height: 35px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress::before {
+  content: '🌟';
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  z-index: 2;
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+.progress-bar {
+  background: var(--gradient-rainbow-bright);
+  border-radius: var(--border-radius-super);
+  font-family: var(--font-playful);
+  font-weight: 700;
+  color: var(--kids-bg-primary);
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  position: relative;
+  background-size: 300% 100%;
+  animation: rainbowText 8s ease-in-out infinite;
+}
+
+.progress-bar::after {
+  content: '🚀';
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  animation: gentleFloat 2s ease-in-out infinite;
+}
+
+/* Badges Vibrantes */
+.badge {
+  background: var(--kids-electric-blue);
+  border: 3px solid var(--kids-bg-primary);
+  border-radius: var(--border-radius-super);
+  box-shadow: var(--shadow-electric);
+  color: var(--kids-bg-primary);
+  font-family: var(--font-playful);
+  font-weight: 700;
+  padding: 10px 20px;
+  font-size: 14px;
+  position: relative;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.badge::before {
+  content: '✨';
+  margin-right: 8px;
+  animation: sparkle 3s ease-in-out infinite;
+}
+
+.badge-primary {
+  background: var(--gradient-electric);
+}
+
+.badge-success {
+  background: var(--kids-lime-green);
+}
+
+.badge-success::before {
+  content: '🌟';
+}
+
+.badge-warning {
+  background: var(--kids-bright-orange);
+}
+
+.badge-warning::before {
+  content: '⚡';
+}
+
+.badge-danger {
+  background: var(--kids-red-cherry);
+}
+
+.badge-danger::before {
+  content: '❤️';
+}
+
+.badge-info {
+  background: var(--kids-turquoise);
+}
+
+.badge-info::before {
+  content: '💎';
+}
+
+/* Lista Group Vibrante */
+.list-group {
+  border: 4px solid var(--kids-hot-pink);
+  border-radius: var(--border-radius-fun);
+  box-shadow: var(--shadow-magic);
+  overflow: hidden;
+}
+
+.list-group-item {
+  background: var(--kids-bg-primary);
+  border: none;
+  border-bottom: 3px solid var(--kids-bg-secondary);
+  color: var(--kids-text-dark);
+  font-family: var(--font-fun);
+  font-size: 16px;
+  font-weight: 600;
+  padding: 25px;
+  transition: var(--transition-bouncy);
+  position: relative;
+}
+
+.list-group-item::before {
+  content: '🎪';
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  opacity: 0;
+  transition: var(--transition-smooth);
+}
+
+.list-group-item:hover {
+  background: var(--kids-bg-secondary);
+  color: var(--kids-text-dark);
+  padding-left: 60px;
+  transform: translateX(8px) scale(1.02);
+  border-left: 6px solid var(--kids-hot-pink);
+}
+
+.list-group-item:hover::before {
+  opacity: 1;
+}
+
+.list-group-item:nth-child(even):hover {
+  border-left-color: var(--kids-lime-green);
+}
+
+.list-group-item:nth-child(even)::before {
+  content: '🌈';
+}
+
+.list-group-item:nth-child(3n):hover {
+  border-left-color: var(--kids-purple-pop);
+}
+
+.list-group-item:nth-child(3n)::before {
+  content: '⭐';
+}
+
+/* Breadcrumbs Divertidos */
+.breadcrumb {
+  background: var(--kids-bg-primary);
+  border: 4px solid var(--kids-lime-green);
+  border-radius: var(--border-radius-fun);
+  box-shadow: var(--shadow-rainbow);
+  color: var(--kids-text-dark);
+  font-family: var(--font-playful);
+  font-weight: 700;
+  padding: 20px 30px;
+  background-image: var(--pattern-stripes);
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  content: "🌟";
+  color: var(--kids-hot-pink);
+  margin: 0 12px;
+  font-size: 1.2rem;
+  animation: sparkle 4s ease-in-out infinite;
+}
+
+.breadcrumb-item a {
+  color: var(--kids-electric-blue);
+  text-decoration: none;
+  transition: var(--transition-bouncy);
+  font-weight: 700;
+}
+
+.breadcrumb-item a:hover {
+  color: var(--kids-hot-pink);
+  transform: scale(1.1);
+  animation: playfulBounce 0.6s ease-out;
+}
+
+.breadcrumb-item.active {
+  color: var(--kids-purple-pop);
+  font-weight: 900;
+}
+
+/* Paginación Vibrante */
+.pagination {
+  gap: 12px;
+}
+
+.page-link {
+  background: var(--kids-bg-primary);
+  border: 4px solid var(--kids-electric-blue);
+  border-radius: var(--border-radius-super);
+  box-shadow: var(--shadow-electric);
+  color: var(--kids-electric-blue);
+  font-family: var(--font-playful);
+  font-weight: 700;
+  font-size: 16px;
+  padding: 15px 22px;
+  text-decoration: none;
+  transition: var(--transition-bouncy);
+}
+
+.page-link:hover {
+  background: var(--kids-electric-blue);
+  color: var(--kids-bg-primary);
+  transform: translateY(-3px) scale(1.1);
+  box-shadow: var(--shadow-rainbow);
+  animation: playfulBounce 1s ease-out;
+}
+
+.page-item.active .page-link {
+  background: var(--gradient-fire);
+  border-color: var(--kids-hot-pink);
+  color: var(--kids-bg-primary);
+  box-shadow: var(--shadow-magic);
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.page-item.disabled .page-link {
+  background: var(--kids-bg-accent);
+  border-color: #cccccc;
+  color: #999999;
+  cursor: not-allowed;
+}
+
+/* Pills Divertidas */
+.nav-pills .nav-link {
+  background: var(--kids-bg-primary);
+  border: 4px solid var(--kids-hot-pink);
+  border-radius: var(--border-radius-super);
+  box-shadow: var(--shadow-magic);
+  color: var(--kids-hot-pink);
+  font-family: var(--font-playful);
+  font-weight: 700;
+  margin: 0 10px;
+  padding: 15px 30px;
+  transition: var(--transition-bouncy);
+  position: relative;
+}
+
+.nav-pills .nav-link::before {
+  content: '🎨';
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  opacity: 0;
+  transition: var(--transition-smooth);
+}
+
+.nav-pills .nav-link:hover {
+  background: var(--kids-hot-pink);
+  color: var(--kids-bg-primary);
+  transform: translateY(-3px) scale(1.05);
+  animation: playfulBounce 1s ease-out;
+  padding-left: 45px;
+}
+
+.nav-pills .nav-link:hover::before {
+  opacity: 1;
+}
+
+.nav-pills .nav-link.active {
+  background: var(--gradient-magic);
+  border-color: var(--kids-purple-pop);
+  color: var(--kids-bg-primary);
+  box-shadow: var(--shadow-rainbow);
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+/* Tabs Coloridas */
+.nav-tabs {
+  background: var(--kids-bg-secondary);
+  background-image: var(--pattern-dots);
+  border-bottom: 5px solid var(--kids-electric-blue);
+  padding: 20px 20px 0;
+  border-radius: var(--border-radius-fun) var(--border-radius-fun) 0 0;
+}
+
+.nav-tabs .nav-link {
+  background: var(--kids-bg-primary);
+  border: 4px solid var(--kids-lime-green);
+  border-bottom: none;
+  border-radius: var(--border-radius-fun) var(--border-radius-fun) 0 0;
+  color: var(--kids-lime-green);
+  font-family: var(--font-playful);
+  font-weight: 700;
+  margin-bottom: -5px;
+  padding: 18px 30px;
+  transition: var(--transition-bouncy);
+  position: relative;
+}
+
+.nav-tabs .nav-link::before {
+  content: '🎯';
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  opacity: 0;
+  transition: var(--transition-smooth);
+}
+
+.nav-tabs .nav-link:hover {
+  background: var(--kids-lime-green);
+  color: var(--kids-bg-primary);
+  transform: translateY(-3px);
+  padding-left: 45px;
+}
+
+.nav-tabs .nav-link:hover::before {
+  opacity: 1;
+}
+
+.nav-tabs .nav-link.active {
+  background: var(--gradient-fire);
+  border-bottom-color: transparent;
+  color: var(--kids-bg-primary);
+  font-weight: 900;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  box-shadow: 0 0 15px var(--kids-bright-orange);
+}
+
+.tab-content {
+  background: var(--kids-bg-primary);
+  border: 4px solid var(--kids-electric-blue);
+  border-top: none;
+  border-radius: 0 0 var(--border-radius-fun) var(--border-radius-fun);
+  box-shadow: var(--shadow-electric);
+  background-image: var(--pattern-dots);
+  background-size: 30px 30px;
+}
+
+.tab-pane {
+  color: var(--kids-text-dark);
+  font-family: var(--font-fun);
+  line-height: 1.7;
+  font-weight: 600;
+}
+
+/* Modales Mágicos */
+.modal-content {
+  background: var(--kids-bg-primary);
+  border: 5px solid var(--kids-purple-pop);
+  border-radius: calc(var(--border-radius-fun) * 1.5);
+  box-shadow: 0 25px 80px rgba(153, 50, 204, 0.4);
+  overflow: hidden;
+  position: relative;
+}
+
+.modal-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background: var(--gradient-rainbow-bright);
+  background-size: 300% 100%;
+  animation: rainbowText 6s ease-in-out infinite;
+}
+
+.modal-header {
+  background: var(--gradient-magic);
+  border-bottom: 4px solid var(--kids-bg-primary);
+  border-radius: calc(var(--border-radius-fun) * 1.5) calc(var(--border-radius-fun) * 1.5) 0 0;
+  color: var(--kids-bg-primary);
+  padding: 30px;
+  text-align: center;
+}
+
+.modal-title {
+  font-family: var(--font-playful);
+  font-weight: 900;
+  font-size: 1.8rem;
+  text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+  position: relative;
+}
+
+.modal-title::before {
+  content: '🎪 ';
+  font-size: 2rem;
+}
+
+.modal-title::after {
+  content: ' 🎪';
+  font-size: 2rem;
+}
+
+.modal-body {
+  color: var(--kids-text-dark);
+  font-family: var(--font-fun);
+  font-size: 16px;
+  line-height: 1.8;
+  padding: 35px;
+  background-image: var(--pattern-dots);
+  background-size: 25px 25px;
+}
+
+.modal-footer {
+  background: var(--kids-bg-secondary);
+  border-top: 4px solid var(--kids-purple-pop);
+  border-radius: 0 0 calc(var(--border-radius-fun) * 1.5) calc(var(--border-radius-fun) * 1.5);
+  padding: 30px;
+}
+
+.btn-close {
+  background: var(--kids-red-cherry);
+  border: 4px solid var(--kids-bg-primary);
+  border-radius: 50%;
+  opacity: 1;
+  transition: var(--transition-bouncy);
+  width: 50px;
+  height: 50px;
+  position: relative;
+}
+
+.btn-close::before {
+  content: '✖️';
+  color: var(--kids-bg-primary);
+  font-size: 18px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.btn-close:hover {
+  background: var(--kids-cyber-pink);
+  transform: scale(1.15) rotate(90deg);
+  animation: playfulBounce 0.8s ease-out;
+}
+
+/* Acordeón Divertido */
+.accordion {
+  border: 5px solid var(--kids-turquoise);
+  border-radius: var(--border-radius-fun);
+  box-shadow: var(--shadow-rainbow);
+  overflow: hidden;
+}
+
+.accordion-item {
+  background: var(--kids-bg-primary);
+  border: none;
+  border-bottom: 3px solid var(--kids-bg-secondary);
+}
+
+.accordion-item:last-child {
+  border-bottom: none;
+}
+
+.accordion-button {
+  background: var(--kids-bg-primary);
+  background-image: var(--pattern-stripes);
+  border: none;
+  color: var(--kids-turquoise);
+  font-family: var(--font-playful);
+  font-weight: 700;
+  font-size: 18px;
+  padding: 30px;
+  transition: var(--transition-bouncy);
+  position: relative;
+}
+
+.accordion-button::before {
+  content: '🎈';
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.5rem;
+  animation: gentleFloat 3s ease-in-out infinite;
+}
+
+.accordion-button:not(.collapsed) {
+  background: var(--gradient-ocean);
+  box-shadow: none;
+  color: var(--kids-bg-primary);
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.accordion-button:not(.collapsed)::before {
+  content: '🎉';
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+.accordion-button:hover {
+  background: var(--kids-turquoise);
+  color: var(--kids-bg-primary);
+  transform: scale(1.02);
+  animation: playfulBounce 1s ease-out;
+}
+
+.accordion-button::after {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%2300ced1'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+  filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2));
+}
+
+.accordion-body {
+  background: rgba(0, 206, 209, 0.1);
+  color: var(--kids-text-dark);
+  font-family: var(--font-fun);
+  line-height: 1.8;
+  padding: 30px;
+  font-weight: 600;
+}
+
+/* Dropdown Colorido */
+.dropdown-menu {
+  background: var(--kids-bg-primary);
+  border: 4px solid var(--kids-purple-pop);
+  border-radius: var(--border-radius-fun);
+  box-shadow: var(--shadow-rainbow);
+  padding: 20px;
+  background-image: var(--pattern-dots);
+  background-size: 20px 20px;
+}
+
+.dropdown-item {
+  border-radius: var(--border-radius-fun);
+  color: var(--kids-text-dark);
+  font-family: var(--font-fun);
+  font-weight: 700;
+  margin-bottom: 5px;
+  padding: 15px 25px;
+  transition: var(--transition-bouncy);
+  position: relative;
+  border: 2px solid transparent;
+}
+
+.dropdown-item::before {
+  content: '🎯';
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  opacity: 0;
+  transition: var(--transition-smooth);
+}
+
+.dropdown-item:hover {
+  background: var(--kids-purple-pop);
+  color: var(--kids-bg-primary);
+  border-color: var(--kids-bg-primary);
+  padding-left: 45px;
+  transform: translateX(8px) scale(1.05);
+}
+
+.dropdown-item:hover::before {
+  opacity: 1;
+}
+
+.dropdown-item:nth-child(even):hover {
+  background: var(--kids-lime-green);
+}
+
+.dropdown-item:nth-child(even)::before {
+  content: '🌈';
+}
+
+.dropdown-item:nth-child(3n):hover {
+  background: var(--kids-bright-orange);
+}
+
+.dropdown-item:nth-child(3n)::before {
+  content: '⭐';
+}
+
+.dropdown-header {
+  color: var(--kids-hot-pink);
+  font-family: var(--font-playful);
+  font-weight: 900;
+  font-size: 16px;
+  border-bottom: 3px solid var(--kids-hot-pink);
+  padding-bottom: 8px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.dropdown-header::before {
+  content: '👑 ';
+  font-size: 18px;
+}
+
+.dropdown-header::after {
+  content: ' 👑';
+  font-size: 18px;
+}
+
+.dropdown-divider {
+  border: none;
+  height: 4px;
+  background: var(--gradient-rainbow-bright);
+  margin: 15px 0;
+  border-radius: 2px;
+  background-size: 300% 100%;
+  animation: rainbowText 8s ease-in-out infinite;
+}
+
+/* Offcanvas Mágico */
+.offcanvas {
+  background: var(--kids-bg-primary);
+  background-image: var(--pattern-stripes);
+  border: 5px solid var(--kids-electric-blue);
+  box-shadow: var(--shadow-rainbow);
+}
+
+.offcanvas-header {
+  background: var(--gradient-electric);
+  border-bottom: 4px solid var(--kids-bg-primary);
+  color: var(--kids-bg-primary);
+  padding: 30px;
+  text-align: center;
+}
+
+.offcanvas-title {
+  font-family: var(--font-playful);
+  font-weight: 900;
+  font-size: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  position: relative;
+}
+
+.offcanvas-title::before {
+  content: '🚀 ';
+  font-size: 1.8rem;
+}
+
+.offcanvas-title::after {
+  content: ' 🚀';
+  font-size: 1.8rem;
+}
+
+.offcanvas-body {
+  color: var(--kids-text-dark);
+  font-family: var(--font-fun);
+  font-weight: 600;
+  padding: 30px;
+}
+
+/* Carrusel Divertido */
+.carousel {
+  border: 5px solid var(--kids-hot-pink);
+  border-radius: var(--border-radius-fun);
+  box-shadow: var(--shadow-magic);
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: var(--gradient-rainbow-bright);
+  background-size: 300% 100%;
+  animation: rainbowText 6s ease-in-out infinite;
+  z-index: 10;
+}
+
+.carousel-inner {
+  border-radius: calc(var(--border-radius-fun) - 5px);
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  background: var(--kids-electric-blue);
+  border: 4px solid var(--kids-bg-primary);
+  border-radius: 50%;
+  height: 70px;
+  margin: auto 30px;
+  transition: var(--transition-bouncy);
+  width: 70px;
+  box-shadow: var(--shadow-electric);
+  position: relative;
+}
+
+.carousel-control-prev::before,
+.carousel-control-next::before {
+  content: '🎪';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5rem;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  background: var(--kids-hot-pink);
+  transform: scale(1.15);
+  animation: playfulBounce 1s ease-out;
+}
+
+.carousel-indicators [data-bs-target] {
+  background-color: var(--kids-bg-primary);
+  border: 3px solid var(--kids-electric-blue);
+  border-radius: 50%;
+  height: 18px;
+  transition: var(--transition-bouncy);
+  width: 18px;
+}
+
+.carousel-indicators .active {
+  background-color: var(--kids-hot-pink);
+  border-color: var(--kids-hot-pink);
+  transform: scale(1.4);
+  box-shadow: 0 0 15px var(--kids-hot-pink);
+  animation: sparkle 3s ease-in-out infinite;
+}
+
+/* Toast Alegre */
+.toast {
+  background: var(--kids-bg-primary);
+  border: 4px solid var(--kids-lime-green);
+  border-radius: var(--border-radius-fun);
+  box-shadow: var(--shadow-rainbow);
+  position: relative;
+}
+
+.toast::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-rainbow-bright);
+  border-radius: var(--border-radius-fun) var(--border-radius-fun) 0 0;
+  background-size: 300% 100%;
+  animation: rainbowText 8s ease-in-out infinite;
+}
+
+.toast-header {
+  background: var(--kids-lime-green);
+  border-bottom: 3px solid var(--kids-bg-primary);
+  color: var(--kids-bg-primary);
+  font-family: var(--font-playful);
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.toast-header::before {
+  content: '📢 ';
+  margin-right: 8px;
+  font-size: 1.2rem;
+}
+
+.toast-body {
+  color: var(--kids-text-dark);
+  font-family: var(--font-fun);
+  line-height: 1.7;
+  font-weight: 600;
+}
+
+/* Spinners Divertidos */
+.spinner-border,
+.spinner-grow {
+  color: var(--kids-electric-blue);
+  animation: spinner-border 1s linear infinite, colorShift 4s ease-in-out infinite;
+  filter: drop-shadow(0 0 10px currentColor);
+}
+
+.spinner-border {
+  border-color: rgba(0, 128, 255, 0.2);
+  border-top-color: var(--kids-electric-blue);
+  border-width: 4px;
+}
+
+/* Placeholders Coloridos */
+.placeholder {
+  background: var(--gradient-rainbow-bright);
+  background-size: 300% 100%;
+  animation: rainbowText 4s linear infinite;
+  border-radius: var(--border-radius-fun);
+  border: 3px solid var(--kids-bg-primary);
+}
+
+/* Input Groups Divertidos */
+.input-group-text {
+  background: var(--kids-electric-blue);
+  border: 4px solid var(--kids-bg-primary);
+  color: var(--kids-bg-primary);
+  font-family: var(--font-playful);
+  font-weight: 700;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+  font-size: 16px;
+}
+
+.input-group .form-control {
+  border-color: var(--kids-electric-blue);
+}
+
+.input-group .btn {
+  border-color: var(--kids-electric-blue);
+}
+
+/* Form Check Divertidos */
+.form-check-input {
+  background-color: var(--kids-bg-primary);
+  border: 4px solid var(--kids-electric-blue);
+  border-radius: var(--border-radius-fun);
+  transition: var(--transition-bouncy);
+  width: 1.8em;
+  height: 1.8em;
+}
+
+.form-check-input:checked {
+  background-color: var(--kids-lime-green);
+  border-color: var(--kids-lime-green);
+  box-shadow: 0 0 15px var(--kids-lime-green);
+  animation: playfulBounce 0.6s ease-out;
+}
+
+.form-check-input:focus {
+  border-color: var(--kids-hot-pink);
+  box-shadow: 0 0 20px rgba(255, 20, 147, 0.4);
+}
+
+.form-check-label {
+  color: var(--kids-text-dark);
+  font-family: var(--font-fun);
+  font-weight: 700;
+  font-size: 16px;
+  position: relative;
+}
+
+.form-check-label::before {
+  content: '👍 ';
+  margin-right: 8px;
+  font-size: 16px;
+}
+
+/* Form Select Colorido */
+.form-select {
+  background: var(--kids-bg-primary);
+  border: 4px solid var(--kids-electric-blue);
+  border-radius: var(--border-radius-fun);
+  color: var(--kids-text-dark);
+  font-family: var(--font-fun);
+  font-size: 16px;
+  font-weight: 600;
+  transition: var(--transition-bouncy);
+  box-shadow: var(--shadow-inset-fun);
+}
+
+.form-select:focus {
+  background: var(--kids-bg-secondary);
+  border-color: var(--kids-hot-pink);
+  box-shadow: 0 0 20px rgba(255, 20, 147, 0.4);
+  color: var(--kids-text-dark);
+  transform: scale(1.02);
+}
+
+.form-select option {
+  background: var(--kids-bg-primary);
+  color: var(--kids-text-dark);
+  font-weight: 600;
+}
+
+/* Utilidades Divertidas */
+.kids-rainbow-text {
+  background: var(--gradient-rainbow-bright);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 300% 100%;
+  animation: rainbowText 6s ease-in-out infinite;
+}
+
+.kids-electric-text {
+  color: var(--kids-electric-blue);
+  text-shadow: 0 0 10px var(--kids-electric-blue);
+}
+
+.kids-magic-text {
+  color: var(--kids-purple-pop);
+  text-shadow: 0 0 10px var(--kids-purple-pop);
+}
+
+.kids-bounce {
+  animation: playfulBounce 2s ease-in-out infinite;
+}
+
+.kids-float {
+  animation: gentleFloat 3s ease-in-out infinite;
+}
+
+.kids-sparkle {
+  animation: sparkle 4s ease-in-out infinite;
+}
+
+.kids-color-shift {
+  animation: colorShift 6s ease-in-out infinite;
+}
+
+/* Elementos Decorativos Vibrantes */
+.kids-star::before {
+  content: '⭐';
+  margin-right: 10px;
+  font-size: 1.2rem;
+  animation: sparkle 3s ease-in-out infinite;
+}
+
+.kids-rocket::before {
+  content: '🚀';
+  margin-right: 10px;
+  font-size: 1.2rem;
+  animation: gentleFloat 2s ease-in-out infinite;
+}
+
+.kids-rainbow::before {
+  content: '🌈';
+  margin-right: 10px;
+  font-size: 1.2rem;
+  animation: colorShift 4s ease-in-out infinite;
+}
+
+.kids-party::before {
+  content: '🎉';
+  margin-right: 10px;
+  font-size: 1.2rem;
+  animation: playfulBounce 2s ease-in-out infinite;
+}
+
+.kids-magic::before {
+  content: '✨';
+  margin-right: 10px;
+  font-size: 1.2rem;
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+/* Colores de Fondo Vibrantes */
+.kids-bg-electric {
+  background: var(--gradient-electric);
+}
+
+.kids-bg-fire {
+  background: var(--gradient-fire);
+}
+
+.kids-bg-ocean {
+  background: var(--gradient-ocean);
+}
+
+.kids-bg-magic {
+  background: var(--gradient-magic);
+}
+
+.kids-bg-rainbow {
+  background: var(--gradient-rainbow-bright);
+}
+
+/* Bordes Divertidos */
+.kids-border-electric {
+  border: 4px solid var(--kids-electric-blue);
+  border-radius: var(--border-radius-fun);
+}
+
+.kids-border-magic {
+  border: 4px solid transparent;
+  background: linear-gradient(var(--kids-bg-primary), var(--kids-bg-primary)) padding-box,
+              var(--gradient-rainbow-bright) border-box;
+  border-radius: var(--border-radius-fun);
+}
+
+.kids-border-fun {
+  border: 4px dashed var(--kids-hot-pink);
+  border-radius: var(--border-radius-fun);
+}
+
+/* Estados Interactivos Seguros */
+.kids-interactive {
+  cursor: pointer;
+  transition: var(--transition-bouncy);
+}
+
+.kids-interactive:hover {
+  transform: scale(1.05);
+  animation: playfulBounce 1s ease-out;
+}
+
+/* Responsive para Niños */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.8rem;
+  }
+  
+  h1::before, h1::after {
+    display: none;
+  }
+  
+  h2 {
+    font-size: 2.2rem;
+  }
+  
+  .btn {
+    padding: 15px 30px;
+    font-size: 16px;
+  }
+  
+  .card-body {
+    padding: 25px;
+  }
+  
+  .navbar-brand {
+    font-size: 1.8rem;
+  }
+  
+  .navbar-brand::before, .navbar-brand::after {
+    display: none;
+  }
+  
+  .form-control {
+    font-size: 16px;
+    padding: 15px 20px;
+  }
+}
+
+/* Accesibilidad Mejorada para Niños */
+.btn:focus,
+.form-control:focus,
+.form-select:focus,
+.form-check-input:focus {
+  outline: 4px solid var(--kids-yellow-sun);
+  outline-offset: 3px;
+}
+
+/* Estados de Carga Divertidos */
+.loading-playground {
+  position: relative;
+}
+
+.loading-playground::after {
+  content: '🎠🎡🎢';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2.5rem;
+  animation: playfulBounce 1.5s ease-in-out infinite;
+}
+
+/* Elementos de Juego */
+.playground-game {
+  background: var(--gradient-rainbow-bright);
+  border-radius: var(--border-radius-super);
+  padding: 20px;
+  text-align: center;
+  color: var(--kids-bg-primary);
+  font-family: var(--font-playful);
+  font-weight: 900;
+  font-size: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+  animation: colorShift 8s ease-in-out infinite;
+}
+
+.playground-score {
+  background: var(--kids-yellow-sun);
+  border: 4px solid var(--kids-bg-primary);
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-playful);
+  font-weight: 900;
+  font-size: 1.5rem;
+  color: var(--kids-text-dark);
+  box-shadow: var(--shadow-rainbow);
+  animation: sparkle 3s ease-in-out infinite;
+}
+
+/* Efectos de Partículas Sutiles */
+.kids-particles {
+  position: relative;
+  overflow: hidden;
+}
+
+.kids-particles::before {
+  content: '✨ 🌟 ⭐ 💫';
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  right: -20px;
+  bottom: -20px;
+  font-size: 20px;
+  opacity: 0.1;
+  animation: gentleFloat 6s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+}

@@ -1,0 +1,1151 @@
+/* ========================================
+   TEMA WWE RAW ELEGANT - BOOTSTRAP
+   Inspirado en WWE Raw con elegancia premium
+   ======================================== */
+
+/* Variables CSS del Tema */
+:root {
+  --raw-red: #c41e3a;
+  --raw-gold: #d4af37;
+  --raw-silver: #c0c0c0;
+  --raw-black: #1a1a1a;
+  --raw-white: #ffffff;
+  --raw-platinum: #e5e4e2;
+  --raw-bronze: #cd7f32;
+  --raw-chrome: #b8b8b8;
+  
+  /* Gradientes Metalizados */
+  --gradient-red-metal: linear-gradient(135deg, #c41e3a 0%, #8b0000 30%, #ff4444 70%, #c41e3a 100%);
+  --gradient-gold-metal: linear-gradient(135deg, #ffd700 0%, #b8860b 30%, #ffed4e 70%, #d4af37 100%);
+  --gradient-silver-metal: linear-gradient(135deg, #f0f0f0 0%, #c0c0c0 30%, #ffffff 70%, #e5e4e2 100%);
+  --gradient-chrome: linear-gradient(135deg, #e8e8e8 0%, #b8b8b8 25%, #ffffff 50%, #d0d0d0 75%, #c0c0c0 100%);
+  --gradient-platinum: linear-gradient(135deg, #f5f5f5 0%, #e5e4e2 25%, #ffffff 50%, #f0f0f0 75%, #e5e4e2 100%);
+  
+  /* Sombras Premium */
+  --shadow-elegant: 0 8px 32px rgba(196, 30, 58, 0.15);
+  --shadow-metal: 0 12px 40px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  --shadow-glossy: 0 8px 25px rgba(196, 30, 58, 0.2), 0 4px 10px rgba(0, 0, 0, 0.1);
+  --shadow-inset-metal: inset 0 2px 4px rgba(255, 255, 255, 0.3), inset 0 -2px 4px rgba(0, 0, 0, 0.2);
+  
+  --border-radius-elegant: 12px;
+  --transition-elegant: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --transition-fast: all 0.2s ease-out;
+}
+
+/* Animaciones Elegantes */
+@keyframes elegantGlow {
+  0%, 100% { 
+    box-shadow: var(--shadow-elegant), 0 0 20px rgba(196, 30, 58, 0.3);
+  }
+  50% { 
+    box-shadow: var(--shadow-elegant), 0 0 40px rgba(196, 30, 58, 0.5);
+  }
+}
+
+@keyframes metalShine {
+  0% { 
+    background-position: -200% 0;
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+  100% { 
+    background-position: 200% 0;
+    transform: scale(1);
+  }
+}
+
+@keyframes elegantFloat {
+  0%, 100% { 
+    transform: translateY(0px) rotateX(0deg);
+    box-shadow: var(--shadow-elegant);
+  }
+  50% { 
+    transform: translateY(-8px) rotateX(2deg);
+    box-shadow: var(--shadow-glossy);
+  }
+}
+
+@keyframes premiumSlide {
+  0% { 
+    opacity: 0;
+    transform: translateX(-30px) scale(0.95);
+  }
+  100% { 
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes championGlow {
+  0%, 100% { 
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+  }
+  50% { 
+    text-shadow: 0 0 20px rgba(212, 175, 55, 0.8), 0 0 30px rgba(212, 175, 55, 0.6);
+  }
+}
+
+/* Estilos Base */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+  background-attachment: fixed;
+  color: var(--raw-white);
+  min-height: 100vh;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 20%, rgba(196, 30, 58, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(212, 175, 55, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Tipografía Elegante */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  color: var(--raw-white);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+h1 {
+  background: var(--gradient-gold-metal);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: championGlow 3s ease-in-out infinite;
+  font-size: 3.5rem;
+}
+
+h2 {
+  color: var(--raw-gold);
+  font-size: 2.5rem;
+}
+
+/* Botones Elegantes WWE */
+.btn {
+  background: var(--gradient-red-metal);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--border-radius-elegant);
+  box-shadow: var(--shadow-metal);
+  color: var(--raw-white);
+  font-weight: 600;
+  padding: 15px 30px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: var(--transition-elegant);
+  position: relative;
+  overflow: hidden;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -200%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.6s;
+}
+
+.btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+}
+
+.btn:hover::before {
+  left: 200%;
+}
+
+.btn:hover {
+  background: var(--gradient-gold-metal);
+  transform: translateY(-3px) scale(1.05);
+  animation: elegantGlow 2s ease-in-out infinite;
+  box-shadow: var(--shadow-glossy), 0 15px 35px rgba(196, 30, 58, 0.4);
+}
+
+.btn:active {
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: var(--shadow-inset-metal);
+}
+
+.btn-primary {
+  background: var(--gradient-red-metal);
+}
+
+.btn-secondary {
+  background: var(--gradient-chrome);
+  color: var(--raw-black);
+}
+
+.btn-secondary:hover {
+  background: var(--gradient-silver-metal);
+  color: var(--raw-black);
+}
+
+.btn-success {
+  background: linear-gradient(135deg, #28a745 0%, #155724 30%, #34ce57 70%, #28a745 100%);
+}
+
+.btn-warning {
+  background: var(--gradient-gold-metal);
+  color: var(--raw-black);
+}
+
+.btn-danger {
+  background: var(--gradient-red-metal);
+}
+
+.btn-info {
+  background: linear-gradient(135deg, #17a2b8 0%, #0c5460 30%, #20c997 70%, #17a2b8 100%);
+}
+
+/* Cards Elegantes */
+.card {
+  background: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(45, 45, 45, 0.95) 100%);
+  backdrop-filter: blur(20px);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: calc(var(--border-radius-elegant) * 1.5);
+  box-shadow: var(--shadow-metal);
+  transition: var(--transition-elegant);
+  animation: elegantFloat 6s ease-in-out infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gradient-gold-metal);
+}
+
+.card::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+}
+
+.card:hover {
+  background: linear-gradient(135deg, rgba(45, 45, 45, 0.95) 0%, rgba(60, 60, 60, 0.95) 100%);
+  transform: translateY(-10px) rotateX(5deg);
+  box-shadow: var(--shadow-glossy), 0 20px 60px rgba(196, 30, 58, 0.3);
+  border-color: rgba(212, 175, 55, 0.3);
+}
+
+.card-header {
+  background: var(--gradient-red-metal);
+  border-bottom: 2px solid var(--raw-gold);
+  border-radius: calc(var(--border-radius-elegant) * 1.5) calc(var(--border-radius-elegant) * 1.5) 0 0;
+  color: var(--raw-white);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+}
+
+.card-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--raw-gold), transparent);
+}
+
+.card-body {
+  color: rgba(255, 255, 255, 0.9);
+  padding: 25px;
+}
+
+/* Navegación Elegante */
+.navbar {
+  background: linear-gradient(135deg, rgba(26, 26, 26, 0.98) 0%, rgba(45, 45, 45, 0.98) 100%) !important;
+  backdrop-filter: blur(20px);
+  border-bottom: 3px solid var(--raw-gold);
+  box-shadow: var(--shadow-metal);
+  padding: 15px 0;
+  position: relative;
+}
+
+.navbar::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.8), transparent);
+}
+
+.navbar-brand {
+  background: var(--gradient-gold-metal);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 900;
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  animation: championGlow 4s ease-in-out infinite;
+}
+
+.nav-link {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 12px 20px !important;
+  border-radius: 8px;
+  transition: var(--transition-elegant);
+  position: relative;
+}
+
+.nav-link::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--gradient-gold-metal);
+  transition: width 0.4s ease;
+}
+
+.nav-link:hover::before {
+  width: 100%;
+}
+
+.nav-link:hover {
+  color: var(--raw-gold) !important;
+  background: rgba(196, 30, 58, 0.1);
+  transform: translateY(-2px);
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+}
+
+/* Formularios Elegantes */
+.form-control {
+  background: linear-gradient(135deg, rgba(26, 26, 26, 0.8) 0%, rgba(45, 45, 45, 0.8) 100%);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--border-radius-elegant);
+  box-shadow: var(--shadow-inset-metal);
+  color: var(--raw-white);
+  padding: 15px 20px;
+  transition: var(--transition-elegant);
+}
+
+.form-control::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.form-control:focus {
+  background: linear-gradient(135deg, rgba(45, 45, 45, 0.9) 0%, rgba(60, 60, 60, 0.9) 100%);
+  border-color: var(--raw-gold);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.3), var(--shadow-inset-metal);
+  color: var(--raw-white);
+  outline: none;
+}
+
+.form-label {
+  color: var(--raw-gold);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+/* Alertas Elegantes */
+.alert {
+  background: linear-gradient(135deg, rgba(26, 26, 26, 0.9) 0%, rgba(45, 45, 45, 0.9) 100%);
+  backdrop-filter: blur(15px);
+  border: 2px solid;
+  border-radius: var(--border-radius-elegant);
+  box-shadow: var(--shadow-elegant);
+  color: var(--raw-white);
+  padding: 20px;
+  position: relative;
+  animation: premiumSlide 0.5s ease-out;
+}
+
+.alert::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  border-radius: var(--border-radius-elegant) var(--border-radius-elegant) 0 0;
+}
+
+.alert-primary {
+  border-color: var(--raw-red);
+}
+
+.alert-primary::before {
+  background: var(--gradient-red-metal);
+}
+
+.alert-success {
+  border-color: #28a745;
+}
+
+.alert-success::before {
+  background: linear-gradient(90deg, #28a745, #34ce57, #28a745);
+}
+
+.alert-warning {
+  border-color: var(--raw-gold);
+}
+
+.alert-warning::before {
+  background: var(--gradient-gold-metal);
+}
+
+.alert-danger {
+  border-color: var(--raw-red);
+}
+
+.alert-danger::before {
+  background: var(--gradient-red-metal);
+}
+
+/* Tablas Elegantes */
+.table {
+  background: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(45, 45, 45, 0.95) 100%);
+  backdrop-filter: blur(20px);
+  border-radius: var(--border-radius-elegant);
+  box-shadow: var(--shadow-metal);
+  color: var(--raw-white);
+  overflow: hidden;
+}
+
+.table thead th {
+  background: var(--gradient-red-metal);
+  border: none;
+  color: var(--raw-white);
+  font-weight: 700;
+  padding: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+}
+
+.table thead th::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--gradient-gold-metal);
+}
+
+.table tbody tr {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: var(--transition-fast);
+}
+
+.table tbody tr:hover {
+  background: rgba(196, 30, 58, 0.1);
+  transform: scale(1.01);
+}
+
+.table tbody td {
+  border: none;
+  padding: 18px 20px;
+  vertical-align: middle;
+}
+
+/* Progress Bars Elegantes */
+.progress {
+  background: linear-gradient(135deg, rgba(26, 26, 26, 0.8) 0%, rgba(45, 45, 45, 0.8) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  box-shadow: var(--shadow-inset-metal);
+  height: 25px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  background: var(--gradient-red-metal);
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(196, 30, 58, 0.5);
+  position: relative;
+  animation: metalShine 3s ease-in-out infinite;
+  background-size: 200% 100%;
+}
+
+.progress-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.3), transparent);
+  border-radius: 15px 15px 0 0;
+}
+
+/* Badges Elegantes */
+.badge {
+  background: var(--gradient-red-metal);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  box-shadow: var(--shadow-elegant);
+  color: var(--raw-white);
+  font-weight: 700;
+  padding: 8px 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: relative;
+}
+
+.badge::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.2), transparent);
+  border-radius: 20px 20px 0 0;
+}
+
+.badge-primary {
+  background: var(--gradient-red-metal);
+}
+
+.badge-success {
+  background: linear-gradient(135deg, #28a745 0%, #155724 30%, #34ce57 70%, #28a745 100%);
+}
+
+.badge-warning {
+  background: var(--gradient-gold-metal);
+  color: var(--raw-black);
+}
+
+.badge-danger {
+  background: var(--gradient-red-metal);
+}
+
+/* Lista Group Elegante */
+.list-group {
+  border-radius: var(--border-radius-elegant);
+  box-shadow: var(--shadow-metal);
+  overflow: hidden;
+}
+
+.list-group-item {
+  background: linear-gradient(135deg, rgba(26, 26, 26, 0.9) 0%, rgba(45, 45, 45, 0.9) 100%);
+  backdrop-filter: blur(10px);
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  transition: var(--transition-elegant);
+  position: relative;
+}
+
+.list-group-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 0;
+  background: var(--gradient-gold-metal);
+  transition: width 0.4s ease;
+}
+
+.list-group-item:hover {
+  background: linear-gradient(135deg, rgba(45, 45, 45, 0.9) 0%, rgba(60, 60, 60, 0.9) 100%);
+  color: var(--raw-white);
+  transform: translateX(10px);
+}
+
+.list-group-item:hover::before {
+  width: 4px;
+}
+
+/* Breadcrumbs Elegantes */
+.breadcrumb {
+  background: linear-gradient(135deg, rgba(26, 26, 26, 0.9) 0%, rgba(45, 45, 45, 0.9) 100%);
+  backdrop-filter: blur(15px);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--border-radius-elegant);
+  box-shadow: var(--shadow-elegant);
+  color: var(--raw-white);
+  font-weight: 600;
+  padding: 18px 25px;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  content: "▶";
+  color: var(--raw-gold);
+  font-weight: bold;
+  margin: 0 10px;
+  text-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
+}
+
+.breadcrumb-item a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+.breadcrumb-item a:hover {
+  color: var(--raw-gold);
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+}
+
+.breadcrumb-item.active {
+  color: var(--raw-gold);
+  font-weight: 700;
+}
+
+/* Paginación Elegante */
+.pagination {
+  gap: 10px;
+}
+
+.page-link {
+  background: linear-gradient(135deg, rgba(26, 26, 26, 0.9) 0%, rgba(45, 45, 45, 0.9) 100%);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--border-radius-elegant);
+  box-shadow: var(--shadow-elegant);
+  color: var(--raw-white);
+  font-weight: 600;
+  padding: 12px 18px;
+  text-decoration: none;
+  transition: var(--transition-elegant);
+}
+
+.page-link:hover {
+  background: var(--gradient-red-metal);
+  border-color: var(--raw-gold);
+  color: var(--raw-white);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: var(--shadow-glossy);
+}
+
+.page-item.active .page-link {
+  background: var(--gradient-gold-metal);
+  border-color: var(--raw-gold);
+  color: var(--raw-black);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+}
+
+.page-item.disabled .page-link {
+  background: rgba(26, 26, 26, 0.5);
+  border-color: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.3);
+  cursor: not-allowed;
+}
+
+/* Pills Elegantes */
+.nav-pills .nav-link {
+  background: linear-gradient(135deg, rgba(26, 26, 26, 0.8) 0%, rgba(45, 45, 45, 0.8) 100%);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 25px;
+  box-shadow: var(--shadow-elegant);
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 600;
+  margin: 0 8px;
+  padding: 12px 24px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: var(--transition-elegant);
+}
+
+.nav-pills .nav-link:hover {
+  background: var(--gradient-red-metal);
+  border-color: var(--raw-gold);
+  color: var(--raw-white);
+  transform: translateY(-2px);
+  animation: elegantGlow 2s ease-in-out infinite;
+}
+
+.nav-pills .nav-link.active {
+  background: var(--gradient-gold-metal);
+  border-color: var(--raw-gold);
+  color: var(--raw-black);
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.5);
+}
+
+/* Tabs Elegantes */
+.nav-tabs {
+  background: linear-gradient(135deg, rgba(26, 26, 26, 0.9) 0%, rgba(45, 45, 45, 0.9) 100%);
+  backdrop-filter: blur(15px);
+  border-bottom: 3px solid var(--raw-gold);
+  padding: 15px 15px 0;
+  border-radius: var(--border-radius-elegant) var(--border-radius-elegant) 0 0;
+}
+
+.nav-tabs .nav-link {
+  background: linear-gradient(135deg, rgba(45, 45, 45, 0.8) 0%, rgba(60, 60, 60, 0.8) 100%);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-bottom: none;
+  border-radius: var(--border-radius-elegant) var(--border-radius-elegant) 0 0;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 600;
+  margin-bottom: -3px;
+  padding: 15px 25px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: var(--transition-elegant);
+}
+
+.nav-tabs .nav-link:hover {
+  background: var(--gradient-red-metal);
+  border-color: var(--raw-gold);
+  color: var(--raw-white);
+  transform: translateY(-3px);
+}
+
+.nav-tabs .nav-link.active {
+  background: var(--gradient-gold-metal);
+  border-bottom-color: transparent;
+  color: var(--raw-black);
+  font-weight: 700;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+}
+
+.tab-content {
+  background: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(45, 45, 45, 0.95) 100%);
+  backdrop-filter: blur(20px);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-top: none;
+  border-radius: 0 0 var(--border-radius-elegant) var(--border-radius-elegant);
+  box-shadow: var(--shadow-metal);
+}
+
+.tab-pane {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Modales Elegantes */
+.modal-content {
+  background: linear-gradient(135deg, rgba(26, 26, 26, 0.98) 0%, rgba(45, 45, 45, 0.98) 100%);
+  backdrop-filter: blur(25px);
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  border-radius: calc(var(--border-radius-elegant) * 2);
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5), var(--shadow-metal);
+  overflow: hidden;
+}
+
+.modal-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--gradient-gold-metal);
+}
+
+.modal-header {
+  background: var(--gradient-red-metal);
+  border-bottom: 2px solid var(--raw-gold);
+  border-radius: calc(var(--border-radius-elegant) * 2) calc(var(--border-radius-elegant) * 2) 0 0;
+  color: var(--raw-white);
+  padding: 25px;
+}
+
+.modal-title {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.modal-body {
+  color: rgba(255, 255, 255, 0.9);
+  padding: 30px;
+}
+
+.modal-footer {
+  background: rgba(45, 45, 45, 0.5);
+  border-top: 2px solid var(--raw-gold);
+  border-radius: 0 0 calc(var(--border-radius-elegant) * 2) calc(var(--border-radius-elegant) * 2);
+  padding: 25px;
+}
+
+.btn-close {
+  background: var(--gradient-gold-metal);
+  border: 2px solid var(--raw-black);
+  border-radius: 50%;
+  opacity: 1;
+  transition: var(--transition-elegant);
+  width: 45px;
+  height: 45px;
+}
+
+.btn-close:hover {
+  background: var(--gradient-red-metal);
+  transform: scale(1.1) rotate(90deg);
+  box-shadow: 0 0 20px rgba(196, 30, 58, 0.5);
+}
+
+/* Acordeón Elegante */
+.accordion {
+  border-radius: calc(var(--border-radius-elegant) * 1.5);
+  box-shadow: var(--shadow-metal);
+  overflow: hidden;
+  animation: elegantFloat 8s ease-in-out infinite;
+}
+
+.accordion-item {
+  background: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(45, 45, 45, 0.95) 100%);
+  backdrop-filter: blur(15px);
+  border: none;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.accordion-item:last-child {
+  border-bottom: none;
+}
+
+.accordion-button {
+  background: linear-gradient(135deg, rgba(45, 45, 45, 0.9) 0%, rgba(60, 60, 60, 0.9) 100%);
+  border: none;
+  color: var(--raw-white);
+  font-weight: 700;
+  padding: 25px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: var(--transition-elegant);
+}
+
+.accordion-button:not(.collapsed) {
+  background: var(--gradient-red-metal);
+  box-shadow: none;
+  color: var(--raw-white);
+  animation: metalShine 3s ease-in-out infinite;
+  background-size: 200% 100%;
+}
+
+.accordion-button:hover {
+  background: var(--gradient-gold-metal);
+  color: var(--raw-black);
+}
+
+.accordion-button::after {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23d4af37'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+  filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.5));
+}
+
+.accordion-body {
+  background: rgba(26, 26, 26, 0.8);
+  color: rgba(255, 255, 255, 0.9);
+  padding: 25px;
+}
+
+/* Dropdown Elegante */
+.dropdown-menu {
+  background: linear-gradient(135deg, rgba(26, 26, 26, 0.98) 0%, rgba(45, 45, 45, 0.98) 100%);
+  backdrop-filter: blur(20px);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--border-radius-elegant);
+  box-shadow: var(--shadow-metal);
+  padding: 15px;
+}
+
+.dropdown-item {
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 600;
+  margin-bottom: 3px;
+  padding: 12px 18px;
+  transition: var(--transition-elegant);
+  position: relative;
+}
+
+.dropdown-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 0;
+  background: var(--gradient-gold-metal);
+  transition: width 0.3s ease;
+  border-radius: 8px 0 0 8px;
+}
+
+.dropdown-item:hover {
+  background: var(--gradient-red-metal);
+  color: var(--raw-white);
+  transform: translateX(8px);
+}
+
+.dropdown-item:hover::before {
+  width: 4px;
+}
+
+.dropdown-header {
+  color: var(--raw-gold);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.dropdown-divider {
+  border: none;
+  height: 2px;
+  background: var(--gradient-gold-metal);
+  margin: 10px 0;
+}
+
+/* Offcanvas Elegante */
+.offcanvas {
+  background: linear-gradient(135deg, rgba(26, 26, 26, 0.98) 0%, rgba(45, 45, 45, 0.98) 100%);
+  backdrop-filter: blur(25px);
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  box-shadow: var(--shadow-metal);
+}
+
+.offcanvas-header {
+  background: var(--gradient-red-metal);
+  border-bottom: 2px solid var(--raw-gold);
+  color: var(--raw-white);
+  padding: 25px;
+}
+
+.offcanvas-title {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.offcanvas-body {
+  color: rgba(255, 255, 255, 0.9);
+  padding: 25px;
+}
+
+/* Carrusel Elegante */
+.carousel {
+  border-radius: calc(var(--border-radius-elegant) * 1.5);
+  box-shadow: var(--shadow-metal);
+  overflow: hidden;
+  animation: elegantFloat 10s ease-in-out infinite;
+}
+
+.carousel-inner {
+  border-radius: calc(var(--border-radius-elegant) * 1.5);
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  background: var(--gradient-red-metal);
+  border: 2px solid var(--raw-gold);
+  border-radius: 50%;
+  height: 70px;
+  margin: auto 30px;
+  transition: var(--transition-elegant);
+  width: 70px;
+  box-shadow: var(--shadow-elegant);
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  background: var(--gradient-gold-metal);
+  transform: scale(1.15);
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
+  animation: elegantGlow 2s ease-in-out infinite;
+}
+
+.carousel-indicators [data-bs-target] {
+  background-color: rgba(255, 255, 255, 0.4);
+  border: 2px solid var(--raw-gold);
+  border-radius: 0;
+  height: 8px;
+  transition: var(--transition-elegant);
+  width: 30px;
+  transform: skew(-20deg);
+}
+
+.carousel-indicators .active {
+  background-color: var(--raw-gold);
+  transform: skew(-20deg) scale(1.2);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.8);
+}
+
+/* Toast Elegante */
+.toast {
+  background: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(45, 45, 45, 0.95) 100%);
+  backdrop-filter: blur(20px);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--border-radius-elegant);
+  box-shadow: var(--shadow-metal);
+}
+
+.toast-header {
+  background: var(--gradient-red-metal);
+  border-bottom: 1px solid var(--raw-gold);
+  color: var(--raw-white);
+  font-weight: 700;
+}
+
+.toast-body {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Spinners Elegantes */
+.spinner-border,
+.spinner-grow {
+  color: var(--raw-gold);
+  filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5));
+}
+
+.spinner-border {
+  border-color: rgba(212, 175, 55, 0.2);
+  border-top-color: var(--raw-gold);
+  animation: spinner-border 1s linear infinite, elegantGlow 2s ease-in-out infinite;
+}
+
+/* Placeholders Elegantes */
+.placeholder {
+  background: var(--gradient-chrome);
+  background-size: 200% 100%;
+  animation: metalShine 2s linear infinite;
+  border-radius: 8px;
+}
+
+/* Input Groups Elegantes */
+.input-group-text {
+  background: var(--gradient-red-metal);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  color: var(--raw-white);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.input-group .form-control {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.input-group .btn {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Form Check Elegante */
+.form-check-input {
+  background-color: linear-gradient(135deg, rgba(26, 26, 26, 0.8) 0%, rgba(45, 45, 45, 0.8) 100%);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  transition: var(--transition-elegant);
+}
+
+.form-check-input:checked {
+  background-color: var(--raw-gold);
+  border-color: var(--raw-gold);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+}
+
+.form-check-input:focus {
+  border-color: var(--raw-gold);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+}
+
+.form-check-label {
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+}
+
+/* Form Select Elegante */
+.form-select {
+  background: linear-gradient(135deg, rgba(26, 26, 26, 0.8) 0%, rgba(45, 45, 45, 0.8) 100%);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--border-radius-elegant);
+  box-shadow: var(--shadow-inset-metal);
+  color: var(--raw-white);
+  transition: var(--transition-elegant);
+}
+
+.form-select:focus {
+  background: linear-gradient(135deg, rgba(45, 45, 45, 0.9) 0%, rgba(60, 60, 60, 0.9) 100%);
+  border-color: var(--raw-gold);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+  color: var(--raw-white);
+}
+
+.form-select option {
+  background: var(--raw-black);
+  color: var(--raw-white);
+}
+
+/* Utilidades Elegantes */
+.wwe-champion {
+  background: var(--gradient-gold-metal);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: championGlow 3s ease-in-out infinite;
+}
+
+.wwe-metal-shine {
+  animation: metalShine 3s ease-in-out infinite;
+  background-size: 200% 100%;
+}
+
+.wwe-elegant-float {
+  animation: elegantFloat 6s ease-in-out infinite;
+}
+
+.wwe-premium-glow {
+  animation: elegantGlow 2s ease-in-out infinite;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+  
+  h2 {
+    font-size: 2rem;
+  }
+  
+  .card-body {
+    padding: 20px;
+  }
+  
+  .btn {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+  
+  .navbar-brand {
+    font-size: 1.5rem;
+  }
+}

@@ -1,0 +1,1158 @@
+/* ========================================
+   TEMA RETROWAVE SYNTHWAVE - BOOTSTRAP
+   Inspirado en Outrun, Miami Vice, Tron Legacy
+   Estética auténtica de los 80s
+   ======================================== */
+
+/* Variables CSS del Tema */
+:root {
+  /* Colores Retrowave Auténticos */
+  --retro-pink: #ff0080;
+  --retro-magenta: #ff006b;
+  --retro-purple: #8b00ff;
+  --retro-violet: #4b0082;
+  --retro-cyan: #00d4ff;
+  --retro-teal: #00ffcc;
+  --retro-orange: #ff8c00;
+  --retro-yellow: #ffd700;
+  --retro-coral: #ff6b6b;
+  
+  /* Fondos */
+  --dark-space: #0d0221;
+  --deep-purple: #1a0b3d;
+  --midnight-blue: #0f1419;
+  
+  /* Gradientes Sunset Auténticos */
+  --gradient-sunset: linear-gradient(180deg, #ffd700 0%, #ff8c00 25%, #ff0080 50%, #8b00ff 75%, #4b0082 100%);
+  --gradient-miami: linear-gradient(135deg, #ff006b 0%, #ff0080 25%, #ff8c00 75%, #ffd700 100%);
+  --gradient-ocean: linear-gradient(135deg, #00d4ff 0%, #00ffcc 50%, #8b00ff 100%);
+  --gradient-neon: linear-gradient(135deg, #ff0080 0%, #00d4ff 100%);
+  --gradient-synthwave: linear-gradient(135deg, #ff006b 0%, #8b00ff 25%, #00d4ff 50%, #00ffcc 75%, #ffd700 100%);
+  
+  /* Grid Pattern Retrowave */
+  --grid-pattern: 
+    linear-gradient(rgba(255, 0, 128, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 0, 128, 0.1) 1px, transparent 1px);
+  
+  --border-radius: 0px;
+  --retro-glow: 0 0 20px currentColor;
+  --transition-retro: all 0.3s ease;
+  --font-retro: 'Orbitron', 'Courier New', monospace;
+}
+
+/* Animaciones Retrowave Sutiles */
+@keyframes subtleGlow {
+  0%, 100% { 
+    box-shadow: 0 0 15px currentColor;
+  }
+  50% { 
+    box-shadow: 0 0 25px currentColor;
+  }
+}
+
+@keyframes scanlineSubtle {
+  0% { 
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% { 
+    transform: translateX(100vw);
+    opacity: 0;
+  }
+}
+
+@keyframes fadeInRetro {
+  from { 
+    opacity: 0; 
+    transform: translateY(10px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+@keyframes sunsetShimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Estilos Base */
+body {
+  font-family: var(--font-retro);
+  background: var(--dark-space);
+  background-image: 
+    var(--grid-pattern),
+    radial-gradient(ellipse at top, var(--deep-purple) 0%, var(--dark-space) 70%),
+    radial-gradient(ellipse at bottom, rgba(255, 0, 128, 0.1) 0%, transparent 70%);
+  background-size: 30px 30px, 100% 100%, 100% 100%;
+  color: var(--retro-cyan);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--gradient-synthwave);
+  animation: scanlineSubtle 12s linear infinite;
+  z-index: 1000;
+}
+
+/* Tipografía Retrowave */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-retro);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 0 0 15px currentColor;
+}
+
+h1 {
+  font-size: 4rem;
+  background: var(--gradient-sunset);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% 100%;
+  animation: sunsetShimmer 8s ease-in-out infinite;
+}
+
+h2 {
+  color: var(--retro-pink);
+  font-size: 2.5rem;
+}
+
+h3, h4, h5, h6 {
+  color: var(--retro-cyan);
+}
+
+/* Botones Retrowave */
+.btn {
+  background: transparent;
+  border: 2px solid var(--retro-cyan);
+  border-radius: var(--border-radius);
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+  color: var(--retro-cyan);
+  font-family: var(--font-retro);
+  font-weight: 700;
+  font-size: 14px;
+  padding: 15px 30px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: var(--transition-retro);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s;
+}
+
+.btn:hover::before {
+  left: 100%;
+}
+
+.btn:hover {
+  background: rgba(0, 212, 255, 0.1);
+  color: var(--retro-cyan);
+  transform: translateY(-2px);
+  box-shadow: 0 0 25px var(--retro-cyan);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn-primary {
+  border-color: var(--retro-pink);
+  color: var(--retro-pink);
+  box-shadow: 0 0 15px rgba(255, 0, 128, 0.3);
+}
+
+.btn-primary:hover {
+  background: rgba(255, 0, 128, 0.1);
+  color: var(--retro-pink);
+  border-color: var(--retro-pink);
+  box-shadow: 0 0 25px var(--retro-pink);
+}
+
+.btn-secondary {
+  border-color: var(--retro-purple);
+  color: var(--retro-purple);
+  box-shadow: 0 0 15px rgba(139, 0, 255, 0.3);
+}
+
+.btn-secondary:hover {
+  background: rgba(139, 0, 255, 0.1);
+  color: var(--retro-purple);
+  border-color: var(--retro-purple);
+  box-shadow: 0 0 25px var(--retro-purple);
+}
+
+.btn-success {
+  border-color: var(--retro-teal);
+  color: var(--retro-teal);
+  box-shadow: 0 0 15px rgba(0, 255, 204, 0.3);
+}
+
+.btn-success:hover {
+  background: rgba(0, 255, 204, 0.1);
+  color: var(--retro-teal);
+  border-color: var(--retro-teal);
+  box-shadow: 0 0 25px var(--retro-teal);
+}
+
+.btn-warning {
+  border-color: var(--retro-orange);
+  color: var(--retro-orange);
+  box-shadow: 0 0 15px rgba(255, 140, 0, 0.3);
+}
+
+.btn-warning:hover {
+  background: rgba(255, 140, 0, 0.1);
+  color: var(--retro-orange);
+  border-color: var(--retro-orange);
+  box-shadow: 0 0 25px var(--retro-orange);
+}
+
+.btn-danger {
+  border-color: var(--retro-coral);
+  color: var(--retro-coral);
+  box-shadow: 0 0 15px rgba(255, 107, 107, 0.3);
+}
+
+.btn-danger:hover {
+  background: rgba(255, 107, 107, 0.1);
+  color: var(--retro-coral);
+  border-color: var(--retro-coral);
+  box-shadow: 0 0 25px var(--retro-coral);
+}
+
+.btn-info {
+  border-color: var(--retro-cyan);
+  color: var(--retro-cyan);
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+}
+
+.btn-info:hover {
+  background: rgba(0, 212, 255, 0.1);
+  color: var(--retro-cyan);
+  border-color: var(--retro-cyan);
+  box-shadow: 0 0 25px var(--retro-cyan);
+}
+
+/* Cards Retrowave */
+.card {
+  background: rgba(13, 2, 33, 0.9);
+  backdrop-filter: blur(20px);
+  border: 2px solid var(--retro-pink);
+  border-radius: var(--border-radius);
+  box-shadow: 0 0 20px rgba(255, 0, 128, 0.2);
+  transition: var(--transition-retro);
+  position: relative;
+  animation: fadeInRetro 0.5s ease-out;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gradient-miami);
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 30px rgba(255, 0, 128, 0.4);
+  border-color: var(--retro-cyan);
+}
+
+.card-header {
+  background: rgba(255, 0, 128, 0.1);
+  border-bottom: 2px solid var(--retro-pink);
+  color: var(--retro-pink);
+  font-family: var(--font-retro);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+}
+
+.card-body {
+  color: var(--retro-cyan);
+  font-family: var(--font-retro);
+}
+
+/* Navegación Retrowave */
+.navbar {
+  background: rgba(13, 2, 33, 0.95) !important;
+  backdrop-filter: blur(20px);
+  border-bottom: 3px solid var(--retro-pink);
+  box-shadow: 0 0 30px rgba(255, 0, 128, 0.3);
+  position: relative;
+}
+
+.navbar::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--gradient-miami);
+}
+
+.navbar-brand {
+  background: var(--gradient-sunset);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-family: var(--font-retro);
+  font-weight: 900;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background-size: 200% 100%;
+  animation: sunsetShimmer 6s ease-in-out infinite;
+}
+
+.nav-link {
+  color: var(--retro-cyan) !important;
+  font-family: var(--font-retro);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: var(--transition-retro);
+  position: relative;
+  border: 1px solid transparent;
+  margin: 0 5px;
+  padding: 8px 16px !important;
+}
+
+.nav-link::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--retro-pink);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::before {
+  width: 100%;
+}
+
+.nav-link:hover {
+  color: var(--retro-pink) !important;
+  border-color: var(--retro-pink);
+  text-shadow: 0 0 10px var(--retro-pink);
+}
+
+/* Formularios Retrowave */
+.form-control {
+  background: rgba(13, 2, 33, 0.8);
+  backdrop-filter: blur(10px);
+  border: 2px solid var(--retro-cyan);
+  border-radius: var(--border-radius);
+  box-shadow: 0 0 10px rgba(0, 212, 255, 0.2);
+  color: var(--retro-cyan);
+  font-family: var(--font-retro);
+  transition: var(--transition-retro);
+}
+
+.form-control::placeholder {
+  color: rgba(0, 212, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.form-control:focus {
+  background: rgba(13, 2, 33, 0.9);
+  border-color: var(--retro-pink);
+  box-shadow: 0 0 20px rgba(255, 0, 128, 0.4);
+  color: var(--retro-cyan);
+  outline: none;
+}
+
+.form-label {
+  color: var(--retro-cyan);
+  font-family: var(--font-retro);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Alertas Retrowave */
+.alert {
+  background: rgba(13, 2, 33, 0.9);
+  border: 2px solid;
+  border-radius: var(--border-radius);
+  font-family: var(--font-retro);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  animation: fadeInRetro 0.3s ease-out;
+}
+
+.alert::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: currentColor;
+}
+
+.alert-primary {
+  border-color: var(--retro-cyan);
+  color: var(--retro-cyan);
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
+}
+
+.alert-success {
+  border-color: var(--retro-teal);
+  color: var(--retro-teal);
+  box-shadow: 0 0 15px rgba(0, 255, 204, 0.2);
+}
+
+.alert-warning {
+  border-color: var(--retro-orange);
+  color: var(--retro-orange);
+  box-shadow: 0 0 15px rgba(255, 140, 0, 0.2);
+}
+
+.alert-danger {
+  border-color: var(--retro-pink);
+  color: var(--retro-pink);
+  box-shadow: 0 0 15px rgba(255, 0, 128, 0.2);
+}
+
+/* Tablas Retrowave */
+.table {
+  background: rgba(13, 2, 33, 0.9);
+  backdrop-filter: blur(20px);
+  border: 2px solid var(--retro-cyan);
+  border-radius: var(--border-radius);
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+  color: var(--retro-cyan);
+  font-family: var(--font-retro);
+  overflow: hidden;
+}
+
+.table thead th {
+  background: var(--gradient-miami);
+  border: none;
+  color: var(--dark-space);
+  font-weight: 700;
+  padding: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+}
+
+.table tbody tr {
+  border-bottom: 1px solid rgba(255, 0, 128, 0.3);
+  transition: var(--transition-retro);
+}
+
+.table tbody tr:hover {
+  background: rgba(255, 0, 128, 0.1);
+  transform: translateX(2px);
+}
+
+.table tbody td {
+  border: none;
+  padding: 15px 20px;
+}
+
+/* Progress Bars Retrowave */
+.progress {
+  background: rgba(13, 2, 33, 0.8);
+  border: 2px solid var(--retro-cyan);
+  border-radius: var(--border-radius);
+  box-shadow: 0 0 10px rgba(0, 212, 255, 0.2);
+  height: 25px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  background: var(--gradient-miami);
+  border-radius: var(--border-radius);
+  box-shadow: 0 0 15px var(--retro-pink);
+  position: relative;
+}
+
+.progress-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  animation: sunsetShimmer 3s linear infinite;
+}
+
+/* Badges Retrowave */
+.badge {
+  background: var(--gradient-neon);
+  border: 1px solid var(--retro-cyan);
+  border-radius: 0;
+  box-shadow: 0 0 10px var(--retro-cyan);
+  color: var(--dark-space);
+  font-family: var(--font-retro);
+  font-weight: 700;
+  padding: 8px 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+}
+
+.badge-primary {
+  background: var(--gradient-miami);
+  border-color: var(--retro-pink);
+  color: var(--dark-space);
+}
+
+.badge-success {
+  background: linear-gradient(135deg, var(--retro-teal), var(--retro-cyan));
+  border-color: var(--retro-teal);
+  color: var(--dark-space);
+}
+
+.badge-warning {
+  background: linear-gradient(135deg, var(--retro-orange), var(--retro-yellow));
+  border-color: var(--retro-orange);
+  color: var(--dark-space);
+}
+
+.badge-danger {
+  background: linear-gradient(135deg, var(--retro-coral), var(--retro-pink));
+  border-color: var(--retro-coral);
+  color: var(--dark-space);
+}
+
+/* Lista Group Retrowave */
+.list-group {
+  border: 2px solid var(--retro-cyan);
+  border-radius: var(--border-radius);
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+  overflow: hidden;
+}
+
+.list-group-item {
+  background: rgba(13, 2, 33, 0.9);
+  backdrop-filter: blur(10px);
+  border: none;
+  border-bottom: 1px solid rgba(255, 0, 128, 0.3);
+  color: var(--retro-cyan);
+  font-family: var(--font-retro);
+  padding: 20px;
+  transition: var(--transition-retro);
+  position: relative;
+}
+
+.list-group-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 0;
+  background: var(--retro-pink);
+  transition: width 0.3s ease;
+}
+
+.list-group-item:hover {
+  background: rgba(255, 0, 128, 0.1);
+  color: var(--retro-pink);
+  transform: translateX(5px);
+}
+
+.list-group-item:hover::before {
+  width: 3px;
+}
+
+/* Breadcrumbs Retrowave */
+.breadcrumb {
+  background: rgba(13, 2, 33, 0.9);
+  backdrop-filter: blur(15px);
+  border: 2px solid var(--retro-cyan);
+  border-radius: var(--border-radius);
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
+  color: var(--retro-cyan);
+  font-family: var(--font-retro);
+  font-weight: 600;
+  padding: 15px 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  content: "▶";
+  color: var(--retro-pink);
+  font-weight: bold;
+  margin: 0 10px;
+  text-shadow: 0 0 5px var(--retro-pink);
+}
+
+.breadcrumb-item a {
+  color: var(--retro-cyan);
+  text-decoration: none;
+  transition: var(--transition-retro);
+}
+
+.breadcrumb-item a:hover {
+  color: var(--retro-pink);
+  text-shadow: 0 0 10px var(--retro-pink);
+}
+
+.breadcrumb-item.active {
+  color: var(--retro-orange);
+  text-shadow: 0 0 8px var(--retro-orange);
+  font-weight: 700;
+}
+
+/* Paginación Retrowave */
+.pagination {
+  gap: 10px;
+}
+
+.page-link {
+  background: rgba(13, 2, 33, 0.9);
+  backdrop-filter: blur(10px);
+  border: 2px solid var(--retro-cyan);
+  border-radius: var(--border-radius);
+  box-shadow: 0 0 10px rgba(0, 212, 255, 0.2);
+  color: var(--retro-cyan);
+  font-family: var(--font-retro);
+  font-weight: 700;
+  padding: 12px 18px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: var(--transition-retro);
+}
+
+.page-link:hover {
+  background: rgba(255, 0, 128, 0.1);
+  border-color: var(--retro-pink);
+  color: var(--retro-cyan);
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px var(--retro-pink);
+}
+
+.page-item.active .page-link {
+  background: var(--gradient-miami);
+  border-color: var(--retro-pink);
+  color: var(--dark-space);
+  box-shadow: 0 0 20px var(--retro-pink);
+}
+
+.page-item.disabled .page-link {
+  background: rgba(13, 2, 33, 0.5);
+  border-color: rgba(0, 212, 255, 0.3);
+  color: rgba(0, 212, 255, 0.3);
+  cursor: not-allowed;
+}
+
+/* Pills Retrowave */
+.nav-pills .nav-link {
+  background: rgba(13, 2, 33, 0.8);
+  backdrop-filter: blur(10px);
+  border: 2px solid var(--retro-cyan);
+  border-radius: 0;
+  box-shadow: 0 0 10px rgba(0, 212, 255, 0.2);
+  color: var(--retro-cyan);
+  font-family: var(--font-retro);
+  font-weight: 600;
+  margin: 0 8px;
+  padding: 12px 24px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: var(--transition-retro);
+}
+
+.nav-pills .nav-link:hover {
+  background: rgba(255, 0, 128, 0.1);
+  color: var(--retro-cyan);
+  box-shadow: 0 0 15px var(--retro-cyan);
+}
+
+.nav-pills .nav-link.active {
+  background: var(--gradient-miami);
+  border-color: var(--retro-pink);
+  color: var(--dark-space);
+  box-shadow: 0 0 20px var(--retro-pink);
+}
+
+/* Tabs Retrowave */
+.nav-tabs {
+  background: rgba(13, 2, 33, 0.8);
+  backdrop-filter: blur(15px);
+  border-bottom: 2px solid var(--retro-cyan);
+  padding: 10px 10px 0;
+  position: relative;
+}
+
+.nav-tabs .nav-link {
+  background: rgba(13, 2, 33, 0.6);
+  border: 2px solid var(--retro-cyan);
+  border-bottom: none;
+  border-radius: 0;
+  color: var(--retro-cyan);
+  font-family: var(--font-retro);
+  font-weight: 600;
+  margin-bottom: -2px;
+  padding: 15px 25px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: var(--transition-retro);
+}
+
+.nav-tabs .nav-link:hover {
+  background: rgba(255, 0, 128, 0.1);
+  color: var(--retro-cyan);
+}
+
+.nav-tabs .nav-link.active {
+  background: var(--gradient-miami);
+  border-bottom-color: transparent;
+  color: var(--dark-space);
+  font-weight: 700;
+  box-shadow: 0 0 15px var(--retro-pink);
+}
+
+.tab-content {
+  background: rgba(13, 2, 33, 0.9);
+  backdrop-filter: blur(20px);
+  border: 2px solid var(--retro-cyan);
+  border-top: none;
+  border-radius: 0;
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+}
+
+.tab-pane {
+  color: var(--retro-cyan);
+  font-family: var(--font-retro);
+}
+
+/* Modales Retrowave */
+.modal-content {
+  background: rgba(13, 2, 33, 0.95);
+  backdrop-filter: blur(25px);
+  border: 2px solid var(--retro-cyan);
+  border-radius: var(--border-radius);
+  box-shadow: 0 0 40px rgba(255, 0, 128, 0.4);
+  position: relative;
+}
+
+.modal-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--gradient-miami);
+}
+
+.modal-header {
+  background: rgba(255, 0, 128, 0.1);
+  border-bottom: 1px solid var(--retro-cyan);
+  border-radius: 0;
+  color: var(--retro-cyan);
+}
+
+.modal-title {
+  font-family: var(--font-retro);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.modal-body {
+  color: var(--retro-cyan);
+  font-family: var(--font-retro);
+}
+
+.modal-footer {
+  background: rgba(139, 0, 255, 0.05);
+  border-top: 1px solid var(--retro-cyan);
+  border-radius: 0;
+}
+
+.btn-close {
+  background: rgba(255, 0, 128, 0.2);
+  border: 1px solid var(--retro-pink);
+  border-radius: 0;
+  opacity: 1;
+  transition: var(--transition-retro);
+}
+
+.btn-close:hover {
+  background: rgba(255, 0, 128, 0.4);
+  box-shadow: 0 0 15px var(--retro-pink);
+}
+
+/* Acordeón Retrowave */
+.accordion {
+  border: 2px solid var(--retro-cyan);
+  border-radius: var(--border-radius);
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+  overflow: hidden;
+}
+
+.accordion-item {
+  background: rgba(13, 2, 33, 0.9);
+  border: none;
+  border-bottom: 1px solid var(--retro-cyan);
+}
+
+.accordion-item:last-child {
+  border-bottom: none;
+}
+
+.accordion-button {
+  background: rgba(13, 2, 33, 0.8);
+  border: none;
+  color: var(--retro-cyan);
+  font-family: var(--font-retro);
+  font-weight: 700;
+  padding: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: var(--transition-retro);
+}
+
+.accordion-button:not(.collapsed) {
+  background: var(--gradient-miami);
+  box-shadow: none;
+  color: var(--dark-space);
+}
+
+.accordion-button:hover {
+  background: rgba(255, 0, 128, 0.1);
+  color: var(--retro-cyan);
+}
+
+.accordion-button::after {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%2300d4ff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+  filter: drop-shadow(0 0 5px var(--retro-cyan));
+}
+
+.accordion-body {
+  background: rgba(26, 11, 61, 0.9);
+  color: var(--retro-cyan);
+  font-family: var(--font-retro);
+  padding: 20px;
+}
+
+/* Dropdown Retrowave */
+.dropdown-menu {
+  background: rgba(13, 2, 33, 0.95);
+  backdrop-filter: blur(20px);
+  border: 2px solid var(--retro-cyan);
+  border-radius: var(--border-radius);
+  box-shadow: 0 0 25px rgba(0, 212, 255, 0.3);
+  padding: 10px;
+}
+
+.dropdown-item {
+  border-radius: 0;
+  color: var(--retro-cyan);
+  font-family: var(--font-retro);
+  font-weight: 600;
+  margin-bottom: 2px;
+  padding: 12px 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: var(--transition-retro);
+}
+
+.dropdown-item:hover {
+  background: rgba(255, 0, 128, 0.2);
+  color: var(--retro-pink);
+  transform: translateX(5px);
+}
+
+.dropdown-header {
+  color: var(--retro-orange);
+  font-family: var(--font-retro);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 0 0 8px var(--retro-orange);
+}
+
+.dropdown-divider {
+  border: none;
+  height: 2px;
+  background: var(--gradient-synthwave);
+  margin: 8px 0;
+}
+
+/* Offcanvas Retrowave */
+.offcanvas {
+  background: rgba(13, 2, 33, 0.95);
+  backdrop-filter: blur(25px);
+  border: 2px solid var(--retro-cyan);
+  box-shadow: 0 0 40px rgba(0, 212, 255, 0.4);
+}
+
+.offcanvas-header {
+  background: rgba(255, 0, 128, 0.1);
+  border-bottom: 1px solid var(--retro-cyan);
+  color: var(--retro-cyan);
+  padding: 20px;
+}
+
+.offcanvas-title {
+  font-family: var(--font-retro);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.offcanvas-body {
+  color: var(--retro-cyan);
+  font-family: var(--font-retro);
+  padding: 20px;
+}
+
+/* Carrusel Retrowave */
+.carousel {
+  border: 2px solid var(--retro-cyan);
+  border-radius: var(--border-radius);
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+  overflow: hidden;
+}
+
+.carousel-inner {
+  border-radius: 0;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  background: rgba(255, 0, 128, 0.2);
+  border: 2px solid var(--retro-cyan);
+  border-radius: 0;
+  height: 60px;
+  margin: auto 20px;
+  transition: var(--transition-retro);
+  width: 60px;
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  background: rgba(255, 0, 128, 0.3);
+  border-color: var(--retro-pink);
+  box-shadow: 0 0 20px var(--retro-pink);
+}
+
+.carousel-indicators [data-bs-target] {
+  background-color: rgba(0, 212, 255, 0.5);
+  border: 1px solid var(--retro-cyan);
+  border-radius: 0;
+  height: 4px;
+  transition: var(--transition-retro);
+  width: 30px;
+}
+
+.carousel-indicators .active {
+  background-color: var(--retro-pink);
+  border-color: var(--retro-pink);
+  box-shadow: 0 0 10px var(--retro-pink);
+}
+
+/* Toast Retrowave */
+.toast {
+  background: rgba(13, 2, 33, 0.95);
+  backdrop-filter: blur(20px);
+  border: 2px solid var(--retro-cyan);
+  border-radius: var(--border-radius);
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+}
+
+.toast-header {
+  background: rgba(255, 0, 128, 0.1);
+  border-bottom: 1px solid var(--retro-cyan);
+  color: var(--retro-cyan);
+  font-family: var(--font-retro);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.toast-body {
+  color: var(--retro-cyan);
+  font-family: var(--font-retro);
+}
+
+/* Spinners Retrowave */
+.spinner-border,
+.spinner-grow {
+  color: var(--retro-cyan);
+  animation: spinner-border 0.75s linear infinite;
+}
+
+.spinner-border {
+  border-color: rgba(0, 212, 255, 0.2);
+  border-top-color: var(--retro-cyan);
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+}
+
+/* Placeholders Retrowave */
+.placeholder {
+  background: linear-gradient(90deg, rgba(255, 0, 128, 0.1), rgba(0, 212, 255, 0.2), rgba(255, 0, 128, 0.1));
+  background-size: 200% 100%;
+  animation: placeholder-wave 2s linear infinite;
+  border-radius: 0;
+}
+
+@keyframes placeholder-wave {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Input Groups Retrowave */
+.input-group-text {
+  background: rgba(255, 0, 128, 0.2);
+  border: 2px solid var(--retro-cyan);
+  color: var(--retro-cyan);
+  font-family: var(--font-retro);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 0 10px rgba(0, 212, 255, 0.2);
+}
+
+.input-group .form-control {
+  border-color: var(--retro-cyan);
+}
+
+.input-group .btn {
+  border-color: var(--retro-cyan);
+}
+
+/* Form Check Retrowave */
+.form-check-input {
+  background-color: rgba(13, 2, 33, 0.8);
+  border: 2px solid var(--retro-cyan);
+  border-radius: 0;
+  transition: var(--transition-retro);
+}
+
+.form-check-input:checked {
+  background-color: var(--retro-pink);
+  border-color: var(--retro-pink);
+  box-shadow: 0 0 10px var(--retro-pink);
+}
+
+.form-check-input:focus {
+  border-color: var(--retro-cyan);
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+}
+
+.form-check-label {
+  color: var(--retro-cyan);
+  font-family: var(--font-retro);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Form Select Retrowave */
+.form-select {
+  background: rgba(13, 2, 33, 0.8);
+  backdrop-filter: blur(10px);
+  border: 2px solid var(--retro-cyan);
+  border-radius: var(--border-radius);
+  box-shadow: 0 0 10px rgba(0, 212, 255, 0.2);
+  color: var(--retro-cyan);
+  font-family: var(--font-retro);
+  transition: var(--transition-retro);
+}
+
+.form-select:focus {
+  background: rgba(13, 2, 33, 0.9);
+  border-color: var(--retro-pink);
+  box-shadow: 0 0 20px rgba(255, 0, 128, 0.3);
+  color: var(--retro-cyan);
+}
+
+.form-select option {
+  background: var(--dark-space);
+  color: var(--retro-cyan);
+}
+
+/* Utilidades Retrowave */
+.retro-glow {
+  text-shadow: 0 0 15px currentColor;
+  animation: subtleGlow 4s ease-in-out infinite;
+}
+
+.synthwave-text {
+  background: var(--gradient-synthwave);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% 100%;
+  animation: sunsetShimmer 6s ease-in-out infinite;
+}
+
+.miami-gradient {
+  background: var(--gradient-miami);
+}
+
+.ocean-gradient {
+  background: var(--gradient-ocean);
+}
+
+.sunset-gradient {
+  background: var(--gradient-sunset);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+  
+  h2 {
+    font-size: 2rem;
+  }
+  
+  .navbar-brand {
+    font-size: 1.5rem;
+  }
+  
+  .btn {
+    padding: 12px 24px;
+    font-size: 12px;
+  }
+  
+  .card-body {
+    padding: 20px;
+  }
+}

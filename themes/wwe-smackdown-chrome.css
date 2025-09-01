@@ -1,0 +1,1164 @@
+/* ========================================
+   TEMA WWE SMACKDOWN CHROME - BOOTSTRAP
+   Inspirado en WWE SmackDown con estética cromada
+   Colores: Azul, Negro, Plateado
+   Estilo: Glossy, cromado, premium
+   ======================================== */
+
+/* Variables CSS del Tema */
+:root {
+  /* Colores SmackDown */
+  --smackdown-blue: #0066cc;
+  --smackdown-royal: #003d7a;
+  --smackdown-electric: #0099ff;
+  --smackdown-navy: #001a33;
+  --smackdown-silver: #c0c0c0;
+  --smackdown-platinum: #e5e4e2;
+  --smackdown-chrome: #b8b8b8;
+  --smackdown-steel: #708090;
+  --smackdown-black: #0d0d0d;
+  --smackdown-white: #ffffff;
+  
+  /* Gradientes Metálicos SmackDown */
+  --gradient-blue-metal: linear-gradient(135deg, #0099ff 0%, #0066cc 25%, #003d7a 50%, #0066cc 75%, #0099ff 100%);
+  --gradient-silver-chrome: linear-gradient(135deg, #f8f8ff 0%, #e5e4e2 25%, #c0c0c0 50%, #b8b8b8 75%, #e5e4e2 100%);
+  --gradient-steel-blue: linear-gradient(135deg, #708090 0%, #0066cc 50%, #708090 100%);
+  --gradient-royal-chrome: linear-gradient(135deg, #003d7a 0%, #c0c0c0 25%, #0066cc 50%, #e5e4e2 75%, #003d7a 100%);
+  --gradient-electric-steel: linear-gradient(135deg, #0099ff 0%, #708090 25%, #0099ff 50%, #b8b8b8 75%, #0099ff 100%);
+  --gradient-platinum-blue: linear-gradient(135deg, #e5e4e2 0%, #0066cc 50%, #e5e4e2 100%);
+  
+  /* Efectos Cromados */
+  --chrome-reflection: linear-gradient(180deg, rgba(255,255,255,0.4) 0%, transparent 50%, rgba(0,0,0,0.2) 100%);
+  --steel-texture: linear-gradient(45deg, transparent 25%, rgba(255,255,255,0.1) 25%, rgba(255,255,255,0.1) 50%, transparent 50%, transparent 75%, rgba(255,255,255,0.1) 75%);
+  
+  /* Sombras Premium */
+  --shadow-chrome: 0 8px 32px rgba(0, 102, 204, 0.2), 0 4px 16px rgba(0, 0, 0, 0.1);
+  --shadow-steel: 0 12px 40px rgba(112, 128, 144, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  --shadow-blue-glow: 0 0 30px rgba(0, 102, 204, 0.4), 0 8px 25px rgba(0, 0, 0, 0.2);
+  --shadow-inset-chrome: inset 0 2px 4px rgba(255, 255, 255, 0.4), inset 0 -2px 4px rgba(0, 0, 0, 0.3);
+  
+  --border-radius-chrome: 8px;
+  --transition-smooth: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --font-smackdown: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Animaciones Sutiles SmackDown */
+@keyframes chromeShine {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes blueGlow {
+  0%, 100% { 
+    box-shadow: var(--shadow-chrome);
+  }
+  50% { 
+    box-shadow: var(--shadow-blue-glow);
+  }
+}
+
+@keyframes steelFloat {
+  0%, 100% { 
+    transform: translateY(0px);
+    box-shadow: var(--shadow-chrome);
+  }
+  50% { 
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-steel);
+  }
+}
+
+@keyframes slideInSmooth {
+  0% { 
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% { 
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Estilos Base */
+body {
+  font-family: var(--font-smackdown);
+  background: linear-gradient(135deg, var(--smackdown-navy) 0%, var(--smackdown-black) 50%, var(--smackdown-royal) 100%);
+  background-attachment: fixed;
+  color: var(--smackdown-white);
+  min-height: 100vh;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(rgba(0, 102, 204, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 102, 204, 0.05) 1px, transparent 1px),
+    radial-gradient(circle at 30% 70%, rgba(0, 153, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 70% 30%, rgba(192, 192, 192, 0.1) 0%, transparent 50%);
+  background-size: 25px 25px, 25px 25px, 100% 100%, 100% 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Tipografía SmackDown */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  color: var(--smackdown-white);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  position: relative;
+}
+
+h1 {
+  background: var(--gradient-blue-metal);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 3.5rem;
+  background-size: 200% 100%;
+  animation: chromeShine 4s ease-in-out infinite;
+}
+
+h2 {
+  color: var(--smackdown-electric);
+  font-size: 2.5rem;
+  text-shadow: 0 0 15px rgba(0, 153, 255, 0.5);
+}
+
+/* Botones SmackDown Chrome */
+.btn {
+  background: var(--gradient-steel-blue);
+  border: 2px solid var(--smackdown-silver);
+  border-radius: var(--border-radius-chrome);
+  box-shadow: var(--shadow-chrome);
+  color: var(--smackdown-white);
+  font-weight: 600;
+  padding: 12px 24px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -200%;
+  width: 200%;
+  height: 100%;
+  background: var(--chrome-reflection);
+  transition: left 0.6s;
+}
+
+.btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--steel-texture);
+  background-size: 8px 8px;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.btn:hover::before {
+  left: 200%;
+}
+
+.btn:hover {
+  background: var(--gradient-blue-metal);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-blue-glow);
+  color: var(--smackdown-white);
+  border-color: var(--smackdown-electric);
+}
+
+.btn:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-inset-chrome);
+}
+
+.btn-primary {
+  background: var(--gradient-blue-metal);
+  border-color: var(--smackdown-blue);
+}
+
+.btn-secondary {
+  background: var(--gradient-silver-chrome);
+  border-color: var(--smackdown-chrome);
+  color: var(--smackdown-black);
+}
+
+.btn-secondary:hover {
+  background: var(--gradient-platinum-blue);
+  color: var(--smackdown-black);
+}
+
+.btn-success {
+  background: linear-gradient(135deg, #28a745 0%, #708090 25%, #28a745 50%, #c0c0c0 75%, #28a745 100%);
+  border-color: #28a745;
+}
+
+.btn-warning {
+  background: var(--gradient-electric-steel);
+  border-color: var(--smackdown-electric);
+}
+
+.btn-danger {
+  background: linear-gradient(135deg, #dc3545 0%, #708090 25%, #dc3545 50%, #c0c0c0 75%, #dc3545 100%);
+  border-color: #dc3545;
+}
+
+.btn-info {
+  background: var(--gradient-royal-chrome);
+  border-color: var(--smackdown-royal);
+}
+
+/* Cards SmackDown Chrome */
+.card {
+  background: linear-gradient(135deg, rgba(13, 13, 13, 0.95) 0%, rgba(26, 26, 51, 0.95) 50%, rgba(13, 13, 13, 0.95) 100%);
+  backdrop-filter: blur(20px);
+  border: 2px solid var(--smackdown-silver);
+  border-radius: calc(var(--border-radius-chrome) * 1.5);
+  box-shadow: var(--shadow-chrome);
+  transition: var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+  animation: slideInSmooth 0.5s ease-out;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--gradient-blue-metal);
+}
+
+.card::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--steel-texture);
+  background-size: 12px 12px;
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+.card:hover {
+  background: linear-gradient(135deg, rgba(26, 26, 51, 0.95) 0%, rgba(39, 39, 77, 0.95) 50%, rgba(26, 26, 51, 0.95) 100%);
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-blue-glow);
+  border-color: var(--smackdown-electric);
+  animation: steelFloat 3s ease-in-out infinite;
+}
+
+.card-header {
+  background: var(--gradient-blue-metal);
+  border-bottom: 2px solid var(--smackdown-silver);
+  border-radius: calc(var(--border-radius-chrome) * 1.5) calc(var(--border-radius-chrome) * 1.5) 0 0;
+  color: var(--smackdown-white);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+}
+
+.card-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--chrome-reflection);
+}
+
+.card-body {
+  color: rgba(255, 255, 255, 0.9);
+  padding: 25px;
+}
+
+/* Navegación SmackDown */
+.navbar {
+  background: linear-gradient(135deg, rgba(13, 13, 13, 0.98) 0%, rgba(0, 26, 51, 0.98) 50%, rgba(13, 13, 13, 0.98) 100%) !important;
+  backdrop-filter: blur(20px);
+  border-bottom: 3px solid var(--smackdown-blue);
+  box-shadow: var(--shadow-steel);
+  padding: 12px 0;
+  position: relative;
+}
+
+.navbar::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--gradient-silver-chrome);
+}
+
+.navbar-brand {
+  background: var(--gradient-silver-chrome);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 900;
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background-size: 200% 100%;
+  animation: chromeShine 5s ease-in-out infinite;
+}
+
+.nav-link {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 10px 18px !important;
+  border-radius: 6px;
+  transition: var(--transition-smooth);
+  position: relative;
+}
+
+.nav-link::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--gradient-blue-metal);
+  transition: width 0.4s ease;
+}
+
+.nav-link:hover::before {
+  width: 100%;
+}
+
+.nav-link:hover {
+  color: var(--smackdown-electric) !important;
+  background: rgba(0, 102, 204, 0.1);
+  transform: translateY(-1px);
+  text-shadow: 0 0 8px rgba(0, 153, 255, 0.5);
+}
+
+/* Formularios SmackDown */
+.form-control {
+  background: linear-gradient(135deg, rgba(13, 13, 13, 0.8) 0%, rgba(26, 26, 51, 0.8) 100%);
+  backdrop-filter: blur(10px);
+  border: 2px solid var(--smackdown-chrome);
+  border-radius: var(--border-radius-chrome);
+  box-shadow: var(--shadow-inset-chrome);
+  color: var(--smackdown-white);
+  padding: 12px 16px;
+  transition: var(--transition-smooth);
+}
+
+.form-control::placeholder {
+  color: rgba(192, 192, 192, 0.6);
+}
+
+.form-control:focus {
+  background: linear-gradient(135deg, rgba(26, 26, 51, 0.9) 0%, rgba(39, 39, 77, 0.9) 100%);
+  border-color: var(--smackdown-electric);
+  box-shadow: 0 0 20px rgba(0, 153, 255, 0.3), var(--shadow-inset-chrome);
+  color: var(--smackdown-white);
+  outline: none;
+}
+
+.form-label {
+  color: var(--smackdown-silver);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+/* Alertas SmackDown */
+.alert {
+  background: linear-gradient(135deg, rgba(13, 13, 13, 0.9) 0%, rgba(26, 26, 51, 0.9) 100%);
+  backdrop-filter: blur(15px);
+  border: 2px solid;
+  border-radius: var(--border-radius-chrome);
+  box-shadow: var(--shadow-chrome);
+  color: var(--smackdown-white);
+  padding: 18px;
+  position: relative;
+  animation: slideInSmooth 0.4s ease-out;
+}
+
+.alert::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  border-radius: var(--border-radius-chrome) var(--border-radius-chrome) 0 0;
+}
+
+.alert-primary {
+  border-color: var(--smackdown-blue);
+}
+
+.alert-primary::before {
+  background: var(--gradient-blue-metal);
+}
+
+.alert-success {
+  border-color: #28a745;
+}
+
+.alert-success::before {
+  background: linear-gradient(90deg, #28a745, var(--smackdown-chrome), #28a745);
+}
+
+.alert-warning {
+  border-color: var(--smackdown-electric);
+}
+
+.alert-warning::before {
+  background: var(--gradient-electric-steel);
+}
+
+.alert-danger {
+  border-color: #dc3545;
+}
+
+.alert-danger::before {
+  background: linear-gradient(90deg, #dc3545, var(--smackdown-chrome), #dc3545);
+}
+
+/* Tablas SmackDown */
+.table {
+  background: linear-gradient(135deg, rgba(13, 13, 13, 0.95) 0%, rgba(26, 26, 51, 0.95) 100%);
+  backdrop-filter: blur(20px);
+  border-radius: var(--border-radius-chrome);
+  box-shadow: var(--shadow-steel);
+  color: var(--smackdown-white);
+  overflow: hidden;
+}
+
+.table thead th {
+  background: var(--gradient-blue-metal);
+  border: none;
+  color: var(--smackdown-white);
+  font-weight: 700;
+  padding: 18px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+}
+
+.table thead th::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--gradient-silver-chrome);
+}
+
+.table tbody tr {
+  border-bottom: 1px solid rgba(192, 192, 192, 0.2);
+  transition: var(--transition-smooth);
+}
+
+.table tbody tr:hover {
+  background: rgba(0, 102, 204, 0.1);
+  transform: translateX(2px);
+}
+
+.table tbody td {
+  border: none;
+  padding: 16px 18px;
+  vertical-align: middle;
+}
+
+/* Progress Bars SmackDown */
+.progress {
+  background: linear-gradient(135deg, rgba(13, 13, 13, 0.8) 0%, rgba(26, 26, 51, 0.8) 100%);
+  border: 1px solid var(--smackdown-chrome);
+  border-radius: 12px;
+  box-shadow: var(--shadow-inset-chrome);
+  height: 22px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  background: var(--gradient-blue-metal);
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 102, 204, 0.4);
+  position: relative;
+  background-size: 200% 100%;
+  animation: chromeShine 4s ease-in-out infinite;
+}
+
+.progress-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: var(--chrome-reflection);
+  border-radius: 12px 12px 0 0;
+}
+
+/* Badges SmackDown */
+.badge {
+  background: var(--gradient-blue-metal);
+  border: 1px solid var(--smackdown-silver);
+  border-radius: 15px;
+  box-shadow: var(--shadow-chrome);
+  color: var(--smackdown-white);
+  font-weight: 700;
+  padding: 6px 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: relative;
+}
+
+.badge::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: var(--chrome-reflection);
+  border-radius: 15px 15px 0 0;
+}
+
+.badge-primary {
+  background: var(--gradient-blue-metal);
+}
+
+.badge-secondary {
+  background: var(--gradient-silver-chrome);
+  color: var(--smackdown-black);
+}
+
+.badge-success {
+  background: linear-gradient(135deg, #28a745 0%, var(--smackdown-chrome) 25%, #28a745 50%, var(--smackdown-silver) 75%, #28a745 100%);
+}
+
+.badge-warning {
+  background: var(--gradient-electric-steel);
+}
+
+.badge-danger {
+  background: linear-gradient(135deg, #dc3545 0%, var(--smackdown-chrome) 25%, #dc3545 50%, var(--smackdown-silver) 75%, #dc3545 100%);
+}
+
+/* Lista Group SmackDown */
+.list-group {
+  border-radius: var(--border-radius-chrome);
+  box-shadow: var(--shadow-steel);
+  overflow: hidden;
+}
+
+.list-group-item {
+  background: linear-gradient(135deg, rgba(13, 13, 13, 0.9) 0%, rgba(26, 26, 51, 0.9) 100%);
+  backdrop-filter: blur(10px);
+  border: none;
+  border-bottom: 1px solid rgba(192, 192, 192, 0.2);
+  color: rgba(255, 255, 255, 0.9);
+  padding: 18px;
+  transition: var(--transition-smooth);
+  position: relative;
+}
+
+.list-group-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 0;
+  background: var(--gradient-blue-metal);
+  transition: width 0.4s ease;
+}
+
+.list-group-item:hover {
+  background: linear-gradient(135deg, rgba(26, 26, 51, 0.9) 0%, rgba(39, 39, 77, 0.9) 100%);
+  color: var(--smackdown-white);
+  transform: translateX(8px);
+}
+
+.list-group-item:hover::before {
+  width: 4px;
+}
+
+/* Breadcrumbs SmackDown */
+.breadcrumb {
+  background: linear-gradient(135deg, rgba(13, 13, 13, 0.9) 0%, rgba(26, 26, 51, 0.9) 100%);
+  backdrop-filter: blur(15px);
+  border: 2px solid var(--smackdown-chrome);
+  border-radius: var(--border-radius-chrome);
+  box-shadow: var(--shadow-chrome);
+  color: var(--smackdown-white);
+  font-weight: 600;
+  padding: 15px 20px;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  content: "▶";
+  color: var(--smackdown-electric);
+  font-weight: bold;
+  margin: 0 8px;
+  text-shadow: 0 0 5px rgba(0, 153, 255, 0.5);
+}
+
+.breadcrumb-item a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: var(--transition-smooth);
+}
+
+.breadcrumb-item a:hover {
+  color: var(--smackdown-electric);
+  text-shadow: 0 0 8px rgba(0, 153, 255, 0.5);
+}
+
+.breadcrumb-item.active {
+  color: var(--smackdown-silver);
+  font-weight: 700;
+}
+
+/* Paginación SmackDown */
+.pagination {
+  gap: 8px;
+}
+
+.page-link {
+  background: linear-gradient(135deg, rgba(13, 13, 13, 0.9) 0%, rgba(26, 26, 51, 0.9) 100%);
+  backdrop-filter: blur(10px);
+  border: 2px solid var(--smackdown-chrome);
+  border-radius: var(--border-radius-chrome);
+  box-shadow: var(--shadow-chrome);
+  color: var(--smackdown-white);
+  font-weight: 600;
+  padding: 10px 16px;
+  text-decoration: none;
+  transition: var(--transition-smooth);
+}
+
+.page-link:hover {
+  background: var(--gradient-blue-metal);
+  border-color: var(--smackdown-electric);
+  color: var(--smackdown-white);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-blue-glow);
+}
+
+.page-item.active .page-link {
+  background: var(--gradient-silver-chrome);
+  border-color: var(--smackdown-silver);
+  color: var(--smackdown-black);
+  box-shadow: 0 0 15px rgba(192, 192, 192, 0.5);
+}
+
+.page-item.disabled .page-link {
+  background: rgba(13, 13, 13, 0.5);
+  border-color: rgba(192, 192, 192, 0.3);
+  color: rgba(255, 255, 255, 0.3);
+  cursor: not-allowed;
+}
+
+/* Pills SmackDown */
+.nav-pills .nav-link {
+  background: linear-gradient(135deg, rgba(13, 13, 13, 0.8) 0%, rgba(26, 26, 51, 0.8) 100%);
+  backdrop-filter: blur(10px);
+  border: 2px solid var(--smackdown-chrome);
+  border-radius: 20px;
+  box-shadow: var(--shadow-chrome);
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 600;
+  margin: 0 6px;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: var(--transition-smooth);
+}
+
+.nav-pills .nav-link:hover {
+  background: var(--gradient-blue-metal);
+  border-color: var(--smackdown-electric);
+  color: var(--smackdown-white);
+  transform: translateY(-1px);
+  animation: blueGlow 2s ease-in-out infinite;
+}
+
+.nav-pills .nav-link.active {
+  background: var(--gradient-silver-chrome);
+  border-color: var(--smackdown-silver);
+  color: var(--smackdown-black);
+  box-shadow: 0 0 20px rgba(192, 192, 192, 0.5);
+}
+
+/* Tabs SmackDown */
+.nav-tabs {
+  background: linear-gradient(135deg, rgba(13, 13, 13, 0.9) 0%, rgba(26, 26, 51, 0.9) 100%);
+  backdrop-filter: blur(15px);
+  border-bottom: 3px solid var(--smackdown-blue);
+  padding: 12px 12px 0;
+  border-radius: var(--border-radius-chrome) var(--border-radius-chrome) 0 0;
+}
+
+.nav-tabs .nav-link {
+  background: linear-gradient(135deg, rgba(26, 26, 51, 0.8) 0%, rgba(39, 39, 77, 0.8) 100%);
+  border: 2px solid var(--smackdown-chrome);
+  border-bottom: none;
+  border-radius: var(--border-radius-chrome) var(--border-radius-chrome) 0 0;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 600;
+  margin-bottom: -3px;
+  padding: 12px 22px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: var(--transition-smooth);
+}
+
+.nav-tabs .nav-link:hover {
+  background: var(--gradient-blue-metal);
+  border-color: var(--smackdown-electric);
+  color: var(--smackdown-white);
+  transform: translateY(-2px);
+}
+
+.nav-tabs .nav-link.active {
+  background: var(--gradient-silver-chrome);
+  border-bottom-color: transparent;
+  color: var(--smackdown-black);
+  font-weight: 700;
+  box-shadow: 0 0 15px rgba(192, 192, 192, 0.5);
+}
+
+.tab-content {
+  background: linear-gradient(135deg, rgba(13, 13, 13, 0.95) 0%, rgba(26, 26, 51, 0.95) 100%);
+  backdrop-filter: blur(20px);
+  border: 2px solid var(--smackdown-chrome);
+  border-top: none;
+  border-radius: 0 0 var(--border-radius-chrome) var(--border-radius-chrome);
+  box-shadow: var(--shadow-steel);
+}
+
+.tab-pane {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Modales SmackDown */
+.modal-content {
+  background: linear-gradient(135deg, rgba(13, 13, 13, 0.98) 0%, rgba(26, 26, 51, 0.98) 100%);
+  backdrop-filter: blur(25px);
+  border: 3px solid var(--smackdown-chrome);
+  border-radius: calc(var(--border-radius-chrome) * 2);
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5), var(--shadow-steel);
+  overflow: hidden;
+}
+
+.modal-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--gradient-blue-metal);
+}
+
+.modal-header {
+  background: var(--gradient-blue-metal);
+  border-bottom: 2px solid var(--smackdown-silver);
+  border-radius: calc(var(--border-radius-chrome) * 2) calc(var(--border-radius-chrome) * 2) 0 0;
+  color: var(--smackdown-white);
+  padding: 20px;
+}
+
+.modal-title {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.modal-body {
+  color: rgba(255, 255, 255, 0.9);
+  padding: 25px;
+}
+
+.modal-footer {
+  background: rgba(26, 26, 51, 0.5);
+  border-top: 2px solid var(--smackdown-silver);
+  border-radius: 0 0 calc(var(--border-radius-chrome) * 2) calc(var(--border-radius-chrome) * 2);
+  padding: 20px;
+}
+
+.btn-close {
+  background: var(--gradient-silver-chrome);
+  border: 2px solid var(--smackdown-black);
+  border-radius: 50%;
+  opacity: 1;
+  transition: var(--transition-smooth);
+  width: 40px;
+  height: 40px;
+}
+
+.btn-close:hover {
+  background: var(--gradient-blue-metal);
+  transform: scale(1.1) rotate(90deg);
+  box-shadow: 0 0 15px rgba(0, 102, 204, 0.5);
+}
+
+/* Acordeón SmackDown */
+.accordion {
+  border-radius: calc(var(--border-radius-chrome) * 1.5);
+  box-shadow: var(--shadow-steel);
+  overflow: hidden;
+}
+
+.accordion-item {
+  background: linear-gradient(135deg, rgba(13, 13, 13, 0.95) 0%, rgba(26, 26, 51, 0.95) 100%);
+  backdrop-filter: blur(15px);
+  border: none;
+  border-bottom: 2px solid rgba(192, 192, 192, 0.2);
+}
+
+.accordion-item:last-child {
+  border-bottom: none;
+}
+
+.accordion-button {
+  background: linear-gradient(135deg, rgba(26, 26, 51, 0.9) 0%, rgba(39, 39, 77, 0.9) 100%);
+  border: none;
+  color: var(--smackdown-white);
+  font-weight: 700;
+  padding: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: var(--transition-smooth);
+}
+
+.accordion-button:not(.collapsed) {
+  background: var(--gradient-blue-metal);
+  box-shadow: none;
+  color: var(--smackdown-white);
+  background-size: 200% 100%;
+  animation: chromeShine 4s ease-in-out infinite;
+}
+
+.accordion-button:hover {
+  background: var(--gradient-silver-chrome);
+  color: var(--smackdown-black);
+}
+
+.accordion-button::after {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23c0c0c0'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+  filter: drop-shadow(0 0 5px rgba(192, 192, 192, 0.5));
+}
+
+.accordion-body {
+  background: rgba(13, 13, 13, 0.8);
+  color: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+}
+
+/* Dropdown SmackDown */
+.dropdown-menu {
+  background: linear-gradient(135deg, rgba(13, 13, 13, 0.98) 0%, rgba(26, 26, 51, 0.98) 100%);
+  backdrop-filter: blur(20px);
+  border: 2px solid var(--smackdown-chrome);
+  border-radius: var(--border-radius-chrome);
+  box-shadow: var(--shadow-steel);
+  padding: 12px;
+}
+
+.dropdown-item {
+  border-radius: 6px;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 600;
+  margin-bottom: 2px;
+  padding: 10px 16px;
+  transition: var(--transition-smooth);
+  position: relative;
+}
+
+.dropdown-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 0;
+  background: var(--gradient-blue-metal);
+  transition: width 0.3s ease;
+  border-radius: 6px 0 0 6px;
+}
+
+.dropdown-item:hover {
+  background: var(--gradient-blue-metal);
+  color: var(--smackdown-white);
+  transform: translateX(6px);
+}
+
+.dropdown-item:hover::before {
+  width: 3px;
+}
+
+.dropdown-header {
+  color: var(--smackdown-silver);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.dropdown-divider {
+  border: none;
+  height: 2px;
+  background: var(--gradient-silver-chrome);
+  margin: 8px 0;
+}
+
+/* Offcanvas SmackDown */
+.offcanvas {
+  background: linear-gradient(135deg, rgba(13, 13, 13, 0.98) 0%, rgba(26, 26, 51, 0.98) 100%);
+  backdrop-filter: blur(25px);
+  border: 3px solid var(--smackdown-chrome);
+  box-shadow: var(--shadow-steel);
+}
+
+.offcanvas-header {
+  background: var(--gradient-blue-metal);
+  border-bottom: 2px solid var(--smackdown-silver);
+  color: var(--smackdown-white);
+  padding: 20px;
+}
+
+.offcanvas-title {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.offcanvas-body {
+  color: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+}
+
+/* Carrusel SmackDown */
+.carousel {
+  border-radius: calc(var(--border-radius-chrome) * 1.5);
+  box-shadow: var(--shadow-steel);
+  overflow: hidden;
+}
+
+.carousel-inner {
+  border-radius: calc(var(--border-radius-chrome) * 1.5);
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  background: var(--gradient-blue-metal);
+  border: 2px solid var(--smackdown-silver);
+  border-radius: 50%;
+  height: 60px;
+  margin: auto 25px;
+  transition: var(--transition-smooth);
+  width: 60px;
+  box-shadow: var(--shadow-chrome);
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  background: var(--gradient-silver-chrome);
+  transform: scale(1.1);
+  box-shadow: 0 0 25px rgba(192, 192, 192, 0.5);
+  animation: blueGlow 2s ease-in-out infinite;
+}
+
+.carousel-indicators [data-bs-target] {
+  background-color: rgba(255, 255, 255, 0.4);
+  border: 2px solid var(--smackdown-silver);
+  border-radius: 0;
+  height: 6px;
+  transition: var(--transition-smooth);
+  width: 25px;
+  transform: skew(-20deg);
+}
+
+.carousel-indicators .active {
+  background-color: var(--smackdown-electric);
+  transform: skew(-20deg) scale(1.2);
+  box-shadow: 0 0 12px rgba(0, 153, 255, 0.8);
+}
+
+/* Toast SmackDown */
+.toast {
+  background: linear-gradient(135deg, rgba(13, 13, 13, 0.95) 0%, rgba(26, 26, 51, 0.95) 100%);
+  backdrop-filter: blur(20px);
+  border: 2px solid var(--smackdown-chrome);
+  border-radius: var(--border-radius-chrome);
+  box-shadow: var(--shadow-steel);
+}
+
+.toast-header {
+  background: var(--gradient-blue-metal);
+  border-bottom: 1px solid var(--smackdown-silver);
+  color: var(--smackdown-white);
+  font-weight: 700;
+}
+
+.toast-body {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Spinners SmackDown */
+.spinner-border,
+.spinner-grow {
+  color: var(--smackdown-electric);
+  filter: drop-shadow(0 0 8px rgba(0, 153, 255, 0.5));
+}
+
+.spinner-border {
+  border-color: rgba(0, 153, 255, 0.2);
+  border-top-color: var(--smackdown-electric);
+}
+
+/* Placeholders SmackDown */
+.placeholder {
+  background: var(--gradient-steel-blue);
+  background-size: 200% 100%;
+  animation: chromeShine 3s linear infinite;
+  border-radius: 4px;
+}
+
+/* Input Groups SmackDown */
+.input-group-text {
+  background: var(--gradient-blue-metal);
+  border: 2px solid var(--smackdown-chrome);
+  color: var(--smackdown-white);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.input-group .form-control {
+  border-color: var(--smackdown-chrome);
+}
+
+.input-group .btn {
+  border-color: var(--smackdown-chrome);
+}
+
+/* Form Check SmackDown */
+.form-check-input {
+  background-color: linear-gradient(135deg, rgba(13, 13, 13, 0.8) 0%, rgba(26, 26, 51, 0.8) 100%);
+  border: 2px solid var(--smackdown-chrome);
+  border-radius: 4px;
+  transition: var(--transition-smooth);
+}
+
+.form-check-input:checked {
+  background-color: var(--smackdown-electric);
+  border-color: var(--smackdown-electric);
+  box-shadow: 0 0 12px rgba(0, 153, 255, 0.5);
+}
+
+.form-check-input:focus {
+  border-color: var(--smackdown-electric);
+  box-shadow: 0 0 15px rgba(0, 153, 255, 0.3);
+}
+
+.form-check-label {
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+}
+
+/* Form Select SmackDown */
+.form-select {
+  background: linear-gradient(135deg, rgba(13, 13, 13, 0.8) 0%, rgba(26, 26, 51, 0.8) 100%);
+  backdrop-filter: blur(10px);
+  border: 2px solid var(--smackdown-chrome);
+  border-radius: var(--border-radius-chrome);
+  box-shadow: var(--shadow-inset-chrome);
+  color: var(--smackdown-white);
+  transition: var(--transition-smooth);
+}
+
+.form-select:focus {
+  background: linear-gradient(135deg, rgba(26, 26, 51, 0.9) 0%, rgba(39, 39, 77, 0.9) 100%);
+  border-color: var(--smackdown-electric);
+  box-shadow: 0 0 15px rgba(0, 153, 255, 0.3);
+  color: var(--smackdown-white);
+}
+
+.form-select option {
+  background: var(--smackdown-black);
+  color: var(--smackdown-white);
+}
+
+/* Utilidades SmackDown */
+.smackdown-chrome {
+  background: var(--gradient-silver-chrome);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% 100%;
+  animation: chromeShine 4s ease-in-out infinite;
+}
+
+.smackdown-steel-shine {
+  animation: chromeShine 4s ease-in-out infinite;
+  background-size: 200% 100%;
+}
+
+.smackdown-float {
+  animation: steelFloat 5s ease-in-out infinite;
+}
+
+.smackdown-glow {
+  animation: blueGlow 3s ease-in-out infinite;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+  
+  h2 {
+    font-size: 2rem;
+  }
+  
+  .card-body {
+    padding: 18px;
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    font-size: 13px;
+  }
+  
+  .navbar-brand {
+    font-size: 1.5rem;
+  }
+}
