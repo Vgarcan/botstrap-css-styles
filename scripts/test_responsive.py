@@ -91,7 +91,8 @@ def main() -> int:
                             """(name) => {
                               const link = document.getElementById('theme-css');
                               return link && link.getAttribute('href') === 'themes/' + name
-                                && link.sheet !== null;
+                                && link.sheet !== null
+                                && link.sheet.href?.endsWith('/themes/' + name);
                             }""",
                             arg=theme,
                             timeout=18000,

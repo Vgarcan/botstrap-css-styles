@@ -53,7 +53,7 @@ def main() -> int:
                 "*, *::before, *::after {animation:none!important;"
                 "transition:none!important;}"
             ))
-            for width in (390, 1440):
+            for width in (320, 390, 768, 1440):
                 page.set_viewport_size({"width": width, "height": 900})
                 for theme in THEMES:
                     page.evaluate("(name) => changeTheme(name, null, false)", theme)
@@ -61,7 +61,8 @@ def main() -> int:
                         """(name) => {
                             const l = document.getElementById('theme-css');
                             return l?.getAttribute('href') === 'themes/' + name + '.css'
-                                && l.sheet !== null;
+                                && l.sheet !== null
+                                && l.sheet.href?.endsWith('/themes/' + name + '.css');
                         }""", arg=theme, timeout=15000)
                     page.wait_for_timeout(100)
                     result = page.evaluate("""async () => await axe.run(document, {

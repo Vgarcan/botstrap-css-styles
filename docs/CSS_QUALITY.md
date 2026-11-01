@@ -13,7 +13,7 @@ CSS syntactic validity and visual accessibility are independent requirements.
 ## Tools
 Official W3C CSS Validator (2025-02-26 release), run on 18 nonempty CSS files.
 The excluded corporate-blue.css is an empty, unselected placeholder.
-Axe-core 4.10.3 scans all 17 selectable themes at widths of 390 and 1440px
+Axe-core 4.10.3 scans all 17 selectable themes at widths of 320, 390, 768 and 1440px
 inside Chromium, with the actual Bootstrap and gallery styles.
 
 ## Execution

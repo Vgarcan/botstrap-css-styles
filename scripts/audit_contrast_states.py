@@ -10,6 +10,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 import sys
+import traceback
 from playwright.sync_api import sync_playwright
 from audit_contrast import ROOT, OUT, AXE, THEMES, simplified_issue
 
@@ -70,7 +71,8 @@ def main() -> int:
                     """(name) => {
                         const l = document.getElementById('theme-css');
                         return l?.getAttribute('href') === 'themes/' + name + '.css'
-                            && l.sheet !== null;
+                            && l.sheet !== null
+                            && l.sheet.href?.endsWith('/themes/' + name + '.css');
                     }""", arg=theme, timeout=15000)
                 page.wait_for_timeout(90)
                 try:
@@ -87,10 +89,22 @@ def main() -> int:
                     page.wait_for_function(
                         "() => document.querySelector('#exampleModal')?.classList.contains('show')")
                     scans.append(scan(page, theme, "modal-open"))
-                    page.evaluate("""() => bootstrap.Modal.getInstance(
-                        document.getElementById('exampleModal')).hide()""")
+                    # Bootstrap modals and offcanvas both use page backdrops
+                    # and focus traps. Reset the page rather than overlapping
+                    # their transition states in a single test fixture.
+                    page.reload(wait_until="load", timeout=60000)
+                    page.add_script_tag(path=str(AXE))
+                    page.add_style_tag(content=(
+                        "*, *::before, *::after {animation:none!important;"
+                        "transition:none!important;}"
+                    ))
+                    page.evaluate("(name) => changeTheme(name, null, false)", theme)
                     page.wait_for_function(
-                        "() => !document.querySelector('#exampleModal')?.classList.contains('show')")
+                        """(name) => {
+                            const l = document.getElementById('theme-css');
+                            return l?.getAttribute('href') === 'themes/' + name + '.css'
+                                && l.sheet?.href?.endsWith('/themes/' + name + '.css');
+                        }""", arg=theme, timeout=10000)
 
                     page.locator(".site-nav-toggler").click(force=True)
                     page.wait_for_function(
@@ -101,7 +115,7 @@ def main() -> int:
                     page.wait_for_function(
                         "() => !document.querySelector('#siteNav')?.classList.contains('show')")
                 except Exception as exc:
-                    errors.append({"theme": theme, "error": str(exc)[:700]})
+                    errors.append({"theme": theme, "error": traceback.format_exc()[:3000]})
                     print(f"ERROR {theme}: {exc}", flush=True)
                     # Reset the gallery, so one broken state cannot hide other
                     # themes from the audit.
