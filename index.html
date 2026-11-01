@@ -163,6 +163,11 @@
             .theme-option { padding: 10px; }
         }
 
+        /* Tablet hero: content leads, without unnecessary full-screen blank space. */
+        @media (min-width: 768px) and (max-width: 1199.98px) {
+            #home .row.min-vh-100 { min-height: 0 !important; }
+        }
+
         @media (prefers-reduced-motion: reduce) {
             .theme-option, .toggle-selector { transition: none; }
             .theme-option:hover, .toggle-selector:hover { transform: none; }
@@ -372,63 +377,63 @@
                             <h3>17 Unique Styles</h3>
                             <p>Each theme with its own visual identity and animation set</p>
                             <div class="row mt-4">
-                                <div class="col-3 mb-3">
+                                <div class="col-6 col-sm-3 mb-3">
                                     <div class="preview-modern rounded-circle mx-auto mb-2" style="width: 30px; height: 30px;"></div>
                                     <small>Modern</small>
                                 </div>
-                                <div class="col-3 mb-3">
+                                <div class="col-6 col-sm-3 mb-3">
                                     <div class="preview-glassmorphism rounded-circle mx-auto mb-2" style="width: 30px; height: 30px;"></div>
                                     <small>Glass</small>
                                 </div>
-                                <div class="col-3 mb-3">
+                                <div class="col-6 col-sm-3 mb-3">
                                     <div class="preview-cyberpunk rounded-circle mx-auto mb-2" style="width: 30px; height: 30px;"></div>
                                     <small>Cyber</small>
                                 </div>
-                                <div class="col-3 mb-3">
+                                <div class="col-6 col-sm-3 mb-3">
                                     <div class="preview-neumorphism rounded-circle mx-auto mb-2" style="width: 30px; height: 30px;"></div>
                                     <small>Neuro</small>
                                 </div>
-                                <div class="col-3">
+                                <div class="col-6 col-sm-3">
                                     <div class="preview-minimalist rounded-circle mx-auto mb-2" style="width: 30px; height: 30px;"></div>
                                     <small>Minimal</small>
                                 </div>
-                                <div class="col-3">
+                                <div class="col-6 col-sm-3">
                                     <div class="preview-retro rounded-circle mx-auto mb-2" style="width: 30px; height: 30px;"></div>
                                     <small>Retro</small>
                                 </div>
-                                <div class="col-3">
+                                <div class="col-6 col-sm-3">
                                     <div class="preview-artdeco rounded-circle mx-auto mb-2" style="width: 30px; height: 30px;"></div>
                                     <small>Deco</small>
                                 </div>
-                                <div class="col-3">
+                                <div class="col-6 col-sm-3">
                                     <div class="preview-brutalist rounded-circle mx-auto mb-2" style="width: 30px; height: 30px;"></div>
                                     <small>Brutal</small>
                                 </div>
-                                <div class="col-3">
-                                    <div style="background: linear-gradient(135deg, #87ceeb, #ffb6c1, #98fb98);" class="rounded-circle mx-auto mb-2" style="width: 30px; height: 30px;"></div>
+                                <div class="col-6 col-sm-3">
+                                    <div class="rounded-circle mx-auto mb-2" style="background: linear-gradient(135deg, #87ceeb, #ffb6c1, #98fb98); width: 30px; height: 30px;"></div>
                                     <small>Kids</small>
                                 </div>
-                                <div class="col-3">
-                                    <div style="background: linear-gradient(135deg, #ff0080, #ff8c00, #ffd700);" class="rounded-circle mx-auto mb-2" style="width: 30px; height: 30px;"></div>
+                                <div class="col-6 col-sm-3">
+                                    <div class="rounded-circle mx-auto mb-2" style="background: linear-gradient(135deg, #ff0080, #ff8c00, #ffd700); width: 30px; height: 30px;"></div>
                                     <small>Retro</small>
                                 </div>
-                                <div class="col-3">
-                                    <div style="background: linear-gradient(135deg, #0066cc, #c0c0c0);" class="rounded-circle mx-auto mb-2" style="width: 30px; height: 30px;"></div>
+                                <div class="col-6 col-sm-3">
+                                    <div class="rounded-circle mx-auto mb-2" style="background: linear-gradient(135deg, #0066cc, #c0c0c0); width: 30px; height: 30px;"></div>
                                     <small>WWE</small>
                                 </div>
-                                <div class="col-3">
+                                <div class="col-6 col-sm-3">
                                     <div class="preview-cyberpunk rounded-circle mx-auto mb-2" style="width: 30px; height: 30px;"></div>
                                     <small>+More!</small>
                                 </div>
-                                <div class="col-3">
+                                <div class="col-6 col-sm-3">
                                     <div class="preview-wwe-raw rounded-circle mx-auto mb-2" style="width: 30px; height: 30px;"></div>
                                     <small>WWE</small>
                                 </div>
-                                <div class="col-3">
+                                <div class="col-6 col-sm-3">
                                     <div class="preview-corporate-tech rounded-circle mx-auto mb-2" style="width: 30px; height: 30px;"></div>
                                     <small>Corp</small>
                                 </div>
-                                <div class="col-3">
+                                <div class="col-6 col-sm-3">
                                     <div class="preview-corporate-finance rounded-circle mx-auto mb-2" style="width: 30px; height: 30px;"></div>
                                     <small>+4 More!</small>
                                 </div>
@@ -1566,6 +1571,14 @@
             'kids-vibrant-playground': { name: 'Kids Vibrant Playground', file: 'themes/kids-vibrant-playground.css' }
         };
 
+        // Bootstrap's collapsible navbar icon must contrast with each theme.
+        // Toggle the framework's supported dark/light variant on theme changes.
+        const darkNavbarThemes = new Set([
+            'modern-gradient', 'glassmorphism-pro', 'cyberpunk-neon',
+            'retrowave-synthwave', 'corporate-finance', 'corporate-legal',
+            'art-deco-luxury', 'wwe-raw-elegant', 'wwe-smackdown-chrome'
+        ]);
+
         let currentTheme = 'modern-gradient';
 
         function toggleThemeSelector() {
@@ -1582,6 +1595,14 @@
             // Change theme CSS
             const themeLink = document.getElementById('theme-css');
             themeLink.href = themes[themeName].file;
+
+            // Match the collapsible menu icon to the navbar's light/dark surface.
+            const navbar = document.querySelector('nav.navbar');
+            if (navbar) {
+                const isDark = darkNavbarThemes.has(themeName);
+                navbar.classList.toggle('navbar-dark', isDark);
+                navbar.classList.toggle('navbar-light', !isDark);
+            }
             
             // Update active class
             document.querySelectorAll('.theme-option').forEach(option => {
