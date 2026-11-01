@@ -31,6 +31,7 @@
   --danger-color: #ff6b6b;
   --info-color: #74b9ff;
   --dark-color: #2d3436;
+  --border-glass: 1px solid rgba(255, 255, 255, 0.25);
   
   --gradient-primary: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
   --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
@@ -931,7 +932,7 @@ body.site-nav-open .site-navbar.navbar {
 }
 
 .site-navbar .site-nav-close:hover {
-  background: color-mix(in srgb, currentColor 10%, transparent);
+  background: rgba(128, 128, 128, 0.16);
 }
 
 /* Branding is expressive; the navigation itself must remain compact. */
@@ -1022,7 +1023,7 @@ body.site-nav-open .site-navbar.navbar {
 
   .site-navbar .site-nav-panel .site-nav-link:hover,
   .site-navbar .site-nav-panel .site-nav-link:focus-visible {
-    background: color-mix(in srgb, var(--theme-accent, #0d6efd) 16%, transparent);
+    background: rgba(128, 128, 128, 0.16);
     transform: none;
   }
 }
