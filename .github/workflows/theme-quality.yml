@@ -26,8 +26,8 @@ jobs:
         run: |
           curl -fL --retry 3 -o /tmp/css-validator.jar https://github.com/w3c/css-validator/releases/download/cssval-20250226/css-validator.jar
           test "$(wc -c < /tmp/css-validator.jar)" -gt 1000000
-      - name: Collect W3C CSS baseline for 18 stylesheets
-        run: python3 scripts/audit_css_w3c.py /tmp/css-validator.jar
+      - name: Enforce W3C CSS validity for all 18 stylesheets
+        run: python3 scripts/audit_css_w3c.py /tmp/css-validator.jar --enforce
       - if: always()
         uses: actions/upload-artifact@v4
         with:

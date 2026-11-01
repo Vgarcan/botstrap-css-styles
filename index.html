@@ -18,6 +18,28 @@
     <link id="theme-css" rel="stylesheet" href="themes/modern-gradient.css">
     
     <style>
+        /* Keep this gallery footer readable independently of the active theme. */
+        .site-footer.bg-dark {
+            background: #212529 !important;
+            background-image: none !important;
+            color: #f8f9fa !important;
+        }
+        .site-footer.bg-dark :is(h1, h2, h3, h4, h5, h6, p, li) {
+            color: #f8f9fa !important;
+            -webkit-text-fill-color: #f8f9fa !important;
+            text-shadow: none !important;
+        }
+        .site-footer.bg-dark a {
+            color: #f8f9fa !important;
+            -webkit-text-fill-color: #f8f9fa !important;
+            text-decoration: underline;
+            text-underline-offset: .15em;
+        }
+        .site-footer.bg-dark a:focus-visible {
+            outline: 3px solid #f8f9fa;
+            outline-offset: 3px;
+        }
+
         .theme-selector {
             position: fixed;
             top: auto;
@@ -1526,7 +1548,7 @@
     </div>
 
     <!-- Footer -->
-    <footer class="bg-dark text-light py-5 mt-5">
+    <footer class="site-footer bg-dark text-light py-5 mt-5">
         <div class="container">
             <div class="row">
                 <div class="col-md-4">

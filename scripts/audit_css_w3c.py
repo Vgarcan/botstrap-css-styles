@@ -18,6 +18,7 @@ def main() -> int:
     """Preserve W3C output for every non-empty standalone stylesheet."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("jar", type=Path)
+    parser.add_argument("--enforce", action="store_true", help="Fail on W3C validation errors")
     args = parser.parse_args()
     if not args.jar.is_file():
         parser.error("W3C validator JAR does not exist")
@@ -42,7 +43,9 @@ def main() -> int:
         json.dumps({"mode": "report-only", "files": rows}, indent=2),
         encoding="utf-8",
     )
-    return 0
+    invalid = [row for row in rows if row.get("exit_code", 0) != 0]
+    print(f"W3C CSS: {len(invalid)} invalid files out of 18")
+    return 1 if args.enforce and invalid else 0
 
 
 if __name__ == "__main__":

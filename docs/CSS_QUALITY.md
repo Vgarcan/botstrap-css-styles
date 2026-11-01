@@ -29,8 +29,9 @@ Reports are uploaded as GitHub Actions artifacts and saved under
 quality-results/css and quality-results/contrast.
 
 ## Interpretation
-The initial audit intentionally only reports results. A successful audit job
-means it executed; it does not mean that the CSS is valid or accessible.
+The W3C CSS validator now enforces validity for all 18 populated stylesheets.
+The axe-core contrast audit remains report-only: green means it ran, not that
+all colour pairs are accessible.
 Review all errors and axe incomplete findings (especially gradients, glass
 panels and background images). Do not suppress violations to force a green CI.
 After remediation, turn reports into failing quality gates.
