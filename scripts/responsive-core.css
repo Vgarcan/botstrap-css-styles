@@ -181,6 +181,177 @@ pre {
   }
 }
 
+/*
+ * Responsive gallery navigation contract.
+ * Components opt in using .site-navbar, .site-brand and .site-nav-panel.
+ * Bootstrap 5.3 owns the offcanvas transitions, focus trap and backdrop.
+ * Rules remain theme-agnostic and work inside each standalone stylesheet.
+ */
+.site-navbar.navbar {
+  padding: clamp(0.5rem, 1vw, 0.875rem) 0;
+}
+
+.site-navbar > .container {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 0;
+}
+
+.site-navbar .site-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  flex: 0 1 auto;
+  min-width: 0;
+  max-width: calc(100% - 4rem);
+  margin: 0 auto 0 0;
+  padding: 0;
+  font-size: clamp(1rem, 1.65vw, 1.45rem);
+  line-height: 1.2;
+  letter-spacing: 0.015em;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.site-navbar .site-brand-icon {
+  flex-shrink: 0;
+  font-size: 1em;
+}
+
+.site-navbar .site-brand-text {
+  min-width: 0;
+  text-wrap: balance;
+}
+
+.site-navbar .site-nav-toggler {
+  flex: 0 0 auto;
+  margin-left: auto;
+  min-width: 3rem;
+  min-height: 3rem;
+  padding: 0.5rem;
+}
+
+.site-navbar .site-nav-panel {
+  --bs-offcanvas-width: min(88vw, 340px);
+  min-width: 0;
+}
+
+/* Branding is expressive; the navigation itself must remain compact. */
+.site-navbar .site-nav-panel .site-nav-link {
+  font-size: clamp(0.94rem, 1.15vw, 1.05rem);
+  line-height: 1.4;
+  letter-spacing: 0.015em;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  margin: 0;
+  padding: 0.7rem 0.8rem !important;
+}
+
+.site-navbar .site-nav-panel .site-nav-link:focus-visible,
+.site-navbar .site-nav-toggler:focus-visible,
+.site-navbar .site-nav-header .btn-close:focus-visible {
+  outline: 3px solid var(--theme-accent, #0d6efd);
+  outline-offset: 2px;
+}
+
+/* Let Bootstrap make the panel fixed only below the XXL breakpoint. */
+@media (max-width: 1399.98px) {
+  .site-navbar .site-brand::before,
+  .site-navbar .site-brand::after {
+    display: none;
+  }
+
+  .site-navbar .site-brand {
+    font-size: clamp(0.92rem, 3.3vw, 1.22rem);
+    letter-spacing: 0;
+    text-shadow: none;
+    animation: none;
+  }
+
+  .site-navbar .site-nav-panel {
+    max-width: 88vw;
+    background: #fff;
+    color: #162334;
+  }
+
+  .site-navbar.navbar-dark .site-nav-panel {
+    background: #10151e;
+    color: #f8fafc;
+  }
+
+  .site-navbar .site-nav-header {
+    min-height: 4.25rem;
+    padding: 1rem 1.125rem;
+    overflow: hidden;
+  }
+
+  .site-navbar .site-nav-header::before,
+  .site-navbar .site-nav-header::after {
+    display: none;
+  }
+
+  .site-navbar .site-nav-header .offcanvas-title {
+    margin: 0;
+    font-size: 1.1rem;
+    line-height: 1.25;
+    text-align: start;
+    text-shadow: none;
+  }
+
+  .site-navbar .site-nav-body {
+    padding: 0.75rem 1rem 1.5rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .site-navbar .site-nav-panel .site-nav-link {
+    display: block;
+    min-height: var(--theme-touch-target);
+    padding: 0.875rem 1rem !important;
+    border-radius: 0.5rem;
+    font-size: clamp(1rem, 2vw, 1.125rem);
+    text-shadow: none;
+    transform: none;
+  }
+
+  .site-navbar.navbar-light .site-nav-panel .site-nav-link {
+    color: #162334 !important;
+  }
+
+  .site-navbar.navbar-dark .site-nav-panel .site-nav-link {
+    color: #f8fafc !important;
+  }
+
+  .site-navbar .site-nav-panel .site-nav-link:hover,
+  .site-navbar .site-nav-panel .site-nav-link:focus-visible {
+    background: color-mix(in srgb, var(--theme-accent, #0d6efd) 16%, transparent);
+    transform: none;
+  }
+}
+
+@media (min-width: 1400px) {
+  .site-navbar .site-nav-panel {
+    flex: 0 1 auto;
+    max-width: none;
+    width: auto;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+  }
+
+  .site-navbar .site-nav-body {
+    padding: 0;
+    overflow: visible;
+  }
+
+  .site-navbar .site-nav-panel .site-nav-link {
+    white-space: nowrap;
+    padding-inline: 0.75rem !important;
+  }
+}
+
 /* Respect reduced-motion preferences across every theme's own animations. */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
