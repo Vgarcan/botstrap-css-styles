@@ -29,7 +29,10 @@ def measure(page):
       const width = Math.max(document.documentElement.scrollWidth, document.body.scrollWidth);
       const selectors = '.container, .container-fluid, .card, .table-responsive, .form-control, .navbar-brand, .btn';
       const offscreen = Array.from(document.querySelectorAll(selectors)).filter(el => {
-        if (el.closest('.modal, .offcanvas, .toast-container, .theme-selector')) return false;
+        // A table's action buttons are intentionally scrollable within its own
+        // container; they must never count as full-page viewport overflow.
+        if (el.closest('.modal, .offcanvas, .toast-container, .theme-selector')
+            || (el.closest('.table-responsive') && !el.matches('.table-responsive'))) return false;
         const s = getComputedStyle(el), rect = el.getBoundingClientRect();
         if (s.display === 'none' || s.visibility !== 'visible' || rect.width < 1) return false;
         return rect.right > view + 4 || rect.left < -4;
@@ -38,7 +41,21 @@ def measure(page):
         left: Math.round(el.getBoundingClientRect().left),
         right: Math.round(el.getBoundingClientRect().right)
       }));
-      return {view, width, excess: width - view, offscreen};
+      const spill = Array.from(document.querySelectorAll('body *'))
+        .filter(el => {
+          if (el.closest('.table-responsive, .theme-selector, .modal, .offcanvas')) return false;
+          const r = el.getBoundingClientRect(), s = getComputedStyle(el);
+          return s.display !== 'none' && r.width > 0 && (r.right > view + 3 || r.left < -3);
+        })
+        .sort((a,b) => b.getBoundingClientRect().right - a.getBoundingClientRect().right)
+        .slice(0, 5)
+        .map(el => ({
+          element: el.tagName.toLowerCase() + '.' + [...el.classList].slice(0,3).join('.'),
+          left: Math.round(el.getBoundingClientRect().left),
+          right: Math.round(el.getBoundingClientRect().right)
+        }));
+      return {view, width, excess: width - view, scrollX: window.scrollX,
+              offscreen, spill: width - view > 2 ? spill : []};
     }""")
 
 
@@ -76,10 +93,15 @@ def main() -> int:
                         failures.append(f"{width}px / {theme}: stylesheet did not load ({exc})")
                         continue
 
+                    # Remove retained horizontal scroll from previous themes and
+                    # allow reduced-motion animations to reach their final frame.
+                    page.evaluate("() => window.scrollTo(0, 0)")
+                    page.wait_for_timeout(70)
                     result = measure(page)
                     if result["excess"] > 2 or result["offscreen"]:
                         message = (f"{width}px / {theme}: excess={result['excess']}px; "
-                                   f"misplaced={result['offscreen']}")
+                                   f"scrollX={result['scrollX']}; "
+                                   f"misplaced={result['offscreen']}; spill={result['spill']}")
                         failures.append(message)
                         if len(failures) <= 10:
                             page.screenshot(path=str(EVIDENCE / f"{width}-{theme[:-4]}.png"))
