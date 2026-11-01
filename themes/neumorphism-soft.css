@@ -835,7 +835,8 @@ body {
 
 
 /* Primary #667eea on a #e0e5ec neumorphic panel is 2.89:1. */
-.nav-tabs .nav-link.active, .modal-title {
+.nav-tabs .nav-link.active, .modal-title,
+.site-navbar .site-nav-header .offcanvas-title {
   color: #303e83 !important;
   text-shadow: none !important;
 }
