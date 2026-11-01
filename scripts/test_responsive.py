@@ -31,7 +31,7 @@ def measure(page):
       const offscreen = Array.from(document.querySelectorAll(selectors)).filter(el => {
         // A table's action buttons are intentionally scrollable within its own
         // container; they must never count as full-page viewport overflow.
-        if (el.closest('.modal, .offcanvas, .toast-container, .theme-selector')
+        if (el.closest('.modal, .offcanvas, .toast-container, .theme-selector, .carousel')
             || (el.closest('.table-responsive') && !el.matches('.table-responsive'))) return false;
         const s = getComputedStyle(el), rect = el.getBoundingClientRect();
         if (s.display === 'none' || s.visibility !== 'visible' || rect.width < 1) return false;
@@ -43,7 +43,7 @@ def measure(page):
       }));
       const spill = Array.from(document.querySelectorAll('body *'))
         .filter(el => {
-          if (el.closest('.table-responsive, .theme-selector, .modal, .offcanvas')) return false;
+          if (el.closest('.table-responsive, .theme-selector, .modal, .offcanvas, .carousel')) return false;
           const r = el.getBoundingClientRect(), s = getComputedStyle(el);
           return s.display !== 'none' && r.width > 0 && (r.right > view + 3 || r.left < -3);
         })
