@@ -441,6 +441,17 @@ body {
   box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.2);
 }
 
+/* WCAG AA contrast remediation — audited against rendered components.
+ * Preserve each theme's background, correct illegible foreground and states. */
+.alert-success { color: #086408 !important; }
+.nav-pills .nav-link.active { color: #ffffff !important; }
+.badge-primary { background-color: #004499 !important; color: #ffffff !important; text-shadow: none !important; }
+.badge-secondary { background-color: #475569 !important; color: #ffffff !important; text-shadow: none !important; }
+.badge-success { background-color: #166534 !important; color: #ffffff !important; text-shadow: none !important; }
+.badge-warning { background-color: #854d0e !important; color: #ffffff !important; text-shadow: none !important; }
+.badge-danger { background-color: #a31d29 !important; color: #ffffff !important; text-shadow: none !important; }
+.badge-info { background-color: #155e75 !important; color: #ffffff !important; text-shadow: none !important; }
+
 /* BEGIN RESPONSIVE CORE v1 — managed by scripts/sync_responsive.py */
 /*
  * A shared mobile-first compatibility layer compiled into each standalone CSS.

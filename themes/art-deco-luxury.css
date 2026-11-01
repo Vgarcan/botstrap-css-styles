@@ -1436,6 +1436,11 @@ h2::after {
   }
 }
 
+/* WCAG AA contrast remediation — audited against rendered components.
+ * Preserve each theme's background, correct illegible foreground and states. */
+.nav-pills .nav-link:not(.active),
+.nav-tabs .nav-link:not(.active) { color: var(--deco-brown) !important; }
+
 /* BEGIN RESPONSIVE CORE v1 — managed by scripts/sync_responsive.py */
 /*
  * A shared mobile-first compatibility layer compiled into each standalone CSS.

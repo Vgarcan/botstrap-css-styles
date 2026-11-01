@@ -1004,6 +1004,12 @@ h2 {
   color: var(--brutal-black);
 }
 
+/* WCAG AA contrast remediation — audited against rendered components.
+ * Preserve each theme's background, correct illegible foreground and states. */
+.alert-danger, .alert-danger strong,
+.btn-danger, .badge-danger { color: #111111 !important; text-shadow: none !important; }
+.page-item.disabled .page-link { color: #404040 !important; }
+
 /* BEGIN RESPONSIVE CORE v1 — managed by scripts/sync_responsive.py */
 /*
  * A shared mobile-first compatibility layer compiled into each standalone CSS.

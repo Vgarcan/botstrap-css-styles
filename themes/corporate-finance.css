@@ -520,6 +520,25 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 0 0 3px rgba(30, 58, 95, 0.1);
 }
 
+/* WCAG AA contrast remediation — audited against rendered components.
+ * Preserve each theme's background, correct illegible foreground and states. */
+.alert-success { color: #205f3e !important; }
+.alert-warning { color: #79490c !important; }
+.btn-success, .btn-warning { color: #111111 !important; }
+.nav-pills .nav-link:not(.active), .nav-tabs .nav-link:not(.active) {
+  color: #243b53 !important;
+}
+.btn-outline-secondary { color: #495057 !important; }
+.btn-outline-success { color: #11683c !important; }
+.btn-outline-danger { color: #b42333 !important; }
+
+.badge-primary { background-color: #1e3a5f !important; color: #ffffff !important; text-shadow: none !important; }
+.badge-secondary { background-color: #405873 !important; color: #ffffff !important; text-shadow: none !important; }
+.badge-success { background-color: #1c6942 !important; color: #ffffff !important; text-shadow: none !important; }
+.badge-warning { background-color: #815009 !important; color: #ffffff !important; text-shadow: none !important; }
+.badge-danger { background-color: #a12738 !important; color: #ffffff !important; text-shadow: none !important; }
+.badge-info { background-color: #17627c !important; color: #ffffff !important; text-shadow: none !important; }
+
 /* BEGIN RESPONSIVE CORE v1 — managed by scripts/sync_responsive.py */
 /*
  * A shared mobile-first compatibility layer compiled into each standalone CSS.
