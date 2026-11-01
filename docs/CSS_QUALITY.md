@@ -43,3 +43,9 @@ References:
 https://www.w3.org/TR/WCAG22/#contrast-minimum
 https://www.w3.org/TR/WCAG22/#non-text-contrast
 https://jigsaw.w3.org/css-validator/DOWNLOAD.html.en
+
+## Interactive states
+The separate states-report.json baseline checks Profile, Contact and Settings
+tabs, the open modal, and the open navigation drawer for every theme at 390px.
+It is report-only pending remediation. The regular default-state contrast
+check is enforcing. Mobile drawer screenshots are attached for manual QA.
