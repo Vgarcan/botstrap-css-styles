@@ -772,9 +772,10 @@
         <h2 class="text-center mb-5">Tabs</h2>
         <div class="row justify-content-center">
             <div class="col-12">
-                <ul class="nav nav-tabs flex-wrap" id="myTab" role="tablist">
+                <!-- Keep one scrollable tab row on smaller screens; no forced wrapping. -->
+                <ul class="nav nav-tabs" id="myTab" role="tablist" aria-label="Theme demonstration tabs">
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">
+                        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#demo-home-panel" type="button" role="tab" aria-controls="demo-home-panel" aria-selected="true">
                             <i class="fas fa-home me-2"></i>Home
                         </button>
                     </li>
@@ -795,7 +796,7 @@
                     </li>
                 </ul>
                 <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <div class="tab-pane fade show active" id="demo-home-panel" role="tabpanel" aria-labelledby="home-tab">
                         <div class="p-4">
                             <h4>Welcome to Home</h4>
                             <p>This is the home tab where you can find general information about Bootstrap themes. Each theme has its own visual personality and animation set.</p>
@@ -1788,6 +1789,20 @@
             // Theme links use an inline handler for legacy support; stop the '#' jump.
             document.querySelectorAll('.theme-option').forEach(option => {
                 option.addEventListener('click', event => event.preventDefault());
+            });
+
+            // Keep keyboard/touch-selected tabs visible inside their own
+            // horizontal scroll strip without changing the page scroll position.
+            const tabList = document.getElementById('myTab');
+            tabList?.addEventListener('shown.bs.tab', event => {
+                const tab = event.target;
+                if (!(tab instanceof HTMLElement)) return;
+                tab.scrollIntoView({
+                    behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches
+                        ? 'instant' : 'smooth',
+                    block: 'nearest',
+                    inline: 'nearest'
+                });
             });
 
             // Theme preview click handlers
