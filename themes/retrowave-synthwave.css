@@ -1372,6 +1372,16 @@ pre {
   padding: clamp(0.5rem, 1vw, 0.875rem) 0;
 }
 
+/*
+ * backdrop-filter on a navbar changes the containing block for position:fixed
+ * descendants. Turn the blur off ONLY while its offcanvas is open; otherwise
+ * the panel is restricted to the navbar's height (visible in Cyberpunk etc.).
+ */
+body.site-nav-open .site-navbar.navbar {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
 .site-navbar > .container {
   display: flex;
   flex-wrap: nowrap;
