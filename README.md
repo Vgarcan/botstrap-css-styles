@@ -1,6 +1,9 @@
 # Bootstrap Theme Collection
 
-A comprehensive collection of **17 unique themes** for Bootstrap 5, each with its own distinctive visual personality and animation set. From modern styles to experimental designs, this collection offers options for any type of web project.
+A collection of **17 visual themes** for Bootstrap 5, with a live component gallery for comparing and gradually modernising each stylesheet. This is an evolving style laboratory rather than a production-ready design system.
+
+> **Live preview:** [GitHub Pages](https://vgarcan.github.io/botstrap-css-styles/) — published directly from `main` via the existing GitHub Pages configuration.
+> **Project setup:** [GitHub Pages guide](docs/GITHUB_PAGES.md) · [Modernisation plan](docs/MODERNIZATION.md).
 
 ## 🎨 Available Themes
 
@@ -178,7 +181,7 @@ function changeTheme(themeName) {
 │   ├── kids-friendly.css           # Soft children's theme
 │   └── kids-vibrant-playground.css # Vibrant children's theme
 ├── index.html                      # Complete boilerplate with theme selector
-├── docs.html                       # Integrated documentation
+├── docs/                           # Publishing and modernisation notes
 └── README.md                       # Documentation
 ```
 
@@ -332,17 +335,14 @@ The boilerplate includes:
 - **Dashboard components** - Stats cards, progress indicators, data tables
 - **Professional layouts** - Hero sections, pricing cards, user management
 - **Interactive elements** - Modals, offcanvas, accordions, carousels
-- **Smart download system** - Individual theme download with Blob API
+- **Real theme downloads** - Fetch and download the actual selected CSS file
 - **Theme persistence** - Remembers selected theme
 - **Responsive design** - Optimised for all devices
 - **Production-ready** - Professional components ready for use
 
-### **docs.html - Integrated Documentation:**
-- **Live README embedding** - Automatically loads and parses README.md
-- **Theme-aware styling** - Documentation adapts to selected theme
-- **Enhanced formatting** - Bootstrap classes and icons added automatically
-- **Responsive layout** - Perfect on all screen sizes
-- **Navigation integration** - Easy switching between boilerplate and docs
+### **Project documentation:**
+- [GitHub Pages deployment and local preview](docs/GITHUB_PAGES.md)
+- [Theme modernisation roadmap and acceptance criteria](docs/MODERNIZATION.md)
 
 ## 📊 Recommended Use Cases
 
@@ -370,7 +370,7 @@ The boilerplate includes:
 
 ### **Individual Theme Download:**
 - Click **"Download [Theme Name]"** to get the current active theme
-- Uses **Blob API** for client-side file generation
+- Fetches the **actual CSS file** from `themes/` and uses a Blob for the browser download
 - **No server required** - completely static
 - **Instant download** with proper filename
 
@@ -406,4 +406,4 @@ Have ideas for new themes?
 
 Enjoy creating incredible interfaces with this comprehensive Bootstrap theme collection! 🎨✨
 
-**Need help?** Check the integrated documentation at `docs.html` or open an issue in the repository.
+**Need help?** Read the [Pages setup guide](docs/GITHUB_PAGES.md) or open an issue in the repository.

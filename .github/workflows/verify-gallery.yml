@@ -1,0 +1,23 @@
+# Keep regressions out of the published gallery.
+name: Verify theme gallery
+
+on:
+  pull_request:
+    paths:
+      - 'index.html'
+      - 'themes/**'
+      - 'scripts/verify_site.py'
+      - '.github/workflows/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the proposed changes
+        uses: actions/checkout@v4
+      - name: Validate gallery stylesheet references
+        run: python3 scripts/verify_site.py
