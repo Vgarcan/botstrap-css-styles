@@ -54,3 +54,16 @@ check is enforcing. Mobile drawer screenshots are attached for manual QA.
 Run `python3 scripts/verify_css_references.py`. All populated theme files
 must resolve their local `var(--name)` references; Bootstrap `--bs-*`
 variables are upstream and therefore excluded from this standalone check.
+
+## Manually evaluated gradient endpoints
+Some gradients are marked `incomplete` by axe even when the colours are
+known. We explicitly checked these endpoints using relative luminance:
+- Art Deco: cream text on emerald `#50c878` is only 1.92:1; we now use
+  dark ink. Cream on ruby `#e0115f` is 4.30:1; we now use white.
+- Kids Friendly: white text on the sky gradient `#87ceeb` is 1.74:1;
+  the pastel gradients now use dark ink on active tabs/pills/accordions.
+- Kids Vibrant: the magic/ocean gradients mix light cyan with dark purple;
+  functional active pills/accordion headers now use solid violet and white.
+
+These targeted fixes do not establish conformance for **all** incomplete
+backgrounds. Those still require explicit component-by-component review.

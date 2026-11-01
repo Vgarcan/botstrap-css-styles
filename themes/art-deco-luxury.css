@@ -1441,6 +1441,18 @@ h2::after {
 .nav-pills .nav-link:not(.active),
 .nav-tabs .nav-link:not(.active) { color: var(--deco-brown) !important; }
 
+
+/*
+ * Gradient endpoint audit:
+ * Cream on emerald #50c878 = 1.92:1; cream on ruby #e0115f = 4.30:1.
+ * Use dark ink on light gold/green, pure white on ruby (>= 4.76:1).
+ */
+.badge-success, .badge-warning {
+  color: #1a1a1a !important;
+  text-shadow: none !important;
+}
+.badge-danger { color: #ffffff !important; text-shadow: none !important; }
+
 /* BEGIN RESPONSIVE CORE v1 — managed by scripts/sync_responsive.py */
 /*
  * A shared mobile-first compatibility layer compiled into each standalone CSS.

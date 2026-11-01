@@ -1856,6 +1856,25 @@ h3, h4, h5, h6 {
 .page-link { color: #00518b !important; }
 .page-item.disabled .page-link { color: #424242 !important; }
 
+
+/*
+ * Gradient audit: fire's bright endpoints support dark ink; magic/ocean
+ * mix bright cyan/pink with dark purple, so no one text colour passes on
+ * every stop. Active functional surfaces use solid violet and white text.
+ */
+.nav-tabs .nav-link.active,
+.page-item.active .page-link {
+  color: #111111 !important;
+  text-shadow: none !important;
+}
+.nav-pills .nav-link.active,
+.accordion-button:not(.collapsed) {
+  background: #8a2be2 !important;
+  background-image: none !important;
+  color: #ffffff !important;
+  text-shadow: none !important;
+}
+
 /* BEGIN RESPONSIVE CORE v1 — managed by scripts/sync_responsive.py */
 /*
  * A shared mobile-first compatibility layer compiled into each standalone CSS.

@@ -1407,6 +1407,19 @@ h3, h4, h5, h6 {
 .nav-tabs .nav-link { text-shadow: none !important; }
 .input-group-text { color: #111111 !important; text-shadow: none !important; }
 
+
+/*
+ * White text on pastel gradient endpoints (e.g. #87ceeb) can be below 2:1.
+ * All the sky/sunset/candy gradient stops support #1a1a1a at >= 9:1.
+ */
+.nav-tabs .nav-link.active,
+.nav-pills .nav-link.active,
+.accordion-button:not(.collapsed),
+.page-item.active .page-link {
+  color: #1a1a1a !important;
+  text-shadow: none !important;
+}
+
 /* BEGIN RESPONSIVE CORE v1 — managed by scripts/sync_responsive.py */
 /*
  * A shared mobile-first compatibility layer compiled into each standalone CSS.
