@@ -14,7 +14,7 @@ theme library with a live GitHub Pages testing gallery.
 
 ## Iterations
 ### 0. Establish a dependable preview (this PR)
-- Deploy a static Pages gallery from main once repository Pages is enabled.
+- Use the existing GitHub Pages site published directly from `main` (already enabled).
 - Keep all 17 existing selectable CSS themes intact.
 - Replace the demo-only CSS download with a download of the real file.
 - Add static checks to detect missing theme assets.
