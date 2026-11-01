@@ -918,6 +918,17 @@ p {
   color: var(--dark-gray);
 }
 
+/* WCAG AA contrast remediation: preserve theme backgrounds, improve text. */
+.alert-primary { color: #1c6391 !important; }
+.alert-success { color: #13612f !important; }
+.alert-warning { color: #744c0b !important; }
+.btn-success, .btn-warning, .btn-danger,
+.nav-pills .nav-link.active { color: #111111 !important; }
+.btn-outline-primary, .breadcrumb-item a,
+.accordion-button:not(.collapsed) { color: #1c6391 !important; }
+.badge { color: #111111 !important; text-shadow: none !important; }
+.page-item.disabled .page-link { color: #495057 !important; }
+
 /* BEGIN RESPONSIVE CORE v1 — managed by scripts/sync_responsive.py */
 /*
  * A shared mobile-first compatibility layer compiled into each standalone CSS.

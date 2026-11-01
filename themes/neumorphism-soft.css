@@ -827,6 +827,12 @@ body {
   color: #4a5568;
 }
 
+/* WCAG AA contrast remediation: preserve theme backgrounds, improve text. */
+.breadcrumb-item a, .accordion-button:not(.collapsed) {
+  color: #3c428c !important;
+}
+.page-item.disabled .page-link { color: #344054 !important; }
+
 /* BEGIN RESPONSIVE CORE v1 — managed by scripts/sync_responsive.py */
 /*
  * A shared mobile-first compatibility layer compiled into each standalone CSS.

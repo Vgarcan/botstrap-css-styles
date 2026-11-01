@@ -1200,6 +1200,12 @@ h1 {
   color: var(--vintage-dark);
 }
 
+/* WCAG AA contrast remediation: preserve theme backgrounds, improve text. */
+.badge-primary, .badge-success, .badge-danger {
+  color: #111111 !important;
+  text-shadow: none !important;
+}
+
 /* BEGIN RESPONSIVE CORE v1 — managed by scripts/sync_responsive.py */
 /*
  * A shared mobile-first compatibility layer compiled into each standalone CSS.

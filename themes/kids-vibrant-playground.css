@@ -1839,6 +1839,22 @@ h3, h4, h5, h6 {
   z-index: 1;
 }
 
+/* WCAG AA contrast remediation: preserve theme backgrounds, improve text. */
+.btn-success, .btn-warning, .btn-info,
+.btn-outline-primary, .btn-outline-secondary,
+.btn-outline-success, .btn-outline-danger {
+  color: #111111 !important;
+  text-shadow: none !important;
+}
+.badge { color: #111111 !important; text-shadow: none !important; }
+.nav-pills .nav-link:not(.active),
+.nav-tabs .nav-link:not(.active) {
+  color: #111111 !important;
+  text-shadow: none !important;
+}
+.page-link { color: #00518b !important; }
+.page-item.disabled .page-link { color: #424242 !important; }
+
 /* BEGIN RESPONSIVE CORE v1 — managed by scripts/sync_responsive.py */
 /*
  * A shared mobile-first compatibility layer compiled into each standalone CSS.

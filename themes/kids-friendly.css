@@ -1390,6 +1390,23 @@ h3, h4, h5, h6 {
   border-radius: var(--border-radius-kids);
 }
 
+/* WCAG AA contrast remediation: preserve theme backgrounds, improve text. */
+.btn-success, .btn-warning, .btn-danger, .btn-info,
+.btn-outline-primary, .btn-outline-secondary,
+.btn-outline-success, .btn-outline-danger {
+  color: #111111 !important;
+  text-shadow: none !important;
+}
+.badge { color: #111111 !important; text-shadow: none !important; }
+.nav-pills .nav-link:not(.active),
+.nav-tabs .nav-link:not(.active),
+.breadcrumb-item a, .page-link, .accordion-button.collapsed {
+  color: #17446a !important;
+  text-shadow: none !important;
+}
+.nav-tabs .nav-link { text-shadow: none !important; }
+.input-group-text { color: #111111 !important; text-shadow: none !important; }
+
 /* BEGIN RESPONSIVE CORE v1 — managed by scripts/sync_responsive.py */
 /*
  * A shared mobile-first compatibility layer compiled into each standalone CSS.
