@@ -129,9 +129,18 @@ def main() -> int:
                         # it changes the correct panel without scrolling the page.
                         if width in (320, 390, 768):
                             page.locator("#settings-tab").click(timeout=8000)
-                            if not page.locator("#settings").evaluate(
-                                "el => el.classList.contains('show') && el.classList.contains('active')"
-                            ):
+                            try:
+                                # Bootstrap's fade transition completes asynchronously.
+                                # Assert the final state rather than the immediate click.
+                                page.wait_for_function(
+                                    """() => {
+                                        const p = document.getElementById('settings');
+                                        return p?.classList.contains('show') &&
+                                            p.classList.contains('active');
+                                    }""",
+                                    timeout=4500,
+                                )
+                            except Exception:
                                 failures.append(f"{width}px / {theme}: Settings panel did not activate")
                             if not page.locator("#settings-tab").evaluate(
                                 """el => {
@@ -145,9 +154,16 @@ def main() -> int:
                             # Regression: the former #home ID collision broke
                             # Bootstrap's ability to reactivate the Home pane.
                             page.locator("#home-tab").click(timeout=8000)
-                            if not page.locator("#demo-home-panel").evaluate(
-                                "el => el.classList.contains('show') && el.classList.contains('active')"
-                            ):
+                            try:
+                                page.wait_for_function(
+                                    """() => {
+                                        const p = document.getElementById('demo-home-panel');
+                                        return p?.classList.contains('show') &&
+                                            p.classList.contains('active');
+                                    }""",
+                                    timeout=4500,
+                                )
+                            except Exception:
                                 failures.append(f"{width}px / {theme}: Home panel did not reactivate")
 
                     # Remove retained horizontal scroll from previous themes and
