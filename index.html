@@ -168,6 +168,13 @@
             #home .row.min-vh-100 { min-height: 0 !important; }
         }
 
+        /* Offcanvas and its backdrop must be above the floating theme chooser. */
+        body.site-nav-open .toggle-selector,
+        body.site-nav-open .theme-selector {
+            visibility: hidden;
+            pointer-events: none;
+        }
+
         @media (prefers-reduced-motion: reduce) {
             .theme-option, .toggle-selector { transition: none; }
             .theme-option:hover, .toggle-selector:hover { transform: none; }
@@ -329,27 +336,35 @@
 
     <!-- Navigation -->
     <!-- A wider breakpoint keeps decorative brand typography from colliding with nav links on tablets and smaller desktops. -->
-    <nav class="navbar navbar-expand-xxl navbar-light">
+    <!-- Offcanvas stays out of document flow on phones/tablets. -->
+    <nav class="navbar navbar-expand-xxl navbar-light site-navbar" aria-label="Main navigation">
         <div class="container">
-            <a class="navbar-brand" href="#"><i class="fas fa-rocket me-2"></i>Bootstrap Themes</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
+            <a class="navbar-brand site-brand" href="#home">
+                <i class="fas fa-rocket site-brand-icon" aria-hidden="true"></i>
+                <span class="site-brand-text">Bootstrap Themes</span>
+            </a>
+
+            <button class="navbar-toggler site-nav-toggler" type="button"
+                    data-bs-toggle="offcanvas" data-bs-target="#siteNav"
+                    aria-controls="siteNav" aria-label="Open navigation">
+                <span class="navbar-toggler-icon" aria-hidden="true"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#home">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#components">Components</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#forms">Forms</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#tables">Tables</a>
-                    </li>
-                </ul>
+
+            <div class="offcanvas-xxl offcanvas-start site-nav-panel" tabindex="-1"
+                 id="siteNav" aria-labelledby="siteNavLabel">
+                <div class="offcanvas-header site-nav-header">
+                    <h2 class="offcanvas-title h5" id="siteNavLabel">Navigation</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                            data-bs-target="#siteNav" aria-label="Close navigation"></button>
+                </div>
+                <div class="offcanvas-body site-nav-body">
+                    <ul class="navbar-nav ms-xxl-auto align-items-xxl-center">
+                        <li class="nav-item"><a class="nav-link site-nav-link" href="#home">Home</a></li>
+                        <li class="nav-item"><a class="nav-link site-nav-link" href="#components">Components</a></li>
+                        <li class="nav-item"><a class="nav-link site-nav-link" href="#forms">Forms</a></li>
+                        <li class="nav-item"><a class="nav-link site-nav-link" href="#tables">Tables</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </nav>
@@ -1580,6 +1595,26 @@
             'art-deco-luxury', 'wwe-raw-elegant', 'wwe-smackdown-chrome'
         ]);
 
+        // The theme picker must not sit above the offcanvas/backdrop.
+        // Close the drawer after navigating, but leave desktop links untouched.
+        const siteNavPanel = document.getElementById('siteNav');
+        const siteNavTrigger = document.querySelector('.site-nav-toggler');
+        siteNavPanel.addEventListener('show.bs.offcanvas', () => {
+            document.body.classList.add('site-nav-open');
+            siteNavTrigger.setAttribute('aria-expanded', 'true');
+        });
+        siteNavPanel.addEventListener('hidden.bs.offcanvas', () => {
+            document.body.classList.remove('site-nav-open');
+            siteNavTrigger.setAttribute('aria-expanded', 'false');
+        });
+        siteNavPanel.querySelectorAll('.site-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (siteNavPanel.classList.contains('show')) {
+                    bootstrap.Offcanvas.getInstance(siteNavPanel)?.hide();
+                }
+            });
+        });
+
         let currentTheme = 'modern-gradient';
 
         function toggleThemeSelector() {
@@ -1603,6 +1638,8 @@
                 const isDark = darkNavbarThemes.has(themeName);
                 navbar.classList.toggle('navbar-dark', isDark);
                 navbar.classList.toggle('navbar-light', !isDark);
+                // Bootstrap 5.3 adapts the close icon inside the offcanvas.
+                siteNavPanel.setAttribute('data-bs-theme', isDark ? 'dark' : 'light');
             }
             
             // Update active class
