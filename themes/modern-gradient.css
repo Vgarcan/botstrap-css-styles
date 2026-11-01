@@ -688,6 +688,32 @@ body {
   color: #142238 !important;
 }
 
+/*
+ * Issue #8, batch 2: section titles and form captions sit directly over
+ * a violet page gradient, not inside white component surfaces.
+ */
+.container.my-5 > h2, #components > h2, #tables > h2,
+.container.my-5 > .row > .col-md-6 > h4 {
+  color: #ffffff !important;
+  text-shadow: none !important;
+}
+#forms .form-label {
+  color: #ffffff !important;
+  text-shadow: none !important;
+}
+.accordion-body {
+  background: rgba(15, 20, 40, 0.85);
+  color: #ffffff;
+}
+.nav-tabs .nav-link {
+  background: rgba(17, 24, 48, 0.68);
+  color: #ffffff;
+}
+.input-group-text {
+  background: rgba(17, 24, 48, 0.75);
+  color: #ffffff;
+}
+
 /* BEGIN RESPONSIVE CORE v1 — managed by scripts/sync_responsive.py */
 /*
  * A shared mobile-first compatibility layer compiled into each standalone CSS.

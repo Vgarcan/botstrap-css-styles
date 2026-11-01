@@ -814,6 +814,30 @@ body {
   background-attachment: fixed;
 }
 
+/*
+ * Issue #8, batch 2: darkened glass panes behind white labels.
+ * Retain the translucent frost and bright yellow warning accent.
+ */
+.card-header, .accordion-body {
+  background: rgba(12, 16, 32, 0.78);
+  color: #f8faff;
+  text-shadow: none;
+}
+.nav-tabs .nav-link.active {
+  background: rgba(12, 16, 32, 0.78);
+  color: #f8faff;
+  text-shadow: none;
+}
+.btn-warning, .btn-warning:hover {
+  background: rgba(251, 191, 36, 0.96);
+  color: #182230 !important;
+  text-shadow: none !important;
+}
+.btn-primary {
+  background: rgba(86, 43, 167, 0.85);
+  color: #ffffff;
+}
+
 /* BEGIN RESPONSIVE CORE v1 — managed by scripts/sync_responsive.py */
 /*
  * A shared mobile-first compatibility layer compiled into each standalone CSS.
