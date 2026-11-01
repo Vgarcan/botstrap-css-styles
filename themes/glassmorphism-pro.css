@@ -797,6 +797,10 @@ body::before {
   color: white;
 }
 
+
+/* Bright badge text shadows can completely obscure glyph contrast. */
+.badge, .badge * { text-shadow: none !important; }
+
 /* BEGIN RESPONSIVE CORE v1 — managed by scripts/sync_responsive.py */
 /*
  * A shared mobile-first compatibility layer compiled into each standalone CSS.

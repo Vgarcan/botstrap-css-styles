@@ -929,6 +929,11 @@ p {
 .badge { color: #111111 !important; text-shadow: none !important; }
 .page-item.disabled .page-link { color: #495057 !important; }
 
+
+/* The active accent #3498db and muted gray are too light on white. */
+.nav-tabs .nav-link.active { color: #1c6391 !important; }
+.text-muted { color: #52616b !important; }
+
 /* BEGIN RESPONSIVE CORE v1 — managed by scripts/sync_responsive.py */
 /*
  * A shared mobile-first compatibility layer compiled into each standalone CSS.

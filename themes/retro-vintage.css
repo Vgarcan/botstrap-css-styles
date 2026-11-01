@@ -1206,6 +1206,13 @@ h1 {
   text-shadow: none !important;
 }
 
+
+/* Gold with a dark text-shadow clashed on the active tab. */
+.nav-tabs .nav-link.active {
+  color: #f5f5dc !important;
+  text-shadow: none !important;
+}
+
 /* BEGIN RESPONSIVE CORE v1 — managed by scripts/sync_responsive.py */
 /*
  * A shared mobile-first compatibility layer compiled into each standalone CSS.

@@ -1420,6 +1420,13 @@ h3, h4, h5, h6 {
   text-shadow: none !important;
 }
 
+
+/* Primary blue #4a90e2 on white is 3.29:1 at form-label size. */
+.tab-pane .form-label, .tab-pane h6 {
+  color: #17446a !important;
+  text-shadow: none !important;
+}
+
 /* BEGIN RESPONSIVE CORE v1 — managed by scripts/sync_responsive.py */
 /*
  * A shared mobile-first compatibility layer compiled into each standalone CSS.

@@ -1010,6 +1010,14 @@ h2 {
 .btn-danger, .badge-danger { color: #111111 !important; text-shadow: none !important; }
 .page-item.disabled .page-link { color: #404040 !important; }
 
+
+/* Interactive audit: white on saturated red is only 3.99:1. */
+.nav-tabs .nav-link.active,
+.site-navbar .site-nav-header .offcanvas-title {
+  color: #111111 !important;
+  text-shadow: none !important;
+}
+
 /* BEGIN RESPONSIVE CORE v1 — managed by scripts/sync_responsive.py */
 /*
  * A shared mobile-first compatibility layer compiled into each standalone CSS.

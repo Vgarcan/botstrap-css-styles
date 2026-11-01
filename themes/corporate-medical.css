@@ -535,6 +535,10 @@ h1, h2, h3, h4, h5, h6 {
 .badge-danger { background-color: #a31d29 !important; color: #ffffff !important; text-shadow: none !important; }
 .badge-info { background-color: #155e75 !important; color: #ffffff !important; text-shadow: none !important; }
 
+
+/* Teal #0d9488 on a pale mint alert is only 3.59:1. */
+.alert-info, .alert-info strong { color: #0c5e56 !important; }
+
 /* BEGIN RESPONSIVE CORE v1 — managed by scripts/sync_responsive.py */
 /*
  * A shared mobile-first compatibility layer compiled into each standalone CSS.
