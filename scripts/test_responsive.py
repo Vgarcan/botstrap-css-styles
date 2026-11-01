@@ -100,6 +100,56 @@ def main() -> int:
                         failures.append(f"{width}px / {theme}: stylesheet did not load ({exc})")
                         continue
 
+                    # Tabs must occupy exactly one layout row, even in
+                    # heavily styled themes like Cyberpunk and Art Deco.
+                    if width <= 1024:
+                        tabs = page.evaluate("""() => {
+                            const strip = document.getElementById('myTab');
+                            const items = Array.from(strip.querySelectorAll(':scope > .nav-item'));
+                            const tops = items.map(el => el.offsetTop);
+                            return {
+                                wrap: getComputedStyle(strip).flexWrap,
+                                rows: new Set(tops).size,
+                                stripWidth: strip.clientWidth,
+                                totalWidth: strip.scrollWidth,
+                                overflow: getComputedStyle(strip).overflowX
+                            };
+                        }""")
+                        if tabs["wrap"] != "nowrap" or tabs["rows"] != 1:
+                            failures.append(
+                                f"{width}px / {theme}: tabs wrap into "
+                                f"{tabs['rows']} rows (flex-wrap={tabs['wrap']})"
+                            )
+                        if tabs["totalWidth"] > tabs["stripWidth"] + 2 and tabs["overflow"] != "auto":
+                            failures.append(
+                                f"{width}px / {theme}: overflowing tabs cannot scroll"
+                            )
+
+                        # Verify that an offscreen tab is reachable and selecting
+                        # it changes the correct panel without scrolling the page.
+                        if width in (320, 390, 768):
+                            page.locator("#settings-tab").click(timeout=8000)
+                            if not page.locator("#settings").evaluate(
+                                "el => el.classList.contains('show') && el.classList.contains('active')"
+                            ):
+                                failures.append(f"{width}px / {theme}: Settings panel did not activate")
+                            if not page.locator("#settings-tab").evaluate(
+                                """el => {
+                                  const a = el.getBoundingClientRect();
+                                  const b = el.closest('.nav-tabs').getBoundingClientRect();
+                                  return a.left >= b.left - 4 && a.right <= b.right + 4;
+                                }"""
+                            ):
+                                failures.append(f"{width}px / {theme}: selected Settings tab not visible")
+
+                            # Regression: the former #home ID collision broke
+                            # Bootstrap's ability to reactivate the Home pane.
+                            page.locator("#home-tab").click(timeout=8000)
+                            if not page.locator("#demo-home-panel").evaluate(
+                                "el => el.classList.contains('show') && el.classList.contains('active')"
+                            ):
+                                failures.append(f"{width}px / {theme}: Home panel did not reactivate")
+
                     # Remove retained horizontal scroll from previous themes and
                     # allow reduced-motion animations to reach their final frame.
                     page.evaluate("() => window.scrollTo(0, 0)")
