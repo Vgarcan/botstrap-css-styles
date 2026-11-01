@@ -47,8 +47,9 @@ https://jigsaw.w3.org/css-validator/DOWNLOAD.html.en
 ## Interactive states
 The separate states-report.json baseline checks Profile, Contact and Settings
 tabs, the open modal, and the open navigation drawer for every theme at 390px.
-It is report-only pending remediation. The regular default-state contrast
-check is enforcing. Mobile drawer screenshots are attached for manual QA.
+This interactive state audit now also enforces zero confirmed contrast
+violations and zero execution failures. Axe `incomplete` results are retained
+for manual review, not treated as passes. Mobile drawer screenshots are attached for manual QA.
 
 ## Undefined CSS variables
 Run `python3 scripts/verify_css_references.py`. All populated theme files

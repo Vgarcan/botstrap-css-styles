@@ -131,10 +131,13 @@ def main() -> int:
         json.dumps({"mode": "report-only", "scans": scans,
                     "execution_errors": errors}, indent=2),
         encoding="utf-8")
+    confirmed = sum(v["failures"] for v in scans)
     print(f"State audit: {len(scans)} scans, "
-          f"{sum(v['failures'] for v in scans)} confirmed failures, "
+          f"{confirmed} confirmed failures, "
           f"{len(errors)} execution errors", flush=True)
-    return 1 if errors else 0
+    # Existing incomplete cases remain documented for manual colour review.
+    # Confirmed violations and broken interactions are always CI failures.
+    return 1 if errors or confirmed else 0
 
 
 if __name__ == "__main__":
