@@ -104,6 +104,20 @@ def main() -> int:
                     # allow reduced-motion animations to reach their final frame.
                     page.evaluate("() => window.scrollTo(0, 0)")
                     page.wait_for_timeout(70)
+                    # The gallery must use a readable Bootstrap toggler
+                    # on dark brand navigation, including the Art Deco theme.
+                    if width in (390, 1024) and theme in (
+                        "art-deco-luxury.css", "minimalist-clean.css"
+                    ):
+                        expected_dark = theme == "art-deco-luxury.css"
+                        actual_dark = page.locator("nav.navbar").evaluate(
+                            "el => el.classList.contains('navbar-dark')"
+                        )
+                        if actual_dark != expected_dark:
+                            failures.append(
+                                f"{width}px / {theme}: incorrect navbar contrast variant"
+                            )
+
                     result = measure(page)
                     if result["excess"] > 2 or result["offscreen"]:
                         message = (f"{width}px / {theme}: excess={result['excess']}px; "
@@ -114,6 +128,13 @@ def main() -> int:
                             page.screenshot(path=str(EVIDENCE / f"{width}-{theme[:-4]}.png"))
                     if theme == "minimalist-clean.css" and width in (390, 768, 1440):
                         page.screenshot(path=str(EVIDENCE / f"sample-{width}.png"))
+
+                # The responsive navbar must remain collapsible on phones and
+                # tablets, rather than forcing decorative brand text and links
+                # into the same narrow row.
+                nav_toggle = page.locator(".navbar-toggler")
+                if width <= 1280 and not nav_toggle.is_visible():
+                    failures.append(f"{width}px: navbar toggler is not visible")
 
                 # The theme chooser is navigation, not part of the theme being audited.
                 button = page.locator(".toggle-selector")
