@@ -124,11 +124,36 @@
             border-bottom: 1px solid #eee;
             padding-bottom: 5px;
         }
+
+        /* Keep the theme switcher usable on narrow mobile screens. */
+        @media (max-width: 600px) {
+            .toggle-selector {
+                top: 12px;
+                right: 12px;
+                width: 48px;
+                height: 48px;
+                font-size: 20px;
+            }
+            .theme-selector {
+                top: 70px;
+                right: 12px;
+                left: 12px;
+                width: auto;
+                min-width: 0;
+                max-height: calc(100dvh - 82px);
+                padding: 16px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .theme-option, .toggle-selector { transition: none; }
+            .theme-option:hover, .toggle-selector:hover { transform: none; }
+        }
     </style>
 </head>
 <body>
     <!-- Toggle theme selector button -->
-    <button class="toggle-selector" onclick="toggleThemeSelector()" title="Change Theme">
+    <button class="toggle-selector" onclick="toggleThemeSelector()" title="Change Theme" aria-label="Choose a theme" aria-controls="themeSelector" aria-expanded="false">
         <i class="fas fa-palette"></i>
     </button>
     
@@ -1481,7 +1506,7 @@
                 <div class="col-md-4">
                     <h5>Links</h5>
                     <ul class="list-unstyled">
-                        <li><a href="README.md" target="_blank" class="text-light-50">Documentation</a></li>
+                        <li><a href="https://github.com/Vgarcan/botstrap-css-styles#readme" target="_blank" rel="noopener noreferrer" class="text-light-50">Documentation</a></li>
                         <li><a href="#" class="text-light-50">Support</a></li>
                     </ul>
                 </div>
@@ -1526,13 +1551,18 @@
 
         function toggleThemeSelector() {
             const selector = document.getElementById('themeSelector');
-            selector.style.display = selector.style.display === 'none' ? 'block' : 'none';
+            const opened = selector.style.display === 'none';
+            selector.style.display = opened ? 'block' : 'none';
+            document.querySelector('.toggle-selector').setAttribute('aria-expanded', String(opened));
         }
 
-        function changeTheme(themeName, element) {
+        function changeTheme(themeName, element, announce = true) {
+            // Only known local themes may be loaded.
+            if (!Object.prototype.hasOwnProperty.call(themes, themeName)) return;
+
             // Change theme CSS
             const themeLink = document.getElementById('theme-css');
-            themeLink.href = `themes/${themeName}.css`;
+            themeLink.href = themes[themeName].file;
             
             // Update active class
             document.querySelectorAll('.theme-option').forEach(option => {
@@ -1542,17 +1572,17 @@
                 element.classList.add('active');
             }
             
-            // Save preference in localStorage
+            // Remember the choice and expose a shareable theme URL.
             localStorage.setItem('selectedTheme', themeName);
+            const pageUrl = new URL(window.location.href);
+            pageUrl.searchParams.set('theme', themeName);
+            window.history.replaceState(null, '', pageUrl);
             
             // Update current theme
             currentTheme = themeName;
             
-            // Show notification
-            showThemeNotification(getThemeDisplayName(themeName));
-            
-            // Save to localStorage
-            localStorage.setItem('selectedTheme', themeName);
+            // Do not show a success popup during initial page load.
+            if (announce) showThemeNotification(getThemeDisplayName(themeName));
             
             // Update download button text
             updateDownloadButton();
@@ -1565,78 +1595,46 @@
         }
         
         async function downloadCurrentTheme() {
+            // Download the actual stylesheet used by the selected theme.
+            // A static GitHub Pages site can serve these files without a backend.
+            const selectedTheme = themes[currentTheme];
+
+            if (!selectedTheme) {
+                showToast('Error', 'Choose a valid theme before downloading.', 'danger');
+                return;
+            }
+
             try {
-                // Since we can't actually fetch the CSS files in this demo, 
-                // we'll create a sample CSS content for the selected theme
-                const cssContent = generateThemeCSS(currentTheme);
-                
-                // Create blob and download
+                const response = await fetch(selectedTheme.file, { cache: 'no-store' });
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status} fetching ${selectedTheme.file}`);
+                }
+
+                const cssContent = await response.text();
+                if (!cssContent.trim()) {
+                    throw new Error('The selected theme stylesheet is empty.');
+                }
+
                 const blob = new Blob([cssContent], { type: 'text/css' });
-                const url = URL.createObjectURL(blob);
-                
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = `${currentTheme}.css`;
-                document.body.appendChild(a);
-                a.click();
-                document.body.removeChild(a);
-                URL.revokeObjectURL(url);
-                
-                // Show success toast
-                showToast('success');
-                
+                const objectUrl = URL.createObjectURL(blob);
+                const anchor = document.createElement('a');
+
+                anchor.href = objectUrl;
+                anchor.download = `${currentTheme}.css`;
+                document.body.appendChild(anchor);
+                anchor.click();
+                anchor.remove();
+
+                // Release temporary browser resources after the download starts.
+                setTimeout(() => URL.revokeObjectURL(objectUrl), 1000);
+                showToast('Success', `${selectedTheme.name} CSS downloaded.`, 'success');
             } catch (error) {
-                console.error('Download failed:', error);
-                showToast('Error', 'Failed to download theme. Please try again.', 'danger');
+                console.error('Theme download failed:', error);
+                showToast('Error', 'Could not download this theme. Please try again.', 'danger');
             }
         }
-        
-        function generateThemeCSS(themeName) {
-            // Generate sample CSS content for the theme
-            const themeData = themes[themeName];
-            return `/*
- * ${themeData.name} Theme for Bootstrap 5
- * Generated on ${new Date().toLocaleDateString()}
- */
 
-:root {
-    /* Theme Variables for ${themeData.name} */
-    --bs-primary: #007bff;
-    --bs-secondary: #6c757d;
-    --bs-success: #28a745;
-    --bs-info: #17a2b8;
-    --bs-warning: #ffc107;
-    --bs-danger: #dc3545;
-    --bs-light: #f8f9fa;
-    --bs-dark: #343a40;
-}
-
-/* Custom styles for ${themeData.name} theme */
-body {
-    font-family: 'Inter', sans-serif;
-}
-
-.btn {
-    border-radius: 8px;
-    font-weight: 500;
-    transition: all 0.3s ease;
-}
-
-.card {
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-.card:hover {
-    transform: translateY(-2px);
-}
-
-/* Add more theme-specific styles here */
-`;
-        }
-        
-        function showToast(title, message, type) {
+                function showToast(title, message, type) {
             // Handle single parameter call (for backward compatibility)
             if (typeof title === 'string' && !message && !type) {
                 type = title;
@@ -1735,13 +1733,22 @@ body {
         }
 
         document.addEventListener('DOMContentLoaded', function() {
-            // Load saved theme
-            const savedTheme = localStorage.getItem('selectedTheme') || 'modern-gradient';
+            // A URL selection takes precedence over the last remembered theme.
+            const requestedTheme = new URLSearchParams(window.location.search).get('theme');
+            const storedTheme = localStorage.getItem('selectedTheme');
+            const savedTheme = Object.prototype.hasOwnProperty.call(themes, requestedTheme)
+                ? requestedTheme
+                : (Object.prototype.hasOwnProperty.call(themes, storedTheme) ? storedTheme : 'modern-gradient');
             
             // Find and activate the saved theme option
             const savedThemeElement = document.querySelector(`[onclick*="${savedTheme}"]`);
-            changeTheme(savedTheme, savedThemeElement);
+            changeTheme(savedTheme, savedThemeElement, false);
             updateDownloadButton();
+
+            // Theme links use an inline handler for legacy support; stop the '#' jump.
+            document.querySelectorAll('.theme-option').forEach(option => {
+                option.addEventListener('click', event => event.preventDefault());
+            });
 
             // Theme preview click handlers
             document.querySelectorAll('.theme-preview').forEach(preview => {
@@ -1765,6 +1772,15 @@ body {
             
             if (!selector.contains(event.target) && !toggleButton.contains(event.target)) {
                 selector.style.display = 'none';
+                toggleButton.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // Close the mobile theme selector with the keyboard.
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                document.getElementById('themeSelector').style.display = 'none';
+                document.querySelector('.toggle-selector').setAttribute('aria-expanded', 'false');
             }
         });
 
