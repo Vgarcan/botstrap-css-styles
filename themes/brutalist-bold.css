@@ -4,6 +4,25 @@
 
 /* Variables CSS del Tema */
 :root {
+  /*
+   * Theme Contract v1 — stable semantic aliases for integration.
+   * Original variables and component declarations remain unchanged.
+   * See docs/THEME_CONTRACT.md before editing these tokens.
+   */
+  --theme-primary: var(--brutal-red);
+  --theme-secondary: var(--brutal-blue);
+  --theme-accent: var(--brutal-yellow);
+  --theme-success: var(--brutal-green);
+  --theme-warning: var(--brutal-yellow);
+  --theme-danger: var(--brutal-red);
+  --theme-background: var(--brutal-white);
+  --theme-surface: var(--brutal-white);
+  --theme-text: var(--brutal-black);
+  --theme-font-body: 'Arial Black', Arial, sans-serif;
+  --theme-font-heading: 'Arial Black', Arial, sans-serif;
+  --theme-radius: 0px;
+  --theme-shadow: var(--shadow-brutal);
+
   --brutal-black: #000000;
   --brutal-white: #ffffff;
   --brutal-red: #ff0000;

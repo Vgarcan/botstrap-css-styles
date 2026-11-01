@@ -6,6 +6,25 @@
 
 /* Variables CSS del Tema */
 :root {
+  /*
+   * Theme Contract v1 — stable semantic aliases for integration.
+   * Original variables and component declarations remain unchanged.
+   * See docs/THEME_CONTRACT.md before editing these tokens.
+   */
+  --theme-primary: var(--retro-pink);
+  --theme-secondary: var(--retro-cyan);
+  --theme-accent: var(--retro-orange);
+  --theme-success: var(--retro-teal);
+  --theme-warning: var(--retro-yellow);
+  --theme-danger: var(--retro-coral);
+  --theme-background: var(--dark-space);
+  --theme-surface: var(--deep-purple);
+  --theme-text: var(--retro-cyan);
+  --theme-font-body: var(--font-retro);
+  --theme-font-heading: var(--font-retro);
+  --theme-radius: var(--border-radius);
+  --theme-shadow: var(--retro-glow);
+
   /* Colores Retrowave Auténticos */
   --retro-pink: #ff0080;
   --retro-magenta: #ff006b;

@@ -7,6 +7,25 @@
 
 /* Variables CSS del Tema */
 :root {
+  /*
+   * Theme Contract v1 — stable semantic aliases for integration.
+   * Original variables and component declarations remain unchanged.
+   * See docs/THEME_CONTRACT.md before editing these tokens.
+   */
+  --theme-primary: var(--smackdown-blue);
+  --theme-secondary: var(--smackdown-royal);
+  --theme-accent: var(--smackdown-electric);
+  --theme-success: #198754;
+  --theme-warning: #ffc107;
+  --theme-danger: #dc3545;
+  --theme-background: linear-gradient(135deg, var(--smackdown-navy) 0%, var(--smackdown-black) 50%, var(--smackdown-royal) 100%);
+  --theme-surface: var(--smackdown-navy);
+  --theme-text: var(--smackdown-white);
+  --theme-font-body: var(--font-smackdown);
+  --theme-font-heading: var(--font-smackdown);
+  --theme-radius: var(--border-radius-chrome);
+  --theme-shadow: var(--shadow-chrome);
+
   /* Colores SmackDown */
   --smackdown-blue: #0066cc;
   --smackdown-royal: #003d7a;

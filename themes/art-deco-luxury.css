@@ -4,6 +4,25 @@
 
 /* Variables CSS del Tema */
 :root {
+  /*
+   * Theme Contract v1 — stable semantic aliases for integration.
+   * Original variables and component declarations remain unchanged.
+   * See docs/THEME_CONTRACT.md before editing these tokens.
+   */
+  --theme-primary: var(--deco-gold);
+  --theme-secondary: var(--deco-bronze);
+  --theme-accent: var(--deco-emerald);
+  --theme-success: var(--deco-emerald);
+  --theme-warning: var(--deco-gold);
+  --theme-danger: var(--deco-ruby);
+  --theme-background: var(--deco-cream);
+  --theme-surface: var(--deco-cream);
+  --theme-text: var(--deco-black);
+  --theme-font-body: 'Playfair Display', serif;
+  --theme-font-heading: 'Playfair Display', serif;
+  --theme-radius: 0px;
+  --theme-shadow: var(--shadow-luxury);
+
   --deco-gold: #d4af37;
   --deco-black: #1a1a1a;
   --deco-cream: #f5f5dc;

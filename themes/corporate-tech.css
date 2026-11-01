@@ -7,6 +7,25 @@
 
 /* Variables CSS del Tema */
 :root {
+  /*
+   * Theme Contract v1 — stable semantic aliases for integration.
+   * Original variables and component declarations remain unchanged.
+   * See docs/THEME_CONTRACT.md before editing these tokens.
+   */
+  --theme-primary: var(--tech-primary);
+  --theme-secondary: var(--tech-secondary);
+  --theme-accent: var(--tech-accent);
+  --theme-success: var(--tech-success);
+  --theme-warning: var(--tech-warning);
+  --theme-danger: var(--tech-danger);
+  --theme-background: var(--tech-gray-50);
+  --theme-surface: #ffffff;
+  --theme-text: var(--tech-gray-800);
+  --theme-font-body: var(--font-primary);
+  --theme-font-heading: var(--font-primary);
+  --theme-radius: var(--border-radius-lg);
+  --theme-shadow: var(--shadow-tech);
+
   --tech-primary: #0066cc;
   --tech-secondary: #004499;
   --tech-accent: #00a1f1;

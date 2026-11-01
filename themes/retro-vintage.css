@@ -4,6 +4,25 @@
 
 /* Variables CSS del Tema */
 :root {
+  /*
+   * Theme Contract v1 — stable semantic aliases for integration.
+   * Original variables and component declarations remain unchanged.
+   * See docs/THEME_CONTRACT.md before editing these tokens.
+   */
+  --theme-primary: var(--vintage-brown);
+  --theme-secondary: var(--vintage-orange);
+  --theme-accent: var(--vintage-gold);
+  --theme-success: var(--vintage-green);
+  --theme-warning: var(--vintage-orange);
+  --theme-danger: var(--vintage-red);
+  --theme-background: var(--vintage-cream);
+  --theme-surface: var(--vintage-cream);
+  --theme-text: var(--vintage-dark);
+  --theme-font-body: var(--font-body);
+  --theme-font-heading: var(--font-vintage);
+  --theme-radius: var(--border-radius);
+  --theme-shadow: var(--shadow-vintage);
+
   --vintage-cream: #f4f1e8;
   --vintage-brown: #8b4513;
   --vintage-orange: #d2691e;

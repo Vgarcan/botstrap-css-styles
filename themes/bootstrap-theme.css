@@ -4,6 +4,25 @@
 
 /* Variables CSS Personalizadas */
 :root {
+  /*
+   * Theme Contract v1 — stable semantic aliases for integration.
+   * Original variables and component declarations remain unchanged.
+   * See docs/THEME_CONTRACT.md before editing these tokens.
+   */
+  --theme-primary: #667eea;
+  --theme-secondary: #764ba2;
+  --theme-accent: #f093fb;
+  --theme-success: #4facfe;
+  --theme-warning: #fdbb2d;
+  --theme-danger: #ff6b6b;
+  --theme-background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  --theme-surface: rgba(255, 255, 255, 0.95);
+  --theme-text: #2d3436;
+  --theme-font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --theme-font-heading: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --theme-radius: var(--border-radius);
+  --theme-shadow: var(--shadow-md);
+
   --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
   --success-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);

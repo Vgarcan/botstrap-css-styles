@@ -6,6 +6,25 @@
 
 /* Variables CSS del Tema */
 :root {
+  /*
+   * Theme Contract v1 — stable semantic aliases for integration.
+   * Original variables and component declarations remain unchanged.
+   * See docs/THEME_CONTRACT.md before editing these tokens.
+   */
+  --theme-primary: var(--kids-electric-blue);
+  --theme-secondary: var(--kids-hot-pink);
+  --theme-accent: var(--kids-turquoise);
+  --theme-success: var(--kids-lime-green);
+  --theme-warning: var(--kids-yellow-sun);
+  --theme-danger: var(--kids-red-cherry);
+  --theme-background: var(--kids-bg-primary);
+  --theme-surface: var(--kids-bg-primary);
+  --theme-text: var(--kids-text-dark);
+  --theme-font-body: var(--font-fun);
+  --theme-font-heading: var(--font-playful);
+  --theme-radius: var(--border-radius-fun);
+  --theme-shadow: var(--shadow-electric);
+
   /* Colores Vibrantes y Energéticos */
   --kids-electric-blue: #0080ff;
   --kids-hot-pink: #ff1493;

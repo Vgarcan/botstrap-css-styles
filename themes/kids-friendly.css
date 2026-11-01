@@ -6,6 +6,25 @@
 
 /* Variables CSS del Tema */
 :root {
+  /*
+   * Theme Contract v1 — stable semantic aliases for integration.
+   * Original variables and component declarations remain unchanged.
+   * See docs/THEME_CONTRACT.md before editing these tokens.
+   */
+  --theme-primary: var(--kids-primary);
+  --theme-secondary: var(--kids-secondary);
+  --theme-accent: var(--kids-info);
+  --theme-success: var(--kids-success);
+  --theme-warning: var(--kids-warning);
+  --theme-danger: var(--kids-danger);
+  --theme-background: var(--kids-cream);
+  --theme-surface: var(--kids-white);
+  --theme-text: var(--kids-text-dark);
+  --theme-font-body: var(--font-friendly);
+  --theme-font-heading: var(--font-kids);
+  --theme-radius: var(--border-radius-kids);
+  --theme-shadow: var(--shadow-soft);
+
   /* Colores Suaves y Amigables */
   --kids-sky-blue: #87ceeb;
   --kids-soft-pink: #ffb6c1;

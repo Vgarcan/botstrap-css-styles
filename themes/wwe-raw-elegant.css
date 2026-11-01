@@ -5,6 +5,25 @@
 
 /* Variables CSS del Tema */
 :root {
+  /*
+   * Theme Contract v1 — stable semantic aliases for integration.
+   * Original variables and component declarations remain unchanged.
+   * See docs/THEME_CONTRACT.md before editing these tokens.
+   */
+  --theme-primary: var(--raw-red);
+  --theme-secondary: var(--raw-gold);
+  --theme-accent: var(--raw-silver);
+  --theme-success: #198754;
+  --theme-warning: var(--raw-gold);
+  --theme-danger: var(--raw-red);
+  --theme-background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+  --theme-surface: var(--raw-black);
+  --theme-text: var(--raw-white);
+  --theme-font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --theme-font-heading: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --theme-radius: var(--border-radius-elegant);
+  --theme-shadow: var(--shadow-elegant);
+
   --raw-red: #c41e3a;
   --raw-gold: #d4af37;
   --raw-silver: #c0c0c0;

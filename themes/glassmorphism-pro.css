@@ -4,6 +4,25 @@
 
 /* Variables CSS del Tema */
 :root {
+  /*
+   * Theme Contract v1 — stable semantic aliases for integration.
+   * Original variables and component declarations remain unchanged.
+   * See docs/THEME_CONTRACT.md before editing these tokens.
+   */
+  --theme-primary: #667eea;
+  --theme-secondary: #764ba2;
+  --theme-accent: #f093fb;
+  --theme-success: var(--glass-success);
+  --theme-warning: var(--glass-warning);
+  --theme-danger: var(--glass-danger);
+  --theme-background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  --theme-surface: var(--glass-primary);
+  --theme-text: #ffffff;
+  --theme-font-body: 'Inter', sans-serif;
+  --theme-font-heading: 'Inter', sans-serif;
+  --theme-radius: 15px;
+  --theme-shadow: var(--shadow-glass);
+
   --glass-primary: rgba(255, 255, 255, 0.25);
   --glass-secondary: rgba(255, 255, 255, 0.1);
   --glass-accent: rgba(138, 43, 226, 0.3);
