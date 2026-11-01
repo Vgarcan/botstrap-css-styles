@@ -1,2 +1,9 @@
 desktop.ini
 monitor-palette.ico
+
+# Local test/audit dependencies and generated evidence.
+node_modules/
+quality-results/
+responsive-results/
+__pycache__/
+*.pyc
