@@ -841,6 +841,26 @@ body {
   text-shadow: none !important;
 }
 
+/*
+ * Issue #8: preserve the raised soft gradients while respecting contrast.
+ * White text >=5.19:1 on the darkened violet endpoint; status colours use
+ * ink >=4.8:1 even at the darkest coral endpoint.
+ */
+.btn-primary, .badge-primary, .nav-pills .nav-link.active {
+  background: linear-gradient(145deg, #5266c3, #4553aa);
+  color: #ffffff !important;
+  text-shadow: none !important;
+}
+.btn-success, .btn-warning, .btn-danger,
+.badge-success, .badge-warning, .badge-danger {
+  color: #142238 !important;
+  text-shadow: none !important;
+}
+.progress-bar {
+  background: linear-gradient(90deg, #5266c3, #613a96);
+  color: #ffffff;
+}
+
 /* BEGIN RESPONSIVE CORE v1 — managed by scripts/sync_responsive.py */
 /*
  * A shared mobile-first compatibility layer compiled into each standalone CSS.

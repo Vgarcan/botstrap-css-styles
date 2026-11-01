@@ -23,7 +23,7 @@
   --theme-radius: var(--border-radius);
   --theme-shadow: var(--shadow-light);
 
-  --primary-color: #667eea;
+  --primary-color: #5366c1;
   --secondary-color: #764ba2;
   --accent-color: #f093fb;
   --success-color: #4facfe;
@@ -654,6 +654,38 @@ body {
 .form-select option {
   background: var(--primary-color);
   color: white;
+}
+
+/*
+ * Issue #8: contrast on actual rendered gradients.
+ * Primary starts at #5366c1 (white >= 5.2:1); the brighter status gradients
+ * use deep ink. The badge variants were previously transparent in Bootstrap 5.
+ */
+.btn-secondary, .btn-success, .btn-warning, .btn-danger {
+  color: #142238 !important;
+  text-shadow: none !important;
+}
+.badge { background: #e9eaf6; color: #142238; text-shadow: none; }
+.badge-primary { background: #5366c1; color: #fff; }
+.badge-secondary { background: #efc2eb; color: #142238; }
+.badge-success { background: #7ae6ef; color: #142238; }
+.badge-warning { background: #f6c557; color: #142238; }
+.badge-danger { background: #fa9585; color: #142238; }
+.badge-info { background: #9dd7f0; color: #142238; }
+.alert-primary {
+  background: rgba(245, 247, 255, 0.95);
+  color: #334493;
+}
+.btn-outline-primary, .btn-outline-secondary,
+.btn-outline-success, .btn-outline-danger {
+  background: rgba(255, 255, 255, 0.96);
+  color: #142238 !important;
+  border-color: #5366c1;
+}
+.btn-outline-primary:hover, .btn-outline-secondary:hover,
+.btn-outline-success:hover, .btn-outline-danger:hover {
+  background: rgba(255, 255, 255, 0.85);
+  color: #142238 !important;
 }
 
 /* BEGIN RESPONSIVE CORE v1 — managed by scripts/sync_responsive.py */

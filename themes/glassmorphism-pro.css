@@ -15,7 +15,7 @@
   --theme-success: var(--glass-success);
   --theme-warning: var(--glass-warning);
   --theme-danger: var(--glass-danger);
-  --theme-background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  --theme-background: linear-gradient(rgba(12, 14, 30, 0.72), rgba(12, 14, 30, 0.72)), linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
   --theme-surface: var(--glass-primary);
   --theme-text: #ffffff;
   --theme-font-body: 'Inter', sans-serif;
@@ -800,6 +800,19 @@ body::before {
 
 /* Bright badge text shadows can completely obscure glyph contrast. */
 .badge, .badge * { text-shadow: none !important; }
+
+/*
+ * Issue #8: the former bright pink body endpoint behind 25%-white glass
+ * panels produced white-text contrasts around 2:1.
+ * A translucent navy tint retains the coloured gradient and frosted panels,
+ * bringing the glass foreground into a substantially darker luminance range.
+ */
+body {
+  background:
+    linear-gradient(rgba(12, 14, 30, 0.72), rgba(12, 14, 30, 0.72)),
+    linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  background-attachment: fixed;
+}
 
 /* BEGIN RESPONSIVE CORE v1 — managed by scripts/sync_responsive.py */
 /*
