@@ -202,6 +202,24 @@ def main() -> int:
                 if width <= 1280 and not nav_toggle.is_visible():
                     failures.append(f"{width}px: navbar toggler is not visible")
 
+                # The menu must open as a drawer without changing page height.
+                if width < 1400:
+                    toggle = page.locator(".site-navbar .navbar-toggler")
+                    if not toggle.is_visible():
+                        failures.append(f"{width}px: navbar toggle is hidden")
+                    else:
+                        toggle.click()
+                        panel = page.locator("#siteNav")
+                        try:
+                            panel.wait_for(state="visible", timeout=3000)
+                            page.locator("#siteNav .nav-link").first.click()
+                            panel.wait_for(state="hidden", timeout=3000)
+                        except Exception as exc:
+                            failures.append(f"{width}px: drawer navigation failed: {exc}")
+                else:
+                    if not page.locator("#siteNav .nav-link").first.is_visible():
+                        failures.append(f"{width}px: desktop navigation links hidden")
+
                 # The theme chooser is navigation, not part of the theme being audited.
                 button = page.locator(".toggle-selector")
                 button.click(force=True)
