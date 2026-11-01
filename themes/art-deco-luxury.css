@@ -1424,6 +1424,17 @@ h2::after {
   color: var(--deco-black);
 }
 
+/*
+ * The large outside-edge diamond and rule ornaments are decorative.
+ * Keep them on wide desktop, but remove their negative offsets before they
+ * can escape the viewport at tablet and smaller-desktop breakpoints.
+ */
+@media (max-width: 1399.98px) {
+  h1::before, h1::after, h2::before, h2::after {
+    display: none;
+  }
+}
+
 /* BEGIN RESPONSIVE CORE v1 — managed by scripts/sync_responsive.py */
 /*
  * A shared mobile-first compatibility layer compiled into each standalone CSS.
