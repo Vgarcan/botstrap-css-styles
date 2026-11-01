@@ -213,6 +213,31 @@ def main() -> int:
                                 failures.append(
                                     f"{width}px / {theme}: drawer geometry invalid ({position}, {rect})"
                                 )
+                            # A pass on dimensions is insufficient if a
+                            # theme's stacking context hides the drawer behind
+                            # the hero or Bootstrap backdrop.
+                            try:
+                                page.wait_for_function(
+                                    """() => {
+                                      const p = document.querySelector('#siteNav');
+                                      const r = p.getBoundingClientRect();
+                                      const x = Math.min(r.right - 20, r.left + r.width / 2);
+                                      const y = Math.min(window.innerHeight - 30, r.top + 260);
+                                      return p.contains(document.elementFromPoint(x, y));
+                                    }""",
+                                    timeout=2500,
+                                )
+                            except Exception:
+                                failures.append(
+                                    f"{width}px / {theme}: drawer is behind page content/backdrop"
+                                )
+                            close_button = panel.locator(".site-nav-close")
+                            box = close_button.bounding_box()
+                            if not close_button.is_visible() or not box or box["width"] < 44 or box["height"] < 44:
+                                failures.append(
+                                    f"{width}px / {theme}: accessible close control missing or too small"
+                                )
+
                             after = page.locator("#home").bounding_box()
                             if before and after and abs(before["y"] - after["y"]) > 3:
                                 failures.append(f"{width}px / {theme}: opening drawer pushes hero down")
