@@ -1241,6 +1241,26 @@ h1 {
 .btn-outline-success { color: #41590e !important; }
 .btn-outline-danger { color: #842c2c !important; }
 
+/*
+ * Issue #8, hero readability. Screenshot review of all 17 themes identified
+ * insufficient foreground/background separation in this gallery heading.
+ * brown ink and dark vintage blue on paper; keep typography and surrounding theme effects unchanged.
+ */
+#home h1 {
+  background-image: none !important;
+  -webkit-background-clip: border-box !important;
+  background-clip: border-box !important;
+  -webkit-text-fill-color: #5a301a !important;
+  color: #5a301a !important;
+}
+#home h1 .text-primary {
+  background-image: none !important;
+  -webkit-background-clip: border-box !important;
+  background-clip: border-box !important;
+  -webkit-text-fill-color: #244e72 !important;
+  color: #244e72 !important;
+}
+
 /* BEGIN RESPONSIVE CORE v1 — managed by scripts/sync_responsive.py */
 /*
  * A shared mobile-first compatibility layer compiled into each standalone CSS.

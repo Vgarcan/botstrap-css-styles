@@ -48,3 +48,19 @@ estimate and can flag false positives, especially nested or clipped text.
 Other themes and unfinished categories (contrast of focus borders, SVG/icon
 graphics, gradients and textured overlays, modal, offcanvas, disabled states,
 Safari/Android devices) remain open and must not be described as certified.
+
+## Screenshot review: mobile hero title readability
+
+The latest responsive-browser artifact includes all 17 rendered mobile first-fold
+screenshots. In addition to pixel-sampling reports, these screenshots show
+insufficient separation between some hero text and its page background. A
+narrow, documented per-theme colour adjustment was made for the nine affected
+families (Art Deco, Brutalist, Glass, both Kids, Modern Gradient, Neumorphism,
+Retro Vintage and WWE SmackDown). Text remains two-toned and retains each
+family's fonts, textures and overall visual character. The light pastel Kids
+navbar brands were corrected as well. These colour selections are explicitly
+scoped to the gallery hero and do not override a theme's headings globally.
+
+This is **not** evidence that all headings or all states are now WCAG-conformant.
+Further evaluation of the gradient and pseudo-element incomplete cases is
+required, including browser inspection on actual mobile devices.

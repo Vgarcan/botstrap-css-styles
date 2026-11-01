@@ -1917,6 +1917,30 @@ h3, h4, h5, h6 {
   text-shadow: none !important;
 }
 
+/*
+ * Issue #8, hero readability. Screenshot review of all 17 themes identified
+ * insufficient foreground/background separation in this gallery heading.
+ * rich magenta and purple on white; keep typography and surrounding theme effects unchanged.
+ */
+#home h1 {
+  background-image: none !important;
+  -webkit-background-clip: border-box !important;
+  background-clip: border-box !important;
+  -webkit-text-fill-color: #7b1f62 !important;
+  color: #7b1f62 !important;
+}
+#home h1 .text-primary {
+  background-image: none !important;
+  -webkit-background-clip: border-box !important;
+  background-clip: border-box !important;
+  -webkit-text-fill-color: #5a258f !important;
+  color: #5a258f !important;
+}
+.site-navbar .site-brand {
+  -webkit-text-fill-color: #141419 !important;
+  color: #141419 !important;
+}
+
 /* BEGIN RESPONSIVE CORE v1 — managed by scripts/sync_responsive.py */
 /*
  * A shared mobile-first compatibility layer compiled into each standalone CSS.
