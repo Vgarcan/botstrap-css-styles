@@ -2,7 +2,7 @@
 
 A collection of **17 visual themes** for Bootstrap 5, with a live component gallery for comparing and gradually modernising each stylesheet. This is an evolving style laboratory rather than a production-ready design system.
 
-> **Preview:** [GitHub Pages](https://vgarcan.github.io/botstrap-css-styles/) (available after enabling Pages and merging the deployment workflow).
+> **Live preview:** [GitHub Pages](https://vgarcan.github.io/botstrap-css-styles/) — published directly from `main` via the existing GitHub Pages configuration.
 > **Project setup:** [GitHub Pages guide](docs/GITHUB_PAGES.md) · [Modernisation plan](docs/MODERNIZATION.md).
 
 ## 🎨 Available Themes
