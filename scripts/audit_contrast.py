@@ -5,6 +5,7 @@ The baseline is report-only. Incomplete results require manual review.
 """
 
 from pathlib import Path
+import argparse
 import json
 import re
 import sys
@@ -33,6 +34,9 @@ def simplified_issue(issue: dict) -> dict:
 
 def main() -> int:
     """Report mobile and desktop colour-contrast defects."""
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--enforce", action="store_true", help="Fail if confirmed contrast errors remain")
+    args = parser.parse_args()
     if len(THEMES) != 17 or not AXE.is_file():
         print(f"Expected 17 themes and {AXE}", file=sys.stderr)
         return 2
@@ -81,10 +85,10 @@ def main() -> int:
     (OUT / "report.json").write_text(
         json.dumps({"mode": "report-only", "scans": scans}, indent=2),
         encoding="utf-8")
-    print("Total confirmed:",
-          sum(x["failures"] for x in scans), "incomplete:",
+    failures = sum(x["failures"] for x in scans)
+    print("Total confirmed:", failures, "incomplete:",
           sum(x["manual_review"] for x in scans))
-    return 0
+    return 1 if args.enforce and failures else 0
 
 
 if __name__ == "__main__":

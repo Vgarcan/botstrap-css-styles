@@ -30,8 +30,9 @@ quality-results/css and quality-results/contrast.
 
 ## Interpretation
 The W3C CSS validator now enforces validity for all 18 populated stylesheets.
-The axe-core contrast audit remains report-only: green means it ran, not that
-all colour pairs are accessible.
+The axe-core contrast audit is now an enforcing CI gate for confirmed text
+contrast violations across 17 themes at mobile and desktop widths. However,
+axe incomplete findings are still unresolved and require manual inspection.
 Review all errors and axe incomplete findings (especially gradients, glass
 panels and background images). Do not suppress violations to force a green CI.
 After remediation, turn reports into failing quality gates.
