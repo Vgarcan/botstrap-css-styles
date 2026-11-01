@@ -33,9 +33,13 @@ jobs:
     steps:
       - name: Check out the proposed changes
         uses: actions/checkout@v4
+      - name: Set up Python for browser tests
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
       - name: Install Chromium browser tooling
         run: |
-          python3 -m pip install --user playwright==1.56.0
+          python3 -m pip install playwright==1.56.0
           python3 -m playwright install --with-deps chromium
       - name: Audit phone, tablet and desktop viewport layouts
         run: |
