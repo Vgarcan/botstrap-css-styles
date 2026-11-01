@@ -20,7 +20,8 @@
     <style>
         .theme-selector {
             position: fixed;
-            top: 20px;
+            top: auto;
+            bottom: 92px;
             right: 20px;
             z-index: 1050;
             background: rgba(255, 255, 255, 0.95);
@@ -28,13 +29,18 @@
             border-radius: 15px;
             padding: 20px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            min-width: 280px;
-            max-height: 80vh;
+            width: min(360px, calc(100vw - 40px));
+            min-width: 0;
+            max-height: min(75dvh, 720px);
             overflow-y: auto;
+            overscroll-behavior: contain;
         }
         
         .theme-option {
-            display: block;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            min-height: 48px;
             width: 100%;
             margin-bottom: 10px;
             padding: 12px 16px;
@@ -66,7 +72,8 @@
             height: 20px;
             border-radius: 50%;
             display: inline-block;
-            margin-right: 10px;
+            flex: 0 0 20px;
+            margin-right: 0;
             border: 2px solid rgba(0,0,0,0.1);
         }
         
@@ -89,16 +96,17 @@
         
         .toggle-selector {
             position: fixed;
-            top: 20px;
+            top: auto;
+            bottom: 20px;
             right: 20px;
             z-index: 1051;
             background: #007bff;
             color: white;
             border: none;
             border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            font-size: 24px;
+            width: 56px;
+            height: 56px;
+            font-size: 22px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
             transition: all 0.3s ease;
         }
@@ -125,24 +133,34 @@
             padding-bottom: 5px;
         }
 
-        /* Keep the theme switcher usable on narrow mobile screens. */
-        @media (max-width: 600px) {
+        /*
+         * The theme chooser is a mobile bottom-sheet-like panel. It must not
+         * cover the navbar's own hamburger toggle at narrow widths.
+         */
+        @media (max-width: 767.98px) {
             .toggle-selector {
-                top: 12px;
+                top: auto;
+                bottom: calc(12px + env(safe-area-inset-bottom, 0px));
                 right: 12px;
-                width: 48px;
-                height: 48px;
+                width: 52px;
+                height: 52px;
                 font-size: 20px;
             }
             .theme-selector {
-                top: 70px;
-                right: 12px;
+                top: max(12px, env(safe-area-inset-top, 0px));
+                bottom: calc(76px + env(safe-area-inset-bottom, 0px));
                 left: 12px;
+                right: 12px;
                 width: auto;
                 min-width: 0;
-                max-height: calc(100dvh - 82px);
+                max-height: none;
                 padding: 16px;
             }
+        }
+
+        @media (max-width: 360px) {
+            .theme-selector { padding: 12px; }
+            .theme-option { padding: 10px; }
         }
 
         @media (prefers-reduced-motion: reduce) {
