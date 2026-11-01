@@ -1200,6 +1200,19 @@ h1 {
   color: var(--vintage-dark);
 }
 
+/* WCAG AA contrast remediation: preserve theme backgrounds, improve text. */
+.badge-primary, .badge-success, .badge-danger {
+  color: #111111 !important;
+  text-shadow: none !important;
+}
+
+
+/* Gold with a dark text-shadow clashed on the active tab. */
+.nav-tabs .nav-link.active {
+  color: #f5f5dc !important;
+  text-shadow: none !important;
+}
+
 /* BEGIN RESPONSIVE CORE v1 — managed by scripts/sync_responsive.py */
 /*
  * A shared mobile-first compatibility layer compiled into each standalone CSS.
@@ -1476,7 +1489,7 @@ body.site-nav-open .site-navbar.navbar {
 }
 
 .site-navbar .site-nav-close:hover {
-  background: color-mix(in srgb, currentColor 10%, transparent);
+  background: rgba(128, 128, 128, 0.16);
 }
 
 /* Branding is expressive; the navigation itself must remain compact. */
@@ -1567,7 +1580,7 @@ body.site-nav-open .site-navbar.navbar {
 
   .site-navbar .site-nav-panel .site-nav-link:hover,
   .site-navbar .site-nav-panel .site-nav-link:focus-visible {
-    background: color-mix(in srgb, var(--theme-accent, #0d6efd) 16%, transparent);
+    background: rgba(128, 128, 128, 0.16);
     transform: none;
   }
 }

@@ -517,6 +517,28 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
+/* WCAG AA contrast remediation — audited against rendered components.
+ * Preserve each theme's background, correct illegible foreground and states. */
+.alert-success { color: #07603e !important; }
+.alert-warning { color: #874500 !important; }
+.alert-danger { color: #b91c1c !important; }
+.btn-success { color: #111111 !important; }
+.nav-pills .nav-link.active { color: #ffffff !important; }
+.btn-outline-secondary { color: #495057 !important; }
+.btn-outline-success { color: #11683c !important; }
+.btn-outline-danger { color: #b42333 !important; }
+
+.badge-primary { background-color: #1d4ed8 !important; color: #ffffff !important; text-shadow: none !important; }
+.badge-secondary { background-color: #475569 !important; color: #ffffff !important; text-shadow: none !important; }
+.badge-success { background-color: #086548 !important; color: #ffffff !important; text-shadow: none !important; }
+.badge-warning { background-color: #854d0e !important; color: #ffffff !important; text-shadow: none !important; }
+.badge-danger { background-color: #a31d29 !important; color: #ffffff !important; text-shadow: none !important; }
+.badge-info { background-color: #155e75 !important; color: #ffffff !important; text-shadow: none !important; }
+
+
+/* Teal #0d9488 on a pale mint alert is only 3.59:1. */
+.alert-info, .alert-info strong { color: #0c5e56 !important; }
+
 /* BEGIN RESPONSIVE CORE v1 — managed by scripts/sync_responsive.py */
 /*
  * A shared mobile-first compatibility layer compiled into each standalone CSS.
@@ -793,7 +815,7 @@ body.site-nav-open .site-navbar.navbar {
 }
 
 .site-navbar .site-nav-close:hover {
-  background: color-mix(in srgb, currentColor 10%, transparent);
+  background: rgba(128, 128, 128, 0.16);
 }
 
 /* Branding is expressive; the navigation itself must remain compact. */
@@ -884,7 +906,7 @@ body.site-nav-open .site-navbar.navbar {
 
   .site-navbar .site-nav-panel .site-nav-link:hover,
   .site-navbar .site-nav-panel .site-nav-link:focus-visible {
-    background: color-mix(in srgb, var(--theme-accent, #0d6efd) 16%, transparent);
+    background: rgba(128, 128, 128, 0.16);
     transform: none;
   }
 }

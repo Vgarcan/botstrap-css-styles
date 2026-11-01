@@ -918,6 +918,22 @@ p {
   color: var(--dark-gray);
 }
 
+/* WCAG AA contrast remediation: preserve theme backgrounds, improve text. */
+.alert-primary { color: #1c6391 !important; }
+.alert-success { color: #13612f !important; }
+.alert-warning { color: #744c0b !important; }
+.btn-success, .btn-warning, .btn-danger,
+.nav-pills .nav-link.active { color: #111111 !important; }
+.btn-outline-primary, .breadcrumb-item a,
+.accordion-button:not(.collapsed) { color: #1c6391 !important; }
+.badge { color: #111111 !important; text-shadow: none !important; }
+.page-item.disabled .page-link { color: #495057 !important; }
+
+
+/* The active accent #3498db and muted gray are too light on white. */
+.nav-tabs .nav-link.active { color: #1c6391 !important; }
+.text-muted { color: #52616b !important; }
+
 /* BEGIN RESPONSIVE CORE v1 — managed by scripts/sync_responsive.py */
 /*
  * A shared mobile-first compatibility layer compiled into each standalone CSS.
@@ -1194,7 +1210,7 @@ body.site-nav-open .site-navbar.navbar {
 }
 
 .site-navbar .site-nav-close:hover {
-  background: color-mix(in srgb, currentColor 10%, transparent);
+  background: rgba(128, 128, 128, 0.16);
 }
 
 /* Branding is expressive; the navigation itself must remain compact. */
@@ -1285,7 +1301,7 @@ body.site-nav-open .site-navbar.navbar {
 
   .site-navbar .site-nav-panel .site-nav-link:hover,
   .site-navbar .site-nav-panel .site-nav-link:focus-visible {
-    background: color-mix(in srgb, var(--theme-accent, #0d6efd) 16%, transparent);
+    background: rgba(128, 128, 128, 0.16);
     transform: none;
   }
 }

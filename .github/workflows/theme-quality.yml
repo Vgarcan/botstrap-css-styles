@@ -1,0 +1,62 @@
+name: Theme CSS and contrast audit
+
+on:
+  pull_request:
+    paths:
+      - 'themes/**'
+      - 'index.html'
+      - 'scripts/**'
+      - '.github/workflows/theme-quality.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  w3c-css:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Download official W3C CSS Validator
+        run: |
+          curl -fL --retry 3 -o /tmp/css-validator.jar https://github.com/w3c/css-validator/releases/download/cssval-20250226/css-validator.jar
+          test "$(wc -c < /tmp/css-validator.jar)" -gt 1000000
+      - name: Enforce W3C CSS validity for all 18 stylesheets
+        run: python3 scripts/audit_css_w3c.py /tmp/css-validator.jar --enforce
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: w3c-css-results
+          path: quality-results/css/
+          if-no-files-found: ignore
+
+  contrast:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install Chromium and axe-core
+        run: |
+          python3 -m pip install playwright==1.56.0
+          python3 -m playwright install --with-deps chromium
+          npm install --no-save --no-package-lock axe-core@4.10.3
+      - name: Enforce computed contrast across all 17 themes
+        run: |
+          python3 -m http.server 8765 --bind 127.0.0.1 > /tmp/theme-http.log 2>&1 &
+          python3 scripts/audit_contrast.py --enforce
+      - name: Enforce contrast for tabs, modal and offcanvas
+        run: python3 scripts/audit_contrast_states.py
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: wcag-contrast-results
+          path: quality-results/contrast/
+          if-no-files-found: ignore

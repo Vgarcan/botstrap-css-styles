@@ -827,6 +827,20 @@ body {
   color: #4a5568;
 }
 
+/* WCAG AA contrast remediation: preserve theme backgrounds, improve text. */
+.breadcrumb-item a, .accordion-button:not(.collapsed) {
+  color: #3c428c !important;
+}
+.page-item.disabled .page-link { color: #344054 !important; }
+
+
+/* Primary #667eea on a #e0e5ec neumorphic panel is 2.89:1. */
+.nav-tabs .nav-link.active, .modal-title,
+.site-navbar .site-nav-header .offcanvas-title {
+  color: #303e83 !important;
+  text-shadow: none !important;
+}
+
 /* BEGIN RESPONSIVE CORE v1 — managed by scripts/sync_responsive.py */
 /*
  * A shared mobile-first compatibility layer compiled into each standalone CSS.
@@ -1103,7 +1117,7 @@ body.site-nav-open .site-navbar.navbar {
 }
 
 .site-navbar .site-nav-close:hover {
-  background: color-mix(in srgb, currentColor 10%, transparent);
+  background: rgba(128, 128, 128, 0.16);
 }
 
 /* Branding is expressive; the navigation itself must remain compact. */
@@ -1194,7 +1208,7 @@ body.site-nav-open .site-navbar.navbar {
 
   .site-navbar .site-nav-panel .site-nav-link:hover,
   .site-navbar .site-nav-panel .site-nav-link:focus-visible {
-    background: color-mix(in srgb, var(--theme-accent, #0d6efd) 16%, transparent);
+    background: rgba(128, 128, 128, 0.16);
     transform: none;
   }
 }
