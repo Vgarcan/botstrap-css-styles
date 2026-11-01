@@ -64,7 +64,7 @@
 /* Estilos Base */
 body {
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--gradient-primary);
   min-height: 100vh;
   color: #2d3436;
 }
@@ -701,6 +701,12 @@ body {
   color: #ffffff !important;
   text-shadow: none !important;
 }
+/* Hero introduction is on the violet canvas, not inside a white card. */
+#home .lead {
+  color: #ffffff !important;
+  text-shadow: none !important;
+}
+
 .accordion-body {
   background: rgba(15, 20, 40, 0.85);
   color: #ffffff;
