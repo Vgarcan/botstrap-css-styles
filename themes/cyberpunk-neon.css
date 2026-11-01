@@ -4,6 +4,25 @@
 
 /* Variables CSS del Tema */
 :root {
+  /*
+   * Theme Contract v1 — stable semantic aliases for integration.
+   * Original variables and component declarations remain unchanged.
+   * See docs/THEME_CONTRACT.md before editing these tokens.
+   */
+  --theme-primary: var(--neon-cyan);
+  --theme-secondary: var(--neon-pink);
+  --theme-accent: var(--neon-green);
+  --theme-success: var(--neon-green);
+  --theme-warning: var(--neon-orange);
+  --theme-danger: var(--neon-pink);
+  --theme-background: var(--dark-bg);
+  --theme-surface: var(--darker-bg);
+  --theme-text: var(--neon-cyan);
+  --theme-font-body: 'Orbitron', 'Courier New', monospace;
+  --theme-font-heading: 'Orbitron', 'Courier New', monospace;
+  --theme-radius: var(--border-radius);
+  --theme-shadow: var(--neon-glow);
+
   --neon-cyan: #00ffff;
   --neon-pink: #ff00ff;
   --neon-green: #00ff00;

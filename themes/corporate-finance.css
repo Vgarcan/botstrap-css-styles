@@ -7,6 +7,25 @@
 
 /* Variables CSS del Tema */
 :root {
+  /*
+   * Theme Contract v1 — stable semantic aliases for integration.
+   * Original variables and component declarations remain unchanged.
+   * See docs/THEME_CONTRACT.md before editing these tokens.
+   */
+  --theme-primary: var(--finance-primary);
+  --theme-secondary: var(--finance-secondary);
+  --theme-accent: var(--finance-accent);
+  --theme-success: var(--finance-success);
+  --theme-warning: var(--finance-warning);
+  --theme-danger: var(--finance-danger);
+  --theme-background: var(--finance-slate-50);
+  --theme-surface: #ffffff;
+  --theme-text: var(--finance-navy);
+  --theme-font-body: var(--font-primary);
+  --theme-font-heading: var(--font-secondary);
+  --theme-radius: var(--border-radius-lg);
+  --theme-shadow: var(--shadow-finance);
+
   --finance-primary: #1e3a5f;
   --finance-secondary: #2c5282;
   --finance-accent: #3182ce;

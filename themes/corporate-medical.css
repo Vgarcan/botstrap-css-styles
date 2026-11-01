@@ -7,6 +7,25 @@
 
 /* Variables CSS del Tema */
 :root {
+  /*
+   * Theme Contract v1 — stable semantic aliases for integration.
+   * Original variables and component declarations remain unchanged.
+   * See docs/THEME_CONTRACT.md before editing these tokens.
+   */
+  --theme-primary: var(--medical-primary);
+  --theme-secondary: var(--medical-secondary);
+  --theme-accent: var(--medical-accent);
+  --theme-success: var(--medical-success);
+  --theme-warning: var(--medical-warning);
+  --theme-danger: var(--medical-danger);
+  --theme-background: var(--medical-gray-50);
+  --theme-surface: #ffffff;
+  --theme-text: var(--medical-gray-800);
+  --theme-font-body: var(--font-primary);
+  --theme-font-heading: var(--font-primary);
+  --theme-radius: var(--border-radius-lg);
+  --theme-shadow: var(--shadow-medical);
+
   --medical-primary: #2563eb;
   --medical-secondary: #1d4ed8;
   --medical-accent: #3b82f6;

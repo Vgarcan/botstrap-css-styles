@@ -7,6 +7,25 @@
 
 /* Variables CSS del Tema */
 :root {
+  /*
+   * Theme Contract v1 — stable semantic aliases for integration.
+   * Original variables and component declarations remain unchanged.
+   * See docs/THEME_CONTRACT.md before editing these tokens.
+   */
+  --theme-primary: var(--legal-primary);
+  --theme-secondary: var(--legal-secondary);
+  --theme-accent: var(--legal-accent);
+  --theme-success: var(--legal-success);
+  --theme-warning: var(--legal-warning);
+  --theme-danger: var(--legal-danger);
+  --theme-background: var(--legal-gray-50);
+  --theme-surface: #ffffff;
+  --theme-text: var(--legal-charcoal);
+  --theme-font-body: var(--font-primary);
+  --theme-font-heading: var(--font-secondary);
+  --theme-radius: var(--border-radius-lg);
+  --theme-shadow: var(--shadow-legal);
+
   --legal-primary: #1a1a1a;
   --legal-secondary: #2d2d2d;
   --legal-accent: #8b0000;

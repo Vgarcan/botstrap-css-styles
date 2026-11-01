@@ -4,6 +4,25 @@
 
 /* Variables CSS del Tema */
 :root {
+  /*
+   * Theme Contract v1 — stable semantic aliases for integration.
+   * Original variables and component declarations remain unchanged.
+   * See docs/THEME_CONTRACT.md before editing these tokens.
+   */
+  --theme-primary: var(--neu-primary);
+  --theme-secondary: var(--neu-secondary);
+  --theme-accent: var(--neu-secondary);
+  --theme-success: var(--neu-success);
+  --theme-warning: var(--neu-warning);
+  --theme-danger: var(--neu-danger);
+  --theme-background: var(--neu-bg);
+  --theme-surface: var(--neu-light);
+  --theme-text: #4a5568;
+  --theme-font-body: 'Poppins', sans-serif;
+  --theme-font-heading: 'Poppins', sans-serif;
+  --theme-radius: var(--border-radius-neu);
+  --theme-shadow: var(--shadow-light);
+
   --neu-bg: #e0e5ec;
   --neu-light: #ffffff;
   --neu-dark: #a3b1c6;
