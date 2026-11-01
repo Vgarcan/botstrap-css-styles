@@ -31,7 +31,7 @@ def measure(page):
       const offscreen = Array.from(document.querySelectorAll(selectors)).filter(el => {
         // A table's action buttons are intentionally scrollable within its own
         // container; they must never count as full-page viewport overflow.
-        if (el.closest('.modal, .offcanvas, .toast-container, .theme-selector, .carousel')
+        if (el.closest('.modal, .offcanvas, .site-nav-panel, .toast-container, .theme-selector, .carousel')
             || (el.closest('.table-responsive') && !el.matches('.table-responsive'))) return false;
         const s = getComputedStyle(el), rect = el.getBoundingClientRect();
         if (s.display === 'none' || s.visibility !== 'visible' || rect.width < 1) return false;
@@ -43,7 +43,7 @@ def measure(page):
       }));
       const spill = Array.from(document.querySelectorAll('body *'))
         .filter(el => {
-          if (el.closest('.table-responsive, .theme-selector, .modal, .offcanvas, .carousel')) return false;
+          if (el.closest('.table-responsive, .theme-selector, .modal, .offcanvas, .site-nav-panel, .carousel')) return false;
           const r = el.getBoundingClientRect(), s = getComputedStyle(el);
           return s.display !== 'none' && r.width > 0 && (r.right > view + 3 || r.left < -3);
         })
@@ -183,6 +183,105 @@ def main() -> int:
                             failures.append(
                                 f"{width}px / {theme}: incorrect navbar contrast variant"
                             )
+
+                    # All themes must provide an actual offcanvas below XXL.
+                    # This catches the former huge collapsing menu on phones.
+                    nav = page.locator(".site-navbar")
+                    trigger = page.locator(".site-nav-toggler")
+                    panel = page.locator("#siteNav")
+                    if width < 1400:
+                        if not trigger.is_visible():
+                            failures.append(f"{width}px / {theme}: navigation trigger hidden")
+                        header = nav.bounding_box()
+                        if header and header["height"] > (110 if width <= 430 else 135):
+                            failures.append(
+                                f"{width}px / {theme}: header too tall ({header['height']:.0f}px)"
+                            )
+                        before = page.locator("#home").bounding_box()
+                        trigger.click(timeout=8000, force=True)
+                        try:
+                            page.wait_for_function(
+                                "() => document.querySelector('#siteNav')?.classList.contains('show')",
+                                timeout=3500,
+                            )
+                        except Exception:
+                            failures.append(f"{width}px / {theme}: drawer failed to open")
+                        else:
+                            rect = panel.bounding_box()
+                            position = panel.evaluate("el => getComputedStyle(el).position")
+                            if position != "fixed" or not rect or rect["x"] < -3 or rect["x"] + rect["width"] > width + 3:
+                                failures.append(
+                                    f"{width}px / {theme}: drawer geometry invalid ({position}, {rect})"
+                                )
+                            # A pass on dimensions is insufficient if a
+                            # theme's stacking context hides the drawer behind
+                            # the hero or Bootstrap backdrop.
+                            try:
+                                page.wait_for_function(
+                                    """() => {
+                                      const p = document.querySelector('#siteNav');
+                                      const r = p.getBoundingClientRect();
+                                      const x = Math.min(r.right - 20, r.left + r.width / 2);
+                                      const y = Math.min(window.innerHeight - 30, r.top + 260);
+                                      return p.contains(document.elementFromPoint(x, y));
+                                    }""",
+                                    timeout=2500,
+                                )
+                            except Exception:
+                                failures.append(
+                                    f"{width}px / {theme}: drawer is behind page content/backdrop"
+                                )
+                            close_button = panel.locator(".site-nav-close")
+                            box = close_button.bounding_box()
+                            if not close_button.is_visible() or not box or box["width"] < 44 or box["height"] < 44:
+                                failures.append(
+                                    f"{width}px / {theme}: accessible close control missing or too small"
+                                )
+
+                            after = page.locator("#home").bounding_box()
+                            if before and after and abs(before["y"] - after["y"]) > 3:
+                                failures.append(f"{width}px / {theme}: opening drawer pushes hero down")
+                            if not page.locator("body").evaluate("el => el.classList.contains('site-nav-open')"):
+                                failures.append(f"{width}px / {theme}: theme picker not suppressed")
+
+                            if width in (390, 768):
+                                page.screenshot(path=str(EVIDENCE / f"nav-open-{width}-{theme[:-4]}.png"))
+
+                            # Navigation closes by selecting a page section.
+                            panel.locator("a[href='#components']").click(timeout=8000)
+                            try:
+                                page.wait_for_function(
+                                    "() => !document.querySelector('#siteNav')?.classList.contains('show') "
+                                    "&& !document.body.classList.contains('site-nav-open')",
+                                    timeout=4000,
+                                )
+                            except Exception:
+                                failures.append(f"{width}px / {theme}: drawer did not close on link")
+
+                            # Escape must also dismiss the panel and release the backdrop.
+                            if width == 390:
+                                trigger.click(timeout=8000, force=True)
+                                page.wait_for_function(
+                                    "() => document.querySelector('#siteNav')?.classList.contains('show')",
+                                    timeout=3500,
+                                )
+                                page.keyboard.press("Escape")
+                                try:
+                                    page.wait_for_function(
+                                        "() => !document.querySelector('#siteNav')?.classList.contains('show') "
+                                        "&& !document.body.classList.contains('site-nav-open')",
+                                        timeout=4000,
+                                    )
+                                except Exception:
+                                    failures.append(f"{width}px / {theme}: Escape did not close drawer")
+                    else:
+                        if trigger.is_visible():
+                            failures.append(f"{width}px / {theme}: desktop menu trigger visible")
+                        if not panel.locator("a[href='#components']").is_visible():
+                            failures.append(f"{width}px / {theme}: desktop navigation hidden")
+
+                    if width in (390, 768, 1440):
+                        page.screenshot(path=str(EVIDENCE / f"nav-closed-{width}-{theme[:-4]}.png"))
 
                     result = measure(page)
                     if result["excess"] > 2 or result["offscreen"]:
