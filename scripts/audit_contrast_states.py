@@ -18,10 +18,20 @@ URL = "http://127.0.0.1:8765/"
 
 def scan(page, theme: str, state: str) -> dict:
     """Capture confirmed and undetermined contrast violations in current DOM."""
-    result = page.evaluate("""async () => await axe.run(document, {
-        runOnly: {type: 'rule', values: ['color-contrast']},
-        resultTypes: ['violations', 'incomplete']
-    })""")
+    # Only audit the newly visible component, not the entire unchanged page.
+    # This keeps the evidence attributable and reduces 85 redundant scans.
+    selector = {
+        "tab-profile": "#profile",
+        "tab-contact": "#contact",
+        "tab-settings": "#settings",
+        "modal-open": "#exampleModal",
+        "navigation-open": "#siteNav",
+    }[state]
+    result = page.evaluate("""async (selector) => await axe.run(
+        document.querySelector(selector), {
+            runOnly: {type: 'rule', values: ['color-contrast']},
+            resultTypes: ['violations', 'incomplete']
+        })""", selector)
     violations = [simplified_issue(x) for x in result["violations"]]
     incomplete = [simplified_issue(x) for x in result["incomplete"]]
     record = {
