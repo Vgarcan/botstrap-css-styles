@@ -18,6 +18,80 @@
     <link id="theme-css" rel="stylesheet" href="themes/modern-gradient.css">
     
     <style>
+        /* Gallery-owned responsive navigation: neutral, legible in every theme. */
+        .site-navbar {
+            position: relative;
+            z-index: 1030;
+            padding: .65rem 0;
+        }
+        .site-navbar > .container {
+            display: flex;
+            align-items: center;
+            flex-wrap: nowrap;
+            gap: .75rem;
+        }
+        .site-brand {
+            display: inline-flex;
+            align-items: center;
+            gap: .55rem;
+            min-width: 0;
+            max-width: calc(100% - 70px);
+            margin-right: auto;
+            font-size: clamp(1rem, 3.8vw, 1.65rem);
+            line-height: 1.15;
+            white-space: nowrap;
+        }
+        .site-brand span { overflow: hidden; text-overflow: ellipsis; }
+        .site-brand i { flex: none; }
+        .site-navbar .navbar-toggler {
+            flex: none;
+            width: 48px;
+            height: 48px;
+            padding: .5rem;
+        }
+        .site-nav-panel {
+            --bs-offcanvas-width: min(340px, 88vw);
+            --bs-offcanvas-bg: #121820;
+            --bs-offcanvas-color: #f8fafc;
+            background: #121820;
+            color: #f8fafc;
+        }
+        .site-nav-panel .offcanvas-header { border-bottom: 1px solid rgba(255,255,255,.14); }
+        .site-nav-panel .btn-close { filter: invert(1) grayscale(1); opacity: .85; }
+        .site-nav-panel .nav-link {
+            color: #f8fafc;
+            font-size: 1rem;
+            line-height: 1.35;
+            padding: .85rem 1rem;
+            border-radius: .65rem;
+            white-space: normal;
+        }
+        .site-nav-panel .nav-link:hover,
+        .site-nav-panel .nav-link:focus-visible {
+            color: #fff;
+            background: rgba(255,255,255,.12);
+        }
+        @media (min-width: 1400px) {
+            .site-brand { max-width: 45%; }
+            .site-nav-panel {
+                --bs-offcanvas-bg: transparent;
+                --bs-offcanvas-color: inherit;
+                background: transparent;
+                color: inherit;
+            }
+            .site-nav-panel .nav-link { color: inherit; padding: .55rem .75rem; white-space: nowrap; }
+            .site-nav-panel .nav-link:hover,
+            .site-nav-panel .nav-link:focus-visible { color: inherit; background: rgba(128,128,128,.12); }
+        }
+        @media (max-width: 1399.98px) {
+            .site-navbar .navbar-toggler { margin-left: auto; }
+            .site-nav-panel .navbar-nav { gap: .35rem; }
+        }
+        @media (max-width: 360px) {
+            .site-brand { font-size: 1rem; }
+        }
+
+
         .theme-selector {
             position: fixed;
             top: auto;
@@ -329,27 +403,25 @@
 
     <!-- Navigation -->
     <!-- A wider breakpoint keeps decorative brand typography from colliding with nav links on tablets and smaller desktops. -->
-    <nav class="navbar navbar-expand-xxl navbar-light">
+    <nav class="navbar navbar-expand-xxl navbar-light site-navbar" aria-label="Main navigation">
         <div class="container">
-            <a class="navbar-brand" href="#"><i class="fas fa-rocket me-2"></i>Bootstrap Themes</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <a class="navbar-brand site-brand" href="#home"><i class="fas fa-rocket" aria-hidden="true"></i><span>Bootstrap Themes</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#siteNav" aria-controls="siteNav" aria-label="Open navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#home">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#components">Components</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#forms">Forms</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#tables">Tables</a>
-                    </li>
-                </ul>
+            <div class="offcanvas offcanvas-start offcanvas-xxl site-nav-panel" tabindex="-1" id="siteNav" aria-labelledby="siteNavLabel">
+                <div class="offcanvas-header">
+                    <h2 class="offcanvas-title h5" id="siteNavLabel">Navigation</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close navigation"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#components">Components</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#forms">Forms</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#tables">Tables</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </nav>
@@ -1928,5 +2000,16 @@
         // Make function global
         window.showToast = showToast;
     </script>
+<script>
+        // Offcanvas navigation should close after choosing a section on mobile.
+        document.querySelectorAll('#siteNav .nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                const panel = document.getElementById('siteNav');
+                if (window.innerWidth < 1400 && window.bootstrap?.Offcanvas) {
+                    window.bootstrap.Offcanvas.getInstance(panel)?.hide();
+                }
+            });
+        });
+</script>
 </body>
 </html>
