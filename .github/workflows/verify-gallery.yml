@@ -7,6 +7,7 @@ on:
       - 'index.html'
       - 'themes/**'
       - 'scripts/**'
+      - 'docs/RESPONSIVE.md'
       - '.github/workflows/**'
   workflow_dispatch:
 
@@ -23,3 +24,27 @@ jobs:
         run: python3 scripts/verify_site.py
       - name: Validate all theme design token contracts
         run: python3 scripts/verify_theme_contract.py
+      - name: Check generated responsive rules for drift
+        run: python3 scripts/sync_responsive.py --check
+
+  responsive-browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out the proposed changes
+        uses: actions/checkout@v4
+      - name: Install Chromium browser tooling
+        run: |
+          python3 -m pip install --user playwright==1.56.0
+          python3 -m playwright install --with-deps chromium
+      - name: Audit phone, tablet and desktop viewport layouts
+        run: |
+          python3 -m http.server 8765 --bind 127.0.0.1 > /tmp/theme-http.log 2>&1 &
+          python3 scripts/test_responsive.py
+      - name: Preserve responsive screenshots for review
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: responsive-screenshots
+          path: responsive-results/
+          if-no-files-found: ignore

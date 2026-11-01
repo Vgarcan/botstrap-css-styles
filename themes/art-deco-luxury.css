@@ -1423,3 +1423,138 @@ h2::after {
   background: var(--deco-pearl);
   color: var(--deco-black);
 }
+
+/* BEGIN RESPONSIVE CORE v1 — managed by scripts/sync_responsive.py */
+/*
+ * A shared mobile-first compatibility layer compiled into each standalone CSS.
+ * Keep visual palettes/animations in the individual themes. Edit this source
+ * and run the sync command; do not hand-edit the generated copies.
+ */
+:root {
+  --theme-touch-target: 2.75rem; /* 44px for touch-friendly controls */
+}
+
+/* Contain media and long content without disabling legitimate table scrolling. */
+img, video, canvas, svg, iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+.container, .container-fluid, .row,
+[class^="col-"], [class*=" col-"],
+.card, .card-body, .card-header, .card-footer,
+.modal-content, .offcanvas, .offcanvas-body,
+.accordion, .accordion-body, .tab-content, .tab-pane {
+  min-width: 0;
+}
+
+.card-body, .card-header, .card-footer,
+.modal-body, .accordion-body, .offcanvas-body,
+.toast-body {
+  overflow-wrap: anywhere;
+}
+
+.table-responsive {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+pre {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.form-control, .form-select, textarea, input, select {
+  max-width: 100%;
+}
+
+.offcanvas {
+  max-width: 100vw;
+}
+
+@media (any-pointer: coarse) {
+  .btn, .navbar-toggler, .form-control, .form-select,
+  .accordion-button, .page-link {
+    min-height: var(--theme-touch-target);
+  }
+}
+
+/* Phone: headings, actions and large sections must fit a 320px viewport. */
+@media (max-width: 767.98px) {
+  body {
+    background-attachment: scroll;
+  }
+
+  .navbar-brand {
+    max-width: calc(100% - 3.5rem);
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  .btn, .btn-group > .btn, .input-group > .btn {
+    max-width: 100%;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  .btn-group {
+    max-width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .card {
+    max-width: 100%;
+  }
+
+  .card-body, .card-header, .card-footer {
+    padding: clamp(0.875rem, 3.5vw, 1.25rem);
+  }
+
+  h1, .h1 {
+    font-size: clamp(1.75rem, 7vw, 2.5rem);
+    line-height: 1.2;
+    overflow-wrap: anywhere;
+  }
+
+  h2, .h2 {
+    font-size: clamp(1.45rem, 5.6vw, 2rem);
+    line-height: 1.25;
+  }
+
+  .display-1, .display-2, .display-3,
+  .display-4, .display-5, .display-6 {
+    font-size: clamp(1.9rem, 8vw, 3rem);
+    line-height: 1.15;
+    overflow-wrap: anywhere;
+  }
+
+  .row.min-vh-100 {
+    min-height: 0 !important;
+  }
+}
+
+/* Tablet: avoid oversized display typography and preserve flexible columns. */
+@media (min-width: 768px) and (max-width: 1199.98px) {
+  h1, .h1 {
+    font-size: clamp(2rem, 4vw, 3.25rem);
+  }
+
+  .display-1, .display-2, .display-3,
+  .display-4, .display-5, .display-6 {
+    font-size: clamp(2.4rem, 5.5vw, 4rem);
+    line-height: 1.15;
+  }
+}
+
+/* Respect reduced-motion preferences across every theme's own animations. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+/* END RESPONSIVE CORE v1 */
