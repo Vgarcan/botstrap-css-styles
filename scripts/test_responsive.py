@@ -74,6 +74,13 @@ def main() -> int:
         try:
             page.goto(BASE_URL, wait_until="load", timeout=60000)
             page.wait_for_function("() => typeof changeTheme === 'function'", timeout=10000)
+            # Layout comparisons must use final settled geometry, not a
+            # different keyframe (slide-in/rotation) for each theme switch.
+            # Motion behaviour is independently controlled by the CSS contract.
+            page.add_style_tag(content=(
+                "*, *::before, *::after { animation: none !important; "
+                "transition: none !important; scroll-behavior: auto !important; }"
+            ))
 
             for width in WIDTHS:
                 page.set_viewport_size({"width": width, "height": 900})
@@ -103,7 +110,7 @@ def main() -> int:
                                    f"scrollX={result['scrollX']}; "
                                    f"misplaced={result['offscreen']}; spill={result['spill']}")
                         failures.append(message)
-                        if len(failures) <= 10:
+                        if len(failures) <= 10 or result["excess"] > 2:
                             page.screenshot(path=str(EVIDENCE / f"{width}-{theme[:-4]}.png"))
                     if theme == "minimalist-clean.css" and width in (390, 768, 1440):
                         page.screenshot(path=str(EVIDENCE / f"sample-{width}.png"))
