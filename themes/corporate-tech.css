@@ -565,6 +565,65 @@ pre {
   }
 }
 
+/*
+ * Tabs are a horizontal navigation strip on phones and tablets, never a
+ * growing stack of buttons. Only the strip scrolls, not the document.
+ * These rules are included inside every downloadable theme stylesheet.
+ */
+@media (max-width: 1199.98px) {
+  .nav-tabs {
+    display: flex;
+    flex-wrap: nowrap !important; /* Also defeats old .flex-wrap utilities. */
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    scroll-padding-inline: 0.5rem;
+    scrollbar-width: thin;
+  }
+
+  .nav-tabs > .nav-item {
+    flex: 0 0 auto;
+  }
+
+  .nav-tabs .nav-link {
+    min-height: var(--theme-touch-target);
+    white-space: nowrap;
+    overflow-wrap: normal;
+  }
+
+  .nav-tabs .nav-link:focus-visible {
+    outline: 2px solid var(--theme-accent, currentColor);
+    outline-offset: -3px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .nav-tabs {
+    padding-inline: 0.25rem;
+  }
+
+  .nav-tabs .nav-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.7rem clamp(0.75rem, 3vw, 1.125rem);
+    font-size: clamp(0.875rem, 3.4vw, 1.125rem);
+    line-height: 1.35;
+  }
+}
+
+/* Compact but readable labels on tablets, including landscape mode. */
+@media (min-width: 768px) and (max-width: 1199.98px) {
+  .nav-tabs .nav-link {
+    padding: 0.75rem clamp(0.875rem, 2vw, 1.25rem);
+    font-size: clamp(1rem, 1.8vw, 1.2rem);
+  }
+}
+
 /* Respect reduced-motion preferences across every theme's own animations. */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
