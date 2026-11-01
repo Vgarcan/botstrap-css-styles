@@ -1,53 +1,48 @@
-# GitHub Pages preview environment
+# GitHub Pages — live theme laboratory
 
 ## Goal
-Host the existing Bootstrap theme showcase as a static visual laboratory
-before gradually modernising each theme. The original CSS files stay in
-`themes/` and are edited incrementally.
+Use the repository's existing GitHub Pages site to compare and modernise
+the Bootstrap themes gradually, without replacing their original identities.
 
-## Deployment
-- Workflow: `.github/workflows/deploy-pages.yml`
-- Source: the root `index.html` and `themes/*.css` files.
-- Published destination (once GitHub Pages is enabled):
+## Publishing setup (confirmed 1 November 2026)
+- Repository: public, with default branch `main`.
+- GitHub Pages: configured by the owner to publish from `main`.
+- GitHub's automatic **pages build and deployment** completed successfully.
+- Published site address:
   https://vgarcan.github.io/botstrap-css-styles/
-- Every push to `main` starts verification and, if successful, deployment.
-- A pull request **does not** publish a live site until merged.
+- Site source: `index.html` and `themes/*.css` in the repository root.
+- **Do not** add an additional GitHub Actions deployment workflow. GitHub
+  already handles publishing the selected branch through its built-in Pages job.
+- GitHub Pages publishing can take a little time after a merge.
+  Check **Actions > pages build and deployment** for the actual result.
 
-## One-time account configuration
-1. **Repository visibility**: this repository was private at setup time.
-   GitHub Pages with GitHub Free requires a **public** repository.
-   GitHub Pro/Team/Enterprise may deploy from a private repository,
-   but the Pages website itself is still public.
-   Decide about visibility before enabling the site.
-2. Navigate to **Settings > Pages** in this repository.
-3. Under **Build and deployment**, select **GitHub Actions** as the source.
-4. After the workflow is merged to `main`, review the
-   **Actions > Deploy theme laboratory** run.
-5. Open the published site from **Settings > Pages**.
-   Do not assume that the site is live until a successful deployment.
+The owner has already configured the source. There is no need to change
+**Settings > Pages** while the current branch-based publication works.
+
+## Working on a theme
+1. Create a short-lived feature branch from `main`.
+2. Modify the selected theme, with small, reviewable changes.
+3. Open a pull request. The validation workflow checks CSS references.
+4. Check mobile, desktop, keyboard, focus, contrast and reduced motion.
+5. Merge into `main` when ready; the existing Pages setup republishes it.
+6. Compare before/after on the same gallery page.
+
+Shareable theme links use `?theme=<theme-id>`, for example:
+https://vgarcan.github.io/botstrap-css-styles/?theme=minimalist-clean
 
 ## Local preview
-Start a basic HTTP server from the repository root:
+From the repository root, run:
 
 ```bash
 python3 -m http.server 8000
 ```
 
-Open http://localhost:8000/ in your browser. Running from `file://` is
-not recommended because CSS downloads use `fetch()`.
-
-## How we modernise
-- Keep the shared component showcase stable so visual regressions are visible.
-- Change one theme stylesheet at a time.
-- Test on narrow mobile and desktop widths, keyboard navigation,
-  colour contrast, and reduced-motion settings.
-- Make sure the downloaded CSS matches the current selected theme.
-- Check the site after each merged pull request.
+Then visit http://localhost:8000/ . Use HTTP rather than `file://` because
+downloading the CSS uses `fetch()`.
 
 ## Known baseline issues
 - `themes/corporate-blue.css` is empty and not selectable.
-- The README mentions `docs.html`, which is not in the repository.
-- The showcase currently loads Bootstrap 5.3.2 and Font Awesome 6.4.0
-  from CDNs; dependency upgrades should be tested separately.
-- The source HTML is large; future work can separate the gallery's
-  controls and metadata without rewriting all themes simultaneously.
+- `docs.html` previously mentioned in the README was never committed.
+- The page still uses Bootstrap 5.3.2 and Font Awesome 6.4.0 via CDN,
+  so dependency upgrades need testing.
+- The large `index.html` should be simplified in a separate change.
