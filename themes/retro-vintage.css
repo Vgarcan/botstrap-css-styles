@@ -1213,6 +1213,54 @@ h1 {
   text-shadow: none !important;
 }
 
+/*
+ * Issue #8, batch 2: secondary/info badges previously inherited white
+ * text without a Bootstrap 5 compatible background, and faded tab labels
+ * appeared cream-on-cream. Stronger inks retain the aged paper palette.
+ */
+.badge-secondary, .badge-info {
+  background: var(--vintage-brown);
+  border-color: var(--vintage-brown);
+  color: var(--vintage-cream) !important;
+  text-shadow: none !important;
+}
+.nav-tabs .nav-link:not(.active) {
+  color: #5a301a !important;
+  text-shadow: none !important;
+}
+.btn-success, .btn-danger, .btn-info {
+  color: #0d1118 !important;
+  text-shadow: none !important;
+}
+.alert-primary { color: #244e72 !important; }
+.alert-success { color: #41590e !important; }
+.alert-warning { color: #8a3e0d !important; }
+.alert-danger { color: #842c2c !important; }
+.btn-outline-primary { color: #244e72 !important; }
+.btn-outline-secondary { color: #5a301a !important; }
+.btn-outline-success { color: #41590e !important; }
+.btn-outline-danger { color: #842c2c !important; }
+
+/*
+ * Issue #8, hero readability. Screenshot review of all 17 themes identified
+ * insufficient foreground/background separation in this gallery heading.
+ * brown ink and dark vintage blue on paper; keep typography and surrounding theme effects unchanged.
+ */
+#home h1 {
+  background-image: none !important;
+  -webkit-background-clip: border-box !important;
+  background-clip: border-box !important;
+  -webkit-text-fill-color: #5a301a !important;
+  color: #5a301a !important;
+}
+#home h1 .text-primary {
+  background-image: none !important;
+  -webkit-background-clip: border-box !important;
+  background-clip: border-box !important;
+  -webkit-text-fill-color: #244e72 !important;
+  color: #244e72 !important;
+}
+
 /* BEGIN RESPONSIVE CORE v1 — managed by scripts/sync_responsive.py */
 /*
  * A shared mobile-first compatibility layer compiled into each standalone CSS.

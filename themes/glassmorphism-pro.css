@@ -15,7 +15,7 @@
   --theme-success: var(--glass-success);
   --theme-warning: var(--glass-warning);
   --theme-danger: var(--glass-danger);
-  --theme-background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  --theme-background: linear-gradient(rgba(12, 14, 30, 0.72), rgba(12, 14, 30, 0.72)), linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
   --theme-surface: var(--glass-primary);
   --theme-text: #ffffff;
   --theme-font-body: 'Inter', sans-serif;
@@ -800,6 +800,63 @@ body::before {
 
 /* Bright badge text shadows can completely obscure glyph contrast. */
 .badge, .badge * { text-shadow: none !important; }
+
+/*
+ * Issue #8: the former bright pink body endpoint behind 25%-white glass
+ * panels produced white-text contrasts around 2:1.
+ * A translucent navy tint retains the coloured gradient and frosted panels,
+ * bringing the glass foreground into a substantially darker luminance range.
+ */
+body {
+  background:
+    linear-gradient(rgba(12, 14, 30, 0.72), rgba(12, 14, 30, 0.72)),
+    linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  background-attachment: fixed;
+}
+
+/*
+ * Issue #8, batch 2: darkened glass panes behind white labels.
+ * Retain the translucent frost and bright yellow warning accent.
+ */
+.card-header, .accordion-body {
+  background: rgba(12, 16, 32, 0.78);
+  color: #f8faff;
+  text-shadow: none;
+}
+.nav-tabs .nav-link.active {
+  background: rgba(12, 16, 32, 0.78);
+  color: #f8faff;
+  text-shadow: none;
+}
+.btn-warning, .btn-warning:hover {
+  background: rgba(251, 191, 36, 0.96);
+  color: #182230 !important;
+  text-shadow: none !important;
+}
+.btn-primary {
+  background: rgba(86, 43, 167, 0.85);
+  color: #ffffff;
+}
+
+/*
+ * Issue #8, hero readability. Screenshot review of all 17 themes identified
+ * insufficient foreground/background separation in this gallery heading.
+ * bright ivory against navy-tinted violet; keep typography and surrounding theme effects unchanged.
+ */
+#home h1 {
+  background-image: none !important;
+  -webkit-background-clip: border-box !important;
+  background-clip: border-box !important;
+  -webkit-text-fill-color: #ffffff !important;
+  color: #ffffff !important;
+}
+#home h1 .text-primary {
+  background-image: none !important;
+  -webkit-background-clip: border-box !important;
+  background-clip: border-box !important;
+  -webkit-text-fill-color: #ffe5ff !important;
+  color: #ffe5ff !important;
+}
 
 /* BEGIN RESPONSIVE CORE v1 — managed by scripts/sync_responsive.py */
 /*

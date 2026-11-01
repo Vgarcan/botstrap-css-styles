@@ -841,6 +841,46 @@ body {
   text-shadow: none !important;
 }
 
+/*
+ * Issue #8: preserve the raised soft gradients while respecting contrast.
+ * White text >=5.19:1 on the darkened violet endpoint; status colours use
+ * ink >=4.8:1 even at the darkest coral endpoint.
+ */
+.btn-primary, .badge-primary, .nav-pills .nav-link.active {
+  background: linear-gradient(145deg, #5266c3, #4553aa);
+  color: #ffffff !important;
+  text-shadow: none !important;
+}
+.btn-success, .btn-warning, .btn-danger,
+.badge-success, .badge-warning, .badge-danger {
+  color: #142238 !important;
+  text-shadow: none !important;
+}
+.progress-bar {
+  background: linear-gradient(90deg, #5266c3, #613a96);
+  color: #ffffff;
+}
+
+/*
+ * Issue #8, hero readability. Screenshot review of all 17 themes identified
+ * insufficient foreground/background separation in this gallery heading.
+ * slate and deep indigo on light neumorphic surface; keep typography and surrounding theme effects unchanged.
+ */
+#home h1 {
+  background-image: none !important;
+  -webkit-background-clip: border-box !important;
+  background-clip: border-box !important;
+  -webkit-text-fill-color: #344054 !important;
+  color: #344054 !important;
+}
+#home h1 .text-primary {
+  background-image: none !important;
+  -webkit-background-clip: border-box !important;
+  background-clip: border-box !important;
+  -webkit-text-fill-color: #303e83 !important;
+  color: #303e83 !important;
+}
+
 /* BEGIN RESPONSIVE CORE v1 — managed by scripts/sync_responsive.py */
 /*
  * A shared mobile-first compatibility layer compiled into each standalone CSS.

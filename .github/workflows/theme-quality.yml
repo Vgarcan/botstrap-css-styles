@@ -35,6 +35,31 @@ jobs:
           path: quality-results/css/
           if-no-files-found: ignore
 
+  rendered-contrast-triage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install rendered contrast tooling
+        run: |
+          python3 -m pip install playwright==1.56.0 Pillow==11.3.0
+          python3 -m playwright install --with-deps chromium
+          npm install --no-save --no-package-lock axe-core@4.10.3
+      - name: Collect rendered contrast candidates (report only)
+        run: |
+          python3 -m http.server 8765 --bind 127.0.0.1 >/tmp/theme-http.log 2>&1 &
+          python3 scripts/audit_rendered_contrast.py --widths 390 1440 --limit 90
+      - name: Preserve candidates and colour measurements
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: issue8-rendered-contrast
+          path: quality-results/visual-contrast/
+          if-no-files-found: ignore
+
   contrast:
     runs-on: ubuntu-latest
     timeout-minutes: 20

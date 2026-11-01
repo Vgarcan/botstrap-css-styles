@@ -1427,6 +1427,42 @@ h3, h4, h5, h6 {
   text-shadow: none !important;
 }
 
+/*
+ * Issue #8: sky/sunset/rainbow surfaces are deliberately pastel.
+ * White text reaches only 1.27:1 on the mint endpoint of the sky gradient.
+ * Ink #172334 remains >= 9:1 against the lightest pastel endpoints.
+ */
+.btn-primary, .btn-primary:hover,
+.btn-secondary, .btn-secondary:hover,
+.card-header, .progress-bar {
+  color: #172334 !important;
+  text-shadow: none !important;
+}
+
+/*
+ * Issue #8, hero readability. Screenshot review of all 17 themes identified
+ * insufficient foreground/background separation in this gallery heading.
+ * friendly navy and berry ink on cream; keep typography and surrounding theme effects unchanged.
+ */
+#home h1 {
+  background-image: none !important;
+  -webkit-background-clip: border-box !important;
+  background-clip: border-box !important;
+  -webkit-text-fill-color: #17446a !important;
+  color: #17446a !important;
+}
+#home h1 .text-primary {
+  background-image: none !important;
+  -webkit-background-clip: border-box !important;
+  background-clip: border-box !important;
+  -webkit-text-fill-color: #792654 !important;
+  color: #792654 !important;
+}
+.site-navbar .site-brand {
+  -webkit-text-fill-color: #17446a !important;
+  color: #17446a !important;
+}
+
 /* BEGIN RESPONSIVE CORE v1 — managed by scripts/sync_responsive.py */
 /*
  * A shared mobile-first compatibility layer compiled into each standalone CSS.
