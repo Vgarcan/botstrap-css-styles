@@ -1799,7 +1799,7 @@
                 if (!(tab instanceof HTMLElement)) return;
                 tab.scrollIntoView({
                     behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches
-                        ? 'instant' : 'smooth',
+                        ? 'auto' : 'smooth',
                     block: 'nearest',
                     inline: 'nearest'
                 });
