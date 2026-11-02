@@ -88,3 +88,15 @@ These are references for **analysis**, not licensed art assets. The actual CSS i
 7. Consolidate redundant legacy component overrides *after* visual approval, with screenshot-equivalence testing.
 
 **Status:** exploratory V2 component styling, intentionally separate from already-merged Neon Coast background.
+
+## 7. Evidence from rendered component review
+
+The feature branch's Playwright gallery checks were temporarily extended (for review only) to capture full-page and section screenshots at 390, 768 and 1440 px. Screenshots of **buttons, poster cards, tabs, full contact form and data table** were examined, rather than assuming a visually rich hero implies a complete theme.
+
+Observed:
+- The first draft displayed distinct capsule buttons, poster cards with colored rails, cassette-style tabs and a film-strip table header, all on the unchanged dark coast background.
+- A real usability defect was found: Bootstrap's native file chooser used pale-on-pale text. It now has its own warm high-contrast button skin.
+- Placeholder text inherited forced uppercase from the older CSS; this is now removed to keep labels decorative and inputs useful.
+- Runtime screenshot-only changes to `scripts/test_responsive.py` **must be restored to the original script** before this PR can merge.
+
+**Gate:** This remains a new visual concept that requires user feedback. Do not merge based solely on automated CI; all normal CI jobs should pass after the temporary screenshot hook is removed.
