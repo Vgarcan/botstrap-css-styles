@@ -23,8 +23,8 @@
   --theme-radius: 15px;
   --theme-shadow: var(--shadow-glass);
 
-  --glass-primary: rgba(255, 255, 255, 0.25);
-  --glass-secondary: rgba(255, 255, 255, 0.1);
+  --glass-primary: rgba(15, 29, 50, 0.84);
+  --glass-secondary: rgba(20, 35, 59, 0.82);
   --glass-accent: rgba(138, 43, 226, 0.3);
   --glass-success: rgba(34, 197, 94, 0.3);
   --glass-warning: rgba(251, 191, 36, 0.3);
@@ -35,8 +35,28 @@
   --blur-heavy: blur(40px);
   
   --border-glass: 1px solid rgba(255, 255, 255, 0.2);
-  --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.1);
-  --transition-glass: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --shadow-glass: var(--glass-organic-elevation);
+  --transition-glass: background-color 200ms ease, border-color 200ms ease, box-shadow 200ms ease, transform 200ms ease;
+
+  /*
+   * Organic Glass v2: theme-local material tokens. The shared --theme-*
+   * contract and responsive core remain unchanged.
+   */
+  --glass-organic-canvas: #0c182c;
+  --glass-organic-surface: rgba(15, 29, 50, 0.86);
+  --glass-organic-edge: rgba(223, 241, 255, 0.26);
+  --glass-organic-highlight: rgba(245, 252, 255, 0.28);
+  --glass-organic-radius-card: 26px;
+  --glass-organic-radius-control: 15px;
+  --glass-organic-elevation:
+    inset 0 1px 0 rgba(255, 255, 255, 0.22),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1),
+    0 10px 22px rgba(2, 8, 24, 0.22),
+    0 27px 64px rgba(3, 9, 27, 0.24);
+  --glass-organic-elevation-hover:
+    inset 0 1px 0 rgba(255, 255, 255, 0.28),
+    0 16px 30px rgba(2, 8, 24, 0.26),
+    0 35px 72px rgba(3, 9, 27, 0.28);
 }
 
 /* Animaciones Glassmorphism */
@@ -116,7 +136,7 @@ body::before {
   background: rgba(255, 255, 255, 0.35);
   transform: translateY(-3px) scale(1.02);
   box-shadow: var(--shadow-glass), 0 15px 35px rgba(0,0,0,0.2);
-  animation: morphBorder 2s ease-in-out infinite;
+  animation: none;
 }
 
 .btn-primary {
@@ -148,7 +168,7 @@ body::before {
   border-radius: 25px;
   box-shadow: var(--shadow-glass);
   transition: var(--transition-glass);
-  animation: floatGlass 6s ease-in-out infinite;
+  animation: none;
   position: relative;
   overflow: hidden;
 }
@@ -287,11 +307,11 @@ body::before {
 }
 
 .animate-float-glass {
-  animation: floatGlass 4s ease-in-out infinite;
+  animation: none;
 }
 
 .animate-morph {
-  animation: morphBorder 3s ease-in-out infinite;
+  animation: none;
 }
 
 /* Breadcrumbs Glassmorphism */
@@ -354,7 +374,7 @@ body::before {
   color: white;
   transform: translateY(-3px) scale(1.05);
   box-shadow: var(--shadow-glass), 0 10px 25px rgba(0,0,0,0.2);
-  animation: morphBorder 1s ease-in-out;
+  animation: none;
 }
 
 .page-item.active .page-link {
@@ -387,14 +407,14 @@ body::before {
   background: var(--glass-primary);
   color: white;
   transform: translateY(-2px);
-  animation: floatGlass 2s ease-in-out infinite;
+  animation: none;
 }
 
 .nav-pills .nav-link.active {
   background: var(--glass-accent);
   color: white;
   box-shadow: 0 0 25px rgba(138, 43, 226, 0.5);
-  animation: morphBorder 3s ease-in-out infinite;
+  animation: none;
 }
 
 /* Tabs Glassmorphism */
@@ -513,7 +533,7 @@ body::before {
   border-radius: 25px;
   box-shadow: var(--shadow-glass);
   overflow: hidden;
-  animation: floatGlass 6s ease-in-out infinite;
+  animation: none;
 }
 
 .accordion-item {
@@ -542,7 +562,7 @@ body::before {
   background: var(--glass-accent);
   box-shadow: none;
   color: white;
-  animation: shimmer 2s ease-in-out infinite;
+  animation: none;
 }
 
 .accordion-button:hover {
@@ -637,7 +657,7 @@ body::before {
   border-radius: 25px;
   box-shadow: var(--shadow-glass);
   overflow: hidden;
-  animation: floatGlass 8s ease-in-out infinite;
+  animation: none;
 }
 
 .carousel-inner {
@@ -662,7 +682,7 @@ body::before {
   background: var(--glass-accent);
   transform: scale(1.15);
   box-shadow: 0 0 30px rgba(138, 43, 226, 0.5);
-  animation: morphBorder 1s ease-in-out;
+  animation: none;
 }
 
 .carousel-indicators [data-bs-target] {
@@ -856,6 +876,277 @@ body {
   background-clip: border-box !important;
   -webkit-text-fill-color: #ffe5ff !important;
   color: #ffe5ff !important;
+}
+
+
+/* ===============================================================
+   ORGANIC GLASS V2 — material and composition, not constant motion
+   This belongs to this theme only. Shared core stays untouched.
+   =============================================================== */
+
+/* Depth begins with a layered canvas, not an animated background. */
+body {
+  background:
+    radial-gradient(ellipse 36% 32% at 86% 17%, rgba(237, 140, 169, 0.32), transparent 83%),
+    radial-gradient(ellipse 44% 40% at 13% 71%, rgba(103, 205, 189, 0.24), transparent 85%),
+    radial-gradient(ellipse 42% 36% at 60% 54%, rgba(147, 130, 220, 0.22), transparent 81%),
+    linear-gradient(150deg, #0b1528 0%, #151e36 52%, #10162b 100%);
+  color: #f0f5ff;
+  background-attachment: fixed;
+}
+
+/* The translucent veil makes the background feel layered without movement. */
+body::before {
+  background:
+    radial-gradient(ellipse 62% 35% at 52% 9%, rgba(255, 234, 234, 0.065), transparent 85%),
+    radial-gradient(ellipse 41% 50% at 8% 87%, rgba(142, 242, 218, 0.11), transparent 80%);
+  pointer-events: none;
+  animation: none;
+}
+
+/*
+ * Two intentionally different organic bodies sit behind the hero content.
+ * Both use ordinary CSS and exist even when JavaScript is disabled.
+ */
+#home {
+  position: relative;
+  isolation: isolate;
+}
+
+#home > .container {
+  position: relative;
+  z-index: 1;
+}
+
+#home::before,
+#home::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+  border: 1px solid rgba(230, 247, 255, 0.17);
+}
+
+#home::before {
+  top: 8%;
+  right: 4%;
+  width: min(35vw, 460px);
+  aspect-ratio: 1.1;
+  border-radius: 52% 48% 34% 66% / 41% 60% 40% 59%;
+  transform: rotate(-15deg);
+  background:
+    radial-gradient(ellipse at 24% 21%, rgba(255, 255, 255, 0.23), transparent 46%),
+    linear-gradient(143deg, rgba(219, 149, 204, 0.24), rgba(111, 151, 209, 0.06) 66%);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.16),
+              0 33px 82px rgba(1, 8, 23, 0.13);
+}
+
+#home::after {
+  left: 5%;
+  bottom: 8%;
+  width: min(22vw, 280px);
+  aspect-ratio: 0.82;
+  border-radius: 63% 37% 57% 43% / 37% 56% 44% 63%;
+  transform: rotate(25deg);
+  background:
+    radial-gradient(circle at 30% 23%, rgba(240, 255, 246, 0.22), transparent 50%),
+    linear-gradient(150deg, rgba(127, 223, 193, 0.14), rgba(130, 153, 230, 0.08));
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.16),
+              0 25px 75px rgba(2, 12, 28, 0.14);
+}
+
+/* Base material: a distinct surface, a specular edge and grounded shadows. */
+.card {
+  background:
+    linear-gradient(147deg, rgba(88, 112, 148, 0.20), transparent 48%),
+    var(--glass-organic-surface);
+  border: 1px solid var(--glass-organic-edge);
+  border-radius: var(--glass-organic-radius-card);
+  box-shadow: var(--glass-organic-elevation);
+  backdrop-filter: blur(16px) saturate(115%);
+  -webkit-backdrop-filter: blur(16px) saturate(115%);
+  animation: none;
+  transform: none;
+  transition: box-shadow 220ms ease, border-color 220ms ease, transform 220ms ease;
+}
+
+.card::before {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 7%, rgba(245, 252, 255, 0.53) 48%, transparent 93%);
+  pointer-events: none;
+}
+
+.card:hover {
+  background:
+    linear-gradient(147deg, rgba(99, 125, 162, 0.22), transparent 48%),
+    var(--glass-organic-surface);
+  transform: translateY(-2px);
+  border-color: rgba(242, 249, 255, 0.37);
+  box-shadow: var(--glass-organic-elevation-hover);
+}
+
+/* Optional pointer response; no JS means no dynamic sheen. */
+.card.glass-interactive::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    circle 210px at var(--glass-light-x, 50%) var(--glass-light-y, 12%),
+    rgba(236, 245, 255, 0.10), transparent 80%
+  );
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 160ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .card.glass-interactive:hover::after {
+    opacity: 1;
+  }
+}
+
+.card-header {
+  background: linear-gradient(135deg, rgba(35, 52, 81, 0.94), rgba(16, 29, 51, 0.9));
+  border-bottom: 1px solid rgba(216, 233, 252, 0.19);
+  color: #f5f8ff;
+}
+
+.navbar {
+  background: rgba(13, 24, 43, 0.82) !important;
+  border-color: rgba(238, 248, 255, 0.21);
+  box-shadow: 0 12px 35px rgba(4, 9, 26, 0.19);
+  backdrop-filter: blur(18px) saturate(115%);
+  -webkit-backdrop-filter: blur(18px) saturate(115%);
+}
+
+/* Controls should read as usable objects, not floating decorations. */
+.btn {
+  border-radius: var(--glass-organic-radius-control);
+  transition: background-color 180ms ease, border-color 180ms ease,
+              box-shadow 180ms ease, transform 180ms ease;
+}
+
+.btn::before {
+  display: none;
+}
+
+.btn:hover {
+  animation: none;
+  transform: translateY(-1px);
+  border-radius: var(--glass-organic-radius-control);
+  box-shadow: 0 8px 20px rgba(2, 11, 31, 0.22);
+}
+
+.btn-primary,
+.btn-primary:hover {
+  background: linear-gradient(145deg, #6742b1, #5c3ca3);
+  border-color: rgba(223, 210, 255, 0.50);
+  color: #fff;
+  text-shadow: none;
+}
+
+.form-control,
+.form-select,
+.input-group-text {
+  background: rgba(9, 22, 43, 0.88);
+  border: 1px solid rgba(212, 231, 250, 0.27);
+  border-radius: var(--glass-organic-radius-control);
+  color: #f5f8ff;
+  backdrop-filter: none;
+}
+
+.form-control:focus,
+.form-select:focus {
+  background: rgba(16, 30, 55, 0.96);
+  color: #fff;
+  border-color: rgba(229, 240, 255, 0.67);
+}
+
+.nav-tabs {
+  background: rgba(11, 25, 47, 0.85);
+  border-color: rgba(215, 232, 252, 0.17);
+  border-radius: 21px 21px 0 0;
+}
+
+.nav-tabs .nav-link.active {
+  background: rgba(27, 44, 76, 0.96);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.13);
+}
+
+.tab-content,
+.modal-content,
+.dropdown-menu,
+.offcanvas:not(.site-nav-panel),
+.accordion-item {
+  background: rgba(13, 26, 47, 0.96);
+  border: 1px solid rgba(212, 232, 249, 0.22);
+  box-shadow: var(--glass-organic-elevation);
+}
+
+.modal-content,
+.offcanvas:not(.site-nav-panel) {
+  border-radius: 24px;
+}
+
+/* Stop perpetual float, pulsing borders and 3D rotations in UI components. */
+.accordion,
+.carousel,
+.modal-content,
+.toast,
+.card,
+.accordion-button,
+.nav-tabs .nav-link {
+  animation: none;
+}
+
+.accordion-button:not(.collapsed) {
+  animation: none;
+}
+
+.accordion-button:hover,
+.dropdown-item:hover {
+  transform: none;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  animation: none;
+  transform: none;
+}
+
+@media (max-width: 767.98px) {
+  #home::before {
+    top: 7%;
+    right: 2%;
+    width: 210px;
+    opacity: 0.60;
+  }
+
+  #home::after {
+    bottom: 12%;
+    left: 3%;
+    width: 135px;
+    opacity: 0.45;
+  }
+
+  .card {
+    border-radius: 21px;
+    backdrop-filter: blur(9px);
+    -webkit-backdrop-filter: blur(9px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card.glass-interactive::after {
+    opacity: 0;
+    transition: none;
+  }
+
+  .card:hover,
+  .btn:hover {
+    transform: none;
+  }
 }
 
 /* BEGIN RESPONSIVE CORE v1 — managed by scripts/sync_responsive.py */
