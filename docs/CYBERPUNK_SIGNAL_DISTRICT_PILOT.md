@@ -1,4 +1,4 @@
-# Cyberpunk Neon 2.0 — Signal District pilot
+# Cyberpunk Neon 2.0 — Hardline pilot (Signal District origin)
 
 ## Contents
 1. What we borrowed from research
@@ -9,7 +9,7 @@
 
 ## 1. What we borrowed from research
 
-This pilot translates the [initial research](CYBERPUNK_NEON_RESEARCH.md) and [six further reference families](CYBERPUNK_NEON_REFERENCES_02.md) into a standalone Bootstrap CSS skin. It is a hypothesis to review, **not** a locked design identity.
+Hardline is the visually selected direction, evolving from the Signal District pilot. This implementation translates the [initial research](CYBERPUNK_NEON_RESEARCH.md) and [six further reference families](CYBERPUNK_NEON_REFERENCES_02.md) into a standalone Bootstrap CSS skin. The user selected **Hardline** over Signal District after reviewing identical desktop and mobile screenshots. Selection approves the art direction, **not an automatic merge**.
 
 | Reference family | Extracted principle | Pilot translation |
 | --- | --- | --- |
@@ -22,15 +22,16 @@ This pilot translates the [initial research](CYBERPUNK_NEON_RESEARCH.md) and [si
 
 ## 2. Visual decisions
 
-**Working name:** Signal District (pilot only).
+**Selected visual direction:** Hardline. The feature branch keeps its original Signal District name for traceability.
 
-- Graphite canvas `#0b1017` and midnight steel surface `#17232f`, with cyan `#63ede2` and limited coral `#ff6a85`, plus amber `#f2c46b` for warning.
+- Graphite canvas `#0b1017` and midnight steel surface `#17232f`, with cyan `#63ede2` and coral `#ff476f`, plus amber `#f2c46b` for warning.
 - Ordinary copy uses off-white and cool grey instead of neon cyan.
 - Preserve recognizable dark cyberpunk personality while improving optical hierarchy and reading comfort.
 - The hero uses CSS-only framed geometric decoration; the gallery's HTML is unmodified.
 - No mandatory images or JavaScript. `cyberpunk-neon.js` intentionally does not exist.
 - Preserve legacy utility class names `.neon-text`, `.glitch-effect` and `.matrix-bg`; make decorative motion opt-in and safe.
-- Avoid `clip-path` on actual interactive elements, because clipped control focus outlines could disappear.
+- The large hero showcase card has a decorative beveled silhouette. Buttons and text are inset; actual focusable controls are not clipped.
+- Hardline adds strong cyan editorial title plates, red/coral section rails and an asymmetric decorative system label. The label is illustrative, never live system data.
 - The design is intentionally **not** Glassmorphism: no `backdrop-filter` material on cards.
 
 ## 3. Compatibility and change boundaries
@@ -41,7 +42,8 @@ This pilot translates the [initial research](CYBERPUNK_NEON_RESEARCH.md) and [si
 - The generated `/* BEGIN RESPONSIVE CORE v1 ... */` to `/* END RESPONSIVE CORE v1 */` block is byte-for-byte unchanged.
 - `scripts/responsive-core.css`, `index.html`, all 16 other theme CSS files and `js/theme-core.js` are untouched.
 - The final CSS remains a single downloadable file working with Bootstrap 5.3, without a runtime JS module.
-- Pilot edits are currently consolidated in a named override section after the legacy theme rules to allow safe comparison. **Before release**, inspect redundant overridden declarations and simplify only if screenshot/contrast evidence shows equivalence; do not blindly collapse the stylesheet.
+- The 13 semantic aliases, legacy public tokens, and all private `--cyber-*` tokens are consolidated in a **single leading `:root`**. The visual overrides remain in a named section after the original component declarations, which protects experimental visual behavior during comparison.
+- **Before release**, inspect redundant overridden declarations and simplify incrementally only when screenshot/contrast evidence shows equivalence. Do not blindly collapse the stylesheet.
 
 ## 4. Test matrix
 
@@ -55,12 +57,12 @@ Check current CI status for:
 
 Do not assert full WCAG conformance from passing CI.
 
-## 5. Questions for visual review
+## 5. Remaining quality checks
 
-1. Does the hero feel editorial enough while still looking like a reusable theme?
-2. Are cyan and coral distributed deliberately or still too evenly?
-3. Is the contrast between surface levels and the card geometry expressive enough?
-4. Does mobile preserve a strong personality without overlap or cramped type?
-5. Would a second iteration benefit more from selective material contrast, geometry, or a bespoke optional JS enhancement?
+1. Compare unchanged markup before/after root-token consolidation at desktop and phone sizes.
+2. Ensure no horizontal clipping or obscured keyboard focus from clipped decorative card edges.
+3. Inspect representative Bootstrap components beneath the hero, not only the initial viewport.
+4. Preserve inherited responsive rules and all other theme appearance during future cleanup.
+5. Keep the current Hardline palette and geometry unless a functional/accessibility issue warrants a targeted fix.
 
-**Status:** CSS pilot staged on feature branch. No merge without visual approval.
+**Status:** Hardline visual direction selected by the user. CSS refactor and validation in feature branch; keep PR in draft until final technical review and explicit merge approval.
