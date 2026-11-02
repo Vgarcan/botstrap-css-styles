@@ -35,6 +35,21 @@
   --border-radius: 3px;
   --neon-glow: 0 0 14px rgba(99, 237, 226, 0.19);
   --transition: background-color 180ms ease, border-color 180ms ease, box-shadow 180ms ease, color 180ms ease;
+
+  /* Hardline-specific visual tokens; separate from the stable --theme-* contract. */
+  --cyber-canvas: #0b1017;
+  --cyber-panel: #17232f;
+  --cyber-panel-raised: #1e2c38;
+  --cyber-line: #3b5363;
+  --cyber-line-quiet: #273c4d;
+  --cyber-ink: #edf5f7;
+  --cyber-ink-soft: #b8c9d3;
+  --cyber-ink-muted: #9db4c1;
+  --cyber-signal: var(--neon-cyan);
+  --cyber-alert: var(--neon-pink);
+  --cyber-warning: var(--neon-orange);
+  --cyber-dim-glow: 0 0 0 1px rgba(99, 237, 226, 0.08), 0 16px 34px rgba(0, 0, 0, 0.22);
+  --cyber-edge: 28px; /* Decorative frame bevels; never clip focusable controls. */
 }
 
 /* Animaciones Cyberpunk */
@@ -867,29 +882,13 @@ body:before {
 
 
 /* ======================================================================
-   CYBERPUNK NEON 2.0 — SIGNAL DISTRICT (DESIGN PILOT)
-   Structural UI, hard-edged panels and selective neon. CSS-only by design.
+   CYBERPUNK NEON 2.0 — HARDLINE (SELECTED DESIGN)
+   Editorial hierarchy, cut-corner panels and selective neon. CSS-only.
    Theme-owned overrides ABOVE the generated Responsive Core v1.
    This pilot retains public legacy utility classes and Bootstrap markup.
    References: docs/CYBERPUNK_NEON_RESEARCH.md and REFERENCES_02.md.
    ====================================================================== */
 
-:root {
-  /* Private theme tokens; shared 13 --theme-* aliases remain above. */
-  --cyber-canvas: #0b1017;
-  --cyber-panel: #17232f;
-  --cyber-panel-raised: #1e2c38;
-  --cyber-line: #3b5363;
-  --cyber-line-quiet: #273c4d;
-  --cyber-ink: #edf5f7;
-  --cyber-ink-soft: #b8c9d3;
-  --cyber-ink-muted: #9db4c1;
-  --cyber-signal: var(--neon-cyan);
-  --cyber-alert: var(--neon-pink);
-  --cyber-warning: var(--neon-orange);
-  --cyber-dim-glow: 0 0 0 1px rgba(99, 237, 226, 0.08), 0 16px 34px rgba(0, 0, 0, 0.22);
-  --cyber-edge: 28px; /* Decorative frame bevels; never clip focusable controls. */
-}
 
 /* Quiet graphite canvas: technical grid is deliberately soft, not all neon. */
 body {
