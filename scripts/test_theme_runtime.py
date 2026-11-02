@@ -152,6 +152,13 @@ def reduced_motion(browser, evidence: list[dict]) -> None:
         require(snap["leakedValues"] == 0,
                 "Decorative motion ran despite reduced-motion preference")
         evidence.append({"step": "mobile-reduced-motion", **snap})
+
+        # Save both the functional card material and the full first-fold
+        # composition; the audit must not crop away the navbar and hero.
+        page.screenshot(path=str(OUT / "organic-glass-mobile-card.png"),
+                        animations="disabled")
+        page.evaluate("() => window.scrollTo(0, 0)")
+        page.wait_for_timeout(75)
         page.screenshot(path=str(OUT / "organic-glass-mobile.png"),
                         animations="disabled")
     finally:
