@@ -33,6 +33,7 @@ Design/composition:
 - General page background is a subtle dark purple gradient for stable content readability.
 - A left-to-right dark scrim helps hero text remain legible against the sunset.
 - For narrow phones, the scene shifts toward the sun and horizon, and the dark scrim is stronger.
+- The first desktop screenshot exposed a composition error: the scene's rasterized sun was blocked by the right-hand preview card. A CSS masked sunset disc now occupies the open upper-right sky, while the original vector horizon remains behind the card. On mobile the extra disc is hidden to avoid duplication and the original vector scales to 86% height.
 - Static art is the default; no animations or theme-specific JS required.
 
 ## 3. Bootstrap compatibility
