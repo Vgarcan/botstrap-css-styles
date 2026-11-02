@@ -43,6 +43,9 @@
    * contract and responsive core remain unchanged.
    */
   --glass-organic-canvas: #0c182c;
+  /* Static fallback; theme JS may update these on a hovered card. */
+  --glass-light-x: 50%;
+  --glass-light-y: 12%;
   --glass-organic-surface: rgba(15, 29, 50, 0.86);
   --glass-organic-edge: rgba(223, 241, 255, 0.26);
   --glass-organic-highlight: rgba(245, 252, 255, 0.28);
