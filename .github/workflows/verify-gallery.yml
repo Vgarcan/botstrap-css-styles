@@ -47,6 +47,15 @@ jobs:
         run: |
           python3 -m http.server 8765 --bind 127.0.0.1 > /tmp/theme-http.log 2>&1 &
           python3 scripts/test_responsive.py
+      - name: Verify optional theme JS lifecycle and CSS-only fallback
+        run: python3 scripts/test_theme_runtime.py
+      - name: Archive organic-glass screenshots and runtime results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: organic-glass-runtime
+          path: quality-results/theme-runtime/
+          if-no-files-found: ignore
       - name: Preserve responsive screenshots for review
         if: always()
         uses: actions/upload-artifact@v4
