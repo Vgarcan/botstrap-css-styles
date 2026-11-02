@@ -1231,6 +1231,34 @@ body::before {
   border-bottom: 1px solid rgba(255, 101, 172, .52);
 }
 #home > .container { position: relative; z-index: 1; }
+/* The illustrated sun was initially obscured by the preview card at 1440px.
+   This in-page CSS disc occupies the open upper-right sky, while retaining
+   the original seascape's warm horizon and reflections behind the content. */
+#home::before {
+  content: "";
+  position: absolute;
+  top: clamp(4rem, 7vw, 7rem);
+  right: clamp(1.2rem, 8vw, 8rem);
+  width: clamp(180px, 22vw, 310px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #ffe18a 0%, #ffb14e 36%,
+    #ff803d 60%, #ff218b 100%);
+  -webkit-mask-image: linear-gradient(180deg,
+    #000 0 55%, transparent 55.1% 57%,
+    #000 57.1% 68%, transparent 68.1% 71%,
+    #000 71.1% 79%, transparent 79.1% 82.5%,
+    #000 82.6% 89%, transparent 89.1% 93%, #000 93.1%);
+  mask-image: linear-gradient(180deg,
+    #000 0 55%, transparent 55.1% 57%,
+    #000 57.1% 68%, transparent 68.1% 71%,
+    #000 71.1% 79%, transparent 79.1% 82.5%,
+    #000 82.6% 89%, transparent 89.1% 93%, #000 93.1%);
+  filter: drop-shadow(0 0 26px rgba(255, 100, 148, .3));
+  opacity: .88;
+  pointer-events: none;
+  z-index: 0;
+}
 #home::after {
   content: "";
   position: absolute;
@@ -1402,9 +1430,11 @@ p, .lead, .card-body, .tab-pane { color: var(--coast-copy); }
       linear-gradient(180deg, rgba(13,2,33,.63) 0%,
         rgba(13,2,33,.82) 30%, rgba(13,2,33,.63) 58%, rgba(13,2,33,.72) 100%),
       var(--coast-scene);
-    background-position: center, 72% center;
-    background-size: cover, cover;
+    background-position: center, 76% center;
+    background-size: cover, auto 86%;
+    background-color: #14062d;
   }
+  #home::before { display: none; } /* One sun only on small screens. */
   #home .display-4 { font-size: clamp(2rem, 9.3vw, 2.85rem); }
   #home .lead { line-height: 1.65; }
   #home .col-lg-6 > .card { backdrop-filter: none; }
