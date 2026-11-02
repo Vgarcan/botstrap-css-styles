@@ -56,6 +56,13 @@ Required before considering any release:
 
 ## 5. Review and acceptance
 
-Status: **draft visual pilot**, not ready for `main`.
+Status: **Neon Coast visual direction approved by user** (2026-11-02). The PR remains draft pending technical verification and explicit merge authorization.
 
-The illustration is deliberately elaborate but should not overwhelm the standard Bootstrap hero and other components. Review the landscape's placement and intensity before refining typography, motion and secondary components. Consolidate any redundant overwritten legacy rules only after visual approval and screenshot equivalence.
+The illustration is deliberately elaborate but should not overwhelm the standard Bootstrap hero and other components. Review the landscape's placement and intensity before refining typography, motion and secondary components. Following the visual approval, commit `f2aeb6a` removes **72 redundant legacy declarations across 32 exact-matching selectors**, reducing the CSS from 53,996 to 51,391 bytes (2,605 bytes). The newer approved Neon Coast override section and the generated responsive block remain byte-for-byte unchanged. Keep the PR in draft until the refactor's browser screenshots and automated checks are reviewed; do not merge without explicit authorization.
+
+## 6. CSS refactor verification record
+
+- Retained all original `--retro-*` colors and semantic `--theme-*` aliases.
+- Removed only legacy properties superseded by the same selector/property later in Neon Coast at compatible cascade priority, preserving declarations not proven redundant.
+- Preserved theme-specific responsive rules, full coastal SVG data URI and official generated Responsive Core.
+- Required: check CI at PR head, compare desktop/tablet/mobile screenshots against the previous approved commit, and investigate any difference.
