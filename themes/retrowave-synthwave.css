@@ -1237,7 +1237,7 @@ body::before {
 #home::before {
   content: "";
   position: absolute;
-  top: clamp(4rem, 7vw, 7rem);
+  top: clamp(.75rem, 1.8vw, 2.25rem);
   right: clamp(1.2rem, 8vw, 8rem);
   width: clamp(180px, 22vw, 310px);
   aspect-ratio: 1;
