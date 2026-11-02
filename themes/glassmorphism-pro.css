@@ -53,9 +53,10 @@
   /* Static fallback; theme JS may update these on a hovered card. */
   --glass-light-x: 50%;
   --glass-light-y: 12%;
-  --glass-organic-surface: rgba(15, 29, 50, 0.86);
-  --glass-organic-edge: rgba(223, 241, 255, 0.26);
-  --glass-organic-highlight: rgba(245, 252, 255, 0.28);
+  /* Translucency is intentional: the background should remain perceptible. */
+  --glass-organic-surface: rgba(13, 29, 53, 0.56);
+  --glass-organic-edge: rgba(223, 241, 255, 0.34);
+  --glass-organic-highlight: rgba(245, 252, 255, 0.46);
   --glass-organic-radius-card: 26px;
   --glass-organic-radius-control: 15px;
   --glass-organic-elevation:
@@ -961,34 +962,45 @@ body::before {
               0 25px 75px rgba(2, 12, 28, 0.14);
 }
 
-/* Base material: a distinct surface, a specular edge and grounded shadows. */
+/* A glass pane, not a solid navy card: diffuse light remains visible through
+ * the material. Multiple weak highlights avoid the flat tinted-box effect. */
 .card {
   background:
-    linear-gradient(147deg, rgba(88, 112, 148, 0.20), transparent 48%),
+    radial-gradient(ellipse 130% 85% at 3% -12%, rgba(247, 252, 255, 0.19), transparent 63%),
+    radial-gradient(ellipse 100% 85% at 110% 114%, rgba(123, 206, 214, 0.09), transparent 76%),
+    linear-gradient(148deg, rgba(72, 102, 134, 0.13), transparent 65%),
     var(--glass-organic-surface);
   border: 1px solid var(--glass-organic-edge);
   border-radius: var(--glass-organic-radius-card);
   box-shadow: var(--glass-organic-elevation);
-  backdrop-filter: blur(16px) saturate(115%);
-  -webkit-backdrop-filter: blur(16px) saturate(115%);
+  backdrop-filter: blur(14px) saturate(125%);
+  -webkit-backdrop-filter: blur(14px) saturate(125%);
   animation: none;
   transform: none;
   transition: box-shadow 220ms ease, border-color 220ms ease, transform 220ms ease;
 }
 
+/* A small irregularity is reserved for the feature card, so ordinary
+ * Bootstrap cards keep their standard interchangeable shape. */
+#home .card {
+  border-radius: 32px 24px 30px 27px / 27px 32px 25px 31px;
+}
+
 .card::before {
-  height: 1px;
-  background: linear-gradient(90deg, transparent 7%, rgba(245, 252, 255, 0.53) 48%, transparent 93%);
+  height: 2px;
+  background: linear-gradient(90deg, transparent 5%, var(--glass-organic-highlight) 38%, rgba(245, 252, 255, 0.14) 78%, transparent 96%);
   pointer-events: none;
 }
 
 .card:hover {
-  background:
-    linear-gradient(147deg, rgba(99, 125, 162, 0.22), transparent 48%),
-    var(--glass-organic-surface);
   transform: translateY(-2px);
-  border-color: rgba(242, 249, 255, 0.37);
+  border-color: rgba(242, 249, 255, 0.46);
   box-shadow: var(--glass-organic-elevation-hover);
+}
+
+/* If backdrop filters are unsupported, restore an opaque readable surface. */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .card { background: rgba(13, 29, 53, 0.94); }
 }
 
 /* Optional pointer response; no JS means no dynamic sheen. */
@@ -1013,8 +1025,9 @@ body::before {
 }
 
 .card-header {
-  background: linear-gradient(135deg, rgba(35, 52, 81, 0.94), rgba(16, 29, 51, 0.9));
-  border-bottom: 1px solid rgba(216, 233, 252, 0.19);
+  /* More diffusion than the content pane, but not a solid coloured stripe. */
+  background: linear-gradient(135deg, rgba(35, 54, 79, 0.76), rgba(15, 31, 53, 0.69));
+  border-bottom: 1px solid rgba(216, 233, 252, 0.25);
   color: #f5f8ff;
 }
 
@@ -1141,6 +1154,10 @@ body::before {
     border-radius: 21px;
     backdrop-filter: blur(9px);
     -webkit-backdrop-filter: blur(9px);
+  }
+
+  #home .card {
+    border-radius: 27px 22px 25px 24px / 23px 27px 23px 26px;
   }
 }
 
