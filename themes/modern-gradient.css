@@ -1133,6 +1133,40 @@ body.site-nav-open .site-navbar.navbar {
   }
 }
 
+/*
+ * Issue #8: two-tone keyboard focus for light and dark backgrounds.
+ * A white inner halo plus deep-ink outer outline remains perceptible on
+ * gradients and glass surfaces where --theme-accent alone can disappear.
+ */
+a[href]:focus-visible,
+button:focus-visible,
+input:not([type="hidden"]):focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[role="button"]:focus-visible,
+[role="tab"]:focus-visible,
+[tabindex]:not([tabindex="-1"]):focus-visible {
+  outline: 3px solid #101827 !important;
+  outline-offset: 3px !important;
+  box-shadow: 0 0 0 6px #ffffff !important;
+}
+
+/* Honour the user's high-contrast operating-system palette. */
+@media (forced-colors: active) {
+  a[href]:focus-visible,
+  button:focus-visible,
+  input:not([type="hidden"]):focus-visible,
+  select:focus-visible,
+  textarea:focus-visible,
+  [role="button"]:focus-visible,
+  [role="tab"]:focus-visible,
+  [tabindex]:not([tabindex="-1"]):focus-visible {
+    outline: 3px solid Highlight !important;
+    outline-offset: 3px !important;
+    box-shadow: none !important;
+  }
+}
+
 /* Respect reduced-motion preferences across every theme's own animations. */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

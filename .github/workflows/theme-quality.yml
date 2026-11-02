@@ -79,6 +79,14 @@ jobs:
           python3 scripts/audit_contrast.py --enforce
       - name: Enforce contrast for tabs, modal and offcanvas
         run: python3 scripts/audit_contrast_states.py
+      - name: Verify keyboard focus across all 17 themes
+        run: python3 scripts/test_focus_accessibility.py
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: focus-evidence
+          path: quality-results/focus/
+          if-no-files-found: ignore
       - if: always()
         uses: actions/upload-artifact@v4
         with:
