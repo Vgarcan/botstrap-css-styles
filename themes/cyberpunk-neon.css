@@ -82,16 +82,11 @@
 
 /* Estilos Base */
 body {
-  font-family: 'Orbitron', 'Courier New', monospace;
-  background: var(--dark-bg);
   background-image: 
     linear-gradient(rgba(0, 255, 255, 0.03) 1px, transparent 1px),
     linear-gradient(90deg, rgba(0, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 20px 20px;
-  color: var(--neon-cyan);
   min-height: 100vh;
   position: relative;
-  overflow-x: hidden;
 }
 
 body:before {
@@ -109,15 +104,6 @@ body:before {
 
 /* Botones Cyberpunk */
 .btn {
-  border-radius: var(--border-radius);
-  font-family: 'Orbitron', monospace;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  transition: var(--transition);
-  border: 2px solid;
-  background: transparent;
-  position: relative;
   overflow: hidden;
 }
 
@@ -136,106 +122,56 @@ body:before {
   left: 100%;
 }
 
-.btn:hover {
-  animation: neonFlicker 0.5s ease-in-out, glitch 0.3s ease-in-out;
-  transform: scale(1.05);
-}
+
 
 .btn-primary {
-  color: var(--neon-cyan);
-  border-color: var(--neon-cyan);
   box-shadow: inset 0 0 20px rgba(0, 255, 255, 0.1), var(--neon-glow);
 }
 
 .btn-primary:hover {
-  background: rgba(0, 255, 255, 0.1);
-  color: var(--neon-cyan);
   box-shadow: inset 0 0 20px rgba(0, 255, 255, 0.2), 0 0 40px var(--neon-cyan);
 }
 
 .btn-secondary {
-  color: var(--neon-pink);
-  border-color: var(--neon-pink);
   box-shadow: inset 0 0 20px rgba(255, 0, 255, 0.1), 0 0 20px var(--neon-pink);
 }
 
 .btn-success {
-  color: var(--neon-green);
-  border-color: var(--neon-green);
   box-shadow: inset 0 0 20px rgba(0, 255, 0, 0.1), 0 0 20px var(--neon-green);
 }
 
 .btn-warning {
-  color: var(--neon-orange);
-  border-color: var(--neon-orange);
   box-shadow: inset 0 0 20px rgba(255, 69, 0, 0.1), 0 0 20px var(--neon-orange);
 }
 
 .btn-danger {
-  color: var(--neon-pink);
-  border-color: var(--neon-pink);
   box-shadow: inset 0 0 20px rgba(255, 0, 255, 0.1), 0 0 20px var(--neon-pink);
 }
 
 /* Cards Cyberpunk */
-.card {
-  background: rgba(10, 10, 10, 0.9);
-  border: 1px solid var(--neon-cyan);
-  border-radius: var(--border-radius);
-  box-shadow: 
-    inset 0 0 20px rgba(0, 255, 255, 0.1),
-    0 0 20px rgba(0, 255, 255, 0.3);
-  transition: var(--transition);
-  position: relative;
-}
 
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 
-    inset 0 0 30px rgba(0, 255, 255, 0.2),
-    0 0 40px rgba(0, 255, 255, 0.5);
-  animation: glitch 0.3s ease-in-out;
-}
+
+
 
 .card-header {
-  background: rgba(0, 255, 255, 0.1);
-  border-bottom: 1px solid var(--neon-cyan);
-  color: var(--neon-cyan);
-  font-family: 'Orbitron', monospace;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 1px;
 }
 
-.card-body {
-  color: var(--neon-cyan);
-}
+
 
 /* Navegación Cyberpunk */
-.navbar {
-  background: rgba(5, 5, 5, 0.95) !important;
-  border-bottom: 2px solid var(--neon-cyan);
-  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
-  backdrop-filter: blur(10px);
-}
+
 
 .navbar-brand {
-  color: var(--neon-cyan) !important;
-  font-family: 'Orbitron', monospace;
   font-weight: 900;
   font-size: 1.8rem;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  text-shadow: 0 0 10px var(--neon-cyan);
-  animation: neonFlicker 3s infinite;
 }
 
 .nav-link {
-  color: var(--neon-cyan) !important;
-  font-family: 'Orbitron', monospace;
   font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 1px;
   transition: var(--transition);
   position: relative;
 }
@@ -256,89 +192,49 @@ body:before {
   width: 100%;
 }
 
-.nav-link:hover {
-  color: var(--neon-cyan) !important;
-  text-shadow: 0 0 10px var(--neon-cyan);
-}
+
 
 /* Formularios Cyberpunk */
 .form-control {
-  background: rgba(10, 10, 10, 0.8);
-  border: 1px solid var(--neon-cyan);
-  border-radius: var(--border-radius);
-  color: var(--neon-cyan);
-  font-family: 'Orbitron', monospace;
   transition: var(--transition);
 }
 
-.form-control:focus {
-  background: rgba(10, 10, 10, 0.9);
-  border-color: var(--neon-cyan);
-  box-shadow: 
-    inset 0 0 20px rgba(0, 255, 255, 0.1),
-    0 0 20px rgba(0, 255, 255, 0.5);
-  color: var(--neon-cyan);
-}
 
-.form-control::placeholder {
-  color: rgba(0, 255, 255, 0.5);
-}
 
-.form-label {
-  color: var(--neon-cyan);
-  font-family: 'Orbitron', monospace;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
+
+
+
 
 /* Alertas Cyberpunk */
 .alert {
-  background: rgba(10, 10, 10, 0.9);
-  border: 1px solid;
   border-radius: var(--border-radius);
-  font-family: 'Orbitron', monospace;
-  text-transform: uppercase;
-  letter-spacing: 1px;
 }
 
 .alert-primary {
   border-color: var(--neon-cyan);
-  color: var(--neon-cyan);
   box-shadow: inset 0 0 20px rgba(0, 255, 255, 0.1);
 }
 
 .alert-success {
   border-color: var(--neon-green);
-  color: var(--neon-green);
   box-shadow: inset 0 0 20px rgba(0, 255, 0, 0.1);
 }
 
 .alert-warning {
   border-color: var(--neon-orange);
-  color: var(--neon-orange);
   box-shadow: inset 0 0 20px rgba(255, 69, 0, 0.1);
 }
 
 .alert-danger {
   border-color: var(--neon-pink);
-  color: var(--neon-pink);
   box-shadow: inset 0 0 20px rgba(255, 0, 255, 0.1);
 }
 
 /* Tablas Cyberpunk */
-.table {
-  background: rgba(10, 10, 10, 0.9);
-  color: var(--neon-cyan);
-  font-family: 'Orbitron', monospace;
-}
+
 
 .table thead th {
-  background: rgba(0, 255, 255, 0.1);
-  border-color: var(--neon-cyan);
-  color: var(--neon-cyan);
   text-transform: uppercase;
-  letter-spacing: 1px;
 }
 
 .table tbody tr {
@@ -348,32 +244,19 @@ body:before {
 
 .table tbody tr:hover {
   background: rgba(0, 255, 255, 0.05);
-  box-shadow: inset 0 0 20px rgba(0, 255, 255, 0.1);
 }
 
 /* Progress Bars Cyberpunk */
 .progress {
-  background: rgba(10, 10, 10, 0.8);
-  border: 1px solid var(--neon-cyan);
   border-radius: var(--border-radius);
 }
 
-.progress-bar {
-  background: linear-gradient(90deg, var(--neon-cyan), var(--neon-pink));
-  box-shadow: 0 0 20px var(--neon-cyan);
-  animation: neonFlicker 2s infinite;
-}
+
 
 /* Utilidades Cyberpunk */
-.neon-text {
-  color: var(--neon-cyan);
-  text-shadow: 0 0 10px var(--neon-cyan);
-  animation: neonFlicker 3s infinite;
-}
 
-.glitch-effect {
-  animation: glitch 0.3s ease-in-out infinite;
-}
+
+
 
 .matrix-bg:before {
   content: '01010101';
@@ -392,217 +275,121 @@ body:before {
 
 /* Breadcrumbs Cyberpunk */
 .breadcrumb {
-  background: rgba(10, 10, 10, 0.9);
-  border: 1px solid var(--neon-cyan);
-  border-radius: var(--border-radius);
-  box-shadow: inset 0 0 20px rgba(0, 255, 255, 0.1);
-  font-family: 'Orbitron', monospace;
   padding: 15px 20px;
 }
 
 .breadcrumb-item + .breadcrumb-item::before {
   content: "▶";
-  color: var(--neon-cyan);
   font-weight: bold;
-  text-shadow: 0 0 10px var(--neon-cyan);
 }
 
 .breadcrumb-item a {
-  color: var(--neon-cyan);
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 1px;
   transition: var(--transition);
 }
 
-.breadcrumb-item a:hover {
-  color: var(--neon-pink);
-  text-shadow: 0 0 15px var(--neon-pink);
-  animation: neonFlicker 0.5s ease-in-out;
-}
+
 
 .breadcrumb-item.active {
-  color: var(--neon-green);
-  text-shadow: 0 0 10px var(--neon-green);
   font-weight: 700;
 }
 
 /* Paginación Cyberpunk */
-.pagination {
-  gap: 10px;
-}
+
 
 .page-link {
-  background: rgba(10, 10, 10, 0.9);
-  border: 1px solid var(--neon-cyan);
-  border-radius: var(--border-radius);
-  color: var(--neon-cyan);
-  font-family: 'Orbitron', monospace;
   font-weight: 700;
   padding: 12px 18px;
   text-decoration: none;
   text-transform: uppercase;
   transition: var(--transition);
-  box-shadow: inset 0 0 10px rgba(0, 255, 255, 0.1);
 }
 
-.page-link:hover {
-  background: rgba(0, 255, 255, 0.1);
-  color: var(--neon-cyan);
-  box-shadow: 0 0 20px var(--neon-cyan);
-  animation: glitch 0.3s ease-in-out;
-}
 
-.page-item.active .page-link {
-  background: rgba(0, 255, 255, 0.2);
-  border-color: var(--neon-pink);
-  color: var(--neon-pink);
-  box-shadow: 0 0 30px var(--neon-pink);
-}
+
+
 
 .page-item.disabled .page-link {
-  background: rgba(10, 10, 10, 0.5);
-  border-color: rgba(0, 255, 255, 0.3);
-  color: rgba(0, 255, 255, 0.3);
   cursor: not-allowed;
 }
 
 /* Pills Cyberpunk */
 .nav-pills .nav-link {
-  background: rgba(10, 10, 10, 0.8);
-  border: 1px solid var(--neon-cyan);
-  border-radius: 0;
-  color: var(--neon-cyan);
-  font-family: 'Orbitron', monospace;
   font-weight: 600;
   margin: 0 5px;
   padding: 12px 20px;
   text-transform: uppercase;
-  letter-spacing: 1px;
   transition: var(--transition);
-  box-shadow: inset 0 0 10px rgba(0, 255, 255, 0.1);
 }
 
-.nav-pills .nav-link:hover {
-  background: rgba(0, 255, 255, 0.1);
-  color: var(--neon-cyan);
-  box-shadow: 0 0 20px var(--neon-cyan);
-  animation: neonFlicker 0.5s ease-in-out;
-}
 
-.nav-pills .nav-link.active {
-  background: rgba(255, 0, 255, 0.2);
-  border-color: var(--neon-pink);
-  color: var(--neon-pink);
-  box-shadow: 0 0 30px var(--neon-pink);
-}
+
+
 
 /* Tabs Cyberpunk */
-.nav-tabs {
-  border-bottom: 2px solid var(--neon-cyan);
-  background: rgba(10, 10, 10, 0.8);
-}
+
 
 .nav-tabs .nav-link {
-  background: rgba(10, 10, 10, 0.6);
-  border: 1px solid var(--neon-cyan);
   border-bottom: none;
-  border-radius: 0;
-  color: var(--neon-cyan);
-  font-family: 'Orbitron', monospace;
   font-weight: 600;
   margin-bottom: -2px;
   padding: 15px 25px;
   text-transform: uppercase;
-  letter-spacing: 1px;
   transition: var(--transition);
 }
 
-.nav-tabs .nav-link:hover {
-  background: rgba(0, 255, 255, 0.1);
-  color: var(--neon-cyan);
-  animation: neonFlicker 0.5s ease-in-out;
-}
+
 
 .nav-tabs .nav-link.active {
-  background: rgba(10, 10, 10, 0.9);
   border-bottom-color: transparent;
-  color: var(--neon-pink);
-  font-weight: 700;
-  box-shadow: 0 0 20px var(--neon-pink);
 }
 
 .tab-content {
-  background: rgba(10, 10, 10, 0.9);
-  border: 1px solid var(--neon-cyan);
   border-top: none;
   border-radius: 0;
-  box-shadow: inset 0 0 20px rgba(0, 255, 255, 0.1);
 }
 
-.tab-pane {
-  color: var(--neon-cyan);
-  font-family: 'Orbitron', monospace;
-}
+
 
 /* Modales Cyberpunk */
-.modal-content {
-  background: rgba(5, 5, 5, 0.95);
-  border: 2px solid var(--neon-cyan);
-  border-radius: var(--border-radius);
-  box-shadow: 0 0 50px rgba(0, 255, 255, 0.5);
-}
+
 
 .modal-header {
-  background: rgba(0, 255, 255, 0.1);
   border-bottom: 1px solid var(--neon-cyan);
   border-radius: 0;
-  color: var(--neon-cyan);
 }
 
 .modal-title {
   font-family: 'Orbitron', monospace;
   font-weight: 900;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  animation: neonFlicker 3s infinite;
 }
 
-.modal-body {
-  color: var(--neon-cyan);
-  font-family: 'Orbitron', monospace;
-}
+
 
 .modal-footer {
-  background: rgba(0, 255, 255, 0.05);
   border-top: 1px solid var(--neon-cyan);
   border-radius: 0;
 }
 
 .btn-close {
   background: rgba(255, 0, 255, 0.2);
-  border: 1px solid var(--neon-pink);
-  border-radius: 0;
   opacity: 1;
   transition: var(--transition);
 }
 
 .btn-close:hover {
   background: rgba(255, 0, 255, 0.4);
-  box-shadow: 0 0 20px var(--neon-pink);
-  transform: scale(1.1);
 }
 
 /* Acordeón Cyberpunk */
 .accordion {
-  border: 2px solid var(--neon-cyan);
-  border-radius: var(--border-radius);
-  box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
   overflow: hidden;
 }
 
 .accordion-item {
-  background: rgba(10, 10, 10, 0.9);
   border: none;
   border-bottom: 1px solid var(--neon-cyan);
 }
@@ -612,29 +399,17 @@ body:before {
 }
 
 .accordion-button {
-  background: rgba(10, 10, 10, 0.8);
   border: none;
-  color: var(--neon-cyan);
-  font-family: 'Orbitron', monospace;
   font-weight: 700;
   padding: 20px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
   transition: var(--transition);
 }
 
 .accordion-button:not(.collapsed) {
-  background: rgba(0, 255, 255, 0.1);
   box-shadow: none;
-  color: var(--neon-pink);
-  animation: neonFlicker 2s infinite;
 }
 
-.accordion-button:hover {
-  background: rgba(0, 255, 255, 0.1);
-  color: var(--neon-cyan);
-  animation: glitch 0.3s ease-in-out;
-}
+
 
 .accordion-button::after {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%2300ffff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
@@ -642,66 +417,40 @@ body:before {
 }
 
 .accordion-body {
-  background: rgba(5, 5, 5, 0.9);
-  color: var(--neon-cyan);
-  font-family: 'Orbitron', monospace;
   padding: 20px;
 }
 
 /* Dropdown Cyberpunk */
 .dropdown-menu {
-  background: rgba(5, 5, 5, 0.95);
-  border: 2px solid var(--neon-cyan);
-  border-radius: var(--border-radius);
-  box-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
   padding: 10px;
 }
 
 .dropdown-item {
   border-radius: 0;
-  color: var(--neon-cyan);
-  font-family: 'Orbitron', monospace;
   font-weight: 600;
   margin-bottom: 2px;
   padding: 12px 20px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
   transition: var(--transition);
 }
 
-.dropdown-item:hover {
-  background: rgba(0, 255, 255, 0.2);
-  color: var(--neon-pink);
-  box-shadow: inset 0 0 20px rgba(255, 0, 255, 0.2);
-  animation: glitch 0.2s ease-in-out;
-}
+
 
 .dropdown-header {
-  color: var(--neon-green);
   font-family: 'Orbitron', monospace;
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 2px;
-  text-shadow: 0 0 10px var(--neon-green);
 }
 
 .dropdown-divider {
-  border-color: var(--neon-cyan);
   margin: 8px 0;
-  box-shadow: 0 0 5px var(--neon-cyan);
 }
 
 /* Offcanvas Cyberpunk */
-.offcanvas {
-  background: rgba(5, 5, 5, 0.95);
-  border: 2px solid var(--neon-cyan);
-  box-shadow: 0 0 50px rgba(0, 255, 255, 0.5);
-}
+
 
 .offcanvas-header {
-  background: rgba(0, 255, 255, 0.1);
   border-bottom: 1px solid var(--neon-cyan);
-  color: var(--neon-cyan);
   padding: 20px;
 }
 
@@ -709,21 +458,15 @@ body:before {
   font-family: 'Orbitron', monospace;
   font-weight: 900;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  animation: neonFlicker 3s infinite;
 }
 
 .offcanvas-body {
-  color: var(--neon-cyan);
-  font-family: 'Orbitron', monospace;
   padding: 20px;
 }
 
 /* Carrusel Cyberpunk */
 .carousel {
-  border: 2px solid var(--neon-cyan);
   border-radius: var(--border-radius);
-  box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
   overflow: hidden;
 }
 
@@ -761,31 +504,19 @@ body:before {
 }
 
 .carousel-indicators .active {
-  background-color: var(--neon-pink);
   border-color: var(--neon-pink);
-  box-shadow: 0 0 10px var(--neon-pink);
 }
 
 /* Toast Cyberpunk */
-.toast {
-  background: rgba(5, 5, 5, 0.95);
-  border: 1px solid var(--neon-cyan);
-  border-radius: var(--border-radius);
-  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
-}
+
 
 .toast-header {
-  background: rgba(0, 255, 255, 0.1);
   border-bottom: 1px solid var(--neon-cyan);
-  color: var(--neon-cyan);
   font-family: 'Orbitron', monospace;
   font-weight: 700;
 }
 
-.toast-body {
-  color: var(--neon-cyan);
-  font-family: 'Orbitron', monospace;
-}
+
 
 /* Spinners Cyberpunk */
 .spinner-border,
@@ -797,14 +528,11 @@ body:before {
 .spinner-border {
   border-color: rgba(0, 255, 255, 0.2);
   border-top-color: var(--neon-cyan);
-  box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
 }
 
 /* Placeholders Cyberpunk */
 .placeholder {
-  background: linear-gradient(90deg, rgba(0, 255, 255, 0.1), rgba(255, 0, 255, 0.2), rgba(0, 255, 255, 0.1));
   background-size: 200% 100%;
-  animation: placeholder-wave 1.5s linear infinite;
 }
 
 @keyframes placeholder-wave {
@@ -814,12 +542,7 @@ body:before {
 
 /* Input Groups Cyberpunk */
 .input-group-text {
-  background: rgba(10, 10, 10, 0.8);
-  border: 1px solid var(--neon-cyan);
-  color: var(--neon-cyan);
-  font-family: 'Orbitron', monospace;
   font-weight: 700;
-  box-shadow: inset 0 0 10px rgba(0, 255, 255, 0.1);
 }
 
 .input-group .form-control {
@@ -832,53 +555,23 @@ body:before {
 
 /* Form Check Cyberpunk */
 .form-check-input {
-  background-color: rgba(10, 10, 10, 0.8);
-  border: 2px solid var(--neon-cyan);
-  border-radius: 0;
   transition: var(--transition);
 }
 
-.form-check-input:checked {
-  background-color: var(--neon-pink);
-  border-color: var(--neon-pink);
-  box-shadow: 0 0 15px var(--neon-pink);
-}
 
-.form-check-input:focus {
-  border-color: var(--neon-cyan);
-  box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
-}
 
-.form-check-label {
-  color: var(--neon-cyan);
-  font-family: 'Orbitron', monospace;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
+
+
+
 
 /* Form Select Cyberpunk */
 .form-select {
-  background: rgba(10, 10, 10, 0.8);
-  border: 1px solid var(--neon-cyan);
-  border-radius: var(--border-radius);
-  color: var(--neon-cyan);
-  font-family: 'Orbitron', monospace;
   transition: var(--transition);
-  box-shadow: inset 0 0 10px rgba(0, 255, 255, 0.1);
 }
 
-.form-select:focus {
-  background: rgba(10, 10, 10, 0.9);
-  border-color: var(--neon-pink);
-  box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
-  color: var(--neon-cyan);
-}
 
-.form-select option {
-  background: var(--dark-bg);
-  color: var(--neon-cyan);
-}
+
+
 
 
 /* ======================================================================
