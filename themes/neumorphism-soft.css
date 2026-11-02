@@ -1277,6 +1277,22 @@ a:hover { color: #ffe2c9; }
 .modal-title, .offcanvas-title, .toast-body, .modal-body, .offcanvas-body {
   color: #f3e5dd;
 }
+.modal-title { color: #ffe7ce !important; text-shadow: none !important; }
+input[type="file"].form-control::file-selector-button {
+  color: #271c1b;
+  background: linear-gradient(145deg, #ffe0c0, #dca588);
+  border: 0;
+  border-right: 1px solid #8d7a72;
+  border-radius: 12px 0 0 12px;
+  margin: -15px 15px -15px -20px;
+  padding: 15px 17px;
+  font: inherit;
+  font-weight: 700;
+}
+input[type="file"].form-control:hover::file-selector-button {
+  color: #271c1b;
+  background: #ffe7cd;
+}
 .btn-close { background-color: #ddd1ce; border: 1px solid #a69a9c; }
 .dropdown-item { color: #f0e5de; }
 .dropdown-item:hover, .dropdown-item:focus {
