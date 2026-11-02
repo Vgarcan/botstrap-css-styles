@@ -1176,6 +1176,243 @@ h3, h4, h5, h6 {
   }
 }
 
+/* ======================================================================
+   RETROWAVE SYNTHWAVE 2.0 — NEON COAST / FIRST VISUAL PILOT
+   Original coastal art is embedded as SVG data URI so this CSS stays
+   standalone for Django and plain Bootstrap. Art source is documented
+   in docs/RETROWAVE_NEON_COAST_SCENE.svg (edit + re-encode when changing).
+   The shared responsive block below this section is never edited.
+   ====================================================================== */
+
+:root {
+  /* Private scene controls, kept separate from stable 13 --theme-* tokens. */
+  --coast-sky: #0d0221;
+  --coast-ink: #f9e9ff;
+  --coast-copy: #dfc8f0;
+  --coast-panel: rgba(21, 7, 48, 0.91);
+  --coast-panel-border: rgba(255, 102, 182, 0.47);
+  --coast-focus: #00d4ff;
+  --coast-scene: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201600%20940%22%20preserveAspectRatio%3D%22xMidYMid%20slice%22%3E%0A%3Cdefs%3E%0A%20%3ClinearGradient%20id%3D%22sky%22%20x2%3D%220%22%20y2%3D%221%22%3E%3Cstop%20stop-color%3D%22%230d0221%22%2F%3E%3Cstop%20offset%3D%22.30%22%20stop-color%3D%22%23321055%22%2F%3E%3Cstop%20offset%3D%22.59%22%20stop-color%3D%22%2396337d%22%2F%3E%3Cstop%20offset%3D%22.76%22%20stop-color%3D%22%23f16b88%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2326103c%22%2F%3E%3C%2FlinearGradient%3E%0A%20%3ClinearGradient%20id%3D%22sun%22%20x2%3D%220%22%20y2%3D%221%22%3E%3Cstop%20stop-color%3D%22%23ffe18a%22%2F%3E%3Cstop%20offset%3D%22.40%22%20stop-color%3D%22%23ffab46%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23ff3187%22%2F%3E%3C%2FlinearGradient%3E%0A%20%3ClinearGradient%20id%3D%22sea%22%20x2%3D%220%22%20y2%3D%221%22%3E%3Cstop%20stop-color%3D%22%2334104a%22%2F%3E%3Cstop%20offset%3D%22.32%22%20stop-color%3D%22%231a103b%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23080c2c%22%2F%3E%3C%2FlinearGradient%3E%0A%20%3ClinearGradient%20id%3D%22haze%22%20x2%3D%220%22%20y2%3D%221%22%3E%3Cstop%20stop-color%3D%22%23ff5a9e%22%20stop-opacity%3D%22.55%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23ff5a9e%22%20stop-opacity%3D%220%22%2F%3E%3C%2FlinearGradient%3E%0A%20%3CradialGradient%20id%3D%22aura%22%3E%3Cstop%20stop-color%3D%22%23ffae6a%22%20stop-opacity%3D%22.43%22%2F%3E%3Cstop%20offset%3D%22.45%22%20stop-color%3D%22%23f44c9b%22%20stop-opacity%3D%22.22%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23f44c9b%22%20stop-opacity%3D%220%22%2F%3E%3C%2FradialGradient%3E%0A%20%3CclipPath%20id%3D%22sunCut%22%3E%3Ccircle%20cx%3D%221125%22%20cy%3D%22461%22%20r%3D%22172%22%2F%3E%3C%2FclipPath%3E%0A%20%3Csymbol%20id%3D%22palm%22%20viewBox%3D%22-180%20-370%20360%20550%22%20overflow%3D%22visible%22%3E%0A%20%20%3Cpath%20d%3D%22M-5%20166C-12%2067%20-30%20-30%20-25%20-132Q-22%20-213%20-7%20-291%22%20stroke%3D%22%23080723%22%20stroke-width%3D%2219%22%20stroke-linecap%3D%22round%22%20fill%3D%22none%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M-9%20-283C-64%20-319%20-109%20-309%20-173%20-280Q-102%20-301%20-22%20-273C-97%20-276%20-138%20-250%20-179%20-206Q-103%20-252%20-18%20-265C-77%20-246%20-99%20-191%20-109%20-160Q-44%20-245%20-8%20-266C15%20-312%2050%20-330%20116%20-337Q65%20-292%20-1%20-266C83%20-296%20138%20-265%20174%20-225Q100%20-260%20-4%20-264C44%20-248%2073%20-204%2087%20-175Q29%20-237%20-10%20-263C-26%20-336%20-4%20-353%2036%20-366Q16%20-330%20-9%20-283%22%20fill%3D%22%23070722%22%2F%3E%0A%20%3C%2Fsymbol%3E%0A%3C%2Fdefs%3E%0A%3Crect%20width%3D%221600%22%20height%3D%22940%22%20fill%3D%22url%28%23sky%29%22%2F%3E%0A%3Crect%20width%3D%221600%22%20height%3D%22940%22%20fill%3D%22url%28%23aura%29%22%2F%3E%0A%3Cellipse%20cx%3D%221125%22%20cy%3D%22476%22%20rx%3D%22540%22%20ry%3D%22340%22%20fill%3D%22url%28%23aura%29%22%2F%3E%0A%3Cg%20fill%3D%22%23f9e0ff%22%20opacity%3D%22.72%22%3E%3Ccircle%20cx%3D%22128%22%20cy%3D%22116%22%20r%3D%221.7%22%2F%3E%3Ccircle%20cx%3D%22241%22%20cy%3D%22212%22%20r%3D%221.3%22%2F%3E%3Ccircle%20cx%3D%22366%22%20cy%3D%2294%22%20r%3D%221.5%22%2F%3E%3Ccircle%20cx%3D%22488%22%20cy%3D%22170%22%20r%3D%221.1%22%2F%3E%3Ccircle%20cx%3D%22630%22%20cy%3D%2297%22%20r%3D%221.4%22%2F%3E%3Ccircle%20cx%3D%22716%22%20cy%3D%22246%22%20r%3D%221.6%22%2F%3E%3Ccircle%20cx%3D%22870%22%20cy%3D%2289%22%20r%3D%221.2%22%2F%3E%3Ccircle%20cx%3D%22996%22%20cy%3D%22146%22%20r%3D%221.5%22%2F%3E%3Ccircle%20cx%3D%221327%22%20cy%3D%22115%22%20r%3D%221.5%22%2F%3E%3Ccircle%20cx%3D%221473%22%20cy%3D%22196%22%20r%3D%221.5%22%2F%3E%3Ccircle%20cx%3D%221535%22%20cy%3D%2293%22%20r%3D%221.2%22%2F%3E%3C%2Fg%3E%0A%3Cg%20stroke%3D%22%23f3b1ec%22%20stroke-opacity%3D%22.28%22%20stroke-width%3D%221%22%3E%3Cpath%20d%3D%22M0%20304H1600%22%2F%3E%3Cpath%20d%3D%22M0%20341H1600%22%2F%3E%3C%2Fg%3E%0A%3Ccircle%20cx%3D%221125%22%20cy%3D%22461%22%20r%3D%22172%22%20fill%3D%22url%28%23sun%29%22%2F%3E%0A%3Cg%20clip-path%3D%22url%28%23sunCut%29%22%20fill%3D%22%23802d78%22%20opacity%3D%22.95%22%3E%0A%20%3Crect%20x%3D%22945%22%20y%3D%22455%22%20width%3D%22370%22%20height%3D%225%22%2F%3E%0A%20%3Crect%20x%3D%22945%22%20y%3D%22472%22%20width%3D%22370%22%20height%3D%227%22%2F%3E%0A%20%3Crect%20x%3D%22945%22%20y%3D%22493%22%20width%3D%22370%22%20height%3D%2210%22%2F%3E%0A%20%3Crect%20x%3D%22945%22%20y%3D%22519%22%20width%3D%22370%22%20height%3D%2214%22%2F%3E%0A%20%3Crect%20x%3D%22945%22%20y%3D%22550%22%20width%3D%22370%22%20height%3D%2219%22%2F%3E%0A%20%3Crect%20x%3D%22945%22%20y%3D%22585%22%20width%3D%22370%22%20height%3D%2223%22%2F%3E%0A%20%3Crect%20x%3D%22945%22%20y%3D%22627%22%20width%3D%22370%22%20height%3D%2228%22%2F%3E%0A%3C%2Fg%3E%0A%3Cpath%20d%3D%22M0%20596Q175%20562%20310%20596Q450%20571%20585%20603Q715%20587%20850%20600Q1032%20565%201180%20589Q1415%20554%201600%20586V642H0Z%22%20fill%3D%22%232d0c42%22%20opacity%3D%22.58%22%2F%3E%0A%3Cpath%20d%3D%22M0%20607L120%20591L158%20599L211%20563L290%20600L352%20580L395%20608L458%20583L520%20615L600%20595L675%20617L760%20592L802%20605L865%20588L934%20611L1010%20597L1080%20612L1205%20586L1265%20608L1391%20582L1465%20606L1526%20583L1600%20608V685H0Z%22%20fill%3D%22%23160b34%22%2F%3E%0A%3Cg%20fill%3D%22%23120a2d%22%20opacity%3D%22.96%22%3E%3Cpath%20d%3D%22M648%20617V569H670V588H693V554H721V574H748V605H770V566H784V616Z%22%2F%3E%3Cpath%20d%3D%22M814%20614V581H837V563H856V615Z%22%2F%3E%3Cpath%20d%3D%22M1367%20620V573H1401V554H1417V589H1444V611H1460V570H1495V620Z%22%2F%3E%3C%2Fg%3E%0A%3Cpath%20d%3D%22M0%20626H1600%22%20stroke%3D%22%23ff84ad%22%20stroke-width%3D%223%22%20opacity%3D%22.8%22%2F%3E%0A%3Cpath%20d%3D%22M0%20627H1600V940H0Z%22%20fill%3D%22url%28%23sea%29%22%2F%3E%0A%3Crect%20y%3D%22625%22%20width%3D%221600%22%20height%3D%22200%22%20fill%3D%22url%28%23haze%29%22%20opacity%3D%22.48%22%2F%3E%0A%3Cg%20stroke-linecap%3D%22round%22%3E%0A%20%3Cpath%20d%3D%22M930%20645H1308%22%20stroke%3D%22%23ffb474%22%20opacity%3D%22.84%22%20stroke-width%3D%225%22%2F%3E%0A%20%3Cpath%20d%3D%22M972%20659H1277%22%20stroke%3D%22%23ff9c8a%22%20opacity%3D%22.68%22%20stroke-width%3D%223%22%2F%3E%0A%20%3Cpath%20d%3D%22M872%20677H1324%22%20stroke%3D%22%23f95da9%22%20opacity%3D%22.70%22%20stroke-width%3D%225%22%2F%3E%0A%20%3Cpath%20d%3D%22M937%20700H1374%22%20stroke%3D%22%23ff7db1%22%20opacity%3D%22.57%22%20stroke-width%3D%224%22%2F%3E%0A%20%3Cpath%20d%3D%22M828%20727H1309%22%20stroke%3D%22%23f65cac%22%20opacity%3D%22.52%22%20stroke-width%3D%223%22%2F%3E%0A%20%3Cpath%20d%3D%22M1015%20750H1476%22%20stroke%3D%22%23ff9b97%22%20opacity%3D%22.38%22%20stroke-width%3D%226%22%2F%3E%0A%20%3Cpath%20d%3D%22M888%20784H1325%22%20stroke%3D%22%23ff82ac%22%20opacity%3D%22.37%22%20stroke-width%3D%224%22%2F%3E%0A%20%3Cpath%20d%3D%22M972%20815H1536%22%20stroke%3D%22%23fd4799%22%20opacity%3D%22.27%22%20stroke-width%3D%226%22%2F%3E%0A%20%3Cpath%20d%3D%22M776%20855H1234%22%20stroke%3D%22%2300d4ff%22%20opacity%3D%22.28%22%20stroke-width%3D%224%22%2F%3E%0A%20%3Cpath%20d%3D%22M1048%20888H1532%22%20stroke%3D%22%23f44fba%22%20opacity%3D%22.19%22%20stroke-width%3D%227%22%2F%3E%0A%3C%2Fg%3E%0A%3Cg%20opacity%3D%22.75%22%20stroke%3D%22%2342e2ed%22%20stroke-width%3D%221%22%3E%0A%20%3Cpath%20d%3D%22M0%20722H1600%22%20opacity%3D%22.18%22%2F%3E%3Cpath%20d%3D%22M0%20790H1600%22%20opacity%3D%22.14%22%2F%3E%3Cpath%20d%3D%22M0%20873H1600%22%20opacity%3D%22.09%22%2F%3E%0A%3C%2Fg%3E%0A%3Cuse%20href%3D%22%23palm%22%20x%3D%221535%22%20y%3D%22613%22%20width%3D%22350%22%20height%3D%22550%22%20transform%3D%22translate%281535%20615%29%20scale%281.3%29%20translate%28-1535%20-615%29%22%2F%3E%0A%3Cuse%20href%3D%22%23palm%22%20x%3D%2240%22%20y%3D%22671%22%20width%3D%22290%22%20height%3D%22460%22%20opacity%3D%22.75%22%2F%3E%0A%3Cpath%20d%3D%22M0%20914Q140%20854%20290%20909Q435%20873%20579%20920V940H0Z%22%20fill%3D%22%23080820%22%2F%3E%0A%3Cpath%20d%3D%22M1300%20926Q1420%20882%201600%20920V940H1300Z%22%20fill%3D%22%23080820%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+/* Preserve all original --retro-* color values and the downloadable
+   standalone CSS contract. Let the scene, not an infinite graph-paper
+   texture, establish the theme's sense of space. */
+body {
+  color: var(--coast-ink);
+  font-family: 'Inter', system-ui, sans-serif;
+  background:
+    radial-gradient(ellipse 85% 21% at 70% 8%, rgba(255, 0, 128, .095), transparent 78%),
+    radial-gradient(ellipse 65% 25% at 5% 61%, rgba(0, 212, 255, .055), transparent 78%),
+    linear-gradient(180deg, #0d0221, #140728 45%, #0c0820);
+  background-size: auto;
+}
+body::before {
+  /* No scanline covering controls at z-index 1000. The landscape is static. */
+  content: none;
+  animation: none;
+}
+
+/* The common gallery hero is unchanged HTML, now treated as a coastal
+   landscape rather than a separate custom landing page. */
+#home {
+  position: relative;
+  isolation: isolate;
+  min-height: min(900px, 90vh);
+  overflow: hidden;
+  background-color: var(--coast-sky);
+  background-image:
+    linear-gradient(90deg, rgba(13,2,33,.91) 0%, rgba(13,2,33,.82) 33%,
+      rgba(13,2,33,.38) 63%, rgba(13,2,33,.13) 100%),
+    var(--coast-scene);
+  background-position: center, center;
+  background-repeat: no-repeat;
+  background-size: cover, cover;
+  border-bottom: 1px solid rgba(255, 101, 172, .52);
+}
+#home > .container { position: relative; z-index: 1; }
+#home::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 22%;
+  background: linear-gradient(180deg, transparent, rgba(11, 4, 31, .9));
+  pointer-events: none;
+  z-index: 0;
+}
+#home .display-4 {
+  background: none;
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
+  -webkit-text-fill-color: currentColor;
+  animation: none;
+  color: var(--coast-ink);
+  text-shadow: 0 3px 23px rgba(4, 0, 17, .5);
+  font-family: var(--font-retro);
+  font-size: clamp(2.1rem, 4.2vw, 4.3rem);
+  line-height: 1.16;
+  letter-spacing: -.023em;
+  text-wrap: balance;
+}
+#home .display-4 .text-primary {
+  color: #ff81c1 !important;
+  -webkit-text-fill-color: #ff81c1;
+  text-shadow: 0 0 26px rgba(255, 0, 128, .3);
+}
+#home .lead {
+  max-width: 53ch;
+  color: #f3ddf8;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: clamp(1rem, 1.28vw, 1.17rem);
+  line-height: 1.75;
+  text-shadow: 0 2px 12px rgba(6, 0, 24, .75);
+}
+#home .row > .col-lg-6:first-child > .mt-4 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .8rem;
+}
+#home .row > .col-lg-6:first-child > .mt-4 > .btn {
+  margin-right: 0 !important;
+}
+#home .col-lg-6 > .card {
+  background: linear-gradient(135deg, rgba(36, 11, 70, .88), rgba(10, 5, 37, .95));
+  border: 1px solid rgba(255, 133, 191, .64);
+  box-shadow: 0 15px 48px rgba(7, 1, 23, .6), 0 0 28px rgba(255, 0, 128, .16);
+  backdrop-filter: blur(8px);
+  animation: none;
+}
+#home .col-lg-6 > .card::before { height: 3px; }
+
+/* A coastal-night typographic rhythm: headlines retain their retro
+   personality, but reading copy is not a neon effect. */
+h1, h2, h3, h4, h5, h6 {
+  text-shadow: none;
+}
+h2, h3, h4, h5, h6 { font-family: var(--font-retro); }
+h2 { color: #ff83bb; }
+p, li, label, td, th { text-shadow: none; }
+p, .lead, .card-body, .tab-pane { color: var(--coast-copy); }
+.card-body p, .card-body small { color: var(--coast-copy); }
+.text-muted { color: #cdb5dc !important; }
+.text-primary { color: var(--retro-pink) !important; }
+
+/* Controls inherit the existing pink / cyan / orange palette, now with
+   readable contents and intentionally localized lighting. */
+.btn {
+  box-shadow: none;
+  font-family: var(--font-retro);
+  font-size: .84rem;
+  letter-spacing: .055em;
+  transition: color .2s ease, background-color .2s ease,
+    border-color .2s ease, box-shadow .2s ease;
+}
+.btn-primary {
+  background: #ff0080;
+  border-color: #ff72b4;
+  color: #110522;
+  box-shadow: 0 0 18px rgba(255, 0, 128, .34);
+}
+.btn-primary:hover, .btn-primary:focus-visible {
+  background: #ff73b8;
+  border-color: #ffc0df;
+  color: #110522;
+  box-shadow: 0 0 20px rgba(255, 0, 128, .4);
+}
+.btn-outline-secondary {
+  border-color: #72deef;
+  background: rgba(10, 5, 38, .7);
+  color: #9cefff;
+}
+.btn-outline-secondary:hover {
+  background: rgba(0, 212, 255, .16);
+  border-color: #a8f5ff;
+  color: #eafcff;
+}
+.card {
+  background: var(--coast-panel);
+  border-color: var(--coast-panel-border);
+  box-shadow: 0 12px 28px rgba(8, 1, 28, .28);
+  animation: none;
+}
+.card:hover {
+  transform: none;
+  border-color: rgba(0, 212, 255, .6);
+  box-shadow: 0 12px 28px rgba(8, 1, 28, .4), 0 0 15px rgba(0, 212, 255, .12);
+}
+.card-header { background: rgba(255, 0, 128, .085); }
+.card-body {
+  font-family: 'Inter', system-ui, sans-serif;
+  color: var(--coast-copy);
+}
+.navbar { background: rgba(14, 3, 36, .96) !important; box-shadow: 0 4px 18px rgba(7, 1, 23, .42); }
+.navbar-brand { animation: none; }
+.nav-link { font-size: .88rem; }
+.form-control, .form-select, .form-label, .form-check-label, .alert, .table, .tab-pane, .accordion-body, .modal-body, .offcanvas-body {
+  font-family: 'Inter', system-ui, sans-serif;
+  letter-spacing: normal;
+}
+.form-control, .form-select {
+  color: var(--coast-ink);
+  background: #1a1038;
+  border-color: #8b5eaa;
+  box-shadow: none;
+}
+.form-control:focus, .form-select:focus {
+  color: var(--coast-ink);
+  background: #201144;
+  border-color: var(--coast-focus);
+  box-shadow: 0 0 0 3px rgba(0, 212, 255, .24);
+}
+.form-control::placeholder { color: #c9aed7; opacity: 1; }
+.form-label, .form-check-label { color: #f3dafa; }
+.modal-content, .dropdown-menu, .offcanvas, .toast {
+  background: #170a36;
+  border-color: rgba(255, 99, 175, .6);
+}
+.alert { text-transform: none; color: #f3dafa; }
+.table {
+  --bs-table-bg: #180c36;
+  --bs-table-color: #eedbf5;
+  --bs-table-border-color: #603875;
+  --bs-table-hover-bg: #31184d;
+  --bs-table-hover-color: #fff0ff;
+  color: #eedbf5;
+}
+.table thead th { color: #9cefff; }
+.nav-tabs .nav-link.active {
+  background: rgba(255, 0, 128, .25);
+  color: #ffbfe0;
+}
+.nav-pills .nav-link.active { color: #1a052b; }
+:where(.btn, .form-control, .form-select, .nav-link, .page-link, .dropdown-item, .accordion-button):focus-visible {
+  outline: 2px solid #00d4ff;
+  outline-offset: 3px;
+}
+
+/* At phone widths, preserve the coastal narrative without allowing
+   decorative palms or the sunset to compete with the two hero columns. */
+@media (max-width: 1199.98px) {
+  #home .row > .col-lg-6:first-child { margin-bottom: 1.75rem; }
+}
+@media (max-width: 767.98px) {
+  #home {
+    background-image:
+      linear-gradient(180deg, rgba(13,2,33,.63) 0%,
+        rgba(13,2,33,.82) 30%, rgba(13,2,33,.63) 58%, rgba(13,2,33,.72) 100%),
+      var(--coast-scene);
+    background-position: center, 72% center;
+    background-size: cover, cover;
+  }
+  #home .display-4 { font-size: clamp(2rem, 9.3vw, 2.85rem); }
+  #home .lead { line-height: 1.65; }
+  #home .col-lg-6 > .card { backdrop-filter: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #home .display-4, .navbar-brand, .card { animation: none; }
+}
+
 /* BEGIN RESPONSIVE CORE v1 — managed by scripts/sync_responsive.py */
 /*
  * A shared mobile-first compatibility layer compiled into each standalone CSS.
