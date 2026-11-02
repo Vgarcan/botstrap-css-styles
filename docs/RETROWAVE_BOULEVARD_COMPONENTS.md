@@ -100,3 +100,18 @@ Observed:
 - Runtime screenshot-only changes to `scripts/test_responsive.py` **must be restored to the original script** before this PR can merge.
 
 **Gate:** This remains a new visual concept that requires user feedback. Do not merge based solely on automated CI; all normal CI jobs should pass after the temporary screenshot hook is removed.
+
+## 8. Contemporary luminosity and deeper shadows — second user review
+
+**Feedback (2026-11-02):** The user does not want artificial aged, faded or merely nostalgic colors. The desirable '80s' signature is the **luminosity of saturated color**, interpreted as a **present-day** aesthetic, with noticeably stronger shadow and genuinely dark negative space.
+
+**New V2.2 art direction:**
+- Preserve the recognisable neon palette and the previously selected coastal background artwork.
+- Shift the page background, cards, form wells, tabs, tables and modal surfaces toward near-black and dark purple. Not all surfaces should have the same brightness.
+- Intensify selective electric pink / cyan / warm orange as focal lighting and interactive states, rather than globally increasing saturation and adding glow to every border.
+- Give cards and elevated buttons much deeper cast shadows; maintain clear separation from the page.
+- Recessed inputs gain darker wells; the active focus ring gets a tightly controlled cyan emission.
+- A stronger left-hand hero scrim protects readable typography. On mobile, adjust only the scrim; keep one original sunset in the vector artwork.
+- No new images, JavaScript, animations, markup changes or responsive-core edits. The source-of-truth coastal SVG data URI stays untouched.
+
+The private `--coast-*` tokens are extended; all 13 public `--theme-*` aliases remain unchanged. This is a **draft visual experiment** requiring screenshot and user review before cleanup and any release. Do not merge without explicit permission.
