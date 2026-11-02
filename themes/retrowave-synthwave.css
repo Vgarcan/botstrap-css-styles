@@ -1114,6 +1114,19 @@ h3, h4, h5, h6 {
   --coast-panel: rgba(21, 7, 48, 0.91);
   --coast-panel-border: rgba(255, 102, 182, 0.47);
   --coast-focus: #00d4ff;
+
+  /* Boulevard system: neon sign, sunset ticket and recessed console. */
+  --coast-chrome: #ffe6fa;
+  --coast-cream: #fff1dc;
+  --coast-sunlight: #ffb66f;
+  --coast-sign: #ff56ac;
+  --coast-turquoise: #81ecff;
+  --coast-console: #180b34;
+  --coast-console-raised: #2b1450;
+  --coast-console-edge: #77518d;
+  --coast-inset: inset 0 2px 8px rgba(7, 0, 26, .65);
+  --coast-poster-shadow: 0 16px 35px rgba(7, 0, 25, .52), 0 6px 0 rgba(255, 76, 153, .12);
+  --coast-sunset-strip: linear-gradient(90deg, #00d4ff 0 18%, #9632ca 18% 42%, #ff0080 42% 72%, #ff8c00 72% 100%);
   --coast-scene: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201600%20940%22%20preserveAspectRatio%3D%22xMidYMid%20slice%22%3E%0A%3Cdefs%3E%0A%20%3ClinearGradient%20id%3D%22sky%22%20x2%3D%220%22%20y2%3D%221%22%3E%3Cstop%20stop-color%3D%22%230d0221%22%2F%3E%3Cstop%20offset%3D%22.30%22%20stop-color%3D%22%23321055%22%2F%3E%3Cstop%20offset%3D%22.59%22%20stop-color%3D%22%2396337d%22%2F%3E%3Cstop%20offset%3D%22.76%22%20stop-color%3D%22%23f16b88%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2326103c%22%2F%3E%3C%2FlinearGradient%3E%0A%20%3ClinearGradient%20id%3D%22sun%22%20x2%3D%220%22%20y2%3D%221%22%3E%3Cstop%20stop-color%3D%22%23ffe18a%22%2F%3E%3Cstop%20offset%3D%22.40%22%20stop-color%3D%22%23ffab46%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23ff3187%22%2F%3E%3C%2FlinearGradient%3E%0A%20%3ClinearGradient%20id%3D%22sea%22%20x2%3D%220%22%20y2%3D%221%22%3E%3Cstop%20stop-color%3D%22%2334104a%22%2F%3E%3Cstop%20offset%3D%22.32%22%20stop-color%3D%22%231a103b%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23080c2c%22%2F%3E%3C%2FlinearGradient%3E%0A%20%3ClinearGradient%20id%3D%22haze%22%20x2%3D%220%22%20y2%3D%221%22%3E%3Cstop%20stop-color%3D%22%23ff5a9e%22%20stop-opacity%3D%22.55%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23ff5a9e%22%20stop-opacity%3D%220%22%2F%3E%3C%2FlinearGradient%3E%0A%20%3CradialGradient%20id%3D%22aura%22%3E%3Cstop%20stop-color%3D%22%23ffae6a%22%20stop-opacity%3D%22.43%22%2F%3E%3Cstop%20offset%3D%22.45%22%20stop-color%3D%22%23f44c9b%22%20stop-opacity%3D%22.22%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23f44c9b%22%20stop-opacity%3D%220%22%2F%3E%3C%2FradialGradient%3E%0A%20%3CclipPath%20id%3D%22sunCut%22%3E%3Ccircle%20cx%3D%221125%22%20cy%3D%22461%22%20r%3D%22172%22%2F%3E%3C%2FclipPath%3E%0A%20%3Csymbol%20id%3D%22palm%22%20viewBox%3D%22-180%20-370%20360%20550%22%20overflow%3D%22visible%22%3E%0A%20%20%3Cpath%20d%3D%22M-5%20166C-12%2067%20-30%20-30%20-25%20-132Q-22%20-213%20-7%20-291%22%20stroke%3D%22%23080723%22%20stroke-width%3D%2219%22%20stroke-linecap%3D%22round%22%20fill%3D%22none%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M-9%20-283C-64%20-319%20-109%20-309%20-173%20-280Q-102%20-301%20-22%20-273C-97%20-276%20-138%20-250%20-179%20-206Q-103%20-252%20-18%20-265C-77%20-246%20-99%20-191%20-109%20-160Q-44%20-245%20-8%20-266C15%20-312%2050%20-330%20116%20-337Q65%20-292%20-1%20-266C83%20-296%20138%20-265%20174%20-225Q100%20-260%20-4%20-264C44%20-248%2073%20-204%2087%20-175Q29%20-237%20-10%20-263C-26%20-336%20-4%20-353%2036%20-366Q16%20-330%20-9%20-283%22%20fill%3D%22%23070722%22%2F%3E%0A%20%3C%2Fsymbol%3E%0A%3C%2Fdefs%3E%0A%3Crect%20width%3D%221600%22%20height%3D%22940%22%20fill%3D%22url%28%23sky%29%22%2F%3E%0A%3Crect%20width%3D%221600%22%20height%3D%22940%22%20fill%3D%22url%28%23aura%29%22%2F%3E%0A%3Cellipse%20cx%3D%221125%22%20cy%3D%22476%22%20rx%3D%22540%22%20ry%3D%22340%22%20fill%3D%22url%28%23aura%29%22%2F%3E%0A%3Cg%20fill%3D%22%23f9e0ff%22%20opacity%3D%22.72%22%3E%3Ccircle%20cx%3D%22128%22%20cy%3D%22116%22%20r%3D%221.7%22%2F%3E%3Ccircle%20cx%3D%22241%22%20cy%3D%22212%22%20r%3D%221.3%22%2F%3E%3Ccircle%20cx%3D%22366%22%20cy%3D%2294%22%20r%3D%221.5%22%2F%3E%3Ccircle%20cx%3D%22488%22%20cy%3D%22170%22%20r%3D%221.1%22%2F%3E%3Ccircle%20cx%3D%22630%22%20cy%3D%2297%22%20r%3D%221.4%22%2F%3E%3Ccircle%20cx%3D%22716%22%20cy%3D%22246%22%20r%3D%221.6%22%2F%3E%3Ccircle%20cx%3D%22870%22%20cy%3D%2289%22%20r%3D%221.2%22%2F%3E%3Ccircle%20cx%3D%22996%22%20cy%3D%22146%22%20r%3D%221.5%22%2F%3E%3Ccircle%20cx%3D%221327%22%20cy%3D%22115%22%20r%3D%221.5%22%2F%3E%3Ccircle%20cx%3D%221473%22%20cy%3D%22196%22%20r%3D%221.5%22%2F%3E%3Ccircle%20cx%3D%221535%22%20cy%3D%2293%22%20r%3D%221.2%22%2F%3E%3C%2Fg%3E%0A%3Cg%20stroke%3D%22%23f3b1ec%22%20stroke-opacity%3D%22.28%22%20stroke-width%3D%221%22%3E%3Cpath%20d%3D%22M0%20304H1600%22%2F%3E%3Cpath%20d%3D%22M0%20341H1600%22%2F%3E%3C%2Fg%3E%0A%3Ccircle%20cx%3D%221125%22%20cy%3D%22461%22%20r%3D%22172%22%20fill%3D%22url%28%23sun%29%22%2F%3E%0A%3Cg%20clip-path%3D%22url%28%23sunCut%29%22%20fill%3D%22%23802d78%22%20opacity%3D%22.95%22%3E%0A%20%3Crect%20x%3D%22945%22%20y%3D%22455%22%20width%3D%22370%22%20height%3D%225%22%2F%3E%0A%20%3Crect%20x%3D%22945%22%20y%3D%22472%22%20width%3D%22370%22%20height%3D%227%22%2F%3E%0A%20%3Crect%20x%3D%22945%22%20y%3D%22493%22%20width%3D%22370%22%20height%3D%2210%22%2F%3E%0A%20%3Crect%20x%3D%22945%22%20y%3D%22519%22%20width%3D%22370%22%20height%3D%2214%22%2F%3E%0A%20%3Crect%20x%3D%22945%22%20y%3D%22550%22%20width%3D%22370%22%20height%3D%2219%22%2F%3E%0A%20%3Crect%20x%3D%22945%22%20y%3D%22585%22%20width%3D%22370%22%20height%3D%2223%22%2F%3E%0A%20%3Crect%20x%3D%22945%22%20y%3D%22627%22%20width%3D%22370%22%20height%3D%2228%22%2F%3E%0A%3C%2Fg%3E%0A%3Cpath%20d%3D%22M0%20596Q175%20562%20310%20596Q450%20571%20585%20603Q715%20587%20850%20600Q1032%20565%201180%20589Q1415%20554%201600%20586V642H0Z%22%20fill%3D%22%232d0c42%22%20opacity%3D%22.58%22%2F%3E%0A%3Cpath%20d%3D%22M0%20607L120%20591L158%20599L211%20563L290%20600L352%20580L395%20608L458%20583L520%20615L600%20595L675%20617L760%20592L802%20605L865%20588L934%20611L1010%20597L1080%20612L1205%20586L1265%20608L1391%20582L1465%20606L1526%20583L1600%20608V685H0Z%22%20fill%3D%22%23160b34%22%2F%3E%0A%3Cg%20fill%3D%22%23120a2d%22%20opacity%3D%22.96%22%3E%3Cpath%20d%3D%22M648%20617V569H670V588H693V554H721V574H748V605H770V566H784V616Z%22%2F%3E%3Cpath%20d%3D%22M814%20614V581H837V563H856V615Z%22%2F%3E%3Cpath%20d%3D%22M1367%20620V573H1401V554H1417V589H1444V611H1460V570H1495V620Z%22%2F%3E%3C%2Fg%3E%0A%3Cpath%20d%3D%22M0%20626H1600%22%20stroke%3D%22%23ff84ad%22%20stroke-width%3D%223%22%20opacity%3D%22.8%22%2F%3E%0A%3Cpath%20d%3D%22M0%20627H1600V940H0Z%22%20fill%3D%22url%28%23sea%29%22%2F%3E%0A%3Crect%20y%3D%22625%22%20width%3D%221600%22%20height%3D%22200%22%20fill%3D%22url%28%23haze%29%22%20opacity%3D%22.48%22%2F%3E%0A%3Cg%20stroke-linecap%3D%22round%22%3E%0A%20%3Cpath%20d%3D%22M930%20645H1308%22%20stroke%3D%22%23ffb474%22%20opacity%3D%22.84%22%20stroke-width%3D%225%22%2F%3E%0A%20%3Cpath%20d%3D%22M972%20659H1277%22%20stroke%3D%22%23ff9c8a%22%20opacity%3D%22.68%22%20stroke-width%3D%223%22%2F%3E%0A%20%3Cpath%20d%3D%22M872%20677H1324%22%20stroke%3D%22%23f95da9%22%20opacity%3D%22.70%22%20stroke-width%3D%225%22%2F%3E%0A%20%3Cpath%20d%3D%22M937%20700H1374%22%20stroke%3D%22%23ff7db1%22%20opacity%3D%22.57%22%20stroke-width%3D%224%22%2F%3E%0A%20%3Cpath%20d%3D%22M828%20727H1309%22%20stroke%3D%22%23f65cac%22%20opacity%3D%22.52%22%20stroke-width%3D%223%22%2F%3E%0A%20%3Cpath%20d%3D%22M1015%20750H1476%22%20stroke%3D%22%23ff9b97%22%20opacity%3D%22.38%22%20stroke-width%3D%226%22%2F%3E%0A%20%3Cpath%20d%3D%22M888%20784H1325%22%20stroke%3D%22%23ff82ac%22%20opacity%3D%22.37%22%20stroke-width%3D%224%22%2F%3E%0A%20%3Cpath%20d%3D%22M972%20815H1536%22%20stroke%3D%22%23fd4799%22%20opacity%3D%22.27%22%20stroke-width%3D%226%22%2F%3E%0A%20%3Cpath%20d%3D%22M776%20855H1234%22%20stroke%3D%22%2300d4ff%22%20opacity%3D%22.28%22%20stroke-width%3D%224%22%2F%3E%0A%20%3Cpath%20d%3D%22M1048%20888H1532%22%20stroke%3D%22%23f44fba%22%20opacity%3D%22.19%22%20stroke-width%3D%227%22%2F%3E%0A%3C%2Fg%3E%0A%3Cg%20opacity%3D%22.75%22%20stroke%3D%22%2342e2ed%22%20stroke-width%3D%221%22%3E%0A%20%3Cpath%20d%3D%22M0%20722H1600%22%20opacity%3D%22.18%22%2F%3E%3Cpath%20d%3D%22M0%20790H1600%22%20opacity%3D%22.14%22%2F%3E%3Cpath%20d%3D%22M0%20873H1600%22%20opacity%3D%22.09%22%2F%3E%0A%3C%2Fg%3E%0A%3Cuse%20href%3D%22%23palm%22%20x%3D%221535%22%20y%3D%22613%22%20width%3D%22350%22%20height%3D%22550%22%20transform%3D%22translate%281535%20615%29%20scale%281.3%29%20translate%28-1535%20-615%29%22%2F%3E%0A%3Cuse%20href%3D%22%23palm%22%20x%3D%2240%22%20y%3D%22671%22%20width%3D%22290%22%20height%3D%22460%22%20opacity%3D%22.75%22%2F%3E%0A%3Cpath%20d%3D%22M0%20914Q140%20854%20290%20909Q435%20873%20579%20920V940H0Z%22%20fill%3D%22%23080820%22%2F%3E%0A%3Cpath%20d%3D%22M1300%20926Q1420%20882%201600%20920V940H1300Z%22%20fill%3D%22%23080820%22%2F%3E%0A%3C%2Fsvg%3E");
 }
 
@@ -1363,6 +1376,541 @@ p, .lead, .card-body, .tab-pane { color: var(--coast-copy); }
 }
 @media (prefers-reduced-motion: reduce) {
   #home .display-4, .navbar-brand, .card { animation: none; }
+}
+
+
+/* ======================================================================
+   NEON COAST 2.1 — BOULEVARD COMPONENT SYSTEM (DRAFT ART DIRECTION)
+   Applied to existing Bootstrap markup; not tied to the #home landscape.
+   Shape grammar: glowing sign capsules, sunset poster strips, recessed
+   cassette/console surfaces, and modest art-deco stepped linework.
+   Every decorative detail is CSS-only, static, and pointer-safe.
+   ====================================================================== */
+
+/* 01 / Display language — the gallery is a retro sign collection, not a
+   uniform neon-outlined industrial interface. Keep paragraphs readable. */
+body {
+  --bs-body-font-family: 'Inter', system-ui, sans-serif;
+  --bs-body-color: var(--coast-copy);
+}
+.container > h2.text-center.mb-5 {
+  position: relative;
+  width: fit-content;
+  max-width: 100%;
+  margin-inline: auto;
+  padding: 0 .35rem 1.15rem;
+  color: var(--coast-chrome);
+  font-family: var(--font-retro);
+  font-size: clamp(1.35rem, 3.3vw, 2.45rem);
+  line-height: 1.3;
+  letter-spacing: .045em;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 0 3px 0 #62255c, 0 0 16px rgba(255, 56, 146, .17);
+}
+.container > h2.text-center.mb-5::before {
+  /* A trio of sunset louvers acts as the theme's section signature. */
+  content: "";
+  display: block;
+  width: 76px;
+  height: 14px;
+  margin: 0 auto .85rem;
+  background: linear-gradient(180deg,
+    var(--coast-sunlight) 0 3px, transparent 3px 5px,
+    var(--coast-sign) 5px 8px, transparent 8px 10px,
+    var(--coast-turquoise) 10px 13px, transparent 13px);
+}
+.container > h2.text-center.mb-5::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent,
+    var(--retro-pink) 18%, var(--retro-orange) 54%,
+    var(--retro-cyan) 82%, transparent);
+}
+h3, h4, h5, h6 { letter-spacing: .025em; }
+.card-title {
+  color: var(--coast-cream);
+  font-family: var(--font-retro);
+  line-height: 1.35;
+  font-size: 1.05rem;
+  letter-spacing: .025em;
+}
+
+/* 02 / The sign: a dark violet plinth, narrow color strip and luminous
+   typography. The existing responsive navigation lifecycle stays intact. */
+.site-navbar.navbar {
+  background: rgba(17, 5, 39, .97) !important;
+  border-bottom: 1px solid #9b4699;
+  box-shadow: 0 2px 0 rgba(255, 147, 102, .28),
+    0 12px 35px rgba(4, 0, 20, .35);
+}
+.site-navbar.navbar::after {
+  height: 3px;
+  bottom: -3px;
+  background: var(--coast-sunset-strip);
+  opacity: .9;
+}
+.site-navbar .site-brand {
+  font-family: var(--font-retro);
+  font-size: clamp(.97rem, 1.6vw, 1.22rem);
+  letter-spacing: .025em;
+  text-shadow: 0 1px 12px rgba(255, 66, 162, .25);
+}
+.site-navbar .site-nav-panel .site-nav-link {
+  font-family: var(--font-retro);
+  font-weight: 600;
+  font-size: .79rem;
+  letter-spacing: .065em;
+}
+@media (min-width: 1200px) {
+  .site-navbar .site-nav-panel .site-nav-link {
+    border-radius: 20px;
+    padding-inline: .95rem;
+  }
+  .site-navbar .site-nav-panel .site-nav-link:hover,
+  .site-navbar .site-nav-panel .site-nav-link:focus-visible {
+    background: rgba(255, 0, 128, .12);
+    color: #fff0fc;
+  }
+}
+
+/* 03 / Call-to-action language — rounded marquee capsules with a slim
+   inner shine, NOT cut-corner metal panels from Cyberpunk Hardline. */
+.btn {
+  --bs-btn-border-radius: 999px;
+  border-radius: 999px;
+  border-width: 1px;
+  min-height: 2.75rem;
+  padding: .7rem 1.35rem;
+  font-family: var(--font-retro);
+  font-weight: 700;
+  font-size: .75rem;
+  letter-spacing: .045em;
+  line-height: 1.5;
+  text-transform: uppercase;
+  white-space: normal;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .18),
+    0 4px 12px rgba(5, 0, 22, .26);
+  overflow: visible;
+}
+.btn::before { display: none; } /* Remove legacy moving glare sweep. */
+.btn:hover { transform: translateY(-1px); }
+.btn:active { transform: translateY(0); }
+.btn-primary {
+  background: linear-gradient(110deg, #ff4ba6, #ff8972);
+  border-color: #ffc0db;
+  color: #230722;
+  box-shadow: inset 0 2px 0 rgba(255, 246, 241, .52),
+    0 4px 0 #7b235f, 0 11px 22px rgba(255, 0, 128, .17);
+}
+.btn-primary:hover, .btn-primary:focus-visible {
+  background: linear-gradient(110deg, #ff73bc, #ffc083);
+  border-color: #ffe4ec;
+  color: #1b0925;
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, .65),
+    0 4px 0 #7b235f, 0 11px 22px rgba(255, 0, 128, .2);
+}
+.btn-secondary, .btn-outline-secondary {
+  background: linear-gradient(180deg, #2b2056, #15102f);
+  border-color: #86e5f5;
+  color: #b9f7ff;
+  box-shadow: inset 0 1px 0 rgba(177, 247, 255, .14),
+    0 4px 0 rgba(0, 135, 174, .18);
+}
+.btn-secondary:hover, .btn-outline-secondary:hover {
+  background: linear-gradient(180deg, #3c2d70, #171337);
+  border-color: #d0fbff;
+  color: #fff;
+}
+.btn-success {
+  background: #4cdec2;
+  border-color: #a9ffeb;
+  color: #0a2830;
+}
+.btn-warning {
+  background: linear-gradient(120deg, #ff9e49, #ffd36f);
+  border-color: #ffe6ae;
+  color: #35200d;
+}
+.btn-danger {
+  background: #ff778e;
+  border-color: #ffc1cb;
+  color: #320f24;
+}
+.btn-info {
+  background: #70dcec;
+  border-color: #d0faff;
+  color: #082d3c;
+}
+.btn-outline-primary, .btn-outline-success, .btn-outline-danger {
+  background: rgba(15, 5, 43, .6);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .07);
+}
+.btn-outline-primary { border-color: #ff6cba; color: #ffc0e1; }
+.btn-outline-success { border-color: #61e5c7; color: #9dffe8; }
+.btn-outline-danger { border-color: #ff839e; color: #ffc1cf; }
+.btn-outline-primary:hover { background: #ff55a8; color: #1b0a27; }
+.btn-outline-success:hover { background: #56dfc7; color: #092d29; }
+.btn-outline-danger:hover { background: #ff8599; color: #321020; }
+.btn-sm {
+  min-height: 2.2rem;
+  padding: .42rem .85rem;
+  font-size: .67rem;
+}
+#home .btn-lg { min-height: 3.1rem; }
+
+/* 04 / Poster-style cards: double-toned sign frame and horizontal
+   marquee header. Unlike glassmorphism, panels are intentionally opaque. */
+.card {
+  --bs-card-border-radius: 14px;
+  border-radius: 14px;
+  border: 1px solid var(--coast-console-edge);
+  background: linear-gradient(160deg, #2b1550 0%, #190a38 45%, #120a2c 100%);
+  box-shadow: var(--coast-poster-shadow);
+  overflow: visible;
+}
+.card::before {
+  height: 4px;
+  left: 14px;
+  right: 14px;
+  top: -1px;
+  border-radius: 0 0 6px 6px;
+  background: var(--coast-sunset-strip);
+  opacity: 1;
+  pointer-events: none;
+}
+.card:hover {
+  transform: translateY(-2px);
+  border-color: #bd7fb7;
+  box-shadow: 0 20px 32px rgba(7, 0, 25, .52),
+    0 6px 0 rgba(255, 76, 153, .17);
+}
+.card-header {
+  border-radius: 13px 13px 0 0 !important;
+  padding: 1rem 1.2rem;
+  background: linear-gradient(90deg, #3a185d 0%, #2b174e 62%, #25133f);
+  border-bottom: 1px solid #92579e;
+  color: #fff0dc;
+  font-family: var(--font-retro);
+  font-size: .84rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+.card-header::before {
+  /* Three sunset louvers are a recurring material detail, not animation. */
+  content: "";
+  display: inline-block;
+  width: 5px;
+  height: 15px;
+  margin: 0 .65rem 0 0;
+  vertical-align: -.18em;
+  background: linear-gradient(180deg, #ffd074 0 24%,
+    transparent 24% 36%, #ff6cad 36% 66%,
+    transparent 66% 77%, #83eafb 77%);
+}
+.card-body { padding: clamp(1.15rem, 2.5vw, 1.55rem); }
+.card-body .badge { margin-bottom: .35rem; }
+#home .col-lg-6 > .card {
+  background: linear-gradient(155deg, rgba(48, 20, 82, .94), rgba(15, 6, 39, .96));
+  border: 1px solid #b27daa;
+  box-shadow: 0 18px 48px rgba(6, 1, 22, .5), 0 5px 0 rgba(255, 110, 166, .23);
+}
+#home .col-lg-6 > .card::before { height: 5px; }
+#home .col-lg-6 > .card h3 { color: #ffe1b7; }
+#home .col-lg-6 > .card .fa-palette { color: #ff8eae !important; }
+
+/* 05 / Recessed player-console controls. The field is quieter than its
+   chromed label, while cyan stays dedicated to keyboard focus. */
+.form-label, .form-check-label {
+  color: #ffe4d6;
+  font-family: var(--font-retro);
+  font-size: .76rem;
+  font-weight: 600;
+  letter-spacing: .045em;
+  text-transform: uppercase;
+}
+.form-control, .form-select {
+  --bs-border-radius: .55rem;
+  border: 1px solid #9867ae;
+  border-bottom: 2px solid #d05ca7;
+  border-radius: .55rem;
+  background: #160b30;
+  color: #ffeefb;
+  box-shadow: var(--coast-inset);
+  min-height: 2.85rem;
+  padding: .75rem 1rem;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+.form-control:focus, .form-select:focus {
+  background: #1e1040;
+  border-color: #78e5f3;
+  border-bottom-color: #78e5f3;
+  color: #fff;
+  box-shadow: var(--coast-inset), 0 0 0 3px rgba(0, 212, 255, .23);
+}
+.input-group-text {
+  border: 1px solid #9867ae;
+  border-right: 0;
+  background: #3b1a5c;
+  color: #ffe0bf;
+  font-family: var(--font-retro);
+  font-size: .78rem;
+  letter-spacing: normal;
+  border-radius: .55rem 0 0 .55rem;
+  box-shadow: none;
+}
+.form-check-input {
+  border: 1px solid #dc8ac3;
+  border-radius: .3rem;
+  box-shadow: inset 0 1px 5px rgba(0, 0, 0, .5);
+}
+.form-check-input[type="radio"] { border-radius: 50%; }
+.form-check-input:checked {
+  background-color: #ff4ca9;
+  border-color: #ffe2f2;
+  box-shadow: 0 0 0 2px rgba(255, 76, 169, .16);
+}
+
+/* 06 / Cassette deck: inset track and independent tab cartridges. These
+   styles preserve Bootstrap tab events and the shared horizontal overflow. */
+.nav-tabs {
+  gap: .25rem;
+  padding: .55rem .55rem 0;
+  background: #100829;
+  border: 1px solid #583b73;
+  border-bottom: 3px solid #ff5cac;
+  border-radius: 14px 14px 0 0;
+  box-shadow: var(--coast-inset);
+}
+.nav-tabs .nav-link {
+  border: 1px solid #55436b;
+  border-bottom: 0;
+  border-radius: 9px 9px 0 0;
+  background: linear-gradient(180deg, #2a1848, #1a0d36);
+  color: #dcc4ec;
+  box-shadow: none;
+  font-family: var(--font-retro);
+  font-size: .73rem;
+  letter-spacing: .03em;
+  padding: .9rem 1.15rem;
+  margin-bottom: 0;
+}
+.nav-tabs .nav-link:hover {
+  background: #3b2258;
+  color: #fff2e3;
+  border-color: #ad6ba3;
+}
+.nav-tabs .nav-link.active {
+  background: linear-gradient(180deg, #f467a2, #bb327a);
+  border-color: #ffc2da;
+  color: #210b2e;
+  box-shadow: inset 0 2px 0 rgba(255, 236, 236, .55);
+  text-shadow: none;
+}
+.tab-content {
+  border: 1px solid #815a91;
+  border-top: 0;
+  border-radius: 0 0 14px 14px;
+  background: #170a35;
+  box-shadow: 0 14px 30px rgba(7, 0, 25, .3);
+}
+.nav-pills .nav-link {
+  border-radius: 999px;
+  border: 1px solid #6d5591;
+  background: #21103e;
+  box-shadow: none;
+  color: #d7c3ea;
+  margin: .15rem;
+  padding: .75rem 1.2rem;
+  font-size: .76rem;
+}
+.nav-pills .nav-link.active {
+  background: linear-gradient(100deg, #ff72b4, #ffb776);
+  border-color: #ffd8cd;
+  box-shadow: 0 4px 10px rgba(255, 30, 140, .17);
+  color: #260a28;
+}
+
+/* 07 / Content hierarchy beyond hero: film-strip table headers, sunset
+   progress meters, quieter badges and event-label alerts. */
+.table {
+  --bs-table-bg: #180d36;
+  --bs-table-striped-bg: #25113e;
+  --bs-table-color: #f6eafa;
+  --bs-table-border-color: #614071;
+  --bs-table-hover-bg: #322054;
+  --bs-table-hover-color: #fff5fc;
+  background: #180d36;
+  border: 1px solid #6d4581;
+}
+.table thead th {
+  background: #421e5f;
+  border-bottom: 3px solid #ff69ae;
+  color: #ffdfb8;
+  font-size: .78rem;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+.table tbody td { border-color: #614071; }
+.table tbody tr:hover { box-shadow: inset 3px 0 0 var(--coast-turquoise); }
+.progress {
+  height: 1.45rem;
+  border: 1px solid #805789;
+  border-radius: 999px;
+  background: #11072a;
+  box-shadow: var(--coast-inset);
+}
+.progress-bar {
+  border-radius: 999px;
+  background: linear-gradient(90deg, #ff398d, #ff845d, #ffd073);
+  box-shadow: inset 0 2px 0 rgba(255, 244, 231, .3);
+  color: #210924;
+  font-weight: 800;
+}
+.progress-bar::after { content: none; animation: none; }
+.badge {
+  border-radius: 999px;
+  border: 1px solid rgba(255, 232, 246, .55);
+  padding: .47rem .72rem;
+  font-family: var(--font-retro);
+  font-size: .64rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .3);
+}
+.alert {
+  border: 1px solid #9560a0;
+  border-left: 4px solid #ff8f66;
+  border-radius: 10px;
+  padding: 1.1rem 1.25rem;
+  background: #271144;
+  box-shadow: 0 9px 18px rgba(6, 0, 20, .25);
+  color: #fff1f7;
+  font-size: .93rem;
+}
+.alert::before { display: none; }
+.alert-primary { border-left-color: #ff6bb3; }
+.alert-success { border-left-color: #70e4b5; }
+.alert-warning { border-left-color: #ffbf67; }
+.alert-danger { border-left-color: #ff8497; }
+
+/* 08 / Secondary interfaces: retain the same marquisette frame but do
+   not turn menus, dialogs or keyboard controls into ornamental posters. */
+.accordion {
+  border: 1px solid #7d5492;
+  border-radius: 13px;
+  box-shadow: 0 13px 25px rgba(6, 0, 20, .25);
+  overflow: hidden;
+}
+.accordion-item { background: #190d38; border-color: #593a75; }
+.accordion-button {
+  background: linear-gradient(90deg, #33174e, #21113d);
+  color: #ffe2c6;
+  font-size: .83rem;
+  font-family: var(--font-retro);
+  letter-spacing: .03em;
+  text-transform: uppercase;
+  box-shadow: none;
+}
+.accordion-button:not(.collapsed) {
+  background: #4b1d5e;
+  color: #fff4e5;
+  box-shadow: inset 0 -2px 0 #ff79ba;
+}
+.accordion-button:hover { background: #44205e; }
+.accordion-body { background: #1b0d36; color: #e9d2f1; }
+.dropdown-menu {
+  border: 1px solid #9364a5;
+  border-radius: 11px;
+  background: #1d0e38;
+  padding: .45rem;
+  box-shadow: 0 12px 24px rgba(7, 0, 24, .52);
+}
+.dropdown-item {
+  border-radius: 6px;
+  font-family: 'Inter', system-ui, sans-serif;
+  letter-spacing: normal;
+  text-transform: none;
+  color: #f9e6f5;
+}
+.dropdown-item:hover, .dropdown-item:focus {
+  background: #653076;
+  color: #fff9ff;
+  box-shadow: none;
+  animation: none;
+}
+.modal-content, .offcanvas, .toast {
+  border: 1px solid #af72a4;
+  border-radius: 13px;
+  background: #190c36;
+  box-shadow: 0 15px 40px rgba(8, 0, 26, .5);
+}
+.modal-header, .offcanvas-header, .toast-header {
+  background: linear-gradient(90deg, #442061, #24143e);
+  color: #ffe5d2;
+  border-bottom: 2px solid #e65eae;
+}
+.modal-title, .offcanvas-title { animation: none; color: #fff0dc; }
+.modal-footer { background: #1f0f3b; }
+.toast-body, .modal-body { color: #f1dff6; }
+.breadcrumb {
+  border: 1px solid #75518d;
+  border-radius: 999px;
+  background: #1b1039;
+  color: #e8d4f4;
+  box-shadow: var(--coast-inset);
+}
+.pagination { gap: .35rem; }
+.page-link {
+  border: 1px solid #815998;
+  border-radius: 999px;
+  background: #251241;
+  color: #d7edff;
+  box-shadow: none;
+  font-size: .75rem;
+}
+.page-link:hover {
+  transform: none;
+  background: #522468;
+  color: #fff;
+  border-color: #ff81c2;
+  box-shadow: none;
+}
+.page-item.active .page-link {
+  background: #ff80b3;
+  border-color: #ffe3ef;
+  color: #230924;
+  box-shadow: none;
+}
+.page-item.disabled .page-link {
+  background: #160d2d;
+  border-color: #523967;
+  color: #b99fc8;
+  opacity: .65;
+}
+
+/* 09 / Motion is optional. The theme has character when no animation
+   runs, and all interactive focus rings remain unclipped. */
+:where(.btn, .form-control, .form-select, .nav-link, .page-link,
+  .dropdown-item, .accordion-button, .form-check-input):focus-visible {
+  outline: 2px solid #8deefa;
+  outline-offset: 3px;
+}
+@media (max-width: 767.98px) {
+  .container > h2.text-center.mb-5 { font-size: clamp(1.3rem, 6vw, 1.8rem); }
+  .card-header { font-size: .74rem; }
+  .nav-tabs .nav-link { padding: .78rem .85rem; font-size: .68rem; }
+  .btn { padding: .63rem 1.05rem; }
+  #home .col-lg-6 > .card { margin-top: .65rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn, .card { transition: none; }
+  .btn:hover, .card:hover { transform: none; }
 }
 
 /* BEGIN RESPONSIVE CORE v1 — managed by scripts/sync_responsive.py */
