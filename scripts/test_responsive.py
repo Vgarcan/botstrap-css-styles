@@ -283,16 +283,6 @@ def main() -> int:
 
                     if width in (390, 768, 1440):
                         page.screenshot(path=str(EVIDENCE / f"nav-closed-{width}-{theme[:-4]}.png"))
-                    if width in (390, 768, 1440) and theme == "neumorphism-soft.css":
-                        # Temporary art-direction review captures. Remove before merging.
-                        page.screenshot(
-                            path=str(EVIDENCE / f"mineral-full-{width}.png"),
-                            full_page=True,
-                        )
-                        for section in ("components", "forms", "tables"):
-                            page.locator(f"#{section}").screenshot(
-                                path=str(EVIDENCE / f"mineral-{section}-{width}.png")
-                            )
 
                     result = measure(page)
                     if result["excess"] > 2 or result["offscreen"]:
