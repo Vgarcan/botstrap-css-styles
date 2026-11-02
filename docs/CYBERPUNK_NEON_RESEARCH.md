@@ -9,6 +9,7 @@
 6. Proposed pilot and component specifications
 7. Architecture and accessibility
 8. Acceptance criteria and next decision
+9. Verified shared contract and boilerplate guardrails
 
 ## 1. Scope and evidence
 
@@ -115,3 +116,25 @@ Before visual implementation:
 5. Compare before/after screenshots at 1440px and 390px with the same page content.
 
 Status: **research complete; art direction remains a proposal; no theme code changed**.
+
+## 9. Verified shared contract and boilerplate guardrails (2026-11-02)
+
+These requirements are **non-negotiable** for the upcoming Cyberpunk Neon prototype.
+
+**Verified repository sources:**
+- `index.html` is the shared Bootstrap showcase/boilerplate and selects a single theme stylesheet. Keep its markup and component behaviour stable; do not change the shared gallery merely to create the Cyberpunk look.
+- `docs/THEME_CONTRACT.md` defines exactly 13 common `--theme-*` semantic tokens. Preserve all names and their compatibility expectations; maintain existing `--neon-*` public variables unless an explicitly tested migration is necessary.
+- `scripts/responsive-core.css` is the editable source of the responsive contract; `scripts/sync_responsive.py` embeds an identical copy at the end of every non-empty theme stylesheet (17 selectable themes and one legacy CSS). **Never hand-edit a generated responsive block.**
+- `themes/cyberpunk-neon.css` is the only intended production CSS modification in a Cyberpunk-specific visual pilot. Put specific changes above the `BEGIN RESPONSIVE CORE v1` marker, preserve the shared selectors' Bootstrap roles, and use theme-local tokens for aesthetics.
+- `js/theme-core.js` is a shared optional enhancement lifecycle. A `themes/cyberpunk-neon.js` module may be added only for genuinely optional theme-specific interaction; CSS must remain complete without it. Any module must clean up on theme switching.
+- In use, Bootstrap CSS loads first, followed by exactly one standalone downloadable theme CSS. Do not introduce cross-theme CSS dependencies, `@import` requirements, or additional mandatory assets.
+
+**Required verification before any future merge:**
+1. Verify unchanged shared boilerplate markup/interaction and all 13 semantic token declarations.
+2. Run `python3 scripts/sync_responsive.py --check`, `python3 scripts/verify_theme_contract.py`, and `python3 scripts/verify_site.py`.
+3. Run existing W3C, local custom-property checks, contrast/focus, responsive tests over all 17 themes, and optional runtime-switch tests when JS is used.
+4. Review identical HTML with Cyberpunk and at least two other themes, including phone, tablet and desktop; ensure no leaking style or effect.
+5. Confirm standalone CSS works without JavaScript and theme switch returns to a clean state.
+6. Do not merge to `main` before the user reviews and approves the visual result.
+
+Aesthetic experimentation is independent per theme. We are modernizing the **CSS skin**, not replacing the shared Bootstrap gallery with a bespoke cyberpunk page.
