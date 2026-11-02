@@ -1653,6 +1653,34 @@ h3, h4, h5, h6 { letter-spacing: .025em; }
   color: #fff;
   box-shadow: var(--coast-inset), 0 0 0 3px rgba(0, 212, 255, .23);
 }
+/* Preserve readable normal-case helper text and make the native file
+   chooser a real dark-on-sunset control, not Bootstrap's pale default. */
+.form-control::placeholder {
+  text-transform: none;
+  letter-spacing: normal;
+}
+input[type="file"].form-control::file-selector-button {
+  color: #210924;
+  background: linear-gradient(110deg, #ff75b9, #ffb87d);
+  border: 0;
+  border-right: 1px solid #ffd0e3;
+  border-radius: .55rem 0 0 .55rem;
+  padding: .75rem .9rem;
+  margin: -.75rem 1rem -.75rem -1rem;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: .85rem;
+  font-weight: 700;
+  letter-spacing: normal;
+  text-transform: none;
+}
+input[type="file"].form-control:hover::file-selector-button {
+  color: #210924;
+  background: #ffbc8c;
+}
+input[type="file"].form-control:disabled::file-selector-button {
+  opacity: .6;
+}
+
 .input-group-text {
   border: 1px solid #9867ae;
   border-right: 0;
