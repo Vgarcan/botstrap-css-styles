@@ -43,7 +43,9 @@ Hardline is the visually selected direction, evolving from the Signal District p
 - `scripts/responsive-core.css`, `index.html`, all 16 other theme CSS files and `js/theme-core.js` are untouched.
 - The final CSS remains a single downloadable file working with Bootstrap 5.3, without a runtime JS module.
 - The 13 semantic aliases, legacy public tokens, and all private `--cyber-*` tokens are consolidated in a **single leading `:root`**. The visual overrides remain in a named section after the original component declarations, which protects experimental visual behavior during comparison.
-- **Before release**, inspect redundant overridden declarations and simplify incrementally only when screenshot/contrast evidence shows equivalence. Do not blindly collapse the stylesheet.
+- **Completed cleanup (commit `63b4e9a`):** removed 267 legacy declarations that were superseded by matching Hardline selectors, across 89 legacy selector blocks. Theme CSS decreased from 50,620 to 40,377 bytes (10,243 bytes removed). The approved Hardline override section and generated responsive core are byte-for-byte unchanged.
+- Only exact-selector, exact-property replacements with suitable `!important` priority were removed; declarations providing still-needed Bootstrap behaviour remain. The remaining legacy compatibility rules are intentionally retained, rather than rewriting the whole theme.
+- The next safeguard is identical screenshot comparison at 1440px, 768px, 390px and mobile-navigation-open, followed by automated contrast/focus and theme-switch checks. Any difference must be inspected before release.
 
 ## 4. Test matrix
 
@@ -58,6 +60,7 @@ Check current CI status for:
 Do not assert full WCAG conformance from passing CI.
 
 ## 5. Remaining quality checks
+6. Refactor verification record
 
 1. Compare unchanged markup before/after root-token consolidation at desktop and phone sizes.
 2. Ensure no horizontal clipping or obscured keyboard focus from clipped decorative card edges.
@@ -66,3 +69,10 @@ Do not assert full WCAG conformance from passing CI.
 5. Keep the current Hardline palette and geometry unless a functional/accessibility issue warrants a targeted fix.
 
 **Status:** Hardline visual direction selected by the user. CSS refactor and validation in feature branch; keep PR in draft until final technical review and explicit merge approval.
+
+## 6. Refactor verification record
+
+- **Scope:** only `themes/cyberpunk-neon.css` changed; no shared HTML, JS, generated responsive rules or other theme files modified.
+- **Technique:** eliminate redundant declarations in the original component rules only when the same selector/property is redeclared in Hardline at compatible cascade priority. Existing partial rules and all other declarations remain.
+- **Integrity checks:** exactly 13 semantic `--theme-*` tokens, single leading `:root`, unchanged Hardline visual rules, unchanged generated responsive core.
+- **Visual review:** compare screenshots after the CSS cleanup against the prior approved Hardline version. If screenshots differ, revert or adjust targeted removals before considering merge.
