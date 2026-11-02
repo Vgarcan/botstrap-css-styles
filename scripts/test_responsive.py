@@ -283,6 +283,21 @@ def main() -> int:
 
                     if width in (390, 768, 1440):
                         page.screenshot(path=str(EVIDENCE / f"nav-closed-{width}-{theme[:-4]}.png"))
+                    if width in (390, 768, 1440) and theme == "retrowave-synthwave.css":
+                        # Temporary review-only snapshots; revert this script after
+                        # collecting the art-direction evidence for the draft PR.
+                        page.screenshot(
+                            path=str(EVIDENCE / f"boulevard-full-{width}.png"),
+                            full_page=True,
+                        )
+                        for section in ("components", "forms", "tables"):
+                            page.locator(f"#{section}").screenshot(
+                                path=str(EVIDENCE / f"boulevard-{section}-{width}.png")
+                            )
+                        # Cards have a standalone gallery section without an ID.
+                        page.locator(".card-header").first.screenshot(
+                            path=str(EVIDENCE / f"boulevard-card-header-{width}.png")
+                        )
 
                     result = measure(page)
                     if result["excess"] > 2 or result["offscreen"]:
