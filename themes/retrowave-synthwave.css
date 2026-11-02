@@ -1941,6 +1941,232 @@ input[type="file"].form-control:disabled::file-selector-button {
   .btn:hover, .card:hover { transform: none; }
 }
 
+/* ======================================================================
+   NEON COAST 2.2 — CONTEMPORARY LIGHT / DEEP SHADOW STUDY
+   Source: user review. "Retro" means the energy of saturated 80s color,
+   not a faded/aged UI. Deep negative space makes light feel luminous.
+   CSS-only and standalone: retains 13 theme aliases + shared core.
+   ====================================================================== */
+:root {
+  --coast-night-black: #070311;
+  --coast-night-deep: #10061f;
+  --coast-night-surface: #180a2e;
+  --coast-night-raised: #251043;
+  --coast-electric-pink: #ff3ba7;
+  --coast-electric-cyan: #45eaff;
+  --coast-electric-orange: #ffab4d;
+  --coast-dark-shadow: 0 20px 42px rgba(0, 0, 0, .72),
+    0 6px 13px rgba(0, 0, 0, .42);
+  --coast-lit-edge: 0 0 0 1px rgba(255, 99, 186, .18),
+    0 0 18px rgba(255, 59, 167, .11);
+  --coast-copy: #e9ddf4;
+  --coast-ink: #fff1fb;
+  --coast-console-edge: #684778;
+  --coast-poster-shadow: var(--coast-dark-shadow);
+}
+/* Ambient light is localized. The dark regions are genuinely dark, not
+   merely desaturated purple; the existing coastal illustration is intact. */
+body {
+  background:
+    radial-gradient(ellipse 55% 13% at 78% 6%,
+      rgba(255, 59, 167, .13), transparent 82%),
+    radial-gradient(ellipse 42% 12% at 14% 53%,
+      rgba(0, 212, 255, .055), transparent 85%),
+    linear-gradient(180deg, #070311 0%, #11051e 24%,
+      #06020e 55%, #0d0518 80%, #05020b 100%);
+  color: var(--coast-ink);
+}
+#home {
+  background-color: var(--coast-night-black);
+  background-image:
+    linear-gradient(90deg, rgba(5, 2, 18, .94) 0%,
+      rgba(7, 2, 22, .85) 36%, rgba(9, 3, 29, .37) 67%,
+      rgba(9, 3, 29, .12) 100%),
+    var(--coast-scene);
+  box-shadow: inset 0 -35px 55px rgba(4, 1, 13, .48);
+}
+#home::after {
+  background: linear-gradient(180deg, transparent,
+    rgba(4, 1, 13, .93));
+}
+#home .display-4 {
+  color: #fff5ff;
+  text-shadow: 0 4px 26px rgba(0, 0, 0, .86);
+}
+#home .display-4 .text-primary {
+  color: #ff66bf !important;
+  -webkit-text-fill-color: #ff66bf;
+  text-shadow: 0 0 16px rgba(255, 60, 169, .42);
+}
+#home .lead {
+  color: #f4e8fb;
+  text-shadow: 0 2px 13px rgba(0, 0, 0, .9);
+}
+/* A small concentrated light signature, not a glow around every edge. */
+.container > h2.text-center.mb-5 {
+  color: #fff0fa;
+  text-shadow: 0 3px 12px rgba(0, 0, 0, .85);
+}
+.container > h2.text-center.mb-5::after {
+  background: linear-gradient(90deg, transparent 0%,
+    #ff3ba7 25%, #ffae4d 52%, #45eaff 76%, transparent 100%);
+  box-shadow: 0 0 11px rgba(255, 59, 167, .23);
+}
+.site-navbar.navbar {
+  background: rgba(6, 2, 18, .98) !important;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, .67);
+}
+.site-navbar .site-brand {
+  text-shadow: 0 0 12px rgba(255, 59, 167, .32);
+}
+/* Poster/card material: black-violet recess with a lit sign rail, clearly
+   separated from the background by real depth rather than thick neon borders. */
+.card {
+  background: linear-gradient(157deg, #241039 0%,
+    #12071f 40%, #090414 100%);
+  border-color: #79508a;
+  box-shadow: var(--coast-dark-shadow), var(--coast-lit-edge);
+}
+.card:hover {
+  border-color: #c375ad;
+  box-shadow: 0 24px 45px rgba(0, 0, 0, .78),
+    0 0 21px rgba(255, 59, 167, .16);
+}
+.card-header {
+  background: linear-gradient(90deg, #2d104c, #160923 78%);
+  color: #fff1e3;
+  border-bottom-color: #7f458c;
+}
+.card-title { color: #fff5fc; }
+#home .col-lg-6 > .card {
+  background: linear-gradient(155deg,
+    rgba(25, 8, 45, .96), rgba(7, 3, 18, .97));
+  border-color: rgba(255, 125, 199, .56);
+  box-shadow: 0 26px 58px rgba(0, 0, 0, .72),
+    0 0 24px rgba(255, 59, 167, .13);
+}
+/* Saturated, not pastel-washed: the small lit area is surrounded by a
+   darker lower lip and shadow. The action remains legible and tactile. */
+.btn {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .17),
+    0 8px 16px rgba(0, 0, 0, .48);
+}
+.btn-primary {
+  background: linear-gradient(110deg, #ff3ba7, #ff8e4f);
+  border-color: #ffc0e2;
+  color: #1b0521;
+  box-shadow: inset 0 2px 0 rgba(255, 240, 252, .51),
+    0 4px 0 #5a173d, 0 12px 24px rgba(0, 0, 0, .59),
+    0 0 18px rgba(255, 59, 167, .20);
+}
+.btn-primary:hover, .btn-primary:focus-visible {
+  background: linear-gradient(110deg, #ff69be, #ffc062);
+  border-color: #ffe6f4;
+  color: #1b0521;
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, .67),
+    0 4px 0 #5a173d, 0 13px 25px rgba(0, 0, 0, .63),
+    0 0 22px rgba(255, 59, 167, .32);
+}
+.btn-secondary, .btn-outline-secondary {
+  background: linear-gradient(180deg, #211137, #0a0718);
+  border-color: #62dff5;
+  color: #b7f7ff;
+  box-shadow: inset 0 1px 0 rgba(111, 234, 255, .20),
+    0 5px 15px rgba(0, 0, 0, .57);
+}
+.btn-secondary:hover, .btn-outline-secondary:hover {
+  background: linear-gradient(180deg, #352050, #11091f);
+  border-color: #b8f6ff;
+  color: #fff;
+}
+.btn-outline-primary, .btn-outline-success, .btn-outline-danger {
+  background: rgba(8, 3, 19, .87);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, .45);
+}
+/* Inputs look cut into a dark console; strong light is reserved for focus. */
+.form-control, .form-select {
+  background: #090417;
+  border-color: #7f5b93;
+  border-bottom-color: #ff55ae;
+  color: #fff2fe;
+  box-shadow: inset 0 2px 11px rgba(0, 0, 0, .76);
+}
+.form-control:focus, .form-select:focus {
+  background: #150825;
+  border-color: #62eaff;
+  border-bottom-color: #62eaff;
+  color: #fff;
+  box-shadow: inset 0 2px 7px rgba(0, 0, 0, .68),
+    0 0 0 3px rgba(69, 234, 255, .25),
+    0 0 17px rgba(69, 234, 255, .12);
+}
+.form-label, .form-check-label { color: #ffe5f7; }
+.input-group-text {
+  background: #270e3f;
+  color: #ffe1c9;
+}
+.nav-tabs {
+  background: #080317;
+  border-color: #593775;
+  border-bottom-color: var(--coast-electric-pink);
+  box-shadow: inset 0 3px 13px rgba(0, 0, 0, .82);
+}
+.nav-tabs .nav-link {
+  background: linear-gradient(180deg, #231139, #0d061d);
+  color: #e2d0ef;
+}
+.nav-tabs .nav-link.active {
+  background: linear-gradient(180deg, #ff77c0, #ed439c);
+  border-color: #ffd2e9;
+  color: #260824;
+  box-shadow: inset 0 2px 0 rgba(255, 249, 253, .60),
+    0 -3px 15px rgba(255, 59, 167, .19);
+}
+.tab-content {
+  background: #0c051b;
+  border-color: #6d4b80;
+  box-shadow: 0 16px 34px rgba(0, 0, 0, .66);
+}
+.table {
+  --bs-table-bg: #11071f;
+  --bs-table-striped-bg: #1c0b2e;
+  --bs-table-hover-bg: #2b1540;
+  --bs-table-border-color: #523467;
+  background: #11071f;
+}
+.table thead th {
+  background: #36104f;
+  color: #ffe7bc;
+  border-bottom-color: #ff48a6;
+}
+.progress { background: #080315; box-shadow: inset 0 3px 9px rgba(0, 0, 0, .83); }
+.alert {
+  background: #160922;
+  box-shadow: 0 11px 28px rgba(0, 0, 0, .57);
+}
+.accordion { box-shadow: 0 15px 32px rgba(0, 0, 0, .59); }
+.accordion-item, .accordion-body { background: #10061f; }
+.accordion-button { background: linear-gradient(90deg, #28103f, #110720); }
+.accordion-button:not(.collapsed) { background: #441654; }
+.modal-content, .offcanvas, .toast, .dropdown-menu {
+  background: #10061e;
+  box-shadow: 0 21px 52px rgba(0, 0, 0, .74);
+}
+/* Mobile scene still has one sunset; darken only its readability scrim. */
+@media (max-width: 767.98px) {
+  #home {
+    background-image:
+      linear-gradient(180deg, rgba(5, 2, 15, .76) 0%,
+        rgba(6, 2, 17, .84) 31%,
+        rgba(7, 3, 20, .65) 59%,
+        rgba(5, 2, 15, .87) 100%),
+      var(--coast-scene);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .card, .btn { transition: none; }
+}
+
 /* BEGIN RESPONSIVE CORE v1 — managed by scripts/sync_responsive.py */
 /*
  * A shared mobile-first compatibility layer compiled into each standalone CSS.
