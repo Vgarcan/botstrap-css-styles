@@ -17,7 +17,7 @@
   --theme-danger: var(--neon-pink);
   --theme-background: var(--dark-bg);
   --theme-surface: var(--darker-bg);
-  --theme-text: var(--cyber-ink);
+  --theme-text: #edf5f7;
   --theme-font-body: 'Inter', system-ui, sans-serif;
   --theme-font-heading: 'Orbitron', 'Courier New', monospace;
   --theme-radius: var(--border-radius);
