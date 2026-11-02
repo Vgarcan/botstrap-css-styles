@@ -1079,7 +1079,7 @@ a:hover { color: #ffe2c9; }
 }
 .btn:focus-visible, .form-control:focus-visible, .form-select:focus-visible,
 .nav-link:focus-visible, .page-link:focus-visible, .accordion-button:focus-visible {
-  outline: 3px solid #ffcd9f !important;
+  outline: 3px solid #101827 !important;
   outline-offset: 3px;
 }
 
