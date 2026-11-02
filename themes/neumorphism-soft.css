@@ -17,24 +17,24 @@
   --theme-danger: var(--neu-danger);
   --theme-background: var(--neu-bg);
   --theme-surface: var(--neu-light);
-  --theme-text: #4a5568;
+  --theme-text: #ece4e0;
   --theme-font-body: 'Poppins', sans-serif;
   --theme-font-heading: 'Poppins', sans-serif;
   --theme-radius: var(--border-radius-neu);
   --theme-shadow: var(--shadow-light);
 
-  --neu-bg: #e0e5ec;
-  --neu-light: #ffffff;
-  --neu-dark: #a3b1c6;
-  --neu-primary: #667eea;
-  --neu-secondary: #764ba2;
-  --neu-success: #4ade80;
-  --neu-warning: #fbbf24;
-  --neu-danger: #f87171;
+  --neu-bg: #272b34;
+  --neu-light: #313641;
+  --neu-dark: #121720;
+  --neu-primary: #f0b590;
+  --neu-secondary: #c1a6cd;
+  --neu-success: #84dbc0;
+  --neu-warning: #f4c477;
+  --neu-danger: #ed96a4;
   
-  --shadow-light: 5px 5px 16px #a3b1c6, -5px -5px 16px #ffffff;
-  --shadow-inset: inset 5px 5px 16px #a3b1c6, inset -5px -5px 16px #ffffff;
-  --shadow-pressed: inset 5px 5px 10px #a3b1c6, inset -5px -5px 10px #ffffff;
+  --shadow-light: 9px 12px 22px rgba(7, 10, 16, .67), -6px -6px 17px rgba(143, 148, 162, .19), 2px 3px 4px rgba(0, 0, 0, .45);
+  --shadow-inset: inset 6px 7px 12px rgba(5, 8, 15, .78), inset -4px -4px 11px rgba(162, 169, 181, .13);
+  --shadow-pressed: inset 4px 5px 8px rgba(4, 6, 12, .86), inset -2px -2px 5px rgba(175, 181, 194, .13);
   
   --border-radius-neu: 20px;
   --transition-neu: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -879,6 +879,423 @@ body {
   background-clip: border-box !important;
   -webkit-text-fill-color: #303e83 !important;
   color: #303e83 !important;
+}
+
+/* ======================================================================
+   NEUMORPHISM 2.0 / MINERAL GRAPHITE — tactile hybrid pilot
+   Material: charcoal elastomer from C, warm mineral edge light from B.
+   One upper-left source, near contact shadows, inset controls, fine grain.
+   Source for the embedded grain: docs/NEUMORPHISM_MINERAL_GRAIN.svg.
+   Pure CSS; shared generated Responsive Core below is untouched.
+   ====================================================================== */
+:root {
+  --mineral-substrate: #272b34;
+  --mineral-recess: #181c25;
+  --mineral-raised: #353a45;
+  --mineral-ink: #f0e9e5;
+  --mineral-muted: #d4cbd1;
+  --mineral-warm: #f0b590;
+  --mineral-warm-bright: #ffd7b5;
+  --mineral-lilac: #c1a6cd;
+  --mineral-edge: rgba(218, 197, 184, .3);
+  --mineral-touch-shadow: var(--shadow-light);
+  --mineral-inset-shadow: var(--shadow-inset);
+  --mineral-grain: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22160%22%20height%3D%22160%22%20viewBox%3D%220%200%20160%20160%22%3E%3Cfilter%20id%3D%22grain%22%20x%3D%220%22%20y%3D%220%22%20width%3D%22100%25%22%20height%3D%22100%25%22%3E%3CfeTurbulence%20type%3D%22fractalNoise%22%20baseFrequency%3D%22.82%22%20numOctaves%3D%223%22%20seed%3D%229%22%20stitchTiles%3D%22stitch%22%2F%3E%3CfeColorMatrix%20type%3D%22saturate%22%20values%3D%220%22%2F%3E%3CfeComponentTransfer%3E%3CfeFuncA%20type%3D%22linear%22%20slope%3D%22.19%22%2F%3E%3C%2FfeComponentTransfer%3E%3C%2Ffilter%3E%3Crect%20width%3D%22160%22%20height%3D%22160%22%20filter%3D%22url%28%23grain%29%22%20opacity%3D%22.42%22%2F%3E%3C%2Fsvg%3E");
+}
+
+/* The substrate has micrograin; it is deliberately invisible at a glance.
+   The soft-light blend keeps the grain away from foreground text. */
+body {
+  padding: 0;
+  color: var(--mineral-ink);
+  background-color: var(--mineral-substrate);
+  background-image:
+    radial-gradient(ellipse 90% 31% at 8% -7%, rgba(238, 196, 169, .18), transparent 68%),
+    radial-gradient(ellipse 78% 45% at 108% 59%, rgba(167, 140, 174, .085), transparent 76%),
+    var(--mineral-grain),
+    linear-gradient(160deg, #30343e 0%, #252a34 38%, #1c202b 100%);
+  background-size: auto, auto, 160px 160px, auto;
+  background-repeat: no-repeat, no-repeat, repeat, no-repeat;
+  background-blend-mode: normal, normal, soft-light, normal;
+}
+:where(h1, h2, h3, h4, h5, h6, p, .lead, label, li, small) {
+  color: var(--mineral-ink);
+  text-shadow: none;
+}
+p, .lead, .card-text, .tab-pane, .card-body, .modal-body,
+.accordion-body, .offcanvas-body { color: var(--mineral-muted); }
+.text-muted { color: #c9c1ca !important; }
+.text-primary { color: var(--mineral-warm-bright) !important; }
+a { color: #ffcfaa; }
+a:hover { color: #ffe2c9; }
+
+/* Solid raised slab, not frosted glass: area light from top-left,
+   small contact shadow on bottom-right anchors it to its substrate. */
+#home { background: none; }
+#home > .container > .row {
+  margin-inline: 0;
+  padding: clamp(1.2rem, 3.2vw, 3rem);
+  border-radius: clamp(20px, 3vw, 38px);
+  background: linear-gradient(145deg, rgba(65, 69, 78, .88), rgba(37, 40, 49, .95) 70%);
+  border: 1px solid rgba(230, 207, 189, .17);
+  box-shadow:
+    15px 20px 32px rgba(6, 9, 15, .67),
+    -9px -10px 29px rgba(154, 154, 164, .18),
+    inset 2px 2px 1px rgba(255, 236, 213, .22),
+    inset -1px -2px 2px rgba(8, 11, 19, .32);
+}
+#home h1 {
+  color: #f5eeea !important;
+  -webkit-text-fill-color: #f5eeea !important;
+  text-shadow: none;
+  letter-spacing: -.025em;
+  line-height: 1.17;
+  font-weight: 700;
+}
+#home h1 .text-primary {
+  color: var(--mineral-warm-bright) !important;
+  -webkit-text-fill-color: var(--mineral-warm-bright) !important;
+}
+#home .lead { color: #e4dbe0; line-height: 1.7; max-width: 54ch; }
+
+/* Quiet engraved dots: a decorative tactile signature on section titles,
+   not Braille language and not used to encode state or accessibility text. */
+.container > h2.text-center.mb-5 {
+  position: relative;
+  width: fit-content;
+  max-width: 100%;
+  margin-inline: auto;
+  padding-bottom: 1.3rem;
+  color: #f2e9e3;
+  font-size: clamp(1.55rem, 3vw, 2.4rem);
+  line-height: 1.25;
+  letter-spacing: -.025em;
+}
+.container > h2.text-center.mb-5::after {
+  content: "";
+  display: block;
+  width: 46px;
+  height: 14px;
+  margin: 1rem auto 0;
+  background:
+    radial-gradient(circle at 6px 7px, #dfc5b0 0 2px, #665960 3px, transparent 4px),
+    radial-gradient(circle at 22px 7px, #dfc5b0 0 2px, #665960 3px, transparent 4px),
+    radial-gradient(circle at 38px 7px, #dfc5b0 0 2px, #665960 3px, transparent 4px);
+  filter: drop-shadow(1px 2px 1px #0c1019);
+}
+
+/* Molded navbar belongs to the material, not a separate floating pill. */
+.site-navbar.navbar {
+  margin-bottom: 0;
+  border: 0;
+  border-radius: 0 0 22px 22px;
+  background: linear-gradient(155deg, #383d48, #252a34) !important;
+  box-shadow: 0 10px 23px rgba(7, 10, 16, .53),
+    inset 0 1px rgba(244, 219, 195, .21);
+}
+.site-navbar .site-brand {
+  color: #f7ece3 !important;
+  font-weight: 750;
+  text-shadow: none !important;
+}
+.site-navbar .site-brand-icon { color: var(--mineral-warm-bright) !important; }
+.site-navbar .site-nav-panel .site-nav-link {
+  color: #ede6e7 !important;
+  text-shadow: none !important;
+}
+.site-navbar .site-nav-panel .site-nav-link:hover,
+.site-navbar .site-nav-panel .site-nav-link:focus-visible {
+  color: #fff1e8 !important;
+  background: #2a2e39 !important;
+  box-shadow: var(--mineral-inset-shadow);
+}
+.site-navbar .site-nav-toggler {
+  border-color: rgba(244, 218, 193, .5) !important;
+  background: #343944;
+}
+.site-navbar .site-nav-toggler .navbar-toggler-icon { filter: invert(1); }
+
+/* Pressed means actually inside the body: remove indefinite pulses from
+   legacy CSS. A tactile control needs one short, deterministic press. */
+.btn {
+  border: 1px solid rgba(255, 237, 219, .18);
+  border-radius: 16px;
+  min-height: 2.75rem;
+  color: var(--mineral-ink);
+  background: linear-gradient(145deg, #454a55, #282d37);
+  box-shadow:
+    6px 8px 13px rgba(8, 11, 18, .74),
+    -4px -5px 12px rgba(135, 142, 155, .19),
+    inset 1px 1px 1px rgba(255, 247, 236, .22);
+  animation: none !important;
+  transform: none;
+  transition: box-shadow .16s ease, transform .16s ease, background-color .16s ease;
+}
+.btn:hover {
+  color: #fff4eb;
+  animation: none !important;
+  transform: translateY(-1px);
+  box-shadow:
+    8px 10px 16px rgba(8, 11, 18, .78),
+    -4px -6px 13px rgba(135, 142, 155, .2),
+    inset 1px 1px 1px rgba(255, 247, 236, .26);
+}
+.btn:active {
+  transform: translateY(1px);
+  box-shadow: var(--mineral-inset-shadow);
+}
+.btn-primary, .nav-pills .nav-link.active {
+  color: #251b1b !important;
+  border-color: #ffddbd;
+  background: linear-gradient(145deg, #ffe0bc, #d39a7b 83%);
+  box-shadow: 5px 7px 14px rgba(7, 9, 16, .63),
+    -3px -3px 11px rgba(244, 204, 177, .17),
+    inset 1px 1px 1px #fff4e6;
+}
+.btn-primary:hover, .btn-primary:focus-visible {
+  color: #21171a !important;
+  border-color: #ffefda;
+  background: linear-gradient(145deg, #ffebce, #e6af8c);
+}
+.btn-secondary {
+  color: #f9edf9;
+  background: linear-gradient(145deg, #695b72, #44384d);
+  border-color: rgba(220, 199, 228, .54);
+}
+.btn-success { background: #9addc6; border-color: #d4fae9; color: #152f25 !important; }
+.btn-warning { background: #f5c677; border-color: #fce5b6; color: #352315 !important; }
+.btn-danger { background: #ef9bab; border-color: #fbc5d1; color: #3c1724 !important; }
+.btn-info { background: #a9cfdc; color: #1a2c38 !important; }
+.btn-outline-primary, .btn-outline-secondary, .btn-outline-success,
+.btn-outline-danger {
+  background: linear-gradient(145deg, #3d414b, #242832);
+  color: #f3e9e6;
+  border: 1px solid #9d999e;
+}
+.btn-outline-primary:hover, .btn-outline-secondary:hover,
+.btn-outline-success:hover, .btn-outline-danger:hover {
+  background: #4c505b;
+  color: white;
+}
+.btn:focus-visible, .form-control:focus-visible, .form-select:focus-visible,
+.nav-link:focus-visible, .page-link:focus-visible, .accordion-button:focus-visible {
+  outline: 3px solid #ffcd9f !important;
+  outline-offset: 3px;
+}
+
+/* Lifted tiles use two layers of shadow; clicking a static card should
+   not create a fake press or indefinite float. */
+.card {
+  margin: 0;
+  overflow: visible;
+  border: 1px solid rgba(235, 211, 195, .17);
+  border-radius: 26px;
+  background: linear-gradient(145deg, #3b404b, #282d37 75%);
+  box-shadow: 12px 16px 28px rgba(6, 9, 15, .65),
+    -7px -8px 21px rgba(143, 148, 160, .17),
+    inset 1px 1px 1px rgba(253, 228, 204, .19);
+  animation: none !important;
+}
+.card:hover {
+  animation: none !important;
+  transform: none;
+  box-shadow: 12px 16px 28px rgba(6, 9, 15, .65),
+    -7px -8px 21px rgba(143, 148, 160, .17),
+    inset 1px 1px 1px rgba(253, 228, 204, .19);
+}
+.card-header {
+  color: #f7eae0;
+  background: linear-gradient(145deg, #393e48, #30353f);
+  border-bottom: 1px solid rgba(230, 206, 185, .22);
+  border-radius: 26px 26px 0 0 !important;
+  box-shadow: inset 0 -5px 8px rgba(9, 13, 19, .17);
+}
+.card-title, .card-body h3, .card-body h4, .card-body h5 { color: #f7e6d9; }
+.card-body, .card-text { color: var(--mineral-muted); }
+#home .col-lg-6 > .card { margin-top: .5rem; }
+
+/* Deep milled sockets for entry and navigation. Focus has a visible
+   ring beyond the inset shadow, independent of texture. */
+.form-control, .form-select {
+  background: var(--mineral-recess);
+  color: #f6edeb;
+  border: 1px solid #77777e;
+  border-radius: 14px;
+  box-shadow: inset 5px 6px 11px rgba(5, 8, 14, .89),
+    inset -3px -3px 7px rgba(157, 162, 174, .13);
+  min-height: 2.8rem;
+}
+.form-control:focus, .form-select:focus {
+  background: #1d212c;
+  color: #fff4ee;
+  border-color: #ffcba1;
+  box-shadow: var(--mineral-inset-shadow), 0 0 0 3px rgba(246, 194, 150, .25);
+}
+.form-control::placeholder { color: #b6b1bc; opacity: 1; }
+.form-label, .form-check-label { color: #f2e4de; font-weight: 650; }
+.input-group-text { color: #f6dfd0; background: #41434c; border-color: #85838b; }
+.form-check-input {
+  background-color: #1b202a;
+  border: 1px solid #ada7ad;
+  box-shadow: inset 2px 3px 5px rgba(4, 7, 12, .72);
+}
+.form-check-input:checked { background-color: #d99f7d; border-color: #ffe1c3; }
+.form-check-input:focus { box-shadow: 0 0 0 3px rgba(245, 192, 151, .33); }
+.form-check-input[type="radio"] { border-radius: 50%; }
+
+/* Recessed navigation trough with lifted keys. */
+.nav-tabs {
+  padding: .7rem .7rem 0;
+  border-radius: 22px 22px 0 0;
+  background: #242832;
+  border: 1px solid #4d515c;
+  border-bottom: 0;
+  box-shadow: inset 5px 5px 11px rgba(8, 11, 17, .65),
+    inset -3px -3px 9px rgba(129, 138, 151, .12);
+}
+.nav-tabs .nav-link {
+  border: 1px solid rgba(255, 242, 224, .16);
+  border-radius: 14px 14px 0 0;
+  background: linear-gradient(145deg, #3e424e, #2b2f3a);
+  color: #eee2e1;
+  box-shadow: 3px 4px 7px rgba(6, 9, 16, .44);
+  margin-bottom: 0;
+}
+.nav-tabs .nav-link.active {
+  background: #1b202a;
+  color: #ffdbbb !important;
+  border-color: #a78f82;
+  border-bottom-color: transparent;
+  box-shadow: inset 3px 4px 8px rgba(0, 0, 0, .75);
+}
+.nav-tabs .nav-link:hover { color: #fff7f1; }
+.tab-content {
+  background: #2d313b;
+  border: 1px solid #61616a;
+  border-top: 0;
+  color: var(--mineral-muted);
+  border-radius: 0 0 22px 22px;
+  padding: clamp(1rem, 2.3vw, 1.6rem);
+  box-shadow: var(--mineral-touch-shadow);
+}
+.nav-pills .nav-link {
+  color: #f4e8e1 !important;
+  background: linear-gradient(145deg, #40454f, #262a34);
+  border: 1px solid #85838e;
+}
+.nav-pills .nav-link.active { color: #251b1b !important; }
+
+/* Use flat legible data ink, not pressed text in every table cell. */
+.table {
+  --bs-table-bg: #2f343e;
+  --bs-table-color: #f0e6e0;
+  --bs-table-border-color: #696a73;
+  --bs-table-hover-bg: #444854;
+  --bs-table-hover-color: #fff4ec;
+  color: var(--mineral-ink);
+  background: #2f343e;
+  border: 1px solid #686973;
+  border-radius: 14px;
+}
+.table thead th {
+  background: #454954;
+  color: #ffe0c5;
+  border-bottom: 2px solid #bd9680;
+}
+.table tbody td, .table tbody th { color: #f0e6e0; }
+.table tbody tr:hover { background: #444854; }
+.progress {
+  background: #191d26;
+  border-radius: 999px;
+  border: 1px solid #686b74;
+  box-shadow: inset 4px 6px 9px rgba(4, 6, 11, .7);
+}
+.progress-bar {
+  color: #221c1c;
+  background: linear-gradient(90deg, #d1a28e, #ffe0b4);
+  border-radius: 999px;
+  box-shadow: inset 0 1px rgba(255, 255, 255, .4);
+}
+.badge {
+  border: 1px solid rgba(253, 235, 214, .25);
+  border-radius: 999px;
+  background: #75606c;
+  color: #fff5ef;
+  box-shadow: inset 1px 1px rgba(255, 255, 255, .24), 2px 3px 6px rgba(4, 6, 11, .37);
+}
+.badge-primary { background: #efbc98; color: #291d1b !important; }
+.badge-success { background: #b5dec7; color: #1a3026 !important; }
+.badge-warning { background: #f2cb7b; color: #382a18 !important; }
+.badge-danger { background: #f3acb5; color: #351a23 !important; }
+.alert {
+  color: #f3e8e2;
+  background: #343842;
+  border: 1px solid #7a7781;
+  box-shadow: var(--mineral-touch-shadow);
+}
+.alert-primary { border-left: 4px solid #f0b590; }
+.alert-success { border-left: 4px solid #9bdbc2; }
+.alert-warning { border-left: 4px solid #f2ca80; }
+.alert-danger { border-left: 4px solid #f4a4b0; }
+.list-group { border-radius: 18px; border: 1px solid #787780; box-shadow: var(--mineral-touch-shadow); }
+.list-group-item { background: #30353f; color: #f1e7e1; border-color: #656771; }
+.breadcrumb, .page-link {
+  color: #f1dfd4;
+  background: #353943;
+  border: 1px solid #7c7c84;
+  box-shadow: var(--mineral-touch-shadow);
+}
+.breadcrumb-item a { color: #ffe0c3; }
+.breadcrumb-item.active { color: #dfc9c0; }
+.page-item.active .page-link { background: #eab38e; color: #271d1a; }
+.page-item.disabled .page-link { background: #2a2d37; color: #c0b7bf; }
+.accordion, .carousel { animation: none !important; box-shadow: var(--mineral-touch-shadow); }
+.accordion-item, .accordion-button, .accordion-body {
+  color: #eee2dc;
+  background: #31353f;
+}
+.accordion-button:hover, .accordion-button:not(.collapsed) {
+  color: #ffe0c5;
+  background: #363a43;
+  animation: none !important;
+}
+.accordion-button:not(.collapsed) { box-shadow: var(--mineral-inset-shadow); }
+.modal-content, .offcanvas, .dropdown-menu, .toast {
+  color: #f2e6e0;
+  background: #2e323d;
+  border: 1px solid #75717c;
+  box-shadow: 14px 21px 40px rgba(4, 6, 11, .72);
+}
+.modal-header, .modal-footer, .offcanvas-header, .toast-header {
+  color: #f5e8df;
+  background: #383c46;
+  border-color: #696a73;
+}
+.modal-title, .offcanvas-title, .toast-body, .modal-body, .offcanvas-body {
+  color: #f3e5dd;
+}
+.btn-close { background-color: #ddd1ce; border: 1px solid #a69a9c; }
+.dropdown-item { color: #f0e5de; }
+.dropdown-item:hover, .dropdown-item:focus {
+  color: #231b1c;
+  background: #e6b899;
+  transform: none;
+  box-shadow: none;
+}
+.site-navbar .site-nav-header { background: #383c46; }
+.site-navbar .site-nav-header .offcanvas-title {
+  color: #f3e7e1 !important;
+  text-shadow: none !important;
+}
+/* No ambient floating on touchable materials. Preserve instantaneous
+   tactile feedback for pointer users and obvious focus for keyboards. */
+@media (prefers-reduced-motion: reduce) {
+  .btn, .card, .accordion, .carousel { animation: none !important; transition: none !important; }
+}
+@media (max-width: 767.98px) {
+  #home > .container > .row { padding: 1.15rem; border-radius: 24px; }
+  #home .col-lg-6 > .card { margin-top: 1.7rem; }
+  .container > h2.text-center.mb-5 { font-size: 1.65rem; }
 }
 
 /* BEGIN RESPONSIVE CORE v1 — managed by scripts/sync_responsive.py */
