@@ -1245,7 +1245,7 @@ a:hover { color: #ffe2c9; }
   border: 1px solid #7c7c84;
   box-shadow: var(--mineral-touch-shadow);
 }
-.breadcrumb-item a { color: #ffe0c3; }
+.breadcrumb-item a { color: #ffe0c3 !important; }
 .breadcrumb-item.active { color: #dfc9c0; }
 .page-item.active .page-link { background: #eab38e; color: #271d1a; }
 .page-item.disabled .page-link { background: #2a2d37; color: #c0b7bf; }
@@ -1259,7 +1259,10 @@ a:hover { color: #ffe2c9; }
   background: #363a43;
   animation: none !important;
 }
-.accordion-button:not(.collapsed) { box-shadow: var(--mineral-inset-shadow); }
+.accordion-button:not(.collapsed) {
+  color: #ffe0c5 !important;
+  box-shadow: var(--mineral-inset-shadow);
+}
 .modal-content, .offcanvas, .dropdown-menu, .toast {
   color: #f2e6e0;
   background: #2e323d;
