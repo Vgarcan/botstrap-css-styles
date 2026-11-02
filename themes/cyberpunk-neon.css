@@ -981,6 +981,17 @@ a:hover { color: #b0fdf5; }
   line-height: 1.8;
   letter-spacing: normal;
 }
+/* The shared boilerplate has two CTA controls in one unmodified wrapper.
+   Give wrapped buttons real spacing before the next grid column. */
+#home .row > .col-lg-6:first-child > .mt-4 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+#home .row > .col-lg-6:first-child > .mt-4 > .btn {
+  margin-right: 0 !important;
+}
 #home .col-lg-6 > .card {
   position: relative;
   background: linear-gradient(154deg, #213340, #111c27 80%);
@@ -1343,6 +1354,10 @@ a:hover { color: #b0fdf5; }
 
 /* Allow future deliberately opt-in art direction without disrupting the
    shared responsive contract. Avoid clipped focus rings on real controls. */
+@media (max-width: 1199.98px) {
+  /* The two shared hero columns stack at tablet/phone widths. */
+  #home .row > .col-lg-6:first-child { margin-bottom: 1.75rem; }
+}
 @media (max-width: 767.98px) {
   body { background-size: auto, auto, 54px 54px, 54px 54px, auto; }
   #home::before { top: 10%; right: -8%; width: 70vw; opacity: 0.32; }
