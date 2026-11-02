@@ -11,30 +11,30 @@
    */
   --theme-primary: var(--neon-cyan);
   --theme-secondary: var(--neon-pink);
-  --theme-accent: var(--neon-green);
+  --theme-accent: var(--neon-pink);
   --theme-success: var(--neon-green);
   --theme-warning: var(--neon-orange);
   --theme-danger: var(--neon-pink);
   --theme-background: var(--dark-bg);
   --theme-surface: var(--darker-bg);
-  --theme-text: var(--neon-cyan);
-  --theme-font-body: 'Orbitron', 'Courier New', monospace;
+  --theme-text: var(--cyber-ink);
+  --theme-font-body: 'Inter', system-ui, sans-serif;
   --theme-font-heading: 'Orbitron', 'Courier New', monospace;
   --theme-radius: var(--border-radius);
   --theme-shadow: var(--neon-glow);
 
-  --neon-cyan: #00ffff;
-  --neon-pink: #ff00ff;
-  --neon-green: #00ff00;
+  --neon-cyan: #63ede2;
+  --neon-pink: #ff6a85;
+  --neon-green: #8fe4af;
   --neon-purple: #8a2be2;
-  --neon-orange: #ff4500;
-  --dark-bg: #0a0a0a;
-  --darker-bg: #050505;
-  --grid-color: #1a1a1a;
+  --neon-orange: #f2c46b;
+  --dark-bg: #0b1017;
+  --darker-bg: #17232f;
+  --grid-color: rgba(99, 237, 226, 0.065);
   
-  --border-radius: 0px;
-  --neon-glow: 0 0 20px currentColor;
-  --transition: all 0.3s ease;
+  --border-radius: 3px;
+  --neon-glow: 0 0 14px rgba(99, 237, 226, 0.19);
+  --transition: background-color 180ms ease, border-color 180ms ease, box-shadow 180ms ease, color 180ms ease;
 }
 
 /* Animaciones Cyberpunk */
@@ -863,6 +863,497 @@ body:before {
 .form-select option {
   background: var(--dark-bg);
   color: var(--neon-cyan);
+}
+
+
+/* ======================================================================
+   CYBERPUNK NEON 2.0 — SIGNAL DISTRICT (DESIGN PILOT)
+   Structural UI, hard-edged panels and selective neon. CSS-only by design.
+   Theme-owned overrides ABOVE the generated Responsive Core v1.
+   This pilot retains public legacy utility classes and Bootstrap markup.
+   References: docs/CYBERPUNK_NEON_RESEARCH.md and REFERENCES_02.md.
+   ====================================================================== */
+
+:root {
+  /* Private theme tokens; shared 13 --theme-* aliases remain above. */
+  --cyber-canvas: #0b1017;
+  --cyber-panel: #17232f;
+  --cyber-panel-raised: #1e2c38;
+  --cyber-line: #3b5363;
+  --cyber-line-quiet: #273c4d;
+  --cyber-ink: #edf5f7;
+  --cyber-ink-soft: #b8c9d3;
+  --cyber-ink-muted: #9db4c1;
+  --cyber-signal: var(--neon-cyan);
+  --cyber-alert: var(--neon-pink);
+  --cyber-warning: var(--neon-orange);
+  --cyber-dim-glow: 0 0 0 1px rgba(99, 237, 226, 0.08), 0 16px 34px rgba(0, 0, 0, 0.22);
+  --cyber-edge: 12px; /* Decorative angular cut size only. */
+}
+
+/* Quiet graphite canvas: technical grid is deliberately soft, not all neon. */
+body {
+  font-family: var(--theme-font-body);
+  color: var(--cyber-ink);
+  background:
+    radial-gradient(ellipse 64% 48% at 89% 12%, rgba(99, 237, 226, 0.075), transparent 75%),
+    radial-gradient(ellipse 46% 42% at 8% 67%, rgba(255, 106, 133, 0.055), transparent 80%),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px),
+    linear-gradient(var(--grid-color) 1px, transparent 1px),
+    var(--cyber-canvas);
+  background-size: auto, auto, 88px 88px, 88px 88px, auto;
+  overflow-x: clip;
+}
+
+body::before {
+  /* Remove global perpetual scanline: it obscured content and nav states. */
+  content: none;
+  animation: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--cyber-ink);
+  font-family: var(--theme-font-heading);
+  letter-spacing: -0.012em;
+}
+p, li, label, td, th { text-shadow: none; }
+p, .lead { color: var(--cyber-ink-soft); }
+.text-muted { color: var(--cyber-ink-muted) !important; }
+.text-primary { color: var(--cyber-signal) !important; }
+a { color: var(--cyber-signal); }
+a:hover { color: #b0fdf5; }
+
+/* The hero becomes editorial: meaningful hierarchy and structural rails. */
+#home {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-bottom: 1px solid var(--cyber-line-quiet);
+}
+#home > .container {
+  position: relative;
+  z-index: 1;
+}
+#home::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  top: 5%;
+  right: 3%;
+  width: min(46vw, 600px);
+  aspect-ratio: 1 / 1;
+  clip-path: polygon(15% 0, 86% 0, 100% 14%, 100% 79%, 79% 100%, 0 100%, 0 15%);
+  border: 1px solid var(--cyber-line);
+  background:
+    linear-gradient(134deg, transparent 15%, rgba(99, 237, 226, 0.06) 15.5%, transparent 17%),
+    repeating-linear-gradient(0deg, transparent 0 19px, rgba(99, 237, 226, 0.055) 19px 20px),
+    linear-gradient(155deg, rgba(29, 58, 72, 0.55), rgba(9, 16, 24, 0.08));
+  opacity: 0.78;
+}
+#home::after {
+  content: "";
+  position: absolute;
+  bottom: 4%;
+  left: 6%;
+  height: 3px;
+  width: min(37vw, 370px);
+  background: linear-gradient(90deg, var(--cyber-signal) 0 17%, var(--cyber-line) 17% 88%, transparent);
+  pointer-events: none;
+}
+#home .display-4 {
+  font-family: var(--theme-font-heading);
+  font-size: clamp(2.2rem, 4.4vw, 4.5rem);
+  font-weight: 900;
+  line-height: 1.13;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+#home .display-4 .text-primary {
+  color: var(--cyber-signal) !important;
+  text-shadow: none;
+}
+#home .lead {
+  max-width: 48ch;
+  font-family: var(--theme-font-body);
+  font-size: clamp(1rem, 1.45vw, 1.2rem);
+  line-height: 1.8;
+  letter-spacing: normal;
+}
+#home .col-lg-6 > .card {
+  position: relative;
+  background: linear-gradient(154deg, #213340, #111c27 80%);
+  border: 1px solid var(--cyber-line);
+  border-top: 2px solid var(--cyber-signal);
+  box-shadow: -8px 8px 0 rgba(39, 60, 77, 0.58), var(--cyber-dim-glow);
+}
+#home .col-lg-6 > .card::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 58px;
+  height: 38px;
+  background: var(--cyber-alert);
+  clip-path: polygon(45% 0, 100% 0, 100% 100%);
+  pointer-events: none;
+}
+
+/* Instrument panels: a fine framing line rather than a glowing box. */
+.card, .accordion, .toast {
+  position: relative;
+  background: var(--cyber-panel);
+  color: var(--cyber-ink);
+  border: 1px solid var(--cyber-line);
+  border-radius: var(--border-radius);
+  box-shadow: var(--cyber-dim-glow);
+  animation: none;
+  transform: none;
+  transition: border-color 180ms ease, box-shadow 180ms ease;
+}
+.card::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  height: 2px;
+  width: min(38%, 9rem);
+  background: var(--cyber-signal);
+  pointer-events: none;
+}
+.card:hover {
+  transform: none;
+  animation: none;
+  border-color: #648496;
+  box-shadow: 0 0 0 1px rgba(99, 237, 226, 0.13), 0 16px 32px rgba(0, 0, 0, 0.24);
+}
+.card-header {
+  background: #20313e;
+  color: var(--cyber-ink);
+  border-bottom: 1px solid var(--cyber-line);
+  font-family: var(--theme-font-heading);
+  font-size: 0.9rem;
+  letter-spacing: 0.03em;
+}
+.card-body, .tab-pane { color: var(--cyber-ink-soft); }
+.card-body h3, .card-body h4, .card-body h5 { color: var(--cyber-ink); }
+
+/* Primary actions are filled, focused and stable: no interactive glitch. */
+.btn {
+  position: relative;
+  background: var(--cyber-panel-raised);
+  color: var(--cyber-ink);
+  border: 1px solid var(--cyber-line);
+  border-radius: 3px;
+  box-shadow: none;
+  font-family: var(--theme-font-heading);
+  font-weight: 700;
+  font-size: 0.86rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-shadow: none;
+  animation: none;
+  transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease;
+}
+.btn::before { display: none; }
+.btn:hover {
+  animation: none;
+  transform: none;
+  box-shadow: none;
+  color: var(--cyber-ink);
+  border-color: var(--cyber-signal);
+  background: #283b48;
+}
+.btn-primary, .btn-primary:hover {
+  background: var(--cyber-signal);
+  color: #06171c;
+  border-color: var(--cyber-signal);
+}
+.btn-primary:hover { background: #a8fff4; color: #06171c; }
+.btn-secondary, .btn-outline-secondary {
+  background: transparent;
+  border-color: #73929f;
+  color: var(--cyber-ink);
+}
+.btn-secondary:hover, .btn-outline-secondary:hover {
+  background: #293a48;
+  border-color: var(--cyber-signal);
+  color: var(--cyber-ink);
+}
+.btn-success { color: #081b12; background: var(--neon-green); border-color: var(--neon-green); }
+.btn-warning { color: #201607; background: var(--cyber-warning); border-color: var(--cyber-warning); }
+.btn-danger { color: #260713; background: var(--cyber-alert); border-color: var(--cyber-alert); }
+.btn-success:hover, .btn-warning:hover, .btn-danger:hover { filter: brightness(1.08); color: #07171a; }
+.btn:disabled, .btn.disabled { filter: saturate(0.35); box-shadow: none; }
+
+/* Navigation resembles an instrument rail and retains the mobile offcanvas. */
+.navbar {
+  background: rgba(12, 20, 29, 0.97) !important;
+  border-bottom: 1px solid var(--cyber-line);
+  box-shadow: 0 3px 0 rgba(99, 237, 226, 0.15);
+  backdrop-filter: none;
+}
+.navbar-brand {
+  color: var(--cyber-ink) !important;
+  font-family: var(--theme-font-heading);
+  letter-spacing: 0.02em;
+  text-shadow: none;
+  animation: none;
+}
+.navbar-brand .site-brand-icon { color: var(--cyber-signal); }
+.nav-link {
+  color: var(--cyber-ink-soft) !important;
+  font-family: var(--theme-font-heading);
+  letter-spacing: 0.02em;
+  text-shadow: none;
+}
+.nav-link::before {
+  height: 2px;
+  background: var(--cyber-signal);
+  box-shadow: none;
+}
+.nav-link:hover { color: var(--cyber-signal) !important; text-shadow: none; }
+.navbar .site-nav-panel { border-color: var(--cyber-line); }
+
+/* The same dark surface language carries form inputs and readable labels. */
+.form-control, .form-select, .input-group-text {
+  background: #101b26;
+  color: var(--cyber-ink);
+  border: 1px solid #557080;
+  border-radius: 2px;
+  font-family: var(--theme-font-body);
+  font-size: 1rem;
+  box-shadow: none;
+}
+.form-control:focus, .form-select:focus {
+  background: #162633;
+  color: var(--cyber-ink);
+  border-color: var(--cyber-signal);
+  box-shadow: 0 0 0 2px rgba(99, 237, 226, 0.20);
+}
+.form-control::placeholder { color: var(--cyber-ink-muted); opacity: 1; }
+.form-label, .form-check-label {
+  color: var(--cyber-ink);
+  font-family: var(--theme-font-body);
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.015em;
+  text-transform: none;
+}
+.form-check-input {
+  background-color: #101b26;
+  border: 2px solid #839da9;
+  border-radius: 2px;
+  box-shadow: none;
+}
+.form-check-input:checked {
+  background-color: var(--cyber-signal);
+  border-color: var(--cyber-signal);
+  box-shadow: none;
+}
+.form-check-input:focus { border-color: var(--cyber-signal); box-shadow: 0 0 0 2px rgba(99, 237, 226, 0.18); }
+.form-select option { background: var(--cyber-panel); color: var(--cyber-ink); }
+
+/* Alerts use restrained signalling with ordinary reading typography. */
+.alert {
+  background: #14212c;
+  color: var(--cyber-ink);
+  font-family: var(--theme-font-body);
+  text-transform: none;
+  letter-spacing: normal;
+  border: 1px solid var(--cyber-line);
+  border-left: 4px solid var(--cyber-signal);
+  box-shadow: none;
+}
+.alert-primary, .alert-info { border-left-color: var(--cyber-signal); color: var(--cyber-ink); }
+.alert-success { border-left-color: var(--neon-green); color: var(--cyber-ink); }
+.alert-warning { border-left-color: var(--cyber-warning); color: var(--cyber-ink); }
+.alert-danger { border-left-color: var(--cyber-alert); color: var(--cyber-ink); }
+
+/* Tables must use Bootstrap's component variables (not only raw color). */
+.table {
+  --bs-table-bg: #14212c;
+  --bs-table-color: var(--cyber-ink);
+  --bs-table-border-color: var(--cyber-line);
+  --bs-table-hover-bg: #233847;
+  --bs-table-hover-color: var(--cyber-ink);
+  background: #14212c;
+  color: var(--cyber-ink);
+  font-family: var(--theme-font-body);
+  box-shadow: none;
+}
+.table thead th {
+  background: #233440;
+  color: var(--cyber-signal);
+  border-color: var(--cyber-line);
+  font-family: var(--theme-font-heading);
+  font-size: 0.84rem;
+  letter-spacing: 0.04em;
+}
+.table tbody tr, .table tbody tr:hover { box-shadow: none; }
+.progress {
+  background: #0f1b25;
+  border: 1px solid var(--cyber-line);
+  box-shadow: none;
+}
+.progress-bar {
+  background: var(--cyber-signal);
+  color: #08191d;
+  box-shadow: none;
+  animation: none;
+}
+
+/* Segmented navigation: active state uses structure rather than neon haze. */
+.nav-tabs, .nav-pills { border-color: var(--cyber-line); }
+.nav-tabs { background: #101b25; border-bottom: 2px solid var(--cyber-line); }
+.nav-tabs .nav-link, .nav-pills .nav-link {
+  background: #172532;
+  color: var(--cyber-ink-soft) !important;
+  border: 1px solid var(--cyber-line);
+  border-radius: 2px;
+  box-shadow: none;
+  font-family: var(--theme-font-heading);
+  font-size: 0.84rem;
+  letter-spacing: 0.015em;
+  text-shadow: none;
+}
+.nav-tabs .nav-link:hover, .nav-pills .nav-link:hover {
+  background: #263b49;
+  color: var(--cyber-ink) !important;
+  box-shadow: none;
+  animation: none;
+}
+.nav-tabs .nav-link.active, .nav-pills .nav-link.active {
+  background: var(--cyber-signal);
+  border-color: var(--cyber-signal);
+  color: #091a20 !important;
+  box-shadow: none;
+  font-weight: 800;
+}
+.tab-content { background: #111d28; border: 1px solid var(--cyber-line); box-shadow: none; }
+.tab-pane { font-family: var(--theme-font-body); }
+
+/* Functional chrome: modals, menus and accordions retain Bootstrap mechanics. */
+.modal-content, .dropdown-menu, .offcanvas, .toast {
+  background: #111b26;
+  color: var(--cyber-ink);
+  border: 1px solid var(--cyber-line);
+  border-radius: 3px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.52);
+}
+.modal-header, .offcanvas-header, .toast-header {
+  background: #20313e;
+  color: var(--cyber-ink);
+  border-color: var(--cyber-line);
+}
+.modal-title, .offcanvas-title {
+  color: var(--cyber-ink);
+  text-shadow: none;
+  letter-spacing: 0.025em;
+  animation: none;
+}
+.modal-body, .offcanvas-body, .toast-body {
+  color: var(--cyber-ink-soft);
+  font-family: var(--theme-font-body);
+}
+.modal-footer { background: #14222d; border-color: var(--cyber-line); }
+.btn-close { background-color: rgba(221, 234, 240, 0.9); border: 1px solid var(--cyber-line); border-radius: 2px; }
+.btn-close:hover { background-color: white; transform: none; box-shadow: none; }
+.accordion { border: 1px solid var(--cyber-line); box-shadow: none; }
+.accordion-item { background: #121f2b; border-color: var(--cyber-line); }
+.accordion-button {
+  background: #172532;
+  color: var(--cyber-ink);
+  font-family: var(--theme-font-body);
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  text-transform: none;
+}
+.accordion-button:hover { background: #213441; color: var(--cyber-ink); animation: none; }
+.accordion-button:not(.collapsed) { background: #233b49; color: var(--cyber-signal); animation: none; }
+.accordion-body { background: #121f2b; color: var(--cyber-ink-soft); font-family: var(--theme-font-body); }
+.dropdown-item {
+  color: var(--cyber-ink);
+  font-family: var(--theme-font-body);
+  text-transform: none;
+  font-size: 0.95rem;
+  letter-spacing: normal;
+}
+.dropdown-item:hover, .dropdown-item:focus {
+  color: var(--cyber-ink);
+  background: #274052;
+  box-shadow: none;
+  animation: none;
+}
+.dropdown-header { color: var(--cyber-signal); text-shadow: none; }
+.dropdown-divider { border-color: var(--cyber-line); box-shadow: none; }
+.carousel { border: 1px solid var(--cyber-line); box-shadow: none; }
+.carousel-control-prev, .carousel-control-next {
+  background: #22313f;
+  border-color: var(--cyber-line);
+  box-shadow: none;
+}
+.carousel-control-prev:hover, .carousel-control-next:hover {
+  background: #2b4351;
+  border-color: var(--cyber-signal);
+  box-shadow: none;
+  animation: none;
+}
+.carousel-indicators .active { background-color: var(--cyber-signal); box-shadow: none; }
+
+/* Breadcrumbs and pagination mirror the same hard-edged signal rail. */
+.breadcrumb, .page-link, .input-group-text {
+  background: #172532;
+  color: var(--cyber-ink);
+  border: 1px solid var(--cyber-line);
+  border-radius: 2px;
+  box-shadow: none;
+  font-family: var(--theme-font-body);
+}
+.breadcrumb-item a, .breadcrumb-item.active { color: var(--cyber-ink-soft); text-shadow: none; }
+.breadcrumb-item a:hover { color: var(--cyber-signal); animation: none; text-shadow: none; }
+.breadcrumb-item + .breadcrumb-item::before { color: var(--cyber-ink-muted); text-shadow: none; }
+.page-link:hover { background: #274052; color: var(--cyber-signal); box-shadow: none; animation: none; }
+.page-item.active .page-link {
+  background: var(--cyber-signal);
+  color: #07181b;
+  border-color: var(--cyber-signal);
+  box-shadow: none;
+}
+.page-item.disabled .page-link { color: var(--cyber-ink-muted); background: #111b26; border-color: var(--cyber-line); }
+.pagination { gap: 0.35rem; }
+
+/* Existing specialty classes still work, but opt in to purposeful effects. */
+.neon-text {
+  color: var(--cyber-signal);
+  text-shadow: 0 0 10px rgba(99, 237, 226, 0.26);
+  animation: none;
+}
+.glitch-effect { animation: none; text-shadow: 1px 0 rgba(255, 106, 133, 0.28); }
+@media (hover: hover) and (pointer: fine) {
+  .glitch-effect:hover { animation: glitch 240ms ease-in-out 1; }
+}
+.matrix-bg { position: relative; }
+.matrix-bg::before { color: rgba(143, 228, 175, 0.11); animation: none; }
+.spinner-border, .spinner-grow { color: var(--cyber-signal); }
+.spinner-border { box-shadow: none; }
+.placeholder { background: #263e4c; animation: placeholder-wave 1.5s linear infinite; }
+.toast-header, .toast-body { text-shadow: none; }
+
+/* Allow future deliberately opt-in art direction without disrupting the
+   shared responsive contract. Avoid clipped focus rings on real controls. */
+@media (max-width: 767.98px) {
+  body { background-size: auto, auto, 54px 54px, 54px 54px, auto; }
+  #home::before { top: 10%; right: -8%; width: 70vw; opacity: 0.32; }
+  #home::after { width: 34vw; bottom: 2%; }
+  #home .display-4 { font-size: clamp(2rem, 9vw, 2.85rem); line-height: 1.18; }
+  #home .col-lg-6 > .card { box-shadow: -4px 4px 0 rgba(39, 60, 77, 0.55); }
+  .btn { letter-spacing: 0.015em; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .glitch-effect:hover { animation: none; }
+  .card, .btn, .nav-link, .form-control, .form-select { transition: none; }
 }
 
 /* BEGIN RESPONSIVE CORE v1 — managed by scripts/sync_responsive.py */
