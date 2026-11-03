@@ -60,3 +60,50 @@ Production changes are limited to `themes/neumorphism-soft.css`. Source artwork 
 - No merge until the user expressly authorizes the tested direction.
 
 **Status:** research-backed draft pilot; visual approval pending.
+
+## 6. Graphite Cockpit 2.1 — high-end automotive revision
+
+**User feedback:** "más oscuro.... pensemos que es para un coche de altagama". This replaces the relative dominance of warm mineral from 2.0. The goal is **precision manufacturing and luxury automotive upholstery**, not generic dark UI, a racing-game dashboard, or a literal branded car interior.
+
+### Research behind the revision
+
+- [Mercedes-Benz design and materials](https://www.mbusa.com/en/behind-the-mercedes-benz-star/design) — manufacturer describes deliberate coordination of textures, gloss levels, grain and control usability.
+- [Porsche Panamera interior](https://newsroom.porsche.eu/en/press-kits/panamera/Interior.html) — manufacturer emphasizes modern technical detailing, premium materials, slender trim and a wide dark panel with ambient light.
+- [Mercedes-AMG GT 4-Door Coupe interior](https://media.mercedes-benz.com/en/article/e3ffb9b3-1fdc-4e2c-ab13-b3fa1a9f3f72) — manufacturer describes one restrained strip of ambient lighting and matching display/control colors.
+- [Bugatti Tourbillon interior](https://newsroom.bugatti.com/press-releases/bugatti-tourbillon-interior) — manufacturer explicitly values mechanical haptics, resistance and tactile travel.
+- [ams OSRAM smart surfaces](https://ams-osram.com/applications/automotive-mobility/smart-surface) — supplier discusses subtle backlighting, 3D tactile shapes and selectively illuminated controls as modern HMI concepts.
+
+These are *material/interaction references*, not visual assets or copied designs. Our code is an original CSS treatment of unchanged Bootstrap markup.
+
+### Palette, surface hierarchy and spec
+
+| Role | CSS private token | Color |
+| --- | --- | --- |
+| Unlit dashboard substrate | `--cockpit-canvas` | `#111319` |
+| Mounting body / lower plates | `--cockpit-shell` | `#171a20` |
+| Main raised tactile face | `--cockpit-panel` | `#1e2229` |
+| Upper light-catching face | `--cockpit-panel-lit` | `#292d35` |
+| Inset well and presses | `--cockpit-well` | `#090b10` |
+| Precision gasket | `--cockpit-gasket` | `#0a0c11` |
+| Main ivory text | `--cockpit-light` | `#e8e5e1` |
+| Supporting text | `--cockpit-secondary-ink` | `#d1cfd0` |
+| Minimal champagne trim | `--cockpit-warm-metal` | `#c9ac88` |
+
+The theme's original public semantic tokens remain and retain their **names and order**. Its existing `--neu-*` base palette now resolves to deeper graphite and small metal accents, so any reusable legacy utility also draws from the new material.
+
+### Physical grammar and what remains from 2.0
+
+1. The **same original SVG soft-touch micrograin** remains embedded in the standalone CSS. No new images or JS.
+2. Base substrate and raised panels have visibly different darkness, but lights only pick up narrow top edges. Large blur under all cards would look artificial.
+3. Cards are stationary raised structures; only actual buttons get a short pressed response.
+4. The primary button is now **graphite with a champagne locator rim**, NOT a large salmon/peach block. Success, warning and danger keep distinct semantic colors for function.
+5. Tabs use a recessed control bank. Inactive tabs feel shallow-raised; selected ones are pressed into the slot.
+6. Inputs are deep inset cavities with dark interiors and a narrow polished line on focus. Focus remains independently obvious through the gallery-wide dark outline + white halo contract.
+7. Braille-like dots remain decorative and stylized as shallow machined dimples; no real Braille wording or semantic encoding.
+8. Form text, tables, dialogs and small controls retain high-contrast readable ink and keyboard access.
+
+### Design risk
+
+The art direction must read as **automotive tactile premium**, not merely become a near-black recolor. Inspect contact shadows, inset lips, microtexture, light falloff and elevation distinction in screenshots at desktop and phone widths. A dark solid fill by itself is **not acceptance**.
+
+**Status:** Graphite Cockpit 2.1 draft pilot. This direction is being tested; no explicit approval to merge has been given.
