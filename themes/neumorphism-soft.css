@@ -17,24 +17,24 @@
   --theme-danger: var(--neu-danger);
   --theme-background: var(--neu-bg);
   --theme-surface: var(--neu-light);
-  --theme-text: #ece4e0;
+  --theme-text: #eceae6;
   --theme-font-body: 'Poppins', sans-serif;
   --theme-font-heading: 'Poppins', sans-serif;
   --theme-radius: var(--border-radius-neu);
   --theme-shadow: var(--shadow-light);
 
-  --neu-bg: #272b34;
-  --neu-light: #313641;
-  --neu-dark: #121720;
-  --neu-primary: #f0b590;
-  --neu-secondary: #c1a6cd;
+  --neu-bg: #14161b;
+  --neu-light: #20242a;
+  --neu-dark: #08090d;
+  --neu-primary: #c9ac88;
+  --neu-secondary: #a8a4af;
   --neu-success: #84dbc0;
   --neu-warning: #f4c477;
   --neu-danger: #ed96a4;
   
-  --shadow-light: 9px 12px 22px rgba(7, 10, 16, .67), -6px -6px 17px rgba(143, 148, 162, .19), 2px 3px 4px rgba(0, 0, 0, .45);
-  --shadow-inset: inset 6px 7px 12px rgba(5, 8, 15, .78), inset -4px -4px 11px rgba(162, 169, 181, .13);
-  --shadow-pressed: inset 4px 5px 8px rgba(4, 6, 12, .86), inset -2px -2px 5px rgba(175, 181, 194, .13);
+  --shadow-light: 7px 11px 22px rgba(0, 0, 0, .82), -3px -4px 12px rgba(154, 160, 168, .085), 0 2px 3px rgba(0, 0, 0, .62);
+  --shadow-inset: inset 5px 6px 10px rgba(0, 0, 0, .85), inset -2px -2px 5px rgba(186, 190, 190, .085);
+  --shadow-pressed: inset 3px 4px 9px rgba(0, 0, 0, .92), inset -1px -1px 3px rgba(186, 190, 190, .1);
   
   --border-radius-neu: 20px;
   --transition-neu: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -1315,6 +1315,351 @@ input[type="file"].form-control:hover::file-selector-button {
   #home > .container > .row { padding: 1.15rem; border-radius: 24px; }
   #home .col-lg-6 > .card { margin-top: 1.7rem; }
   .container > h2.text-center.mb-5 { font-size: 1.65rem; }
+}
+
+/* ======================================================================
+   NEUMORPHISM 2.1 — GRAPHITE COCKPIT (art-direction pilot)
+   Luxury-automotive inspiration: matte dashboard polymer, tightly fitted
+   controls, narrow machined light rims, rare champagne locator light.
+   Do not mistake this for a production in-vehicle HMI.
+   CSS-only; 13 public semantic tokens and generated core are preserved.
+   ====================================================================== */
+:root {
+  --cockpit-canvas: #111319;
+  --cockpit-shell: #171a20;
+  --cockpit-panel: #1e2229;
+  --cockpit-panel-lit: #292d35;
+  --cockpit-well: #090b10;
+  --cockpit-gasket: #0a0c11;
+  --cockpit-edge: rgba(196, 202, 207, .22);
+  --cockpit-warm-metal: #c9ac88;
+  --cockpit-light: #e8e5e1;
+  --cockpit-secondary-ink: #d1cfd0;
+  --cockpit-reflection: rgba(247, 240, 226, .12);
+  --cockpit-contact: 0 2px 3px rgba(0, 0, 0, .82);
+  --cockpit-lift: 8px 12px 25px rgba(0, 0, 0, .76),
+    -3px -4px 13px rgba(149, 160, 171, .075),
+    inset 0 1px rgba(244, 237, 227, .13);
+  --cockpit-cut: inset 5px 6px 11px rgba(0, 0, 0, .89),
+    inset -2px -2px 5px rgba(184, 194, 200, .085);
+  --cockpit-ambient: 0 0 13px rgba(201, 172, 136, .17);
+}
+/* A cabin has substantial unlit space. The original embedded micrograin
+   remains on the substrate; the warm uplight is small and indirect. */
+body {
+  color: var(--cockpit-light);
+  background-color: var(--cockpit-canvas);
+  background-image:
+    radial-gradient(ellipse 51% 12% at 72% 0%, rgba(190, 152, 114, .085), transparent 85%),
+    radial-gradient(ellipse 53% 20% at 5% 65%, rgba(97, 106, 117, .075), transparent 86%),
+    var(--mineral-grain),
+    linear-gradient(155deg, #191c22 0%, #111319 49%, #0e1015 100%);
+  background-size: auto, auto, 160px 160px, auto;
+  background-repeat: no-repeat, no-repeat, repeat, no-repeat;
+  background-blend-mode: normal, normal, soft-light, normal;
+}
+:where(h1,h2,h3,h4,h5,h6) { color: #f0ece6; }
+p, .lead, .card-text, .card-body, .tab-pane, .modal-body,
+.accordion-body, .offcanvas-body { color: var(--cockpit-secondary-ink); }
+.text-primary { color: #d6b793 !important; }
+.text-muted { color: #bfc0c2 !important; }
+
+/* The hero is a single sculpted console, not an illuminated floating blob.
+   Tight edges emphasize the panel's precise manufacturing tolerances. */
+#home > .container > .row {
+  border-radius: clamp(17px, 2vw, 26px);
+  border: 1px solid rgba(184, 188, 193, .17);
+  background: linear-gradient(148deg, #262a31 0%, #1b1e25 23%, #13161c 100%);
+  box-shadow:
+    17px 22px 38px rgba(0, 0, 0, .78),
+    -5px -6px 17px rgba(143, 154, 169, .075),
+    inset 0 1px 0 rgba(244, 241, 233, .15),
+    inset 0 -2px 0 rgba(0, 0, 0, .35);
+}
+#home h1 {
+  color: #f0eee9 !important;
+  -webkit-text-fill-color: #f0eee9 !important;
+  font-weight: 720;
+  letter-spacing: -.032em;
+  text-shadow: 0 2px 4px rgba(0,0,0,.28);
+}
+#home h1 .text-primary {
+  color: #e4c7a1 !important;
+  -webkit-text-fill-color: #e4c7a1 !important;
+}
+#home .lead { color: #ded9d4; }
+#home .col-lg-6 > .card {
+  border-radius: 17px;
+  border: 1px solid rgba(180, 187, 193, .19);
+  background: linear-gradient(142deg, #252931, #15181e 72%);
+  box-shadow: 10px 16px 28px rgba(0,0,0,.77),
+    inset 0 1px rgba(246,242,234,.12);
+}
+
+/* Small recessed machined dimples evoke Braille tactility without forming
+   actual Braille words. They are never functional status indicators. */
+.container > h2.text-center.mb-5 {
+  color: #e9e8e4;
+  letter-spacing: -.027em;
+}
+.container > h2.text-center.mb-5::after {
+  height: 12px;
+  width: 54px;
+  background:
+    radial-gradient(circle at 8px 6px, #997f66 0 2px, #1b1a1a 3px, transparent 4px),
+    radial-gradient(circle at 27px 6px, #997f66 0 2px, #1b1a1a 3px, transparent 4px),
+    radial-gradient(circle at 46px 6px, #997f66 0 2px, #1b1a1a 3px, transparent 4px);
+  filter: drop-shadow(0 -1px 1px rgba(235,225,209,.19));
+}
+/* Slim metal trim, not a full bright border or a continuous neon strip. */
+.site-navbar.navbar {
+  margin-bottom: 0;
+  border-radius: 0 0 18px 18px;
+  background: linear-gradient(180deg, #23272e, #15181e) !important;
+  border-bottom: 1px solid rgba(201, 172, 136, .29);
+  box-shadow: 0 12px 28px rgba(0,0,0,.64),
+    inset 0 1px 0 rgba(235,234,226,.12);
+}
+.site-navbar .site-brand { color: #eeeae5 !important; }
+.site-navbar .site-brand-icon { color: #d0b38e !important; }
+.site-navbar .site-nav-panel .site-nav-link { color: #e3e1df !important; }
+.site-navbar .site-nav-panel .site-nav-link:hover,
+.site-navbar .site-nav-panel .site-nav-link:focus-visible {
+  background: #101218 !important;
+  color: #f2e4d4 !important;
+  box-shadow: var(--cockpit-cut);
+}
+
+/* Buttons look dense and precision fitted. The primary is dark graphite
+   too: a narrow warm locator light is sufficient to distinguish intent. */
+.btn {
+  border-radius: 12px;
+  min-height: 2.8rem;
+  padding: .75rem 1.25rem;
+  font-weight: 650;
+  color: #f0ebe4;
+  background: linear-gradient(155deg, #353941, #1c1f26);
+  border: 1px solid rgba(198, 202, 208, .29);
+  box-shadow: var(--cockpit-lift), var(--cockpit-contact);
+}
+.btn:hover {
+  transform: translateY(-1px);
+  color: #fff7ef;
+  border-color: rgba(220,218,209,.4);
+  background: linear-gradient(155deg, #3b3e45, #21242b);
+  box-shadow: 8px 13px 21px rgba(0,0,0,.75),
+    -2px -3px 9px rgba(143,151,161,.09);
+}
+.btn:active {
+  transform: translateY(1px);
+  box-shadow: var(--cockpit-cut);
+  background: #171a21;
+}
+.btn-primary, .nav-pills .nav-link.active {
+  color: #f8f1e8 !important;
+  background: linear-gradient(160deg, #3b3938, #1f2022 45%, #15171b);
+  border: 1px solid #967c61;
+  box-shadow: var(--cockpit-lift),
+    inset 0 2px 0 rgba(245,222,187,.27),
+    0 0 12px rgba(201,172,136,.085);
+}
+.btn-primary:hover, .btn-primary:focus-visible {
+  color: #fff7ef !important;
+  background: linear-gradient(155deg, #4d433b, #252425 58%, #18191b);
+  border-color: #d1af83;
+  box-shadow: var(--cockpit-lift),
+    inset 0 2px 0 rgba(249,227,201,.29),
+    var(--cockpit-ambient);
+}
+.btn-secondary {
+  color: #efe7e0;
+  background: linear-gradient(150deg, #32343b, #171a21);
+  border-color: #808087;
+}
+.btn-success { color: #16291f !important; background: #9fd9bd; border-color: #c2efd5; }
+.btn-warning { color: #332512 !important; background: #eac488; border-color: #f3dbb0; }
+.btn-danger { color: #3e1925 !important; background: #eea1af; border-color: #f4c6d1; }
+.btn-info { color: #192d36 !important; background: #b3d2dc; border-color: #d7ecf2; }
+
+/* Dark cards are raised, not clickable. An illuminated line should live
+   only on the top manufactured edge; borders remain low contrast. */
+.card {
+  border-radius: 18px;
+  border: 1px solid rgba(192, 195, 200, .14);
+  background: linear-gradient(148deg, #272b32 0%, #1a1d24 45%, #13161b);
+  box-shadow: 10px 15px 27px rgba(0,0,0,.75),
+    -3px -4px 13px rgba(162,172,182,.075),
+    inset 0 1px rgba(246,239,228,.12);
+}
+.card:hover {
+  transform: none;
+  box-shadow: 10px 15px 27px rgba(0,0,0,.75),
+    -3px -4px 13px rgba(162,172,182,.075),
+    inset 0 1px rgba(246,239,228,.12);
+}
+.card-header {
+  border-radius: 18px 18px 0 0 !important;
+  background: linear-gradient(160deg, #282c32, #1a1d23);
+  border-bottom: 1px solid rgba(182,183,189,.16);
+  box-shadow: inset 0 -2px 5px rgba(0,0,0,.22);
+  color: #eae4de;
+}
+.card-title { color: #f0e8e1; }
+.card-body { color: #d0ced0; }
+
+/* Machined sockets and control wells. A warm locator light appears only
+   when a focused control is reachable; shared two-tone focus remains. */
+.form-control, .form-select {
+  background: var(--cockpit-well);
+  border: 1px solid #65676d;
+  border-bottom-color: #8a7e6f;
+  border-radius: 11px;
+  color: #eae7e1;
+  box-shadow: var(--cockpit-cut);
+  min-height: 2.85rem;
+}
+.form-control:focus, .form-select:focus {
+  background: #12151b;
+  color: #fff6ed;
+  border-color: #b69a76;
+  box-shadow: var(--cockpit-cut),
+    0 0 0 2px rgba(198,166,129,.23);
+}
+.form-label, .form-check-label { color: #e6e0d9; font-weight: 600; }
+.form-control::placeholder { color: #bdb9b7; }
+.input-group-text {
+  background: #2b2e34;
+  color: #e8dfd2;
+  border: 1px solid #65676d;
+}
+.form-check-input {
+  background: #0e1116;
+  border: 1px solid #b0a89e;
+  box-shadow: inset 2px 3px 5px rgba(0,0,0,.72);
+}
+.form-check-input:checked { background: #a88f71; border-color: #e6ceab; }
+input[type="file"].form-control::file-selector-button {
+  color: #eee8e2;
+  background: linear-gradient(150deg, #37393e, #202329);
+  border-right: 1px solid #7f7369;
+}
+input[type="file"].form-control:hover::file-selector-button {
+  color: #fff3e8;
+  background: #404149;
+}
+
+/* The selected tab looks pressed below the faceplate, not lit by a
+   large glow. Unselected tabs are shallow molded physical keys. */
+.nav-tabs {
+  background: #101319;
+  border: 1px solid #383c43;
+  border-bottom: 0;
+  border-radius: 17px 17px 0 0;
+  box-shadow: var(--cockpit-cut);
+}
+.nav-tabs .nav-link {
+  color: #ddd9d5;
+  border: 1px solid rgba(184,188,193,.2);
+  border-radius: 11px 11px 0 0;
+  background: linear-gradient(155deg, #34383e, #1c2026);
+  box-shadow: 2px 4px 6px rgba(0,0,0,.67);
+}
+.nav-tabs .nav-link.active {
+  color: #e7ca9f !important;
+  background: #111319;
+  border-color: #716557;
+  border-bottom-color: transparent;
+  box-shadow: var(--cockpit-cut);
+}
+.tab-content {
+  background: #1a1d23;
+  color: #e6e0da;
+  border: 1px solid #4b4d54;
+  border-top: 0;
+  border-radius: 0 0 17px 17px;
+  box-shadow: 8px 13px 20px rgba(0,0,0,.64);
+}
+.nav-pills .nav-link {
+  background: linear-gradient(160deg, #35383f, #20242b);
+  border: 1px solid #787b80;
+  color: #e5e0db !important;
+}
+.nav-pills .nav-link.active { color: #f4eadc !important; }
+
+/* Data must be legible before it is decorative. Metallic dividers rather
+   than a pronounced pressed treatment for each table cell. */
+.table {
+  --bs-table-bg: #1b1e25;
+  --bs-table-color: #e9e6e1;
+  --bs-table-border-color: #54545b;
+  --bs-table-hover-bg: #292d34;
+  --bs-table-hover-color: #fff3e6;
+  background: #1b1e25;
+  color: #e9e6e1;
+  border-color: #54545b;
+}
+.table thead th {
+  color: #e9d2b4;
+  background: #2c2f36;
+  border-bottom-color: #96806a;
+}
+.table tbody td, .table tbody th { color: #e9e6e1; }
+.progress { background: #0c0f14; border-color: #50525b; box-shadow: var(--cockpit-cut); }
+.progress-bar {
+  color: #271c17;
+  background: linear-gradient(90deg, #af9370, #e0c49b);
+}
+.badge { border-color: rgba(225,212,192,.21); box-shadow: inset 0 1px rgba(244,235,224,.19); }
+.badge-primary { background: #e0bc91; color: #282016 !important; }
+.alert {
+  background: #22252b;
+  border-color: #67666a;
+  color: #e9e4df;
+  box-shadow: var(--cockpit-lift);
+}
+.list-group-item, .accordion-item, .accordion-button, .accordion-body {
+  color: #e8e3de;
+  background: #1f2229;
+}
+.accordion-button:not(.collapsed) {
+  background: #181b21;
+  color: #f2d7b5 !important;
+  box-shadow: var(--cockpit-cut);
+}
+.breadcrumb, .page-link {
+  background: #24272e;
+  color: #e4ded7;
+  border-color: #77767b;
+}
+.modal-content, .offcanvas, .dropdown-menu, .toast {
+  background: #1b1e24;
+  color: #eee7e0;
+  border: 1px solid #55545a;
+  box-shadow: 13px 20px 37px rgba(0,0,0,.83);
+}
+.modal-header, .modal-footer, .offcanvas-header, .toast-header {
+  background: #252830;
+  border-color: #5a5554;
+}
+.modal-title, .offcanvas-title { color: #ead2b1 !important; }
+.dropdown-item { color: #e9e5df; }
+.dropdown-item:hover, .dropdown-item:focus {
+  background: #3d3633;
+  color: #fff5ea;
+}
+.site-navbar .site-nav-header { background: #242830; }
+.site-navbar .site-nav-header .offcanvas-title { color: #ede5dc !important; }
+
+/* Keep legible keyboard focus, never rely on amber accent alone.
+   The gallery's two-tone focus ring remains (dark outline + white halo). */
+@media (max-width: 767.98px) {
+  #home > .container > .row { padding: 1.1rem; border-radius: 18px; }
+  .card { border-radius: 16px; }
+  .card-header { border-radius: 16px 16px 0 0 !important; }
+  .nav-tabs .nav-link { border-radius: 9px 9px 0 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn, .card { animation: none !important; transition: none !important; }
 }
 
 /* BEGIN RESPONSIVE CORE v1 — managed by scripts/sync_responsive.py */
