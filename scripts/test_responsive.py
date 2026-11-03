@@ -283,17 +283,6 @@ def main() -> int:
 
                     if width in (390, 768, 1440):
                         page.screenshot(path=str(EVIDENCE / f"nav-closed-{width}-{theme[:-4]}.png"))
-                    if width in (390, 768, 1440) and theme == "neumorphism-soft.css":
-                        # Temporary evidence capture for Graphite Cockpit art review.
-                        # The script will be restored from main before completion.
-                        page.screenshot(
-                            path=str(EVIDENCE / f"cockpit-full-{width}.png"),
-                            full_page=True,
-                        )
-                        for section in ("components", "forms", "tables"):
-                            page.locator(f"#{section}").screenshot(
-                                path=str(EVIDENCE / f"cockpit-{section}-{width}.png")
-                            )
 
                     result = measure(page)
                     if result["excess"] > 2 or result["offscreen"]:
