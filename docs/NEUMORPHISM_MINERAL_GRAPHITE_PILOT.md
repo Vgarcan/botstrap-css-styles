@@ -127,3 +127,13 @@ The art direction must read as **automotive tactile premium**, not merely become
 - Re-run 17-theme responsive, W3C CSS, focus, and contrast suites. This draft cannot merge without explicit user approval.
 
 **Status:** 2.2 art-direction pilot, awaiting rendered review and user feedback.
+
+## 8. Final visual approval and CSS consolidation (2026-11-03)
+
+The user approved Graphite Cockpit 2.2 Recessed Console with "me gusta". This confirms **visual direction**, not permission to merge to `main`.
+
+The final CSS housekeeping pass removed **258 redundant single-line declarations** from earlier same-selector rules, a net **8,259 bytes (12.6%)** less CSS. Only declarations conclusively shadowed by a later rule of the *exact same selector/property* and sufficient `!important` priority were removed. Existing at-rules, media rules, custom-property root contract and generated Responsive Core were explicitly preserved. Non-trivial multi-line declarations and different-specificity cases were deliberately left in place rather than risk altering the cascade.
+
+**Acceptance gate:** confirm W3C, accessibility, responsive CI and pixel-level screenshot equivalence with the visual-approved Graphite Cockpit 2.2 baseline. If any visual mismatch is observed, re-evaluate the removed declarations before release.
+
+PR #15 remains **draft** and must not be merged until explicit authorization. The documented approved design is preserved independently of any future code refactoring.
