@@ -5,9 +5,7 @@
    Estilo: tipografía editorial y precisión de ingeniería
    ======================================== */
 
-/* Optional editorial font; local serif fallbacks keep offline rendering usable. */
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;500;600&display=swap');
-
+/* Crimson Text is already loaded by the gallery; fallback serif stays available offline. */
 /* Variables CSS del Tema */
 :root {
   /*
@@ -54,7 +52,7 @@
   --shadow-tech-hover: 0 12px 28px rgba(15,42,65,0.085);
   --transition: color 180ms ease, background-color 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
   --font-primary: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
-  --font-display: 'IBM Plex Serif', 'Iowan Old Style', Georgia, serif;
+  --font-display: 'Crimson Text', 'Iowan Old Style', Georgia, serif;
   --tech-ink: #172c3e;
   --tech-muted: #4f6373;
   --tech-surface: #ffffff;
