@@ -283,6 +283,23 @@ def main() -> int:
 
                     if width in (390, 768, 1440):
                         page.screenshot(path=str(EVIDENCE / f"nav-closed-{width}-{theme[:-4]}.png"))
+                    if width in (390, 768, 1440) and theme == "neumorphism-soft.css":
+                        # Temporary component evidence for Recessed Console.
+                        # Restore this script from main after capturing artifacts.
+                        page.screenshot(
+                            path=str(EVIDENCE / f"recessed-full-{width}.png"),
+                            full_page=True,
+                        )
+                        for section in ("components", "forms", "tables"):
+                            page.locator(f"#{section}").screenshot(
+                                path=str(EVIDENCE / f"recessed-{section}-{width}.png")
+                            )
+                        page.locator("#myTab").screenshot(
+                            path=str(EVIDENCE / f"recessed-tabs-{width}.png")
+                        )
+                        page.locator("#home .col-lg-6 > .card").first.screenshot(
+                            path=str(EVIDENCE / f"recessed-hero-card-{width}.png")
+                        )
 
                     result = measure(page)
                     if result["excess"] > 2 or result["offscreen"]:
