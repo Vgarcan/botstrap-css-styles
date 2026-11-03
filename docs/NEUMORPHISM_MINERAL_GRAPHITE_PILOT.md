@@ -107,3 +107,23 @@ The theme's original public semantic tokens remain and retain their **names and 
 The art direction must read as **automotive tactile premium**, not merely become a near-black recolor. Inspect contact shadows, inset lips, microtexture, light falloff and elevation distinction in screenshots at desktop and phone widths. A dark solid fill by itself is **not acceptance**.
 
 **Status:** Graphite Cockpit 2.1 draft pilot. This direction is being tested; no explicit approval to merge has been given.
+
+## 7. Graphite Cockpit 2.2 — Recessed Console review
+
+**New user direction:** "personalmente me falta mas relieve invertido". The design still felt too raised after the move to dark automotive material. Increase **visible recessed geometry**, not just shadows everywhere.
+
+### Implemented physical balance
+- **Raised chassis:** overall hero, outer cards, and primary CTA stay lifted and weighty.
+- **Deeper cavities:** hero-preview card interior, form mounting bay, inputs/selects/textarea, active tabs, table housing, progress track and opened accordion.
+- **Shallow recesses:** card headers, secondary buttons, nav pill tray, grouped field collars, badges, section markings. Unselected tabs remain elevated to create a testable depth hierarchy.
+- **Light direction:** narrow upper edge chamfer → short black lip → longer asymmetric internal shadow, with subtle opposite-side fill. Dark graphite, soft-touch micrograin and champagne accents remain.
+- **Decorative engraved dots:** small four-dot impression added to card header, complementing the existing three-dot section signature. It is not actual Braille and conveys no status or content.
+- **Accessibility boundary:** active tabs retain bright labels; all form controls retain standard focus state and keyboard functionality. No change to shared generated responsive rules.
+
+### Architecture and test gate
+- CSS appended as a **temporary review section** within `themes/neumorphism-soft.css` before generated Responsive Core. Consolidate older duplicate rules **after** visual approval.
+- No gallery HTML/JS changes. Theme-owned syntax only and no new external materials.
+- Inspect real full-page and component screenshots (390/768/1440) to verify the new recesses are visible outside the hero.
+- Re-run 17-theme responsive, W3C CSS, focus, and contrast suites. This draft cannot merge without explicit user approval.
+
+**Status:** 2.2 art-direction pilot, awaiting rendered review and user feedback.
