@@ -77,32 +77,18 @@
 body {
   font-family: 'Poppins', sans-serif;
   background: var(--neu-bg);
-  color: #4a5568;
   min-height: 100vh;
-  padding: 20px 0;
 }
 
 /* Botones Neumorphism */
 .btn {
-  background: var(--neu-bg);
-  border: none;
-  border-radius: var(--border-radius-neu);
-  box-shadow: var(--shadow-light);
-  color: #4a5568;
-  font-weight: 600;
-  padding: 15px 30px;
-  transition: var(--transition-neu);
   position: relative;
 }
 
 .btn:hover {
-  animation: neuPulse 1s ease-in-out infinite;
-  transform: translateY(-2px);
 }
 
 .btn:active {
-  box-shadow: var(--shadow-pressed);
-  transform: translateY(1px);
 }
 
 .btn-primary {
@@ -117,8 +103,6 @@ body {
 } */
 
 .btn-secondary {
-  background: linear-gradient(145deg, #8b5fbf, #6d4a9a);
-  color: white;
   box-shadow: 5px 5px 16px #6d4a9a, -5px -5px 16px #8b5fbf;
 }
 
@@ -142,32 +126,19 @@ body {
 
 /* Cards Neumorphism */
 .card {
-  background: var(--neu-bg);
-  border: none;
-  border-radius: 25px;
   box-shadow: var(--shadow-light);
   transition: var(--transition-neu);
-  margin: 20px 0;
 }
 
 .card:hover {
-  animation: neuPulse 1s ease-in-out;
-  transform: translateY(-5px);
 }
 
 .card-header {
-  background: var(--neu-bg);
-  border: none;
-  border-radius: 25px 25px 0 0;
-  box-shadow: var(--shadow-inset);
-  color: #4a5568;
   font-weight: 700;
-  padding: 20px 25px;
 }
 
 .card-body {
   padding: 25px;
-  color: #4a5568;
 }
 
 /* Navegación Neumorphism */
@@ -220,7 +191,6 @@ body {
 }
 
 .form-control::placeholder {
-  color: #a0aec0;
 }
 
 .form-label {
@@ -231,44 +201,31 @@ body {
 
 /* Alertas Neumorphism */
 .alert {
-  background: var(--neu-bg);
-  border: none;
   border-radius: var(--border-radius-neu);
-  box-shadow: var(--shadow-light);
-  color: #4a5568;
   padding: 20px;
   margin: 20px 0;
 }
 
 .alert-primary {
-  border-left: 5px solid var(--neu-primary);
 }
 
 .alert-success {
-  border-left: 5px solid var(--neu-success);
 }
 
 .alert-warning {
-  border-left: 5px solid var(--neu-warning);
 }
 
 .alert-danger {
-  border-left: 5px solid var(--neu-danger);
 }
 
 /* Tablas Neumorphism */
 .table {
-  background: var(--neu-bg);
-  border-radius: var(--border-radius-neu);
   overflow: hidden;
   box-shadow: var(--shadow-light);
-  color: #4a5568;
 }
 
 .table thead th {
-  background: var(--neu-bg);
   border: none;
-  color: #4a5568;
   font-weight: 700;
   padding: 20px;
   box-shadow: var(--shadow-inset);
@@ -284,29 +241,18 @@ body {
 }
 
 .table tbody tr:hover {
-  background: rgba(102, 126, 234, 0.05);
 }
 
 /* Progress Bars Neumorphism */
 .progress {
-  background: var(--neu-bg);
-  border-radius: 15px;
-  box-shadow: var(--shadow-inset);
   height: 20px;
 }
 
 .progress-bar {
-  background: linear-gradient(90deg, var(--neu-primary), var(--neu-secondary));
-  border-radius: 15px;
-  box-shadow: 5px 5px 10px rgba(102, 126, 234, 0.3);
 }
 
 /* Badges Neumorphism */
 .badge {
-  background: var(--neu-bg);
-  border-radius: 15px;
-  box-shadow: 5px 5px 10px #a3b1c6, -5px -5px 10px #ffffff;
-  color: #4a5568;
   font-weight: 600;
   padding: 8px 15px;
 }
@@ -333,13 +279,10 @@ body {
 
 /* Lista Group Neumorphism */
 .list-group {
-  border-radius: var(--border-radius-neu);
   overflow: hidden;
-  box-shadow: var(--shadow-light);
 }
 
 .list-group-item {
-  background: var(--neu-bg);
   border: none;
   color: #4a5568;
   padding: 20px;
@@ -391,7 +334,6 @@ body {
 }
 
 .breadcrumb-item a {
-  color: var(--neu-primary);
   text-decoration: none;
   font-weight: 500;
   transition: var(--transition-neu);
@@ -403,7 +345,6 @@ body {
 }
 
 .breadcrumb-item.active {
-  color: #4a5568;
   font-weight: 600;
 }
 
@@ -443,18 +384,14 @@ body {
 
 .page-item.disabled .page-link {
   background: #d0d7de;
-  color: #a0aec0;
   cursor: not-allowed;
   box-shadow: var(--shadow-inset);
 }
 
 /* Pills Neumorphism */
 .nav-pills .nav-link {
-  background: var(--neu-bg);
-  border: none;
   border-radius: 20px;
   box-shadow: var(--shadow-light);
-  color: #4a5568;
   font-weight: 500;
   margin: 0 8px;
   padding: 12px 24px;
@@ -467,50 +404,28 @@ body {
 }
 
 .nav-pills .nav-link.active {
-  background: linear-gradient(145deg, #7c8aed, #5a68d4);
-  color: white !important;
-  box-shadow: 5px 5px 16px #5a68d4, -5px -5px 16px #7c8aed;
 }
 
 /* Tabs Neumorphism */
 .nav-tabs {
-  background: var(--neu-bg);
-  border-bottom: none;
-  border-radius: 25px 25px 0 0;
-  box-shadow: var(--shadow-light);
-  padding: 15px 15px 0;
 }
 
 .nav-tabs .nav-link {
-  background: var(--neu-bg);
-  border: none;
-  border-radius: 20px 20px 0 0;
-  box-shadow: var(--shadow-inset);
-  color: #4a5568;
   font-weight: 500;
-  margin-bottom: 0;
   padding: 15px 25px;
   transition: var(--transition-neu);
 }
 
 .nav-tabs .nav-link:hover {
-  color: var(--neu-primary);
   box-shadow: var(--shadow-light);
   background: var(--neu-bg);
 }
 
 .nav-tabs .nav-link.active {
-  background: var(--neu-bg);
-  color: var(--neu-primary);
   font-weight: 600;
-  box-shadow: var(--shadow-light);
 }
 
 .tab-content {
-  background: var(--neu-bg);
-  border-radius: 0 0 25px 25px;
-  box-shadow: var(--shadow-light);
-  padding: 25px;
 }
 
 .tab-pane {
@@ -593,9 +508,6 @@ body {
 }
 
 .accordion-button:not(.collapsed) {
-  background: var(--neu-bg);
-  box-shadow: var(--shadow-inset);
-  color: var(--neu-primary);
 }
 
 .accordion-button:hover {
@@ -609,10 +521,8 @@ body {
 }
 
 .accordion-body {
-  background: var(--neu-bg);
   color: #4a5568;
   padding: 25px;
-  box-shadow: var(--shadow-inset);
 }
 
 /* Dropdown Neumorphism */
@@ -626,7 +536,6 @@ body {
 
 .dropdown-item {
   border-radius: 12px;
-  color: #4a5568;
   font-weight: 500;
   margin-bottom: 3px;
   padding: 12px 18px;
@@ -767,10 +676,6 @@ body {
 
 /* Input Groups Neumorphism */
 .input-group-text {
-  background: var(--neu-bg);
-  border: none;
-  box-shadow: var(--shadow-light);
-  color: #4a5568;
   font-weight: 600;
 }
 
@@ -785,20 +690,14 @@ body {
 
 /* Form Check Neumorphism */
 .form-check-input {
-  background-color: var(--neu-bg);
-  border: none;
   border-radius: 8px;
-  box-shadow: var(--shadow-inset);
   transition: var(--transition-neu);
 }
 
 .form-check-input:checked {
-  background-color: var(--neu-primary);
-  box-shadow: var(--shadow-light);
 }
 
 .form-check-input:focus {
-  box-shadow: var(--shadow-pressed);
 }
 
 .form-check-label {
@@ -857,8 +756,6 @@ body {
   text-shadow: none !important;
 }
 .progress-bar {
-  background: linear-gradient(90deg, #5266c3, #613a96);
-  color: #ffffff;
 }
 
 /*
@@ -870,15 +767,11 @@ body {
   background-image: none !important;
   -webkit-background-clip: border-box !important;
   background-clip: border-box !important;
-  -webkit-text-fill-color: #344054 !important;
-  color: #344054 !important;
 }
 #home h1 .text-primary {
   background-image: none !important;
   -webkit-background-clip: border-box !important;
   background-clip: border-box !important;
-  -webkit-text-fill-color: #303e83 !important;
-  color: #303e83 !important;
 }
 
 /* ======================================================================
@@ -907,16 +800,11 @@ body {
    The soft-light blend keeps the grain away from foreground text. */
 body {
   padding: 0;
-  color: var(--mineral-ink);
-  background-color: var(--mineral-substrate);
   background-image:
     radial-gradient(ellipse 90% 31% at 8% -7%, rgba(238, 196, 169, .18), transparent 68%),
     radial-gradient(ellipse 78% 45% at 108% 59%, rgba(167, 140, 174, .085), transparent 76%),
     var(--mineral-grain),
     linear-gradient(160deg, #30343e 0%, #252a34 38%, #1c202b 100%);
-  background-size: auto, auto, 160px 160px, auto;
-  background-repeat: no-repeat, no-repeat, repeat, no-repeat;
-  background-blend-mode: normal, normal, soft-light, normal;
 }
 :where(h1, h2, h3, h4, h5, h6, p, .lead, label, li, small) {
   color: var(--mineral-ink);
@@ -924,8 +812,8 @@ body {
 }
 p, .lead, .card-text, .tab-pane, .card-body, .modal-body,
 .accordion-body, .offcanvas-body { color: var(--mineral-muted); }
-.text-muted { color: #c9c1ca !important; }
-.text-primary { color: var(--mineral-warm-bright) !important; }
+.text-muted {}
+.text-primary {}
 a { color: #ffcfaa; }
 a:hover { color: #ffe2c9; }
 
@@ -935,9 +823,6 @@ a:hover { color: #ffe2c9; }
 #home > .container > .row {
   margin-inline: 0;
   padding: clamp(1.2rem, 3.2vw, 3rem);
-  border-radius: clamp(20px, 3vw, 38px);
-  background: linear-gradient(145deg, rgba(65, 69, 78, .88), rgba(37, 40, 49, .95) 70%);
-  border: 1px solid rgba(230, 207, 189, .17);
   box-shadow:
     15px 20px 32px rgba(6, 9, 15, .67),
     -9px -10px 29px rgba(154, 154, 164, .18),
@@ -945,16 +830,9 @@ a:hover { color: #ffe2c9; }
     inset -1px -2px 2px rgba(8, 11, 19, .32);
 }
 #home h1 {
-  color: #f5eeea !important;
-  -webkit-text-fill-color: #f5eeea !important;
-  text-shadow: none;
-  letter-spacing: -.025em;
   line-height: 1.17;
-  font-weight: 700;
 }
 #home h1 .text-primary {
-  color: var(--mineral-warm-bright) !important;
-  -webkit-text-fill-color: var(--mineral-warm-bright) !important;
 }
 #home .lead { color: #e4dbe0; line-height: 1.7; max-width: 54ch; }
 
@@ -966,48 +844,35 @@ a:hover { color: #ffe2c9; }
   max-width: 100%;
   margin-inline: auto;
   padding-bottom: 1.3rem;
-  color: #f2e9e3;
   font-size: clamp(1.55rem, 3vw, 2.4rem);
   line-height: 1.25;
-  letter-spacing: -.025em;
 }
 .container > h2.text-center.mb-5::after {
   content: "";
   display: block;
-  width: 46px;
-  height: 14px;
   margin: 1rem auto 0;
   background:
     radial-gradient(circle at 6px 7px, #dfc5b0 0 2px, #665960 3px, transparent 4px),
     radial-gradient(circle at 22px 7px, #dfc5b0 0 2px, #665960 3px, transparent 4px),
     radial-gradient(circle at 38px 7px, #dfc5b0 0 2px, #665960 3px, transparent 4px);
-  filter: drop-shadow(1px 2px 1px #0c1019);
 }
 
 /* Molded navbar belongs to the material, not a separate floating pill. */
 .site-navbar.navbar {
-  margin-bottom: 0;
   border: 0;
-  border-radius: 0 0 22px 22px;
-  background: linear-gradient(155deg, #383d48, #252a34) !important;
   box-shadow: 0 10px 23px rgba(7, 10, 16, .53),
     inset 0 1px rgba(244, 219, 195, .21);
 }
 .site-navbar .site-brand {
-  color: #f7ece3 !important;
   font-weight: 750;
   text-shadow: none !important;
 }
-.site-navbar .site-brand-icon { color: var(--mineral-warm-bright) !important; }
+.site-navbar .site-brand-icon {}
 .site-navbar .site-nav-panel .site-nav-link {
-  color: #ede6e7 !important;
   text-shadow: none !important;
 }
 .site-navbar .site-nav-panel .site-nav-link:hover,
 .site-navbar .site-nav-panel .site-nav-link:focus-visible {
-  color: #fff1e8 !important;
-  background: #2a2e39 !important;
-  box-shadow: var(--mineral-inset-shadow);
 }
 .site-navbar .site-nav-toggler {
   border-color: rgba(244, 218, 193, .5) !important;
@@ -1018,11 +883,6 @@ a:hover { color: #ffe2c9; }
 /* Pressed means actually inside the body: remove indefinite pulses from
    legacy CSS. A tactile control needs one short, deterministic press. */
 .btn {
-  border: 1px solid rgba(255, 237, 219, .18);
-  border-radius: 16px;
-  min-height: 2.75rem;
-  color: var(--mineral-ink);
-  background: linear-gradient(145deg, #454a55, #282d37);
   box-shadow:
     6px 8px 13px rgba(8, 11, 18, .74),
     -4px -5px 12px rgba(135, 142, 155, .19),
@@ -1032,35 +892,23 @@ a:hover { color: #ffe2c9; }
   transition: box-shadow .16s ease, transform .16s ease, background-color .16s ease;
 }
 .btn:hover {
-  color: #fff4eb;
   animation: none !important;
-  transform: translateY(-1px);
   box-shadow:
     8px 10px 16px rgba(8, 11, 18, .78),
     -4px -6px 13px rgba(135, 142, 155, .2),
     inset 1px 1px 1px rgba(255, 247, 236, .26);
 }
 .btn:active {
-  transform: translateY(1px);
-  box-shadow: var(--mineral-inset-shadow);
 }
 .btn-primary, .nav-pills .nav-link.active {
-  color: #251b1b !important;
   border-color: #ffddbd;
-  background: linear-gradient(145deg, #ffe0bc, #d39a7b 83%);
   box-shadow: 5px 7px 14px rgba(7, 9, 16, .63),
     -3px -3px 11px rgba(244, 204, 177, .17),
     inset 1px 1px 1px #fff4e6;
 }
 .btn-primary:hover, .btn-primary:focus-visible {
-  color: #21171a !important;
-  border-color: #ffefda;
-  background: linear-gradient(145deg, #ffebce, #e6af8c);
 }
 .btn-secondary {
-  color: #f9edf9;
-  background: linear-gradient(145deg, #695b72, #44384d);
-  border-color: rgba(220, 199, 228, .54);
 }
 .btn-success { background: #9addc6; border-color: #d4fae9; color: #152f25 !important; }
 .btn-warning { background: #f5c677; border-color: #fce5b6; color: #352315 !important; }
@@ -1088,9 +936,6 @@ a:hover { color: #ffe2c9; }
 .card {
   margin: 0;
   overflow: visible;
-  border: 1px solid rgba(235, 211, 195, .17);
-  border-radius: 26px;
-  background: linear-gradient(145deg, #3b404b, #282d37 75%);
   box-shadow: 12px 16px 28px rgba(6, 9, 15, .65),
     -7px -8px 21px rgba(143, 148, 160, .17),
     inset 1px 1px 1px rgba(253, 228, 204, .19);
@@ -1098,17 +943,11 @@ a:hover { color: #ffe2c9; }
 }
 .card:hover {
   animation: none !important;
-  transform: none;
   box-shadow: 12px 16px 28px rgba(6, 9, 15, .65),
     -7px -8px 21px rgba(143, 148, 160, .17),
     inset 1px 1px 1px rgba(253, 228, 204, .19);
 }
 .card-header {
-  color: #f7eae0;
-  background: linear-gradient(145deg, #393e48, #30353f);
-  border-bottom: 1px solid rgba(230, 206, 185, .22);
-  border-radius: 26px 26px 0 0 !important;
-  box-shadow: inset 0 -5px 8px rgba(9, 13, 19, .17);
 }
 .card-title, .card-body h3, .card-body h4, .card-body h5 { color: #f7e6d9; }
 .card-body, .card-text { color: var(--mineral-muted); }
@@ -1117,27 +956,16 @@ a:hover { color: #ffe2c9; }
 /* Deep milled sockets for entry and navigation. Focus has a visible
    ring beyond the inset shadow, independent of texture. */
 .form-control, .form-select {
-  background: var(--mineral-recess);
-  color: #f6edeb;
-  border: 1px solid #77777e;
-  border-radius: 14px;
   box-shadow: inset 5px 6px 11px rgba(5, 8, 14, .89),
     inset -3px -3px 7px rgba(157, 162, 174, .13);
-  min-height: 2.8rem;
 }
 .form-control:focus, .form-select:focus {
-  background: #1d212c;
-  color: #fff4ee;
-  border-color: #ffcba1;
   box-shadow: var(--mineral-inset-shadow), 0 0 0 3px rgba(246, 194, 150, .25);
 }
 .form-control::placeholder { color: #b6b1bc; opacity: 1; }
 .form-label, .form-check-label { color: #f2e4de; font-weight: 650; }
 .input-group-text { color: #f6dfd0; background: #41434c; border-color: #85838b; }
 .form-check-input {
-  background-color: #1b202a;
-  border: 1px solid #ada7ad;
-  box-shadow: inset 2px 3px 5px rgba(4, 7, 12, .72);
 }
 .form-check-input:checked { background-color: #d99f7d; border-color: #ffe1c3; }
 .form-check-input:focus { box-shadow: 0 0 0 3px rgba(245, 192, 151, .33); }
@@ -1146,73 +974,36 @@ a:hover { color: #ffe2c9; }
 /* Recessed navigation trough with lifted keys. */
 .nav-tabs {
   padding: .7rem .7rem 0;
-  border-radius: 22px 22px 0 0;
-  background: #242832;
-  border: 1px solid #4d515c;
-  border-bottom: 0;
   box-shadow: inset 5px 5px 11px rgba(8, 11, 17, .65),
     inset -3px -3px 9px rgba(129, 138, 151, .12);
 }
 .nav-tabs .nav-link {
-  border: 1px solid rgba(255, 242, 224, .16);
-  border-radius: 14px 14px 0 0;
-  background: linear-gradient(145deg, #3e424e, #2b2f3a);
-  color: #eee2e1;
-  box-shadow: 3px 4px 7px rgba(6, 9, 16, .44);
   margin-bottom: 0;
 }
 .nav-tabs .nav-link.active {
-  background: #1b202a;
-  color: #ffdbbb !important;
-  border-color: #a78f82;
-  border-bottom-color: transparent;
-  box-shadow: inset 3px 4px 8px rgba(0, 0, 0, .75);
 }
 .nav-tabs .nav-link:hover { color: #fff7f1; }
 .tab-content {
-  background: #2d313b;
-  border: 1px solid #61616a;
-  border-top: 0;
-  color: var(--mineral-muted);
-  border-radius: 0 0 22px 22px;
   padding: clamp(1rem, 2.3vw, 1.6rem);
-  box-shadow: var(--mineral-touch-shadow);
 }
 .nav-pills .nav-link {
-  color: #f4e8e1 !important;
-  background: linear-gradient(145deg, #40454f, #262a34);
-  border: 1px solid #85838e;
 }
-.nav-pills .nav-link.active { color: #251b1b !important; }
+.nav-pills .nav-link.active {}
 
 /* Use flat legible data ink, not pressed text in every table cell. */
 .table {
-  --bs-table-bg: #2f343e;
-  --bs-table-color: #f0e6e0;
-  --bs-table-border-color: #696a73;
-  --bs-table-hover-bg: #444854;
-  --bs-table-hover-color: #fff4ec;
-  color: var(--mineral-ink);
-  background: #2f343e;
   border: 1px solid #686973;
   border-radius: 14px;
 }
 .table thead th {
-  background: #454954;
-  color: #ffe0c5;
   border-bottom: 2px solid #bd9680;
 }
-.table tbody td, .table tbody th { color: #f0e6e0; }
+.table tbody td, .table tbody th {}
 .table tbody tr:hover { background: #444854; }
 .progress {
-  background: #191d26;
   border-radius: 999px;
-  border: 1px solid #686b74;
-  box-shadow: inset 4px 6px 9px rgba(4, 6, 11, .7);
 }
 .progress-bar {
-  color: #221c1c;
-  background: linear-gradient(90deg, #d1a28e, #ffe0b4);
   border-radius: 999px;
   box-shadow: inset 0 1px rgba(255, 255, 255, .4);
 }
@@ -1228,10 +1019,7 @@ a:hover { color: #ffe2c9; }
 .badge-warning { background: #f2cb7b; color: #382a18 !important; }
 .badge-danger { background: #f3acb5; color: #351a23 !important; }
 .alert {
-  color: #f3e8e2;
-  background: #343842;
   border: 1px solid #7a7781;
-  box-shadow: var(--mineral-touch-shadow);
 }
 .alert-primary { border-left: 4px solid #f0b590; }
 .alert-success { border-left: 4px solid #9bdbc2; }
@@ -1240,8 +1028,6 @@ a:hover { color: #ffe2c9; }
 .list-group { border-radius: 18px; border: 1px solid #787780; box-shadow: var(--mineral-touch-shadow); }
 .list-group-item { background: #30353f; color: #f1e7e1; border-color: #656771; }
 .breadcrumb, .page-link {
-  color: #f1dfd4;
-  background: #353943;
   border: 1px solid #7c7c84;
   box-shadow: var(--mineral-touch-shadow);
 }
@@ -1260,29 +1046,18 @@ a:hover { color: #ffe2c9; }
   animation: none !important;
 }
 .accordion-button:not(.collapsed) {
-  color: #ffe0c5 !important;
-  box-shadow: var(--mineral-inset-shadow);
 }
 .modal-content, .offcanvas, .dropdown-menu, .toast {
-  color: #f2e6e0;
-  background: #2e323d;
-  border: 1px solid #75717c;
-  box-shadow: 14px 21px 40px rgba(4, 6, 11, .72);
 }
 .modal-header, .modal-footer, .offcanvas-header, .toast-header {
   color: #f5e8df;
-  background: #383c46;
-  border-color: #696a73;
 }
 .modal-title, .offcanvas-title, .toast-body, .modal-body, .offcanvas-body {
   color: #f3e5dd;
 }
 .modal-title { color: #ffe7ce !important; text-shadow: none !important; }
 input[type="file"].form-control::file-selector-button {
-  color: #271c1b;
-  background: linear-gradient(145deg, #ffe0c0, #dca588);
   border: 0;
-  border-right: 1px solid #8d7a72;
   border-radius: 12px 0 0 12px;
   margin: -15px 15px -15px -20px;
   padding: 15px 17px;
@@ -1290,20 +1065,15 @@ input[type="file"].form-control::file-selector-button {
   font-weight: 700;
 }
 input[type="file"].form-control:hover::file-selector-button {
-  color: #271c1b;
-  background: #ffe7cd;
 }
 .btn-close { background-color: #ddd1ce; border: 1px solid #a69a9c; }
-.dropdown-item { color: #f0e5de; }
+.dropdown-item {}
 .dropdown-item:hover, .dropdown-item:focus {
-  color: #231b1c;
-  background: #e6b899;
   transform: none;
   box-shadow: none;
 }
-.site-navbar .site-nav-header { background: #383c46; }
+.site-navbar .site-nav-header {}
 .site-navbar .site-nav-header .offcanvas-title {
-  color: #f3e7e1 !important;
   text-shadow: none !important;
 }
 /* No ambient floating on touchable materials. Preserve instantaneous
@@ -1498,11 +1268,7 @@ p, .lead, .card-text, .card-body, .tab-pane, .modal-body,
     inset 0 1px rgba(246,239,228,.12);
 }
 .card-header {
-  border-radius: 18px 18px 0 0 !important;
-  background: linear-gradient(160deg, #282c32, #1a1d23);
   border-bottom: 1px solid rgba(182,183,189,.16);
-  box-shadow: inset 0 -2px 5px rgba(0,0,0,.22);
-  color: #eae4de;
 }
 .card-title { color: #f0e8e1; }
 .card-body { color: #d0ced0; }
@@ -1528,13 +1294,9 @@ p, .lead, .card-text, .card-body, .tab-pane, .modal-body,
 .form-label, .form-check-label { color: #e6e0d9; font-weight: 600; }
 .form-control::placeholder { color: #bdb9b7; }
 .input-group-text {
-  background: #2b2e34;
-  color: #e8dfd2;
-  border: 1px solid #65676d;
 }
 .form-check-input {
   background: #0e1116;
-  border: 1px solid #b0a89e;
   box-shadow: inset 2px 3px 5px rgba(0,0,0,.72);
 }
 .form-check-input:checked { background: #a88f71; border-color: #e6ceab; }
@@ -1551,11 +1313,7 @@ input[type="file"].form-control:hover::file-selector-button {
 /* The selected tab looks pressed below the faceplate, not lit by a
    large glow. Unselected tabs are shallow molded physical keys. */
 .nav-tabs {
-  background: #101319;
-  border: 1px solid #383c43;
-  border-bottom: 0;
   border-radius: 17px 17px 0 0;
-  box-shadow: var(--cockpit-cut);
 }
 .nav-tabs .nav-link {
   color: #ddd9d5;
@@ -1565,26 +1323,20 @@ input[type="file"].form-control:hover::file-selector-button {
   box-shadow: 2px 4px 6px rgba(0,0,0,.67);
 }
 .nav-tabs .nav-link.active {
-  color: #e7ca9f !important;
-  background: #111319;
   border-color: #716557;
-  border-bottom-color: transparent;
-  box-shadow: var(--cockpit-cut);
 }
 .tab-content {
-  background: #1a1d23;
   color: #e6e0da;
   border: 1px solid #4b4d54;
   border-top: 0;
   border-radius: 0 0 17px 17px;
-  box-shadow: 8px 13px 20px rgba(0,0,0,.64);
 }
 .nav-pills .nav-link {
   background: linear-gradient(160deg, #35383f, #20242b);
   border: 1px solid #787b80;
   color: #e5e0db !important;
 }
-.nav-pills .nav-link.active { color: #f4eadc !important; }
+.nav-pills .nav-link.active {}
 
 /* Data must be legible before it is decorative. Metallic dividers rather
    than a pronounced pressed treatment for each table cell. */
@@ -1622,9 +1374,7 @@ input[type="file"].form-control:hover::file-selector-button {
   background: #1f2229;
 }
 .accordion-button:not(.collapsed) {
-  background: #181b21;
   color: #f2d7b5 !important;
-  box-shadow: var(--cockpit-cut);
 }
 .breadcrumb, .page-link {
   background: #24272e;
