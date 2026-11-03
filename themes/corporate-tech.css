@@ -59,6 +59,11 @@
   --tech-line: #d7e2e9;
   --tech-accent-soft: #e9f3fb;
   --tech-focus: rgba(0,102,204,0.22);
+  --tech-action-secondary: #506477;
+  --tech-action-success: #236c4d;
+  --tech-action-warning: #e9c779;
+  --tech-action-danger: #b3394c;
+  --tech-action-info: #bee1ec;
 }
 
 
@@ -135,6 +140,17 @@ a:not(.btn):not(.nav-link):not(.page-link) {
   color: #ab2637;
   border-color: #cf5260;
 }
+/* Enterprise status colours are distinct without falling back to neon Bootstrap. */
+.btn-secondary { background: var(--tech-action-secondary); border-color: var(--tech-action-secondary); color: #fff; }
+.btn-secondary:hover { background: #3a5167; border-color: #3a5167; color: #fff; }
+.btn-success { background: var(--tech-action-success); border-color: var(--tech-action-success); color: #fff; }
+.btn-success:hover { background: #18533b; border-color: #18533b; color: #fff; }
+.btn-warning { background: var(--tech-action-warning); border-color: var(--tech-action-warning); color: #243342; }
+.btn-warning:hover { background: #dbb55e; border-color: #dbb55e; color: #243342; }
+.btn-danger { background: var(--tech-action-danger); border-color: var(--tech-action-danger); color: #fff; }
+.btn-danger:hover { background: #942d40; border-color: #942d40; color: #fff; }
+.btn-info { background: var(--tech-action-info); border-color: var(--tech-action-info); color: #16465d; }
+.btn-info:hover { background: #a5d4e1; border-color: #a5d4e1; color: #16465d; }
 .btn:active { box-shadow: inset 0 2px 4px rgba(12,40,65,0.13); }
 .btn:focus-visible {
   outline: 2px solid var(--tech-primary);
@@ -182,6 +198,15 @@ a:not(.btn):not(.nav-link):not(.page-link) {
   font-family: var(--font-display);
   font-weight: 500;
   letter-spacing: -0.02em;
+}
+/* A nested heading is an editorial title, not an uppercase utility label. */
+.card-header h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 2.2vw, 1.65rem);
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+  text-transform: none;
 }
 
 /* Navigation: serif brand, clear utility links, independently styled tabs. */
@@ -321,6 +346,33 @@ a:not(.btn):not(.nav-link):not(.page-link) {
 }
 .table tbody tr:hover > * { --bs-table-bg: var(--tech-accent-soft); }
 
+/* Table actions are quiet editorial tools, not oversized coloured blocks. */
+.table .btn-sm {
+  min-width: 2.45rem;
+  min-height: 2.45rem;
+  padding: 0.48rem 0.6rem;
+  border-radius: 3px;
+  box-shadow: none;
+}
+.table .btn-info {
+  background: #e9f4f8;
+  border-color: #bbd7e4;
+  color: #145373;
+}
+.table .btn-info:hover { background: #d5ecf5; border-color: #8ebdd2; color: #10445e; }
+.table .btn-warning {
+  background: #fff6e7;
+  border-color: #ead1a7;
+  color: #815009;
+}
+.table .btn-warning:hover { background: #fceacb; border-color: #d9b67c; color: #694107; }
+.table .btn-danger {
+  background: #fff0f2;
+  border-color: #efbdc6;
+  color: #a42b42;
+}
+.table .btn-danger:hover { background: #fddde3; border-color: #e79ba9; color: #892338; }
+
 /* Breadcrumbs: unobtrusive documentation-style wayfinding. */
 .breadcrumb {
   background: transparent;
@@ -413,6 +465,8 @@ a:not(.btn):not(.nav-link):not(.page-link) {
 .modal-footer { border-top: 1px solid var(--tech-line); padding: 1rem 1.5rem; }
 .accordion-item { border-color: var(--tech-line); }
 .accordion-button {
+  /* H2 is a semantic heading, but its interactive label must stay Sans. */
+  font-family: var(--font-primary);
   background: #fff;
   color: var(--tech-ink);
   border-left: 3px solid transparent;
@@ -488,6 +542,14 @@ a:not(.btn):not(.nav-link):not(.page-link) {
   .card::before { left: 0.9rem; }
   .modal-title { font-size: 1.3rem; }
   .nav-tabs .nav-link { padding-inline: 0.85rem; }
+  /* Explicit scrollable table width avoids tall, word-wrapped mobile rows. */
+  .table-responsive > .table {
+    min-width: 850px;
+  }
+  .table-responsive > .table th,
+  .table-responsive > .table td {
+    white-space: nowrap;
+  }
 }
 
 /* WCAG AA contrast remediation — audited against rendered components.
