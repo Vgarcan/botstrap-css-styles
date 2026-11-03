@@ -284,24 +284,6 @@ def main() -> int:
                     if width in (390, 768, 1440):
                         page.screenshot(path=str(EVIDENCE / f"nav-closed-{width}-{theme[:-4]}.png"))
 
-                    # Temporary design-review evidence, isolated to the Corporate Tech PR.
-                    if theme == "corporate-tech.css" and width in (390, 1440):
-                        targets = {
-                            "buttons": page.locator("#components"),
-                            "cards": page.get_by_role("heading", name="Cards with Personality").locator("xpath=.."),
-                            "tabs": page.locator("#myTab").locator("xpath=ancestor::div[contains(@class,'container')][1]"),
-                            "accordion": page.locator("#accordionExample"),
-                            "forms": page.locator("#forms"),
-                            "tables": page.locator("#tables"),
-                        }
-                        for label, locator in targets.items():
-                            try:
-                                locator.screenshot(path=str(EVIDENCE / f"review-{width}-{label}-corporate-tech.png"),
-                                                   animations="disabled", timeout=15000)
-                            except Exception as exc:
-                                print(f"Review screenshot skipped for {label}: {exc}", flush=True)
-                        page.evaluate("() => window.scrollTo(0, 0)")
-
                     result = measure(page)
                     if result["excess"] > 2 or result["offscreen"]:
                         message = (f"{width}px / {theme}: excess={result['excess']}px; "
