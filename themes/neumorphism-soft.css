@@ -17,24 +17,24 @@
   --theme-danger: var(--neu-danger);
   --theme-background: var(--neu-bg);
   --theme-surface: var(--neu-light);
-  --theme-text: #4a5568;
+  --theme-text: #eceae6;
   --theme-font-body: 'Poppins', sans-serif;
   --theme-font-heading: 'Poppins', sans-serif;
   --theme-radius: var(--border-radius-neu);
   --theme-shadow: var(--shadow-light);
 
-  --neu-bg: #e0e5ec;
-  --neu-light: #ffffff;
-  --neu-dark: #a3b1c6;
-  --neu-primary: #667eea;
-  --neu-secondary: #764ba2;
-  --neu-success: #4ade80;
-  --neu-warning: #fbbf24;
-  --neu-danger: #f87171;
+  --neu-bg: #14161b;
+  --neu-light: #20242a;
+  --neu-dark: #08090d;
+  --neu-primary: #c9ac88;
+  --neu-secondary: #a8a4af;
+  --neu-success: #84dbc0;
+  --neu-warning: #f4c477;
+  --neu-danger: #ed96a4;
   
-  --shadow-light: 5px 5px 16px #a3b1c6, -5px -5px 16px #ffffff;
-  --shadow-inset: inset 5px 5px 16px #a3b1c6, inset -5px -5px 16px #ffffff;
-  --shadow-pressed: inset 5px 5px 10px #a3b1c6, inset -5px -5px 10px #ffffff;
+  --shadow-light: 7px 11px 22px rgba(0, 0, 0, .82), -3px -4px 12px rgba(154, 160, 168, .085), 0 2px 3px rgba(0, 0, 0, .62);
+  --shadow-inset: inset 5px 6px 10px rgba(0, 0, 0, .85), inset -2px -2px 5px rgba(186, 190, 190, .085);
+  --shadow-pressed: inset 3px 4px 9px rgba(0, 0, 0, .92), inset -1px -1px 3px rgba(186, 190, 190, .1);
   
   --border-radius-neu: 20px;
   --transition-neu: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -77,32 +77,18 @@
 body {
   font-family: 'Poppins', sans-serif;
   background: var(--neu-bg);
-  color: #4a5568;
   min-height: 100vh;
-  padding: 20px 0;
 }
 
 /* Botones Neumorphism */
 .btn {
-  background: var(--neu-bg);
-  border: none;
-  border-radius: var(--border-radius-neu);
-  box-shadow: var(--shadow-light);
-  color: #4a5568;
-  font-weight: 600;
-  padding: 15px 30px;
-  transition: var(--transition-neu);
   position: relative;
 }
 
 .btn:hover {
-  animation: neuPulse 1s ease-in-out infinite;
-  transform: translateY(-2px);
 }
 
 .btn:active {
-  box-shadow: var(--shadow-pressed);
-  transform: translateY(1px);
 }
 
 .btn-primary {
@@ -117,8 +103,6 @@ body {
 } */
 
 .btn-secondary {
-  background: linear-gradient(145deg, #8b5fbf, #6d4a9a);
-  color: white;
   box-shadow: 5px 5px 16px #6d4a9a, -5px -5px 16px #8b5fbf;
 }
 
@@ -142,32 +126,19 @@ body {
 
 /* Cards Neumorphism */
 .card {
-  background: var(--neu-bg);
-  border: none;
-  border-radius: 25px;
   box-shadow: var(--shadow-light);
   transition: var(--transition-neu);
-  margin: 20px 0;
 }
 
 .card:hover {
-  animation: neuPulse 1s ease-in-out;
-  transform: translateY(-5px);
 }
 
 .card-header {
-  background: var(--neu-bg);
-  border: none;
-  border-radius: 25px 25px 0 0;
-  box-shadow: var(--shadow-inset);
-  color: #4a5568;
   font-weight: 700;
-  padding: 20px 25px;
 }
 
 .card-body {
   padding: 25px;
-  color: #4a5568;
 }
 
 /* Navegación Neumorphism */
@@ -220,7 +191,6 @@ body {
 }
 
 .form-control::placeholder {
-  color: #a0aec0;
 }
 
 .form-label {
@@ -231,44 +201,31 @@ body {
 
 /* Alertas Neumorphism */
 .alert {
-  background: var(--neu-bg);
-  border: none;
   border-radius: var(--border-radius-neu);
-  box-shadow: var(--shadow-light);
-  color: #4a5568;
   padding: 20px;
   margin: 20px 0;
 }
 
 .alert-primary {
-  border-left: 5px solid var(--neu-primary);
 }
 
 .alert-success {
-  border-left: 5px solid var(--neu-success);
 }
 
 .alert-warning {
-  border-left: 5px solid var(--neu-warning);
 }
 
 .alert-danger {
-  border-left: 5px solid var(--neu-danger);
 }
 
 /* Tablas Neumorphism */
 .table {
-  background: var(--neu-bg);
-  border-radius: var(--border-radius-neu);
   overflow: hidden;
   box-shadow: var(--shadow-light);
-  color: #4a5568;
 }
 
 .table thead th {
-  background: var(--neu-bg);
   border: none;
-  color: #4a5568;
   font-weight: 700;
   padding: 20px;
   box-shadow: var(--shadow-inset);
@@ -284,29 +241,18 @@ body {
 }
 
 .table tbody tr:hover {
-  background: rgba(102, 126, 234, 0.05);
 }
 
 /* Progress Bars Neumorphism */
 .progress {
-  background: var(--neu-bg);
-  border-radius: 15px;
-  box-shadow: var(--shadow-inset);
   height: 20px;
 }
 
 .progress-bar {
-  background: linear-gradient(90deg, var(--neu-primary), var(--neu-secondary));
-  border-radius: 15px;
-  box-shadow: 5px 5px 10px rgba(102, 126, 234, 0.3);
 }
 
 /* Badges Neumorphism */
 .badge {
-  background: var(--neu-bg);
-  border-radius: 15px;
-  box-shadow: 5px 5px 10px #a3b1c6, -5px -5px 10px #ffffff;
-  color: #4a5568;
   font-weight: 600;
   padding: 8px 15px;
 }
@@ -333,13 +279,10 @@ body {
 
 /* Lista Group Neumorphism */
 .list-group {
-  border-radius: var(--border-radius-neu);
   overflow: hidden;
-  box-shadow: var(--shadow-light);
 }
 
 .list-group-item {
-  background: var(--neu-bg);
   border: none;
   color: #4a5568;
   padding: 20px;
@@ -391,7 +334,6 @@ body {
 }
 
 .breadcrumb-item a {
-  color: var(--neu-primary);
   text-decoration: none;
   font-weight: 500;
   transition: var(--transition-neu);
@@ -403,7 +345,6 @@ body {
 }
 
 .breadcrumb-item.active {
-  color: #4a5568;
   font-weight: 600;
 }
 
@@ -443,18 +384,14 @@ body {
 
 .page-item.disabled .page-link {
   background: #d0d7de;
-  color: #a0aec0;
   cursor: not-allowed;
   box-shadow: var(--shadow-inset);
 }
 
 /* Pills Neumorphism */
 .nav-pills .nav-link {
-  background: var(--neu-bg);
-  border: none;
   border-radius: 20px;
   box-shadow: var(--shadow-light);
-  color: #4a5568;
   font-weight: 500;
   margin: 0 8px;
   padding: 12px 24px;
@@ -467,50 +404,28 @@ body {
 }
 
 .nav-pills .nav-link.active {
-  background: linear-gradient(145deg, #7c8aed, #5a68d4);
-  color: white !important;
-  box-shadow: 5px 5px 16px #5a68d4, -5px -5px 16px #7c8aed;
 }
 
 /* Tabs Neumorphism */
 .nav-tabs {
-  background: var(--neu-bg);
-  border-bottom: none;
-  border-radius: 25px 25px 0 0;
-  box-shadow: var(--shadow-light);
-  padding: 15px 15px 0;
 }
 
 .nav-tabs .nav-link {
-  background: var(--neu-bg);
-  border: none;
-  border-radius: 20px 20px 0 0;
-  box-shadow: var(--shadow-inset);
-  color: #4a5568;
   font-weight: 500;
-  margin-bottom: 0;
   padding: 15px 25px;
   transition: var(--transition-neu);
 }
 
 .nav-tabs .nav-link:hover {
-  color: var(--neu-primary);
   box-shadow: var(--shadow-light);
   background: var(--neu-bg);
 }
 
 .nav-tabs .nav-link.active {
-  background: var(--neu-bg);
-  color: var(--neu-primary);
   font-weight: 600;
-  box-shadow: var(--shadow-light);
 }
 
 .tab-content {
-  background: var(--neu-bg);
-  border-radius: 0 0 25px 25px;
-  box-shadow: var(--shadow-light);
-  padding: 25px;
 }
 
 .tab-pane {
@@ -593,9 +508,6 @@ body {
 }
 
 .accordion-button:not(.collapsed) {
-  background: var(--neu-bg);
-  box-shadow: var(--shadow-inset);
-  color: var(--neu-primary);
 }
 
 .accordion-button:hover {
@@ -609,10 +521,8 @@ body {
 }
 
 .accordion-body {
-  background: var(--neu-bg);
   color: #4a5568;
   padding: 25px;
-  box-shadow: var(--shadow-inset);
 }
 
 /* Dropdown Neumorphism */
@@ -626,7 +536,6 @@ body {
 
 .dropdown-item {
   border-radius: 12px;
-  color: #4a5568;
   font-weight: 500;
   margin-bottom: 3px;
   padding: 12px 18px;
@@ -767,10 +676,6 @@ body {
 
 /* Input Groups Neumorphism */
 .input-group-text {
-  background: var(--neu-bg);
-  border: none;
-  box-shadow: var(--shadow-light);
-  color: #4a5568;
   font-weight: 600;
 }
 
@@ -785,20 +690,14 @@ body {
 
 /* Form Check Neumorphism */
 .form-check-input {
-  background-color: var(--neu-bg);
-  border: none;
   border-radius: 8px;
-  box-shadow: var(--shadow-inset);
   transition: var(--transition-neu);
 }
 
 .form-check-input:checked {
-  background-color: var(--neu-primary);
-  box-shadow: var(--shadow-light);
 }
 
 .form-check-input:focus {
-  box-shadow: var(--shadow-pressed);
 }
 
 .form-check-label {
@@ -857,8 +756,6 @@ body {
   text-shadow: none !important;
 }
 .progress-bar {
-  background: linear-gradient(90deg, #5266c3, #613a96);
-  color: #ffffff;
 }
 
 /*
@@ -870,15 +767,900 @@ body {
   background-image: none !important;
   -webkit-background-clip: border-box !important;
   background-clip: border-box !important;
-  -webkit-text-fill-color: #344054 !important;
-  color: #344054 !important;
 }
 #home h1 .text-primary {
   background-image: none !important;
   -webkit-background-clip: border-box !important;
   background-clip: border-box !important;
-  -webkit-text-fill-color: #303e83 !important;
-  color: #303e83 !important;
+}
+
+/* ======================================================================
+   NEUMORPHISM 2.0 / MINERAL GRAPHITE — tactile hybrid pilot
+   Material: charcoal elastomer from C, warm mineral edge light from B.
+   One upper-left source, near contact shadows, inset controls, fine grain.
+   Source for the embedded grain: docs/NEUMORPHISM_MINERAL_GRAIN.svg.
+   Pure CSS; shared generated Responsive Core below is untouched.
+   ====================================================================== */
+:root {
+  --mineral-substrate: #272b34;
+  --mineral-recess: #181c25;
+  --mineral-raised: #353a45;
+  --mineral-ink: #f0e9e5;
+  --mineral-muted: #d4cbd1;
+  --mineral-warm: #f0b590;
+  --mineral-warm-bright: #ffd7b5;
+  --mineral-lilac: #c1a6cd;
+  --mineral-edge: rgba(218, 197, 184, .3);
+  --mineral-touch-shadow: var(--shadow-light);
+  --mineral-inset-shadow: var(--shadow-inset);
+  --mineral-grain: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22160%22%20height%3D%22160%22%20viewBox%3D%220%200%20160%20160%22%3E%3Cfilter%20id%3D%22grain%22%20x%3D%220%22%20y%3D%220%22%20width%3D%22100%25%22%20height%3D%22100%25%22%3E%3CfeTurbulence%20type%3D%22fractalNoise%22%20baseFrequency%3D%22.82%22%20numOctaves%3D%223%22%20seed%3D%229%22%20stitchTiles%3D%22stitch%22%2F%3E%3CfeColorMatrix%20type%3D%22saturate%22%20values%3D%220%22%2F%3E%3CfeComponentTransfer%3E%3CfeFuncA%20type%3D%22linear%22%20slope%3D%22.19%22%2F%3E%3C%2FfeComponentTransfer%3E%3C%2Ffilter%3E%3Crect%20width%3D%22160%22%20height%3D%22160%22%20filter%3D%22url%28%23grain%29%22%20opacity%3D%22.42%22%2F%3E%3C%2Fsvg%3E");
+}
+
+/* The substrate has micrograin; it is deliberately invisible at a glance.
+   The soft-light blend keeps the grain away from foreground text. */
+body {
+  padding: 0;
+  background-image:
+    radial-gradient(ellipse 90% 31% at 8% -7%, rgba(238, 196, 169, .18), transparent 68%),
+    radial-gradient(ellipse 78% 45% at 108% 59%, rgba(167, 140, 174, .085), transparent 76%),
+    var(--mineral-grain),
+    linear-gradient(160deg, #30343e 0%, #252a34 38%, #1c202b 100%);
+}
+:where(h1, h2, h3, h4, h5, h6, p, .lead, label, li, small) {
+  color: var(--mineral-ink);
+  text-shadow: none;
+}
+p, .lead, .card-text, .tab-pane, .card-body, .modal-body,
+.accordion-body, .offcanvas-body { color: var(--mineral-muted); }
+.text-muted {}
+.text-primary {}
+a { color: #ffcfaa; }
+a:hover { color: #ffe2c9; }
+
+/* Solid raised slab, not frosted glass: area light from top-left,
+   small contact shadow on bottom-right anchors it to its substrate. */
+#home { background: none; }
+#home > .container > .row {
+  margin-inline: 0;
+  padding: clamp(1.2rem, 3.2vw, 3rem);
+  box-shadow:
+    15px 20px 32px rgba(6, 9, 15, .67),
+    -9px -10px 29px rgba(154, 154, 164, .18),
+    inset 2px 2px 1px rgba(255, 236, 213, .22),
+    inset -1px -2px 2px rgba(8, 11, 19, .32);
+}
+#home h1 {
+  line-height: 1.17;
+}
+#home h1 .text-primary {
+}
+#home .lead { color: #e4dbe0; line-height: 1.7; max-width: 54ch; }
+
+/* Quiet engraved dots: a decorative tactile signature on section titles,
+   not Braille language and not used to encode state or accessibility text. */
+.container > h2.text-center.mb-5 {
+  position: relative;
+  width: fit-content;
+  max-width: 100%;
+  margin-inline: auto;
+  padding-bottom: 1.3rem;
+  font-size: clamp(1.55rem, 3vw, 2.4rem);
+  line-height: 1.25;
+}
+.container > h2.text-center.mb-5::after {
+  content: "";
+  display: block;
+  margin: 1rem auto 0;
+  background:
+    radial-gradient(circle at 6px 7px, #dfc5b0 0 2px, #665960 3px, transparent 4px),
+    radial-gradient(circle at 22px 7px, #dfc5b0 0 2px, #665960 3px, transparent 4px),
+    radial-gradient(circle at 38px 7px, #dfc5b0 0 2px, #665960 3px, transparent 4px);
+}
+
+/* Molded navbar belongs to the material, not a separate floating pill. */
+.site-navbar.navbar {
+  border: 0;
+  box-shadow: 0 10px 23px rgba(7, 10, 16, .53),
+    inset 0 1px rgba(244, 219, 195, .21);
+}
+.site-navbar .site-brand {
+  font-weight: 750;
+  text-shadow: none !important;
+}
+.site-navbar .site-brand-icon {}
+.site-navbar .site-nav-panel .site-nav-link {
+  text-shadow: none !important;
+}
+.site-navbar .site-nav-panel .site-nav-link:hover,
+.site-navbar .site-nav-panel .site-nav-link:focus-visible {
+}
+.site-navbar .site-nav-toggler {
+  border-color: rgba(244, 218, 193, .5) !important;
+  background: #343944;
+}
+.site-navbar .site-nav-toggler .navbar-toggler-icon { filter: invert(1); }
+
+/* Pressed means actually inside the body: remove indefinite pulses from
+   legacy CSS. A tactile control needs one short, deterministic press. */
+.btn {
+  box-shadow:
+    6px 8px 13px rgba(8, 11, 18, .74),
+    -4px -5px 12px rgba(135, 142, 155, .19),
+    inset 1px 1px 1px rgba(255, 247, 236, .22);
+  animation: none !important;
+  transform: none;
+  transition: box-shadow .16s ease, transform .16s ease, background-color .16s ease;
+}
+.btn:hover {
+  animation: none !important;
+  box-shadow:
+    8px 10px 16px rgba(8, 11, 18, .78),
+    -4px -6px 13px rgba(135, 142, 155, .2),
+    inset 1px 1px 1px rgba(255, 247, 236, .26);
+}
+.btn:active {
+}
+.btn-primary, .nav-pills .nav-link.active {
+  border-color: #ffddbd;
+  box-shadow: 5px 7px 14px rgba(7, 9, 16, .63),
+    -3px -3px 11px rgba(244, 204, 177, .17),
+    inset 1px 1px 1px #fff4e6;
+}
+.btn-primary:hover, .btn-primary:focus-visible {
+}
+.btn-secondary {
+}
+.btn-success { background: #9addc6; border-color: #d4fae9; color: #152f25 !important; }
+.btn-warning { background: #f5c677; border-color: #fce5b6; color: #352315 !important; }
+.btn-danger { background: #ef9bab; border-color: #fbc5d1; color: #3c1724 !important; }
+.btn-info { background: #a9cfdc; color: #1a2c38 !important; }
+.btn-outline-primary, .btn-outline-secondary, .btn-outline-success,
+.btn-outline-danger {
+  background: linear-gradient(145deg, #3d414b, #242832);
+  color: #f3e9e6;
+  border: 1px solid #9d999e;
+}
+.btn-outline-primary:hover, .btn-outline-secondary:hover,
+.btn-outline-success:hover, .btn-outline-danger:hover {
+  background: #4c505b;
+  color: white;
+}
+.btn:focus-visible, .form-control:focus-visible, .form-select:focus-visible,
+.nav-link:focus-visible, .page-link:focus-visible, .accordion-button:focus-visible {
+  outline: 3px solid #101827 !important;
+  outline-offset: 3px;
+}
+
+/* Lifted tiles use two layers of shadow; clicking a static card should
+   not create a fake press or indefinite float. */
+.card {
+  margin: 0;
+  overflow: visible;
+  box-shadow: 12px 16px 28px rgba(6, 9, 15, .65),
+    -7px -8px 21px rgba(143, 148, 160, .17),
+    inset 1px 1px 1px rgba(253, 228, 204, .19);
+  animation: none !important;
+}
+.card:hover {
+  animation: none !important;
+  box-shadow: 12px 16px 28px rgba(6, 9, 15, .65),
+    -7px -8px 21px rgba(143, 148, 160, .17),
+    inset 1px 1px 1px rgba(253, 228, 204, .19);
+}
+.card-header {
+}
+.card-title, .card-body h3, .card-body h4, .card-body h5 { color: #f7e6d9; }
+.card-body, .card-text { color: var(--mineral-muted); }
+#home .col-lg-6 > .card { margin-top: .5rem; }
+
+/* Deep milled sockets for entry and navigation. Focus has a visible
+   ring beyond the inset shadow, independent of texture. */
+.form-control, .form-select {
+  box-shadow: inset 5px 6px 11px rgba(5, 8, 14, .89),
+    inset -3px -3px 7px rgba(157, 162, 174, .13);
+}
+.form-control:focus, .form-select:focus {
+  box-shadow: var(--mineral-inset-shadow), 0 0 0 3px rgba(246, 194, 150, .25);
+}
+.form-control::placeholder { color: #b6b1bc; opacity: 1; }
+.form-label, .form-check-label { color: #f2e4de; font-weight: 650; }
+.input-group-text { color: #f6dfd0; background: #41434c; border-color: #85838b; }
+.form-check-input {
+}
+.form-check-input:checked { background-color: #d99f7d; border-color: #ffe1c3; }
+.form-check-input:focus { box-shadow: 0 0 0 3px rgba(245, 192, 151, .33); }
+.form-check-input[type="radio"] { border-radius: 50%; }
+
+/* Recessed navigation trough with lifted keys. */
+.nav-tabs {
+  padding: .7rem .7rem 0;
+  box-shadow: inset 5px 5px 11px rgba(8, 11, 17, .65),
+    inset -3px -3px 9px rgba(129, 138, 151, .12);
+}
+.nav-tabs .nav-link {
+  margin-bottom: 0;
+}
+.nav-tabs .nav-link.active {
+}
+.nav-tabs .nav-link:hover { color: #fff7f1; }
+.tab-content {
+  padding: clamp(1rem, 2.3vw, 1.6rem);
+}
+.nav-pills .nav-link {
+}
+.nav-pills .nav-link.active {}
+
+/* Use flat legible data ink, not pressed text in every table cell. */
+.table {
+  border: 1px solid #686973;
+  border-radius: 14px;
+}
+.table thead th {
+  border-bottom: 2px solid #bd9680;
+}
+.table tbody td, .table tbody th {}
+.table tbody tr:hover { background: #444854; }
+.progress {
+  border-radius: 999px;
+}
+.progress-bar {
+  border-radius: 999px;
+  box-shadow: inset 0 1px rgba(255, 255, 255, .4);
+}
+.badge {
+  border: 1px solid rgba(253, 235, 214, .25);
+  border-radius: 999px;
+  background: #75606c;
+  color: #fff5ef;
+  box-shadow: inset 1px 1px rgba(255, 255, 255, .24), 2px 3px 6px rgba(4, 6, 11, .37);
+}
+.badge-primary { background: #efbc98; color: #291d1b !important; }
+.badge-success { background: #b5dec7; color: #1a3026 !important; }
+.badge-warning { background: #f2cb7b; color: #382a18 !important; }
+.badge-danger { background: #f3acb5; color: #351a23 !important; }
+.alert {
+  border: 1px solid #7a7781;
+}
+.alert-primary { border-left: 4px solid #f0b590; }
+.alert-success { border-left: 4px solid #9bdbc2; }
+.alert-warning { border-left: 4px solid #f2ca80; }
+.alert-danger { border-left: 4px solid #f4a4b0; }
+.list-group { border-radius: 18px; border: 1px solid #787780; box-shadow: var(--mineral-touch-shadow); }
+.list-group-item { background: #30353f; color: #f1e7e1; border-color: #656771; }
+.breadcrumb, .page-link {
+  border: 1px solid #7c7c84;
+  box-shadow: var(--mineral-touch-shadow);
+}
+.breadcrumb-item a { color: #ffe0c3 !important; }
+.breadcrumb-item.active { color: #dfc9c0; }
+.page-item.active .page-link { background: #eab38e; color: #271d1a; }
+.page-item.disabled .page-link { background: #2a2d37; color: #c0b7bf; }
+.accordion, .carousel { animation: none !important; box-shadow: var(--mineral-touch-shadow); }
+.accordion-item, .accordion-button, .accordion-body {
+  color: #eee2dc;
+  background: #31353f;
+}
+.accordion-button:hover, .accordion-button:not(.collapsed) {
+  color: #ffe0c5;
+  background: #363a43;
+  animation: none !important;
+}
+.accordion-button:not(.collapsed) {
+}
+.modal-content, .offcanvas, .dropdown-menu, .toast {
+}
+.modal-header, .modal-footer, .offcanvas-header, .toast-header {
+  color: #f5e8df;
+}
+.modal-title, .offcanvas-title, .toast-body, .modal-body, .offcanvas-body {
+  color: #f3e5dd;
+}
+.modal-title { color: #ffe7ce !important; text-shadow: none !important; }
+input[type="file"].form-control::file-selector-button {
+  border: 0;
+  border-radius: 12px 0 0 12px;
+  margin: -15px 15px -15px -20px;
+  padding: 15px 17px;
+  font: inherit;
+  font-weight: 700;
+}
+input[type="file"].form-control:hover::file-selector-button {
+}
+.btn-close { background-color: #ddd1ce; border: 1px solid #a69a9c; }
+.dropdown-item {}
+.dropdown-item:hover, .dropdown-item:focus {
+  transform: none;
+  box-shadow: none;
+}
+.site-navbar .site-nav-header {}
+.site-navbar .site-nav-header .offcanvas-title {
+  text-shadow: none !important;
+}
+/* No ambient floating on touchable materials. Preserve instantaneous
+   tactile feedback for pointer users and obvious focus for keyboards. */
+@media (prefers-reduced-motion: reduce) {
+  .btn, .card, .accordion, .carousel { animation: none !important; transition: none !important; }
+}
+@media (max-width: 767.98px) {
+  #home > .container > .row { padding: 1.15rem; border-radius: 24px; }
+  #home .col-lg-6 > .card { margin-top: 1.7rem; }
+  .container > h2.text-center.mb-5 { font-size: 1.65rem; }
+}
+
+/* ======================================================================
+   NEUMORPHISM 2.1 — GRAPHITE COCKPIT (art-direction pilot)
+   Luxury-automotive inspiration: matte dashboard polymer, tightly fitted
+   controls, narrow machined light rims, rare champagne locator light.
+   Do not mistake this for a production in-vehicle HMI.
+   CSS-only; 13 public semantic tokens and generated core are preserved.
+   ====================================================================== */
+:root {
+  --cockpit-canvas: #111319;
+  --cockpit-shell: #171a20;
+  --cockpit-panel: #1e2229;
+  --cockpit-panel-lit: #292d35;
+  --cockpit-well: #090b10;
+  --cockpit-gasket: #0a0c11;
+  --cockpit-edge: rgba(196, 202, 207, .22);
+  --cockpit-warm-metal: #c9ac88;
+  --cockpit-light: #e8e5e1;
+  --cockpit-secondary-ink: #d1cfd0;
+  --cockpit-reflection: rgba(247, 240, 226, .12);
+  --cockpit-contact: 0 2px 3px rgba(0, 0, 0, .82);
+  --cockpit-lift: 8px 12px 25px rgba(0, 0, 0, .76),
+    -3px -4px 13px rgba(149, 160, 171, .075),
+    inset 0 1px rgba(244, 237, 227, .13);
+  --cockpit-cut: inset 5px 6px 11px rgba(0, 0, 0, .89),
+    inset -2px -2px 5px rgba(184, 194, 200, .085);
+  --cockpit-ambient: 0 0 13px rgba(201, 172, 136, .17);
+}
+/* A cabin has substantial unlit space. The original embedded micrograin
+   remains on the substrate; the warm uplight is small and indirect. */
+body {
+  color: var(--cockpit-light);
+  background-color: var(--cockpit-canvas);
+  background-image:
+    radial-gradient(ellipse 51% 12% at 72% 0%, rgba(190, 152, 114, .085), transparent 85%),
+    radial-gradient(ellipse 53% 20% at 5% 65%, rgba(97, 106, 117, .075), transparent 86%),
+    var(--mineral-grain),
+    linear-gradient(155deg, #191c22 0%, #111319 49%, #0e1015 100%);
+  background-size: auto, auto, 160px 160px, auto;
+  background-repeat: no-repeat, no-repeat, repeat, no-repeat;
+  background-blend-mode: normal, normal, soft-light, normal;
+}
+:where(h1,h2,h3,h4,h5,h6) { color: #f0ece6; }
+p, .lead, .card-text, .card-body, .tab-pane, .modal-body,
+.accordion-body, .offcanvas-body { color: var(--cockpit-secondary-ink); }
+.text-primary { color: #d6b793 !important; }
+.text-muted { color: #bfc0c2 !important; }
+
+/* The hero is a single sculpted console, not an illuminated floating blob.
+   Tight edges emphasize the panel's precise manufacturing tolerances. */
+#home > .container > .row {
+  border-radius: clamp(17px, 2vw, 26px);
+  border: 1px solid rgba(184, 188, 193, .17);
+  background: linear-gradient(148deg, #262a31 0%, #1b1e25 23%, #13161c 100%);
+  box-shadow:
+    17px 22px 38px rgba(0, 0, 0, .78),
+    -5px -6px 17px rgba(143, 154, 169, .075),
+    inset 0 1px 0 rgba(244, 241, 233, .15),
+    inset 0 -2px 0 rgba(0, 0, 0, .35);
+}
+#home h1 {
+  color: #f0eee9 !important;
+  -webkit-text-fill-color: #f0eee9 !important;
+  font-weight: 720;
+  letter-spacing: -.032em;
+  text-shadow: 0 2px 4px rgba(0,0,0,.28);
+}
+#home h1 .text-primary {
+  color: #e4c7a1 !important;
+  -webkit-text-fill-color: #e4c7a1 !important;
+}
+#home .lead { color: #ded9d4; }
+#home .col-lg-6 > .card {
+  border-radius: 17px;
+  border: 1px solid rgba(180, 187, 193, .19);
+  background: linear-gradient(142deg, #252931, #15181e 72%);
+  box-shadow: 10px 16px 28px rgba(0,0,0,.77),
+    inset 0 1px rgba(246,242,234,.12);
+}
+
+/* Small recessed machined dimples evoke Braille tactility without forming
+   actual Braille words. They are never functional status indicators. */
+.container > h2.text-center.mb-5 {
+  color: #e9e8e4;
+  letter-spacing: -.027em;
+}
+.container > h2.text-center.mb-5::after {
+  height: 12px;
+  width: 54px;
+  background:
+    radial-gradient(circle at 8px 6px, #997f66 0 2px, #1b1a1a 3px, transparent 4px),
+    radial-gradient(circle at 27px 6px, #997f66 0 2px, #1b1a1a 3px, transparent 4px),
+    radial-gradient(circle at 46px 6px, #997f66 0 2px, #1b1a1a 3px, transparent 4px);
+  filter: drop-shadow(0 -1px 1px rgba(235,225,209,.19));
+}
+/* Slim metal trim, not a full bright border or a continuous neon strip. */
+.site-navbar.navbar {
+  margin-bottom: 0;
+  border-radius: 0 0 18px 18px;
+  background: linear-gradient(180deg, #23272e, #15181e) !important;
+  border-bottom: 1px solid rgba(201, 172, 136, .29);
+  box-shadow: 0 12px 28px rgba(0,0,0,.64),
+    inset 0 1px 0 rgba(235,234,226,.12);
+}
+.site-navbar .site-brand { color: #eeeae5 !important; }
+.site-navbar .site-brand-icon { color: #d0b38e !important; }
+.site-navbar .site-nav-panel .site-nav-link { color: #e3e1df !important; }
+.site-navbar .site-nav-panel .site-nav-link:hover,
+.site-navbar .site-nav-panel .site-nav-link:focus-visible {
+  background: #101218 !important;
+  color: #f2e4d4 !important;
+  box-shadow: var(--cockpit-cut);
+}
+
+/* Buttons look dense and precision fitted. The primary is dark graphite
+   too: a narrow warm locator light is sufficient to distinguish intent. */
+.btn {
+  border-radius: 12px;
+  min-height: 2.8rem;
+  padding: .75rem 1.25rem;
+  font-weight: 650;
+  color: #f0ebe4;
+  background: linear-gradient(155deg, #353941, #1c1f26);
+  border: 1px solid rgba(198, 202, 208, .29);
+  box-shadow: var(--cockpit-lift), var(--cockpit-contact);
+}
+.btn:hover {
+  transform: translateY(-1px);
+  color: #fff7ef;
+  border-color: rgba(220,218,209,.4);
+  background: linear-gradient(155deg, #3b3e45, #21242b);
+  box-shadow: 8px 13px 21px rgba(0,0,0,.75),
+    -2px -3px 9px rgba(143,151,161,.09);
+}
+.btn:active {
+  transform: translateY(1px);
+  box-shadow: var(--cockpit-cut);
+  background: #171a21;
+}
+.btn-primary, .nav-pills .nav-link.active {
+  color: #f8f1e8 !important;
+  background: linear-gradient(160deg, #3b3938, #1f2022 45%, #15171b);
+  border: 1px solid #967c61;
+  box-shadow: var(--cockpit-lift),
+    inset 0 2px 0 rgba(245,222,187,.27),
+    0 0 12px rgba(201,172,136,.085);
+}
+.btn-primary:hover, .btn-primary:focus-visible {
+  color: #fff7ef !important;
+  background: linear-gradient(155deg, #4d433b, #252425 58%, #18191b);
+  border-color: #d1af83;
+  box-shadow: var(--cockpit-lift),
+    inset 0 2px 0 rgba(249,227,201,.29),
+    var(--cockpit-ambient);
+}
+.btn-secondary {
+  color: #efe7e0;
+  background: linear-gradient(150deg, #32343b, #171a21);
+  border-color: #808087;
+}
+.btn-success { color: #16291f !important; background: #9fd9bd; border-color: #c2efd5; }
+.btn-warning { color: #332512 !important; background: #eac488; border-color: #f3dbb0; }
+.btn-danger { color: #3e1925 !important; background: #eea1af; border-color: #f4c6d1; }
+.btn-info { color: #192d36 !important; background: #b3d2dc; border-color: #d7ecf2; }
+
+/* Dark cards are raised, not clickable. An illuminated line should live
+   only on the top manufactured edge; borders remain low contrast. */
+.card {
+  border-radius: 18px;
+  border: 1px solid rgba(192, 195, 200, .14);
+  background: linear-gradient(148deg, #272b32 0%, #1a1d24 45%, #13161b);
+  box-shadow: 10px 15px 27px rgba(0,0,0,.75),
+    -3px -4px 13px rgba(162,172,182,.075),
+    inset 0 1px rgba(246,239,228,.12);
+}
+.card:hover {
+  transform: none;
+  box-shadow: 10px 15px 27px rgba(0,0,0,.75),
+    -3px -4px 13px rgba(162,172,182,.075),
+    inset 0 1px rgba(246,239,228,.12);
+}
+.card-header {
+  border-bottom: 1px solid rgba(182,183,189,.16);
+}
+.card-title { color: #f0e8e1; }
+.card-body { color: #d0ced0; }
+
+/* Machined sockets and control wells. A warm locator light appears only
+   when a focused control is reachable; shared two-tone focus remains. */
+.form-control, .form-select {
+  background: var(--cockpit-well);
+  border: 1px solid #65676d;
+  border-bottom-color: #8a7e6f;
+  border-radius: 11px;
+  color: #eae7e1;
+  box-shadow: var(--cockpit-cut);
+  min-height: 2.85rem;
+}
+.form-control:focus, .form-select:focus {
+  background: #12151b;
+  color: #fff6ed;
+  border-color: #b69a76;
+  box-shadow: var(--cockpit-cut),
+    0 0 0 2px rgba(198,166,129,.23);
+}
+.form-label, .form-check-label { color: #e6e0d9; font-weight: 600; }
+.form-control::placeholder { color: #bdb9b7; }
+.input-group-text {
+}
+.form-check-input {
+  background: #0e1116;
+  box-shadow: inset 2px 3px 5px rgba(0,0,0,.72);
+}
+.form-check-input:checked { background: #a88f71; border-color: #e6ceab; }
+input[type="file"].form-control::file-selector-button {
+  color: #eee8e2;
+  background: linear-gradient(150deg, #37393e, #202329);
+  border-right: 1px solid #7f7369;
+}
+input[type="file"].form-control:hover::file-selector-button {
+  color: #fff3e8;
+  background: #404149;
+}
+
+/* The selected tab looks pressed below the faceplate, not lit by a
+   large glow. Unselected tabs are shallow molded physical keys. */
+.nav-tabs {
+  border-radius: 17px 17px 0 0;
+}
+.nav-tabs .nav-link {
+  color: #ddd9d5;
+  border: 1px solid rgba(184,188,193,.2);
+  border-radius: 11px 11px 0 0;
+  background: linear-gradient(155deg, #34383e, #1c2026);
+  box-shadow: 2px 4px 6px rgba(0,0,0,.67);
+}
+.nav-tabs .nav-link.active {
+  border-color: #716557;
+}
+.tab-content {
+  color: #e6e0da;
+  border: 1px solid #4b4d54;
+  border-top: 0;
+  border-radius: 0 0 17px 17px;
+}
+.nav-pills .nav-link {
+  background: linear-gradient(160deg, #35383f, #20242b);
+  border: 1px solid #787b80;
+  color: #e5e0db !important;
+}
+.nav-pills .nav-link.active {}
+
+/* Data must be legible before it is decorative. Metallic dividers rather
+   than a pronounced pressed treatment for each table cell. */
+.table {
+  --bs-table-bg: #1b1e25;
+  --bs-table-color: #e9e6e1;
+  --bs-table-border-color: #54545b;
+  --bs-table-hover-bg: #292d34;
+  --bs-table-hover-color: #fff3e6;
+  background: #1b1e25;
+  color: #e9e6e1;
+  border-color: #54545b;
+}
+.table thead th {
+  color: #e9d2b4;
+  background: #2c2f36;
+  border-bottom-color: #96806a;
+}
+.table tbody td, .table tbody th { color: #e9e6e1; }
+.progress { background: #0c0f14; border-color: #50525b; box-shadow: var(--cockpit-cut); }
+.progress-bar {
+  color: #271c17;
+  background: linear-gradient(90deg, #af9370, #e0c49b);
+}
+.badge { border-color: rgba(225,212,192,.21); box-shadow: inset 0 1px rgba(244,235,224,.19); }
+.badge-primary { background: #e0bc91; color: #282016 !important; }
+.alert {
+  background: #22252b;
+  border-color: #67666a;
+  color: #e9e4df;
+  box-shadow: var(--cockpit-lift);
+}
+.list-group-item, .accordion-item, .accordion-button, .accordion-body {
+  color: #e8e3de;
+  background: #1f2229;
+}
+.accordion-button:not(.collapsed) {
+  color: #f2d7b5 !important;
+}
+.breadcrumb, .page-link {
+  background: #24272e;
+  color: #e4ded7;
+  border-color: #77767b;
+}
+.modal-content, .offcanvas, .dropdown-menu, .toast {
+  background: #1b1e24;
+  color: #eee7e0;
+  border: 1px solid #55545a;
+  box-shadow: 13px 20px 37px rgba(0,0,0,.83);
+}
+.modal-header, .modal-footer, .offcanvas-header, .toast-header {
+  background: #252830;
+  border-color: #5a5554;
+}
+.modal-title, .offcanvas-title { color: #ead2b1 !important; }
+.dropdown-item { color: #e9e5df; }
+.dropdown-item:hover, .dropdown-item:focus {
+  background: #3d3633;
+  color: #fff5ea;
+}
+.site-navbar .site-nav-header { background: #242830; }
+.site-navbar .site-nav-header .offcanvas-title { color: #ede5dc !important; }
+
+/* Keep legible keyboard focus, never rely on amber accent alone.
+   The gallery's two-tone focus ring remains (dark outline + white halo). */
+@media (max-width: 767.98px) {
+  #home > .container > .row { padding: 1.1rem; border-radius: 18px; }
+  .card { border-radius: 16px; }
+  .card-header { border-radius: 16px 16px 0 0 !important; }
+  .nav-tabs .nav-link { border-radius: 9px 9px 0 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn, .card { animation: none !important; transition: none !important; }
+}
+
+
+/* ======================================================================
+   GRAPHITE COCKPIT 2.2 — RECESSED CONSOLE
+   A fixed-direction, three-layer cut:
+     1. bright narrow upper rim (machined chamfer),
+     2. short black contact lip (milled edge),
+     3. long asymmetric inset cavity (actual depth).
+   Raised outer chassis remains distinct from recessed controls.
+   Decorative dot impressions are not real Braille and encode no data.
+   ====================================================================== */
+:root {
+  --cockpit-cavity: #080a0e;
+  --cockpit-cavity-floor: #13161c;
+  --cockpit-lip: #414046;
+  --cockpit-cut-deep:
+    inset 0 2px 1px rgba(191, 185, 170, .18),
+    inset 0 5px 3px rgba(0, 0, 0, .78),
+    inset 6px 9px 15px rgba(0, 0, 0, .9),
+    inset -3px -4px 8px rgba(139, 146, 155, .115);
+  --cockpit-cut-shallow:
+    inset 0 1px rgba(217, 204, 181, .16),
+    inset 3px 4px 9px rgba(0, 0, 0, .8),
+    inset -2px -2px 5px rgba(150, 158, 169, .1);
+  --cockpit-recess-border: #686167;
+  --cockpit-recess-ink: #f3eae4;
+}
+/* 01 / A machined inner basin on the hero preview: outer silhouette stays
+   elevated, but the displayed feature panel is cut into the dashboard. */
+#home .col-lg-6 > .card .card-body {
+  margin: .65rem;
+  padding: clamp(1rem, 2vw, 1.5rem);
+  border: 1px solid var(--cockpit-recess-border);
+  border-radius: 12px;
+  background: linear-gradient(155deg, #0d1015, #191a21 75%);
+  box-shadow: var(--cockpit-cut-deep);
+}
+#home .col-lg-6 > .card .card-body h3,
+#home .col-lg-6 > .card .card-body h4,
+#home .col-lg-6 > .card .card-body p {
+  color: var(--cockpit-recess-ink);
+}
+/* 02 / All card headers have a shallow carved register. The raised
+   outer card remains a distinct object; not every piece is sunken. */
+.card-header {
+  margin: .6rem .6rem 0;
+  padding: .85rem 1.05rem;
+  border: 1px solid #5d595d;
+  border-radius: 11px !important;
+  background: linear-gradient(168deg, #101218, #1c1e24);
+  box-shadow: var(--cockpit-cut-shallow);
+  color: #f5e8dc;
+}
+.card-header::before {
+  content: "";
+  display: inline-block;
+  vertical-align: .12em;
+  width: 17px;
+  height: 12px;
+  margin-right: .65rem;
+  background:
+    radial-gradient(circle at 3px 3px, #d2b28c 0 1.3px, #171719 1.7px 2.9px, transparent 3.2px),
+    radial-gradient(circle at 12px 3px, #d2b28c 0 1.3px, #171719 1.7px 2.9px, transparent 3.2px),
+    radial-gradient(circle at 3px 10px, #d2b28c 0 1.3px, #171719 1.7px 2.9px, transparent 3.2px),
+    radial-gradient(circle at 12px 10px, #d2b28c 0 1.3px, #171719 1.7px 2.9px, transparent 3.2px);
+  filter: drop-shadow(0 -1px rgba(255, 243, 226, .16));
+  pointer-events: none;
+}
+/* 03 / The forms are mounted in an inset instrument bay; individual
+   inputs are then cut deeper into it. Dual-depth geometry is intentional. */
+#forms .card-body {
+  margin: .65rem;
+  padding: clamp(.95rem, 2.5vw, 1.4rem);
+  border: 1px solid #59555a;
+  border-radius: 13px;
+  background: linear-gradient(153deg, #15171c, #101217);
+  box-shadow: var(--cockpit-cut-shallow);
+}
+.form-control, .form-select, select.form-control, textarea.form-control {
+  border: 1px solid #747078;
+  border-top-color: #a0968e;
+  border-bottom-color: #45464f;
+  border-radius: 12px;
+  color: #f1ece5;
+  background: linear-gradient(155deg, #090b10 0%, #15171e 100%);
+  box-shadow: var(--cockpit-cut-deep);
+  min-height: 3rem;
+}
+.form-control:focus, .form-select:focus,
+select.form-control:focus, textarea.form-control:focus {
+  border-color: #cbb08b;
+  background: #0e1117;
+  color: #fff9f1;
+  box-shadow: var(--cockpit-cut-deep),
+    0 0 0 2px rgba(201, 172, 136, .25);
+}
+/* A chrome collar surrounding grouped fields without obscuring the
+   input’s native focus semantics or changing its layout. */
+.input-group-text {
+  border: 1px solid #6b6770;
+  color: #ead7be;
+  background: linear-gradient(160deg, #24252b, #16181d);
+  box-shadow: var(--cockpit-cut-shallow);
+}
+.input-group .form-control, .input-group .btn { min-width: 0; }
+.form-check-input {
+  border: 1px solid #aa9b8b;
+  background-color: #0a0c11;
+  box-shadow: inset 2px 3px 7px rgba(0, 0, 0, .86),
+    inset -1px -1px 2px rgba(183, 189, 191, .14);
+}
+.form-check-input:checked {
+  border-color: #e7c8a4;
+  background-color: #c0a27c;
+  box-shadow: inset 1px 2px 4px rgba(34, 25, 19, .5);
+}
+/* 04 / A pressed secondary key and a raised primary key communicate
+   different physical affordances; both retain hover and focus feedback. */
+.btn-secondary, .btn-outline-secondary {
+  color: #f5e7dd;
+  border: 1px solid #827e83;
+  background: linear-gradient(155deg, #181a21, #24272d);
+  box-shadow: var(--cockpit-cut-shallow);
+  transform: none;
+}
+.btn-secondary:hover, .btn-outline-secondary:hover {
+  color: #fff8ed;
+  border-color: #b9a58d;
+  background: linear-gradient(155deg, #303035, #1d1f25);
+  box-shadow: 3px 5px 9px rgba(0, 0, 0, .67),
+    inset 0 1px rgba(252, 235, 213, .13);
+  transform: none;
+}
+.btn-secondary:active, .btn-outline-secondary:active {
+  background: #0c0e13;
+  box-shadow: var(--cockpit-cut-deep);
+  transform: translateY(1px);
+}
+/* 05 / The tab strip itself is a deep trough; an active key sinks into
+   it. Inactive keys are intentionally lifted, keeping states obvious. */
+.nav-tabs {
+  background: linear-gradient(145deg, #080a0f, #14161c);
+  border: 1px solid #58545a;
+  border-bottom: 0;
+  box-shadow: var(--cockpit-cut-deep);
+}
+.nav-tabs .nav-link:not(.active) {
+  background: linear-gradient(150deg, #36383f, #202329);
+  border: 1px solid rgba(205, 200, 198, .24);
+  box-shadow: 2px 3px 7px rgba(0, 0, 0, .68),
+    inset 0 1px rgba(241, 234, 223, .15);
+  color: #ede4e0 !important; /* Override the original global .nav-link color. */
+}
+.nav-tabs .nav-link.active {
+  border: 1px solid #a78f75;
+  border-bottom-color: #5f524b;
+  color: #f4dbba !important;
+  background: linear-gradient(160deg, #090b10, #17171e);
+  box-shadow: var(--cockpit-cut-deep);
+  transform: translateY(1px);
+}
+.tab-content {
+  border-color: #58555b;
+  background: linear-gradient(155deg, #171920, #101217);
+  box-shadow: var(--cockpit-cut-shallow);
+}
+.nav-pills {
+  padding: .35rem;
+  border: 1px solid #53545b;
+  border-radius: 16px;
+  background: linear-gradient(150deg, #0b0d12, #171920);
+  box-shadow: var(--cockpit-cut-shallow);
+}
+.nav-pills .nav-link:not(.active) {
+  border-color: #807c80;
+  background: linear-gradient(155deg, #34353b, #202227);
+  box-shadow: 2px 3px 6px rgba(0, 0, 0, .55);
+}
+.nav-pills .nav-link.active {
+  border-color: #aa9074;
+  color: #f4e1c8 !important;
+  background: #111319;
+  box-shadow: var(--cockpit-cut-deep);
+}
+/* 06 / Content wells: table container and progress slot are recessed
+   housings. Individual table text stays flat and high contrast. */
+#tables .table-responsive {
+  padding: .6rem;
+  border: 1px solid #5f5b60;
+  border-radius: 16px;
+  background: #0c0e14;
+  box-shadow: var(--cockpit-cut-deep);
+}
+#tables .table {
+  margin-bottom: 0;
+  border: 1px solid #55545a;
+  border-radius: 10px;
+  background: #171a20;
+}
+.progress {
+  border: 1px solid #716b6d;
+  border-top-color: #a49b91;
+  background: #090b10;
+  box-shadow: var(--cockpit-cut-deep);
+}
+.progress-bar {
+  box-shadow: inset 0 1px rgba(253, 243, 230, .43),
+    0 1px 4px rgba(201, 172, 136, .19);
+}
+.accordion-button:not(.collapsed) {
+  background: linear-gradient(145deg, #101217, #191c21);
+  border-bottom: 1px solid #74655b;
+  box-shadow: var(--cockpit-cut-deep);
+}
+.accordion-body {
+  border-top: 1px solid #555259;
+  background: #111319;
+  box-shadow: var(--cockpit-cut-shallow);
+}
+.list-group {
+  padding: .4rem;
+  border: 1px solid #53545b;
+  border-radius: 15px;
+  background: #0d0f14;
+  box-shadow: var(--cockpit-cut-shallow);
+}
+.list-group-item {
+  border-color: #50515a;
+  background: #20232a;
+}
+/* Decorative badges resemble shallow engraved identification plates.
+   Keep semantic background variants and their existing ink contrast. */
+.card-body .badge {
+  border-color: #a48e78;
+  box-shadow: inset 1px 2px 4px rgba(0, 0, 0, .44),
+    inset -1px -1px rgba(255, 252, 245, .19);
+}
+/* Keyboard focus is never conveyed by inset shadows alone: retain the
+   existing shared two-tone focus ring, and do not clip focused controls. */
+@media (max-width: 767.98px) {
+  #home .col-lg-6 > .card .card-body,
+  #forms .card-body { margin: .45rem; padding: .85rem; }
+  .card-header { margin: .45rem .45rem 0; padding: .75rem .85rem; }
+  #tables .table-responsive { padding: .3rem; }
+  .nav-tabs { padding: .35rem .35rem 0; }
+  .nav-pills { padding: .2rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn, .nav-tabs .nav-link { transition: none !important; }
+  .nav-tabs .nav-link.active { transform: none; }
 }
 
 /* BEGIN RESPONSIVE CORE v1 — managed by scripts/sync_responsive.py */
