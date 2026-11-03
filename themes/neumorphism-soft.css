@@ -1662,6 +1662,257 @@ input[type="file"].form-control:hover::file-selector-button {
   .btn, .card { animation: none !important; transition: none !important; }
 }
 
+
+/* ======================================================================
+   GRAPHITE COCKPIT 2.2 — RECESSED CONSOLE
+   A fixed-direction, three-layer cut:
+     1. bright narrow upper rim (machined chamfer),
+     2. short black contact lip (milled edge),
+     3. long asymmetric inset cavity (actual depth).
+   Raised outer chassis remains distinct from recessed controls.
+   Decorative dot impressions are not real Braille and encode no data.
+   ====================================================================== */
+:root {
+  --cockpit-cavity: #080a0e;
+  --cockpit-cavity-floor: #13161c;
+  --cockpit-lip: #414046;
+  --cockpit-cut-deep:
+    inset 0 2px 1px rgba(191, 185, 170, .18),
+    inset 0 5px 3px rgba(0, 0, 0, .78),
+    inset 6px 9px 15px rgba(0, 0, 0, .9),
+    inset -3px -4px 8px rgba(139, 146, 155, .115);
+  --cockpit-cut-shallow:
+    inset 0 1px rgba(217, 204, 181, .16),
+    inset 3px 4px 9px rgba(0, 0, 0, .8),
+    inset -2px -2px 5px rgba(150, 158, 169, .1);
+  --cockpit-recess-border: #686167;
+  --cockpit-recess-ink: #f3eae4;
+}
+/* 01 / A machined inner basin on the hero preview: outer silhouette stays
+   elevated, but the displayed feature panel is cut into the dashboard. */
+#home .col-lg-6 > .card .card-body {
+  margin: .65rem;
+  padding: clamp(1rem, 2vw, 1.5rem);
+  border: 1px solid var(--cockpit-recess-border);
+  border-radius: 12px;
+  background: linear-gradient(155deg, #0d1015, #191a21 75%);
+  box-shadow: var(--cockpit-cut-deep);
+}
+#home .col-lg-6 > .card .card-body h3,
+#home .col-lg-6 > .card .card-body h4,
+#home .col-lg-6 > .card .card-body p {
+  color: var(--cockpit-recess-ink);
+}
+/* 02 / All card headers have a shallow carved register. The raised
+   outer card remains a distinct object; not every piece is sunken. */
+.card-header {
+  margin: .6rem .6rem 0;
+  padding: .85rem 1.05rem;
+  border: 1px solid #5d595d;
+  border-radius: 11px !important;
+  background: linear-gradient(168deg, #101218, #1c1e24);
+  box-shadow: var(--cockpit-cut-shallow);
+  color: #f5e8dc;
+}
+.card-header::before {
+  content: "";
+  display: inline-block;
+  vertical-align: .12em;
+  width: 17px;
+  height: 12px;
+  margin-right: .65rem;
+  background:
+    radial-gradient(circle at 3px 3px, #d2b28c 0 1.3px, #171719 1.7px 2.9px, transparent 3.2px),
+    radial-gradient(circle at 12px 3px, #d2b28c 0 1.3px, #171719 1.7px 2.9px, transparent 3.2px),
+    radial-gradient(circle at 3px 10px, #d2b28c 0 1.3px, #171719 1.7px 2.9px, transparent 3.2px),
+    radial-gradient(circle at 12px 10px, #d2b28c 0 1.3px, #171719 1.7px 2.9px, transparent 3.2px);
+  filter: drop-shadow(0 -1px rgba(255, 243, 226, .16));
+  pointer-events: none;
+}
+/* 03 / The forms are mounted in an inset instrument bay; individual
+   inputs are then cut deeper into it. Dual-depth geometry is intentional. */
+#forms .card-body {
+  margin: .65rem;
+  padding: clamp(.95rem, 2.5vw, 1.4rem);
+  border: 1px solid #59555a;
+  border-radius: 13px;
+  background: linear-gradient(153deg, #15171c, #101217);
+  box-shadow: var(--cockpit-cut-shallow);
+}
+.form-control, .form-select, select.form-control, textarea.form-control {
+  border: 1px solid #747078;
+  border-top-color: #a0968e;
+  border-bottom-color: #45464f;
+  border-radius: 12px;
+  color: #f1ece5;
+  background: linear-gradient(155deg, #090b10 0%, #15171e 100%);
+  box-shadow: var(--cockpit-cut-deep);
+  min-height: 3rem;
+}
+.form-control:focus, .form-select:focus,
+select.form-control:focus, textarea.form-control:focus {
+  border-color: #cbb08b;
+  background: #0e1117;
+  color: #fff9f1;
+  box-shadow: var(--cockpit-cut-deep),
+    0 0 0 2px rgba(201, 172, 136, .25);
+}
+/* A chrome collar surrounding grouped fields without obscuring the
+   input’s native focus semantics or changing its layout. */
+.input-group-text {
+  border: 1px solid #6b6770;
+  color: #ead7be;
+  background: linear-gradient(160deg, #24252b, #16181d);
+  box-shadow: var(--cockpit-cut-shallow);
+}
+.input-group .form-control, .input-group .btn { min-width: 0; }
+.form-check-input {
+  border: 1px solid #aa9b8b;
+  background-color: #0a0c11;
+  box-shadow: inset 2px 3px 7px rgba(0, 0, 0, .86),
+    inset -1px -1px 2px rgba(183, 189, 191, .14);
+}
+.form-check-input:checked {
+  border-color: #e7c8a4;
+  background-color: #c0a27c;
+  box-shadow: inset 1px 2px 4px rgba(34, 25, 19, .5);
+}
+/* 04 / A pressed secondary key and a raised primary key communicate
+   different physical affordances; both retain hover and focus feedback. */
+.btn-secondary, .btn-outline-secondary {
+  color: #f5e7dd;
+  border: 1px solid #827e83;
+  background: linear-gradient(155deg, #181a21, #24272d);
+  box-shadow: var(--cockpit-cut-shallow);
+  transform: none;
+}
+.btn-secondary:hover, .btn-outline-secondary:hover {
+  color: #fff8ed;
+  border-color: #b9a58d;
+  background: linear-gradient(155deg, #303035, #1d1f25);
+  box-shadow: 3px 5px 9px rgba(0, 0, 0, .67),
+    inset 0 1px rgba(252, 235, 213, .13);
+  transform: none;
+}
+.btn-secondary:active, .btn-outline-secondary:active {
+  background: #0c0e13;
+  box-shadow: var(--cockpit-cut-deep);
+  transform: translateY(1px);
+}
+/* 05 / The tab strip itself is a deep trough; an active key sinks into
+   it. Inactive keys are intentionally lifted, keeping states obvious. */
+.nav-tabs {
+  background: linear-gradient(145deg, #080a0f, #14161c);
+  border: 1px solid #58545a;
+  border-bottom: 0;
+  box-shadow: var(--cockpit-cut-deep);
+}
+.nav-tabs .nav-link:not(.active) {
+  background: linear-gradient(150deg, #36383f, #202329);
+  border: 1px solid rgba(205, 200, 198, .24);
+  box-shadow: 2px 3px 7px rgba(0, 0, 0, .68),
+    inset 0 1px rgba(241, 234, 223, .15);
+  color: #ede4e0;
+}
+.nav-tabs .nav-link.active {
+  border: 1px solid #a78f75;
+  border-bottom-color: #5f524b;
+  color: #f4dbba !important;
+  background: linear-gradient(160deg, #090b10, #17171e);
+  box-shadow: var(--cockpit-cut-deep);
+  transform: translateY(1px);
+}
+.tab-content {
+  border-color: #58555b;
+  background: linear-gradient(155deg, #171920, #101217);
+  box-shadow: var(--cockpit-cut-shallow);
+}
+.nav-pills {
+  padding: .35rem;
+  border: 1px solid #53545b;
+  border-radius: 16px;
+  background: linear-gradient(150deg, #0b0d12, #171920);
+  box-shadow: var(--cockpit-cut-shallow);
+}
+.nav-pills .nav-link:not(.active) {
+  border-color: #807c80;
+  background: linear-gradient(155deg, #34353b, #202227);
+  box-shadow: 2px 3px 6px rgba(0, 0, 0, .55);
+}
+.nav-pills .nav-link.active {
+  border-color: #aa9074;
+  color: #f4e1c8 !important;
+  background: #111319;
+  box-shadow: var(--cockpit-cut-deep);
+}
+/* 06 / Content wells: table container and progress slot are recessed
+   housings. Individual table text stays flat and high contrast. */
+#tables .table-responsive {
+  padding: .6rem;
+  border: 1px solid #5f5b60;
+  border-radius: 16px;
+  background: #0c0e14;
+  box-shadow: var(--cockpit-cut-deep);
+}
+#tables .table {
+  margin-bottom: 0;
+  border: 1px solid #55545a;
+  border-radius: 10px;
+  background: #171a20;
+}
+.progress {
+  border: 1px solid #716b6d;
+  border-top-color: #a49b91;
+  background: #090b10;
+  box-shadow: var(--cockpit-cut-deep);
+}
+.progress-bar {
+  box-shadow: inset 0 1px rgba(253, 243, 230, .43),
+    0 1px 4px rgba(201, 172, 136, .19);
+}
+.accordion-button:not(.collapsed) {
+  background: linear-gradient(145deg, #101217, #191c21);
+  border-bottom: 1px solid #74655b;
+  box-shadow: var(--cockpit-cut-deep);
+}
+.accordion-body {
+  border-top: 1px solid #555259;
+  background: #111319;
+  box-shadow: var(--cockpit-cut-shallow);
+}
+.list-group {
+  padding: .4rem;
+  border: 1px solid #53545b;
+  border-radius: 15px;
+  background: #0d0f14;
+  box-shadow: var(--cockpit-cut-shallow);
+}
+.list-group-item {
+  border-color: #50515a;
+  background: #20232a;
+}
+/* Decorative badges resemble shallow engraved identification plates.
+   Keep semantic background variants and their existing ink contrast. */
+.card-body .badge {
+  border-color: #a48e78;
+  box-shadow: inset 1px 2px 4px rgba(0, 0, 0, .44),
+    inset -1px -1px rgba(255, 252, 245, .19);
+}
+/* Keyboard focus is never conveyed by inset shadows alone: retain the
+   existing shared two-tone focus ring, and do not clip focused controls. */
+@media (max-width: 767.98px) {
+  #home .col-lg-6 > .card .card-body,
+  #forms .card-body { margin: .45rem; padding: .85rem; }
+  .card-header { margin: .45rem .45rem 0; padding: .75rem .85rem; }
+  #tables .table-responsive { padding: .3rem; }
+  .nav-tabs { padding: .35rem .35rem 0; }
+  .nav-pills { padding: .2rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn, .nav-tabs .nav-link { transition: none !important; }
+  .nav-tabs .nav-link.active { transform: none; }
+}
+
 /* BEGIN RESPONSIVE CORE v1 — managed by scripts/sync_responsive.py */
 /*
  * A shared mobile-first compatibility layer compiled into each standalone CSS.
